@@ -644,3 +644,14 @@ title: "Problemi di ottimizzazione"
     - <strong>Massimi locali che non sono globali.</strong> In $N\big((-4),1\big) \cap [-4,4] = [-4,-3)$ abbiamo $-2 \le x+2 < -1$ e quindi $f(x) = (x+2)^2 \le 4 = f(-4)$: il punto $x=-4$ è un punto di massimo locale. In $N\big((\frac{1}{8}),1\big) = (-\frac{7}{8},\frac{9}{8})$ abbiamo $0 < x+2 \le \frac{17}{8}$ quando $x \le \frac{1}{8}$, per cui $f(x) = (x+2)^2 \le \frac{289}{64}$, e $-\frac{15}{8} \le x-2 < 0$ quando $x \ge \frac{1}{8}$, per cui $f(x) = (x-2)^2+1 \le \frac{225}{64}+1 = \frac{289}{64}$; in entrambi i casi $f(x) \le f(\frac{1}{8})$: il punto $x=\frac{1}{8}$ è un punto di massimo locale. Nessuno dei due è un punto di massimo (globale), poiché $f(-4) = 4 < 5$ e $f(\frac{1}{8}) = \frac{289}{64} < 5$.
 
     Consideriamo il problema di ottimizzazione $\min \{\, f(x) \text{ soggetto a } -4 \le x \le 4 \,\}$: un metodo che guarda solo i punti vicini a $x=2$ trova il minimo locale $1$, ma il valore ottimo è $z(P) = 0$, raggiunto in $\tilde{\boldsymbol x}(P) = (-2)$.
+
+<!-- laboratorio-interattivo: sezione generata da interattivi.py -->
+
+## Laboratorio interattivo { #laboratorio-interattivo }
+
+Le idee del capitolo, da toccare con mano: muovi i cursori e trascina i punti.
+Tutti i grafici del corso sono nel [laboratorio interattivo](../interattivi/index.md#cap-5).
+
+<div class="gi" data-grafico="ottimo-intervallo"></div>
+
+<div class="gi" data-grafico="ottimi-locali"></div>

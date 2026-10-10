@@ -23,6 +23,7 @@ con le loro dimostrazioni, esempi svolti passo per passo ed esercizi con le solu
 
 [Comincia dai preliminari :material-arrow-right:](preliminari/index.md){ .md-button .md-button--primary }
 [Gli esercizi](esercizi/index.md){ .md-button }
+[Prova un grafico interattivo](interattivi/index.md){ .md-button }
 [:material-download: Scarica le dispense (PDF)](materiale.md){ .md-button }
 
 </div>
@@ -81,6 +82,15 @@ dispensa: sul sito e nel PDF trovi tutto allo stesso posto.
 ## Da non perdere
 
 <div class="grid cards" markdown>
+
+-   :material-gesture-tap: **Laboratorio interattivo**
+
+    ---
+
+    Muovi i parametri con i cursori, trascina i punti e guarda insiemi, funzioni e ottimi
+    cambiare; poi mettiti alla prova con le sfide.
+
+    [:octicons-arrow-right-24: I grafici](interattivi/index.md)
 
 -   :material-pencil-box-multiple: **Esercizi con le soluzioni**
 

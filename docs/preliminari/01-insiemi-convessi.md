@@ -422,3 +422,16 @@ title: "Insiemi convessi"
 ![Figura 15](../img/01-insiemi-convessi/fig15.svg){ .fig .ovale loading=lazy style="width:37%" }
 
 </div>
+
+<!-- laboratorio-interattivo: sezione generata da interattivi.py -->
+
+## Laboratorio interattivo { #laboratorio-interattivo }
+
+Le idee del capitolo, da toccare con mano: muovi i cursori e trascina i punti.
+Tutti i grafici del corso sono nel [laboratorio interattivo](../interattivi/index.md#cap-1).
+
+<div class="gi" data-grafico="combinazione"></div>
+
+<div class="gi" data-grafico="test-convessita"></div>
+
+<div class="gi" data-grafico="palle-norma"></div>

@@ -293,3 +293,12 @@ title: "Funzioni di più variabili"
 !!! chiave ""
 
     Il gradiente $\nabla f(\boldsymbol x)$ è il vettore colonna delle derivate parziali prime: punta nella direzione di massima crescita ed è perpendicolare all'insieme di livello passante per $\boldsymbol x$. La matrice Hessiana $\nabla^2 f(\boldsymbol x)$ è la matrice (simmetrica) delle derivate parziali seconde e descrive la curvatura locale di $f$.
+
+<!-- laboratorio-interattivo: sezione generata da interattivi.py -->
+
+## Laboratorio interattivo { #laboratorio-interattivo }
+
+Le idee del capitolo, da toccare con mano: muovi i cursori e trascina i punti.
+Tutti i grafici del corso sono nel [laboratorio interattivo](../interattivi/index.md#cap-2).
+
+<div class="gi" data-grafico="livello-gradiente"></div>

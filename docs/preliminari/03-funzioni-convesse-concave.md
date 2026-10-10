@@ -783,3 +783,12 @@ title: "Funzioni convesse e concave"
 !!! chiave ""
 
     I punti che soddisfano un numero finito di vincoli $f_i({\boldsymbol x}) \le 0$ con funzioni convesse $f_i$ formano un insieme convesso. Ad esempio, ogni semispazio $\{{\boldsymbol x} \in \R^n : {\boldsymbol a}'{\boldsymbol x} \le b\}$, con ${\boldsymbol a} \in \R^n$ e $b \in \R$, è un insieme convesso di questo tipo, poiché la funzione lineare ${\boldsymbol a}'{\boldsymbol x} - b$ è convessa; lo è anche ogni intersezione di un numero finito di semispazi, come i poliedri della programmazione lineare.
+
+<!-- laboratorio-interattivo: sezione generata da interattivi.py -->
+
+## Laboratorio interattivo { #laboratorio-interattivo }
+
+Le idee del capitolo, da toccare con mano: muovi i cursori e trascina i punti.
+Tutti i grafici del corso sono nel [laboratorio interattivo](../interattivi/index.md#cap-3).
+
+<div class="gi" data-grafico="corda"></div>

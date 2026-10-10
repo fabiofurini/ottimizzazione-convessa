@@ -85,6 +85,8 @@ extra:
 
 extra_css:
   - stylesheets/extra.css?v=d60085bd58
+  - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css
+  - stylesheets/interattivi.css?v=e225dd77f7
 
 markdown_extensions:
   - admonition
@@ -106,7 +108,13 @@ markdown_extensions:
 extra_javascript:
   - javascripts/cloudflare-analytics.js?v=bff73345a1
   - javascripts/mathjax.js?v=bf833266bf
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+  # grafici interattivi: JSXGraph, il motore, poi le ricette (gi-*.js, le aggiunge genera_sito.py)
+  - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js
+  - javascripts/interattivi.js?v=49467b45b5
+  - javascripts/gi-cap1.js?v=27c38e033c
+  - javascripts/gi-cap2-4.js?v=64088905fd
+  - javascripts/gi-cap5-6.js?v=3713a1d99f
 
 nav:
   - Home: index.md
@@ -128,5 +136,7 @@ nav:
       - "4. Funzioni quadratiche": esercizi/es-04-funzioni-quadratiche.md
       - "5. Problemi di ottimizzazione": esercizi/es-05-problemi-ottimizzazione.md
       - "6. Problemi di ottimizzazione convessi e concavi": esercizi/es-06-problemi-convessi-concavi.md
+  - Laboratorio interattivo:
+      - interattivi/index.md
   - Materiale: materiale.md
   - Indice completo: indice.md

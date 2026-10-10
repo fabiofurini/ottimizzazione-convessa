@@ -578,3 +578,12 @@ title: "Funzioni quadratiche"
 !!! chiave ""
 
     Una funzione quadratica ${\boldsymbol x}' {\boldsymbol Q} \; {\boldsymbol x}$ è convessa nel suo dominio se e solo se la matrice ${\boldsymbol Q}$ è semidefinita positiva. L'aggiunta di una funzione lineare e di una costante non ne modifica la convessità.
+
+<!-- laboratorio-interattivo: sezione generata da interattivi.py -->
+
+## Laboratorio interattivo { #laboratorio-interattivo }
+
+Le idee del capitolo, da toccare con mano: muovi i cursori e trascina i punti.
+Tutti i grafici del corso sono nel [laboratorio interattivo](../interattivi/index.md#cap-4).
+
+<div class="gi" data-grafico="matrice-q"></div>

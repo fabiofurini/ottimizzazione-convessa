@@ -400,3 +400,12 @@ title: "Problemi di ottimizzazione convessi e concavi"
         \qquad \text{e} \qquad
         z(P) = f(1) = 6.
         $$
+
+<!-- laboratorio-interattivo: sezione generata da interattivi.py -->
+
+## Laboratorio interattivo { #laboratorio-interattivo }
+
+Le idee del capitolo, da toccare con mano: muovi i cursori e trascina i punti.
+Tutti i grafici del corso sono nel [laboratorio interattivo](../interattivi/index.md#cap-6).
+
+<div class="gi" data-grafico="discesa-locale"></div>
