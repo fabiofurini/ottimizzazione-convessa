@@ -112,8 +112,8 @@ nav:
   - Home: index.md
   - Preliminari:
       - preliminari/index.md
-      - "1. Funzioni di più variabili": preliminari/01-funzioni-piu-variabili.md
-      - "2. Insiemi convessi": preliminari/02-insiemi-convessi.md
+      - "1. Insiemi convessi": preliminari/01-insiemi-convessi.md
+      - "2. Funzioni di più variabili": preliminari/02-funzioni-piu-variabili.md
       - "3. Funzioni convesse e concave": preliminari/03-funzioni-convesse-concave.md
       - "4. Funzioni quadratiche": preliminari/04-funzioni-quadratiche.md
   - Problemi di ottimizzazione:
@@ -122,8 +122,8 @@ nav:
       - "6. Problemi di ottimizzazione convessi e concavi": problemi/06-problemi-convessi-concavi.md
   - Esercizi:
       - esercizi/index.md
-      - "1. Funzioni di più variabili": esercizi/es-01-funzioni-piu-variabili.md
-      - "2. Insiemi convessi": esercizi/es-02-insiemi-convessi.md
+      - "1. Insiemi convessi": esercizi/es-01-insiemi-convessi.md
+      - "2. Funzioni di più variabili": esercizi/es-02-funzioni-piu-variabili.md
       - "3. Funzioni convesse e concave": esercizi/es-03-funzioni-convesse-concave.md
       - "4. Funzioni quadratiche": esercizi/es-04-funzioni-quadratiche.md
       - "5. Problemi di ottimizzazione": esercizi/es-05-problemi-ottimizzazione.md

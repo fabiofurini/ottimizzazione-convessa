@@ -18,7 +18,7 @@ gli stessi numeri e gli stessi colori dei PDF.
 
 | Parte | Argomenti |
 |---|---|
-| 1 · Preliminari | funzioni di più variabili (gradiente, Hessiano, insiemi di livello), insiemi convessi, norme, funzioni convesse e concave, funzioni quadratiche |
+| 1 · Preliminari | insiemi convessi, funzioni di più variabili (gradiente, Hessiano, insiemi di livello), norme, funzioni convesse e concave, funzioni quadratiche |
 | 2 · Problemi di ottimizzazione | problemi di ottimizzazione, ottimi locali e globali, problemi convessi e concavi |
 | Esercizi | esercizi per ogni capitolo, con le soluzioni svolte |
 

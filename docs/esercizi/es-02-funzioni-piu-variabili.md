@@ -6,13 +6,13 @@ title: "Esercizi · Funzioni di più variabili"
 
 <div class="info-capitolo" markdown>
 
-**Esercizi · Capitolo 1** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 1](../preliminari/01-funzioni-piu-variabili.md) · [:material-file-pdf-box: Eserciziario, volume 1 (PDF)](../pdf/esercizi-1-preliminari.pdf)
+**Esercizi · Capitolo 2** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 2](../preliminari/02-funzioni-piu-variabili.md) · [:material-file-pdf-box: Eserciziario, volume 1 (PDF)](../pdf/esercizi-1-preliminari.pdf)
 
 </div>
 
-<a id="esercizio-1-1"></a>
+<a id="esercizio-2-1"></a>
 
-!!! esercizio "Esercizio 1.1: Funzioni di più variabili (E1)"
+!!! esercizio "Esercizio 2.1: Funzioni di più variabili (E1)"
 
     Consideriamo la seguente funzione a valori reali:
 
@@ -67,9 +67,9 @@ title: "Esercizi · Funzioni di più variabili"
         \nabla^2 f\left(\begin{pmatrix} -1 \\ 2 \end{pmatrix}\right) = \begin{pmatrix} -6 & 8 \\ 8 & -4 \end{pmatrix}
         $$
 
-<a id="esercizio-1-2"></a>
+<a id="esercizio-2-2"></a>
 
-!!! esercizio "Esercizio 1.2: Funzioni di più variabili (E2)"
+!!! esercizio "Esercizio 2.2: Funzioni di più variabili (E2)"
 
     Consideriamo la seguente funzione a valori reali:
 
@@ -135,9 +135,9 @@ title: "Esercizi · Funzioni di più variabili"
 
         (per esempio $\begin{pmatrix} 0 \\ 0 \end{pmatrix}$, $\begin{pmatrix} 1 \\ 1 \end{pmatrix}$ e $\begin{pmatrix} -1 \\ 1 \end{pmatrix}$), che è un insieme infinito di punti. In tutti questi punti il valore della funzione è $f({\boldsymbol x}) = (x_1^2 - x_2)^2 = 0$: questa parabola è l'insieme di livello $L(0)$ della funzione.
 
-<a id="esercizio-1-3"></a>
+<a id="esercizio-2-3"></a>
 
-!!! esercizio "Esercizio 1.3: Funzioni di più variabili (E3)"
+!!! esercizio "Esercizio 2.3: Funzioni di più variabili (E3)"
 
     Consideriamo la seguente funzione a valori reali di tre variabili:
 
@@ -200,9 +200,9 @@ title: "Esercizi · Funzioni di più variabili"
         \nabla^2 f\left(\begin{pmatrix} 0 \\ 1 \\ -1 \end{pmatrix}\right) = \begin{pmatrix} -2 & -2 & 0 \\ -2 & 0 & -2 \\ 0 & -2 & 2 \end{pmatrix}
         $$
 
-<a id="esercizio-1-4"></a>
+<a id="esercizio-2-4"></a>
 
-!!! esercizio "Esercizio 1.4: Funzioni di più variabili (E4)"
+!!! esercizio "Esercizio 2.4: Funzioni di più variabili (E4)"
 
     Consideriamo la seguente funzione a valori reali:
 
@@ -255,7 +255,7 @@ title: "Esercizi · Funzioni di più variabili"
 
         <strong>Soluzione grafica:</strong> la figura mostra gli insiemi di livello $L(0)$ (in blu) e $L(2)$ (in arancione) e i due gradienti (in rosso), tracciati a partire dai loro punti:
 
-        ![Figura 1](../img/es-01-funzioni-piu-variabili/fig01.svg){ .fig .ovale loading=lazy style="width:50%" }
+        ![Figura 1](../img/es-02-funzioni-piu-variabili/fig01.svg){ .fig .ovale loading=lazy style="width:50%" }
 
         La direzione tangente a un insieme di livello $x_2 = x_1^2 + k$ in un punto di prima coordinata $x_1$ è $\begin{pmatrix} 1 \\ 2\,x_1 \end{pmatrix}$ (la derivata di $x_1^2 + k$ è $2\,x_1$):
 

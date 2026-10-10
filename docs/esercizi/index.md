@@ -8,8 +8,8 @@ Esercizi con le **soluzioni svolte**, capitolo per capitolo, come negli esercizi
 
     ---
 
-    - [1. Funzioni di più variabili](es-01-funzioni-piu-variabili.md) · 4 esercizi
-    - [2. Insiemi convessi](es-02-insiemi-convessi.md) · 5 esercizi
+    - [1. Insiemi convessi](es-01-insiemi-convessi.md) · 5 esercizi
+    - [2. Funzioni di più variabili](es-02-funzioni-piu-variabili.md) · 4 esercizi
     - [3. Funzioni convesse e concave](es-03-funzioni-convesse-concave.md) · 5 esercizi
     - [4. Funzioni quadratiche](es-04-funzioni-quadratiche.md) · 4 esercizi
 

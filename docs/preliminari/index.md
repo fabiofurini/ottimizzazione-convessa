@@ -1,26 +1,26 @@
 # Preliminari
 
-*Parte 1 del corso, volume 1 delle dispense.* Funzioni di più variabili (gradiente, Hessiano, insiemi di livello), combinazioni convesse e insiemi convessi, norme, funzioni convesse e concave, funzioni quadratiche e loro convessità.
+*Parte 1 del corso, volume 1 delle dispense.* Combinazioni convesse e insiemi convessi, funzioni di più variabili (gradiente, Hessiano, insiemi di livello), norme, funzioni convesse e concave, funzioni quadratiche e loro convessità.
 
 [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf){ .md-button }
 
 <div class="grid cards" markdown>
 
--   **1. Funzioni di più variabili**
-
-    ---
-
-    Funzioni di più variabili · Gradiente, matrice Hessiana e insiemi di livello · Esempi di funzioni non quadratiche
-
-    [:octicons-arrow-right-24: Leggi il capitolo](01-funzioni-piu-variabili.md) · [Esercizi](../esercizi/es-01-funzioni-piu-variabili.md)
-
--   **2. Insiemi convessi**
+-   **1. Insiemi convessi**
 
     ---
 
     Combinazione convessa · Insiemi convessi · Esempi di insiemi convessi · Proprietà degli insiemi convessi
 
-    [:octicons-arrow-right-24: Leggi il capitolo](02-insiemi-convessi.md) · [Esercizi](../esercizi/es-02-insiemi-convessi.md)
+    [:octicons-arrow-right-24: Leggi il capitolo](01-insiemi-convessi.md) · [Esercizi](../esercizi/es-01-insiemi-convessi.md)
+
+-   **2. Funzioni di più variabili**
+
+    ---
+
+    Funzioni di più variabili · Gradiente, matrice Hessiana e insiemi di livello · Esempi di funzioni non quadratiche
+
+    [:octicons-arrow-right-24: Leggi il capitolo](02-funzioni-piu-variabili.md) · [Esercizi](../esercizi/es-02-funzioni-piu-variabili.md)
 
 -   **3. Funzioni convesse e concave**
 

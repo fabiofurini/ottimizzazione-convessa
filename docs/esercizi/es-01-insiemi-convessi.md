@@ -6,13 +6,13 @@ title: "Esercizi · Insiemi convessi"
 
 <div class="info-capitolo" markdown>
 
-**Esercizi · Capitolo 2** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 2](../preliminari/02-insiemi-convessi.md) · [:material-file-pdf-box: Eserciziario, volume 1 (PDF)](../pdf/esercizi-1-preliminari.pdf)
+**Esercizi · Capitolo 1** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 1](../preliminari/01-insiemi-convessi.md) · [:material-file-pdf-box: Eserciziario, volume 1 (PDF)](../pdf/esercizi-1-preliminari.pdf)
 
 </div>
 
-<a id="esercizio-2-1"></a>
+<a id="esercizio-1-1"></a>
 
-!!! esercizio "Esercizio 2.1: Insiemi convessi (E1)"
+!!! esercizio "Esercizio 1.1: Insiemi convessi (E1)"
 
     Consideriamo i seguenti due punti di $\R^2$:
 
@@ -68,7 +68,7 @@ title: "Esercizi · Insiemi convessi"
 
     2. L'insieme di tutte le combinazioni convesse di ${\boldsymbol p}$ e ${\boldsymbol w}$ è il segmento che congiunge i due punti (in rosso). Le tre combinazioni convesse della domanda precedente sono i punti blu: con $\lambda=\frac{1}{3}$ il punto è più vicino a ${\boldsymbol w}$, con $\lambda=\frac{2}{3}$ è più vicino a ${\boldsymbol p}$.
 
-        ![Figura 1](../img/es-02-insiemi-convessi/fig01.svg){ .fig .ovale loading=lazy style="width:50%" }
+        ![Figura 1](../img/es-01-insiemi-convessi/fig01.svg){ .fig .ovale loading=lazy style="width:50%" }
 
     3. Un punto ${\boldsymbol q} \in \R^2$ è combinazione convessa di ${\boldsymbol p}$ e ${\boldsymbol w}$ se e solo se esiste $\lambda \in [0,1]$ tale che
 
@@ -84,9 +84,9 @@ title: "Esercizi · Insiemi convessi"
 
         - Per ${\boldsymbol q}^{(3)}$, la prima equazione dà $\lambda = \frac{7-9}{6}=-\frac{1}{3}$ e la seconda equazione è soddisfatta: $1 + 3 \cdot \big(-\frac{1}{3}\big) = 0$. Il punto ${\boldsymbol q}^{(3)}$ si trova sulla retta passante per ${\boldsymbol p}$ e ${\boldsymbol w}$ (tratteggiata in figura), ma $-\frac{1}{3} \notin [0,1]$: non è combinazione convessa di ${\boldsymbol p}$ e ${\boldsymbol w}$.
 
-<a id="esercizio-2-2"></a>
+<a id="esercizio-1-2"></a>
 
-!!! esercizio "Esercizio 2.2: Insiemi convessi (E2)"
+!!! esercizio "Esercizio 1.2: Insiemi convessi (E2)"
 
     Consideriamo i seguenti tre punti di $\R^2$:
 
@@ -199,11 +199,11 @@ title: "Esercizi · Insiemi convessi"
 
     5. L'involucro convesso dei tre punti è il triangolo di vertici ${\boldsymbol p}^{(1)}$, ${\boldsymbol p}^{(2)}$ e ${\boldsymbol p}^{(3)}$ (in rosso). I punti delle prime due domande sono in blu, ${\boldsymbol q}^{(1)}$ (interno al triangolo) e ${\boldsymbol q}^{(2)}$ (esterno al triangolo) sono in viola.
 
-        ![Figura 2](../img/es-02-insiemi-convessi/fig02.svg){ .fig .ovale loading=lazy style="width:50%" }
+        ![Figura 2](../img/es-01-insiemi-convessi/fig02.svg){ .fig .ovale loading=lazy style="width:50%" }
 
-<a id="esercizio-2-3"></a>
+<a id="esercizio-1-3"></a>
 
-!!! esercizio "Esercizio 2.3: Insiemi convessi (E3)"
+!!! esercizio "Esercizio 1.3: Insiemi convessi (E3)"
 
     Consideriamo il seguente insieme:
 
@@ -281,7 +281,7 @@ title: "Esercizi · Insiemi convessi"
 
         L'insieme $F$ è il quadrilatero di vertici $\begin{pmatrix} 0 \\[0.3ex] 0 \end{pmatrix}$, $\begin{pmatrix} 3 \\[0.3ex] 0 \end{pmatrix}$, $\begin{pmatrix} 2 \\[0.3ex] 3 \end{pmatrix}$ e $\begin{pmatrix} 0 \\[0.3ex] 4 \end{pmatrix}$ (in rosso). La figura mostra anche il segmento che congiunge ${\boldsymbol p}$ e ${\boldsymbol w}$ (in blu) e la combinazione convessa della domanda successiva.
 
-        ![Figura 3](../img/es-02-insiemi-convessi/fig03.svg){ .fig .ovale loading=lazy style="width:50%" }
+        ![Figura 3](../img/es-01-insiemi-convessi/fig03.svg){ .fig .ovale loading=lazy style="width:50%" }
 
     3. La combinazione convessa di ${\boldsymbol p}$ e ${\boldsymbol w}$ con $\lambda = \frac{1}{3}$ è il punto:
 
@@ -302,9 +302,9 @@ title: "Esercizi · Insiemi convessi"
         \frac{4}{3} \ge 0.
         $$
 
-<a id="esercizio-2-4"></a>
+<a id="esercizio-1-4"></a>
 
-!!! esercizio "Esercizio 2.4: Insiemi convessi (E4)"
+!!! esercizio "Esercizio 1.4: Insiemi convessi (E4)"
 
     Consideriamo la seguente matrice simmetrica
 
@@ -424,11 +424,11 @@ title: "Esercizi · Insiemi convessi"
 
         L'insieme $F$ è la regione interna a un'ellisse (bordo compreso) i cui assi sono le rette $x_2 = x_1$ e $x_2 = -x_1$ (in rosso). La figura mostra i punti di riferimento (in nero), il punto $\big(\frac{1}{2},\frac{1}{2}\big)$ che appartiene a $F$ (in blu) e il punto $\big(\frac{1}{2},-\frac{1}{2}\big)$ che non appartiene a $F$ (in viola).
 
-        ![Figura 4](../img/es-02-insiemi-convessi/fig04.svg){ .fig .ovale loading=lazy style="width:50%" }
+        ![Figura 4](../img/es-01-insiemi-convessi/fig04.svg){ .fig .ovale loading=lazy style="width:50%" }
 
-<a id="esercizio-2-5"></a>
+<a id="esercizio-1-5"></a>
 
-!!! esercizio "Esercizio 2.5: Insiemi convessi (E5)"
+!!! esercizio "Esercizio 1.5: Insiemi convessi (E5)"
 
     Consideriamo i seguenti insiemi:
 
@@ -454,9 +454,9 @@ title: "Esercizi · Insiemi convessi"
 
     1. L'insieme $A$ è la corona circolare compresa fra la circonferenza di raggio $1$ e la circonferenza di raggio $2$ con centro nell'origine (in rosso, a sinistra). L'insieme $B$ è l'unione a forma di L dei rettangoli $B_1$ e $B_2$ (in rosso, a destra). Le figure mostrano anche i segmenti usati nelle domande successive (in blu), il cui punto medio (in viola) non appartiene all'insieme.
 
-        ![Figura 5](../img/es-02-insiemi-convessi/fig05.svg){ .fig .ovale loading=lazy style="width:50%" }
+        ![Figura 5](../img/es-01-insiemi-convessi/fig05.svg){ .fig .ovale loading=lazy style="width:50%" }
 
-        ![Figura 6](../img/es-02-insiemi-convessi/fig06.svg){ .fig .ovale loading=lazy style="width:50%" }
+        ![Figura 6](../img/es-01-insiemi-convessi/fig06.svg){ .fig .ovale loading=lazy style="width:50%" }
 
     2. Per mostrare che un insieme non è convesso, basta trovare due punti dell'insieme e uno scalare $\lambda \in [0,1]$ la cui combinazione convessa non appartiene all'insieme. Prendiamo
 

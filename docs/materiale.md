@@ -10,11 +10,11 @@ Le dispense e gli eserciziari in PDF, aggiornati a ogni pubblicazione del sito, 
 
 <div class="grid cards" markdown>
 
--   :material-book-open-variant: **Dispensa, volume 1 · Preliminari: funzioni, insiemi convessi e funzioni convesse**
+-   :material-book-open-variant: **Dispensa, volume 1 · Preliminari: insiemi convessi, funzioni e funzioni convesse**
 
     ---
 
-    Funzioni di più variabili (gradiente, Hessiano, insiemi di livello), combinazioni convesse e insiemi convessi, norme, funzioni convesse e concave, funzioni quadratiche e loro convessità. Con esempi svolti.
+    Combinazioni convesse e insiemi convessi, funzioni di più variabili (gradiente, Hessiano, insiemi di livello), norme, funzioni convesse e concave, funzioni quadratiche e loro convessità. Con esempi svolti.
 
     [:octicons-download-24: dispensa-1-preliminari.pdf](pdf/dispensa-1-preliminari.pdf)
 
@@ -36,7 +36,7 @@ Le dispense e gli eserciziari in PDF, aggiornati a ogni pubblicazione del sito, 
 
     ---
 
-    Esercizi svolti su funzioni di più variabili, insiemi convessi, funzioni convesse e concave e funzioni quadratiche: la convessità si dimostra sempre con la definizione.
+    Esercizi svolti su insiemi convessi, funzioni di più variabili, funzioni convesse e concave e funzioni quadratiche: la convessità si dimostra sempre con la definizione.
 
     [:octicons-download-24: esercizi-1-preliminari.pdf](pdf/esercizi-1-preliminari.pdf)
 

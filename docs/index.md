@@ -7,12 +7,14 @@ hide:
 
 <div class="hero" markdown>
 
+![Lavori in corso: sito e materiale didattico sono ancora in costruzione](img/cantiere.svg){ width="560" }
+
 # Ottimizzazione convessa
 
 Materiale didattico ideato e sviluppato da **[Fabio Furini](https://fabiofurini.github.io/)**, professore
 associato al [DIAG](https://www.diag.uniroma1.it/), Sapienza Università di Roma.
 
-**Le dispense del corso, online**: funzioni di più variabili, insiemi e funzioni convesse,
+**Le dispense del corso, online**: insiemi convessi, funzioni di più variabili, funzioni convesse,
 funzioni quadratiche, problemi di ottimizzazione convessi e concavi, con definizioni, teoremi
 con le loro dimostrazioni, esempi svolti passo per passo ed esercizi con le soluzioni.
 
@@ -55,9 +57,9 @@ dispensa: sul sito e nel PDF trovi tutto allo stesso posto.
 
     ---
 
-    Funzioni di più variabili (gradiente, Hessiano, insiemi di livello), combinazioni convesse e insiemi convessi, norme, funzioni convesse e concave, funzioni quadratiche e loro convessità.
+    Combinazioni convesse e insiemi convessi, funzioni di più variabili (gradiente, Hessiano, insiemi di livello), norme, funzioni convesse e concave, funzioni quadratiche e loro convessità.
 
-    1\. Funzioni di più variabili · 2\. Insiemi convessi · 3\. Funzioni convesse e concave · 4\. Funzioni quadratiche
+    1\. Insiemi convessi · 2\. Funzioni di più variabili · 3\. Funzioni convesse e concave · 4\. Funzioni quadratiche
 
     [:octicons-arrow-right-24: I capitoli](preliminari/index.md)
 

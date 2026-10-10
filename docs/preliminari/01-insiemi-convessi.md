@@ -6,15 +6,15 @@ title: "Insiemi convessi"
 
 <div class="info-capitolo" markdown>
 
-**Parte 1 · Preliminari · Capitolo 2** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-pencil: Esercizi](../esercizi/es-02-insiemi-convessi.md)
+**Parte 1 · Preliminari · Capitolo 1** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-pencil: Esercizi](../esercizi/es-01-insiemi-convessi.md)
 
 </div>
 
-## 2.1 Combinazione convessa
+## 1.1 Combinazione convessa
 
 <a id="box-1-defXX"></a>
 
-!!! definizione "Definizione 2.1: combinazione convessa"
+!!! definizione "Definizione 1.1: combinazione convessa"
 
     Dati due punti
 
@@ -53,11 +53,11 @@ title: "Insiemi convessi"
 
 - Le combinazioni convesse per tutti i valori $\lambda \in [0,1]$ sono i punti del segmento che congiunge i due punti ${\boldsymbol p}$ e ${\boldsymbol w}$. In $\R^2$, il segmento blu della figura seguente:
 
-    ![Figura 1](../img/02-insiemi-convessi/fig01.svg){ .fig .ovale loading=lazy style="width:82%" }
+    ![Figura 1](../img/01-insiemi-convessi/fig01.svg){ .fig .ovale loading=lazy style="width:82%" }
 
 <a id="box-2-texexpbox1"></a>
 
-!!! esempio "Esempio 2.1: combinazione convessa"
+!!! esempio "Esempio 1.1: combinazione convessa"
 
     Consideriamo i punti $\begin{pmatrix}2 \\[0.3ex] 5\end{pmatrix}$ e $\begin{pmatrix}5 \\[0.3ex] 2\end{pmatrix}$ in $\mathbb{R}^2$. La loro combinazione convessa con $\lambda = \tfrac{1}{3}$ è il punto:
 
@@ -69,11 +69,11 @@ title: "Insiemi convessi"
     =\;\begin{pmatrix}4 \\[0.3ex] 3\end{pmatrix}
     $$
 
-    ![Figura 2](../img/02-insiemi-convessi/fig02.svg){ .fig .ovale loading=lazy style="width:71%" }
+    ![Figura 2](../img/01-insiemi-convessi/fig02.svg){ .fig .ovale loading=lazy style="width:71%" }
 
 <a id="box-3-defXX"></a>
 
-!!! definizione "Definizione 2.2: combinazione convessa di $m$ punti"
+!!! definizione "Definizione 1.2: combinazione convessa di $m$ punti"
 
     Dati $m$ punti
 
@@ -129,11 +129,11 @@ title: "Insiemi convessi"
 
 - In $\R^2$ con $m=3$ punti, l'involucro convesso è formato da tutti i punti interni (e sul bordo) del triangolo che ha per vertici i tre punti: la regione blu della figura seguente, dove il punto blu è la combinazione convessa con $\lambda_1=\frac{1}{3}$, $\lambda_2=\frac{1}{2}$ e $\lambda_3=\frac{1}{6}$:
 
-    ![Figura 3](../img/02-insiemi-convessi/fig03.svg){ .fig .ovale loading=lazy style="width:82%" }
+    ![Figura 3](../img/01-insiemi-convessi/fig03.svg){ .fig .ovale loading=lazy style="width:82%" }
 
 <a id="box-4-texexpbox1"></a>
 
-!!! esempio "Esempio 2.2: combinazione convessa di $3$ punti"
+!!! esempio "Esempio 1.2: combinazione convessa di $3$ punti"
 
     Consideriamo i tre punti $\begin{pmatrix}1 \\[0.3ex] 1\end{pmatrix}$, $\begin{pmatrix}5 \\[0.3ex] 3\end{pmatrix}$ e $\begin{pmatrix}3 \\[0.3ex] 5\end{pmatrix}$ in $\mathbb{R}^2$. La loro combinazione convessa con $\lambda_1 = \lambda_2 = \lambda_3 = \tfrac{1}{3}$ è il punto:
 
@@ -145,13 +145,13 @@ title: "Insiemi convessi"
     =\;\begin{pmatrix}3 \\[0.3ex] 3\end{pmatrix}
     $$
 
-    ![Figura 4](../img/02-insiemi-convessi/fig04.svg){ .fig .ovale loading=lazy style="width:71%" }
+    ![Figura 4](../img/01-insiemi-convessi/fig04.svg){ .fig .ovale loading=lazy style="width:71%" }
 
-## 2.2 Insiemi convessi
+## 1.2 Insiemi convessi
 
 <a id="box-5-defXX"></a>
 
-!!! definizione "Definizione 2.3: insieme convesso"
+!!! definizione "Definizione 1.3: insieme convesso"
 
     Un insieme $A \subseteq \R^n$ è <strong>convesso</strong> se
 
@@ -167,9 +167,9 @@ title: "Insiemi convessi"
 
 <div class="figure-affiancate" markdown>
 
-![Figura 5](../img/02-insiemi-convessi/fig05.svg){ .fig .ovale loading=lazy style="width:82%" }
+![Figura 5](../img/01-insiemi-convessi/fig05.svg){ .fig .ovale loading=lazy style="width:82%" }
 
-![Figura 6](../img/02-insiemi-convessi/fig06.svg){ .fig .ovale loading=lazy style="width:82%" }
+![Figura 6](../img/01-insiemi-convessi/fig06.svg){ .fig .ovale loading=lazy style="width:82%" }
 
 </div>
 
@@ -177,17 +177,17 @@ title: "Insiemi convessi"
 
 <div class="figure-affiancate" markdown>
 
-![Figura 7](../img/02-insiemi-convessi/fig07.svg){ .fig .ovale loading=lazy style="width:82%" }
+![Figura 7](../img/01-insiemi-convessi/fig07.svg){ .fig .ovale loading=lazy style="width:82%" }
 
-![Figura 8](../img/02-insiemi-convessi/fig08.svg){ .fig .ovale loading=lazy style="width:82%" }
+![Figura 8](../img/01-insiemi-convessi/fig08.svg){ .fig .ovale loading=lazy style="width:82%" }
 
 </div>
 
-## 2.3 Esempi di insiemi convessi
+## 1.3 Esempi di insiemi convessi
 
 <a id="box-6-propXX"></a>
 
-!!! teorema "Osservazione 2.4"
+!!! teorema "Osservazione 1.4"
 
     Per ogni vettore $\boldsymbol c \in \mathbb{R}^{n}$ e ogni scalare $r \in \mathbb{R}_{>0}$, l'insieme
 
@@ -227,7 +227,7 @@ title: "Insiemi convessi"
 
 <a id="box-7-texexpbox1"></a>
 
-!!! esempio "Esempio 2.3: rombo in $\R^2$"
+!!! esempio "Esempio 1.3: rombo in $\R^2$"
 
     Per esempio, in $\mathbb{R}^2$, con $r = 3$ e ${\boldsymbol c} = \begin{pmatrix} 3 \\[0.3ex] 3 \end{pmatrix}$, abbiamo il seguente insieme convesso:
 
@@ -244,11 +244,11 @@ title: "Insiemi convessi"
 
     I punti di questo insieme sono tutti quelli interni al rombo (quadrato ruotato) o sul suo bordo, con centro in  $\begin{pmatrix} 3 \\[0.3ex] 3 \end{pmatrix}$, con vertici in $\begin{pmatrix}0\\3\end{pmatrix}$, $\begin{pmatrix}3\\0\end{pmatrix}$, $\begin{pmatrix}6\\3\end{pmatrix}$, $\begin{pmatrix}3\\6\end{pmatrix}$, rappresentati dalla regione ombreggiata in rosso nella figura seguente.
 
-    ![Figura 9](../img/02-insiemi-convessi/fig09.svg){ .fig .ovale loading=lazy style="width:59%" }
+    ![Figura 9](../img/01-insiemi-convessi/fig09.svg){ .fig .ovale loading=lazy style="width:59%" }
 
 <a id="box-8-propXX"></a>
 
-!!! teorema "Osservazione 2.5"
+!!! teorema "Osservazione 1.5"
 
     Per ogni vettore $\boldsymbol c \in \mathbb{R}^{n}$ e ogni scalare $r \in \mathbb{R}_{>0}$, l'insieme
 
@@ -288,7 +288,7 @@ title: "Insiemi convessi"
 
 <a id="box-9-texexpbox1"></a>
 
-!!! esempio "Esempio 2.4: palla chiusa in $\R^2$"
+!!! esempio "Esempio 1.4: palla chiusa in $\R^2$"
 
     Per esempio, in $\mathbb{R}^2$, con $r = 3$ e ${\boldsymbol c} = \begin{pmatrix} 3 \\[0.3ex] 3 \end{pmatrix}$, abbiamo il seguente insieme convesso:
 
@@ -305,11 +305,11 @@ title: "Insiemi convessi"
 
     I punti di questo insieme sono tutti quelli interni alla circonferenza di raggio $3$ o su di essa, con centro in  $\begin{pmatrix} 3 \\[0.3ex] 3 \end{pmatrix}$, rappresentati dalla regione ombreggiata in rosso nella figura seguente.
 
-    ![Figura 10](../img/02-insiemi-convessi/fig10.svg){ .fig .ovale loading=lazy style="width:59%" }
+    ![Figura 10](../img/01-insiemi-convessi/fig10.svg){ .fig .ovale loading=lazy style="width:59%" }
 
 <a id="box-10-propXX"></a>
 
-!!! teorema "Osservazione 2.6"
+!!! teorema "Osservazione 1.6"
 
     Per ogni vettore $\boldsymbol c \in \mathbb{R}^{n}$ e ogni scalare $r \in \mathbb{R}_{>0}$, l'insieme
 
@@ -350,7 +350,7 @@ title: "Insiemi convessi"
 
 <a id="box-11-texexpbox1"></a>
 
-!!! esempio "Esempio 2.5: quadrato in $\R^2$"
+!!! esempio "Esempio 1.5: quadrato in $\R^2$"
 
     Per esempio, in $\mathbb{R}^2$, con $r = 3$ e ${\boldsymbol c} = \begin{pmatrix} 3 \\[0.3ex] 3 \end{pmatrix}$, abbiamo il seguente insieme convesso:
 
@@ -367,13 +367,13 @@ title: "Insiemi convessi"
 
     I punti di questo insieme sono tutti quelli interni al quadrato con i lati paralleli agli assi, di lato $6$, o sul suo bordo, con centro in  $\begin{pmatrix} 3 \\[0.3ex] 3 \end{pmatrix}$, con vertici in $\begin{pmatrix}0\\0\end{pmatrix}$, $\begin{pmatrix}6\\0\end{pmatrix}$, $\begin{pmatrix}6\\6\end{pmatrix}$, $\begin{pmatrix}0\\6\end{pmatrix}$, rappresentati dalla regione ombreggiata in rosso nella figura seguente.
 
-    ![Figura 11](../img/02-insiemi-convessi/fig11.svg){ .fig .ovale loading=lazy style="width:59%" }
+    ![Figura 11](../img/01-insiemi-convessi/fig11.svg){ .fig .ovale loading=lazy style="width:59%" }
 
-## 2.4 Proprietà degli insiemi convessi
+## 1.4 Proprietà degli insiemi convessi
 
 <a id="box-12-propXX"></a>
 
-!!! teorema "Osservazione 2.7"
+!!! teorema "Osservazione 1.7"
 
     Per ogni famiglia di $m$ insiemi convessi $A_i \subseteq \mathbb{R}^n$ con $i \in \{1,2,\dots,m\}$, l'insieme
 
@@ -407,9 +407,9 @@ title: "Insiemi convessi"
 
 <div class="figure-affiancate" markdown>
 
-![Figura 12](../img/02-insiemi-convessi/fig12.svg){ .fig .ovale loading=lazy style="width:37%" }
+![Figura 12](../img/01-insiemi-convessi/fig12.svg){ .fig .ovale loading=lazy style="width:37%" }
 
-![Figura 13](../img/02-insiemi-convessi/fig13.svg){ .fig .ovale loading=lazy style="width:37%" }
+![Figura 13](../img/01-insiemi-convessi/fig13.svg){ .fig .ovale loading=lazy style="width:37%" }
 
 </div>
 
@@ -417,8 +417,8 @@ title: "Insiemi convessi"
 
 <div class="figure-affiancate" markdown>
 
-![Figura 14](../img/02-insiemi-convessi/fig14.svg){ .fig .ovale loading=lazy style="width:37%" }
+![Figura 14](../img/01-insiemi-convessi/fig14.svg){ .fig .ovale loading=lazy style="width:37%" }
 
-![Figura 15](../img/02-insiemi-convessi/fig15.svg){ .fig .ovale loading=lazy style="width:37%" }
+![Figura 15](../img/01-insiemi-convessi/fig15.svg){ .fig .ovale loading=lazy style="width:37%" }
 
 </div>

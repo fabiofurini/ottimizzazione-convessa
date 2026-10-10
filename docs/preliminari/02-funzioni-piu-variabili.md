@@ -6,15 +6,15 @@ title: "Funzioni di più variabili"
 
 <div class="info-capitolo" markdown>
 
-**Parte 1 · Preliminari · Capitolo 1** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-pencil: Esercizi](../esercizi/es-01-funzioni-piu-variabili.md)
+**Parte 1 · Preliminari · Capitolo 2** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-pencil: Esercizi](../esercizi/es-02-funzioni-piu-variabili.md)
 
 </div>
 
-## 1.1 Funzioni di più variabili
+## 2.1 Funzioni di più variabili
 
 <a id="box-1-def-function"></a>
 
-!!! definizione "Definizione 1.1: funzione di più variabili reali"
+!!! definizione "Definizione 2.1: funzione di più variabili reali"
 
     La funzione:
 
@@ -39,7 +39,7 @@ title: "Funzioni di più variabili"
 
 <a id="box-2-exThree"></a>
 
-!!! esempio "Esempio 1.1: una funzione di tre variabili"
+!!! esempio "Esempio 2.1: una funzione di tre variabili"
 
     Consideriamo la funzione:
 
@@ -53,11 +53,11 @@ title: "Funzioni di più variabili"
     f\left(\begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix}\right) = 2 \cdot (-1) + 3^2 = -2 + 9 = 7
     $$
 
-## 1.2 Gradiente, matrice Hessiana e insiemi di livello
+## 2.2 Gradiente, matrice Hessiana e insiemi di livello
 
 <a id="box-3-def-gradient"></a>
 
-!!! definizione "Definizione 1.2: gradiente"
+!!! definizione "Definizione 2.2: gradiente"
 
     Data $f:D\subseteq \R^n \to \R$, il <strong>gradiente</strong> $\nabla f(\boldsymbol x)$ di $f$ in $\boldsymbol x$ è il vettore (colonna) delle derivate parziali prime:
 
@@ -77,7 +77,7 @@ title: "Funzioni di più variabili"
 
 <a id="box-4-def-hessian"></a>
 
-!!! definizione "Definizione 1.3: matrice Hessiana"
+!!! definizione "Definizione 2.3: matrice Hessiana"
 
     Data una funzione $f:D\subseteq \R^n \to \R$, la <strong>matrice Hessiana</strong> $\nabla^2 f(\boldsymbol x)$ di $f$ in $\boldsymbol x$ è la matrice delle derivate parziali seconde:
 
@@ -101,7 +101,7 @@ title: "Funzioni di più variabili"
 
 <a id="box-5-def-levelset"></a>
 
-!!! definizione "Definizione 1.4: insieme di livello"
+!!! definizione "Definizione 2.4: insieme di livello"
 
     Data una funzione $f:D\subseteq \R^n \to \R$ e una costante $k\in\R$, l'<strong>insieme di livello</strong> $L(k)$ di $f$ al livello $k$ è:
 
@@ -115,7 +115,7 @@ title: "Funzioni di più variabili"
 
 <a id="box-6-exQuadratic"></a>
 
-!!! esempio "Esempio 1.2: gradiente, matrice Hessiana e insiemi di livello di una funzione quadratica"
+!!! esempio "Esempio 2.2: gradiente, matrice Hessiana e insiemi di livello di una funzione quadratica"
 
     Consideriamo la funzione quadratica:
 
@@ -188,25 +188,25 @@ title: "Funzioni di più variabili"
 
 <a id="box-7-exQuadraticFigure"></a>
 
-!!! esempio "Esempio 1.3: grafico, insiemi di livello e gradienti di una funzione quadratica"
+!!! esempio "Esempio 2.3: grafico, insiemi di livello e gradienti di una funzione quadratica"
 
     Per la funzione dell'esempio precedente, questo è il grafico nel dominio $[-4,4]\times[-4,4]$; il suo punto più basso è in $\begin{pmatrix} 2 \\ 2 \end{pmatrix}$, dove $f = 1$, e il suo punto più alto è in $\begin{pmatrix} -4 \\ -4 \end{pmatrix}$, dove $f = 73$:
 
-    ![Figura 1](../img/01-funzioni-piu-variabili/fig01.png){ .fig .ovale loading=lazy style="width:59%" }
+    ![Figura 1](../img/02-funzioni-piu-variabili/fig01.png){ .fig .ovale loading=lazy style="width:59%" }
 
     La figura seguente mostra gli insiemi di livello $L(2)$ (circonferenza di raggio $1$, in blu) e $L(17)$ (circonferenza di raggio $4$, in arancione), e i due gradienti dell'esempio precedente (in rosso), tracciati a partire dai punti $\begin{pmatrix} 3 \\ 2 \end{pmatrix}$ e $\begin{pmatrix} 2 \\ 3 \end{pmatrix}$ dell'insieme di livello $L(2)$:
 
-    ![Figura 2](../img/01-funzioni-piu-variabili/fig02.svg){ .fig .ovale loading=lazy style="width:50%" }
+    ![Figura 2](../img/02-funzioni-piu-variabili/fig02.svg){ .fig .ovale loading=lazy style="width:50%" }
 
     I vettori gradiente sono perpendicolari agli insiemi di livello e puntano nella direzione di massima crescita della funzione (allontanandosi dal centro).
 
-## 1.3 Esempi di funzioni non quadratiche
+## 2.3 Esempi di funzioni non quadratiche
 
 - Per una funzione quadratica la matrice Hessiana è costante (capitolo «Funzioni quadratiche»). In generale, la matrice Hessiana dipende dal punto, come nei due esempi seguenti.
 
 <a id="box-8-exCubic"></a>
 
-!!! esempio "Esempio 1.4: gradiente e matrice Hessiana di una funzione cubica"
+!!! esempio "Esempio 2.4: gradiente e matrice Hessiana di una funzione cubica"
 
     Consideriamo la funzione:
 
@@ -244,7 +244,7 @@ title: "Funzioni di più variabili"
 
 <a id="box-9-exExponential"></a>
 
-!!! esempio "Esempio 1.5: gradiente, matrice Hessiana e un insieme di livello di una funzione esponenziale"
+!!! esempio "Esempio 2.5: gradiente, matrice Hessiana e un insieme di livello di una funzione esponenziale"
 
     Consideriamo la funzione:
 
@@ -280,7 +280,7 @@ title: "Funzioni di più variabili"
 
     La figura seguente mostra l'insieme di livello $L(2)$ (in blu) e i due vettori gradiente (in rosso):
 
-    ![Figura 3](../img/01-funzioni-piu-variabili/fig03.svg){ .fig .ovale loading=lazy style="width:50%" }
+    ![Figura 3](../img/02-funzioni-piu-variabili/fig03.svg){ .fig .ovale loading=lazy style="width:50%" }
 
     La direzione tangente all'insieme di livello in $\begin{pmatrix} 0 \\ 1 \end{pmatrix}$ è $\begin{pmatrix} -2 \\ 1 \end{pmatrix}$ (la derivata di $x_1 = \ln(2-x_2^2)$ rispetto a $x_2$ è $\frac{-2\,x_2}{2-x_2^2}$, uguale a $-2$ per $x_2=1$), e infatti:
 

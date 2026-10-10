@@ -2,15 +2,15 @@
 
 ## [Preliminari](preliminari/index.md)
 
-1. [Funzioni di più variabili](preliminari/01-funzioni-piu-variabili.md)
-    - 1.1 Funzioni di più variabili
-    - 1.2 Gradiente, matrice Hessiana e insiemi di livello
-    - 1.3 Esempi di funzioni non quadratiche
-2. [Insiemi convessi](preliminari/02-insiemi-convessi.md)
-    - 2.1 Combinazione convessa
-    - 2.2 Insiemi convessi
-    - 2.3 Esempi di insiemi convessi
-    - 2.4 Proprietà degli insiemi convessi
+1. [Insiemi convessi](preliminari/01-insiemi-convessi.md)
+    - 1.1 Combinazione convessa
+    - 1.2 Insiemi convessi
+    - 1.3 Esempi di insiemi convessi
+    - 1.4 Proprietà degli insiemi convessi
+2. [Funzioni di più variabili](preliminari/02-funzioni-piu-variabili.md)
+    - 2.1 Funzioni di più variabili
+    - 2.2 Gradiente, matrice Hessiana e insiemi di livello
+    - 2.3 Esempi di funzioni non quadratiche
 3. [Funzioni convesse e concave](preliminari/03-funzioni-convesse-concave.md)
     - 3.1 Funzioni convesse
     - 3.2 Funzioni concave
