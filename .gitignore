@@ -4,7 +4,6 @@
 # note rivedute da cui si generano dispense e sito (private: repository git locale)
 note/
 # volumi delle dispense e degli eserciziari (sorgenti LaTeX; online vanno solo i PDF in docs/pdf/)
-volumi/
 volumes/
 dispensa/
 dispensa_*/
@@ -30,3 +29,9 @@ __pycache__/
 # varie
 .DS_Store
 *conflicted copy*
+
+# volumi generati: git traccia SOLO i PDF delle dispense (mai .tex, .aux e altri file di compilazione)
+volumi/*
+!volumi/dispensa_*/
+volumi/dispensa_*/*
+!volumi/dispensa_*/*.pdf
