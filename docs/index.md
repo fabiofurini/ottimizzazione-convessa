@@ -9,6 +9,9 @@ hide:
 
 ![Lavori in corso: sito e materiale didattico sono ancora in costruzione](img/cantiere.svg){ width="560" }
 
+**Sito in costruzione.** Per ora sono online solo le prime due parti del corso, *Preliminari* e
+*Problemi di ottimizzazione*: le altre arriveranno presto.
+
 # Ottimizzazione convessa
 
 Materiale didattico ideato e sviluppato da **[Fabio Furini](https://fabiofurini.github.io/)**, professore
