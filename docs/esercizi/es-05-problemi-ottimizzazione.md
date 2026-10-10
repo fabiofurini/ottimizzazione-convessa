@@ -699,7 +699,7 @@ title: "Esercizi · Problemi di ottimizzazione"
 
         con l'uguaglianza, rispettivamente, solo per $x=-1$ e solo per $x=2$. L'unico punto di massimo è $x=-1$, con massimo $8$, e l'unico punto di minimo è $x=2$, con minimo $-19$: entrambi i punti delle prime due domande sono ottimi globali.
 
-    4. Il grafico della funzione è rosso; il dominio è la parte rossa dell'asse $x$, i punti di minimo e di massimo (globale) sono blu. Poiché $f$ assume valori negativi, l'asse $x$ è disegnato in basso nella figura. Negli estremi abbiamo $f(-2) = -3$ e $f(3) = -8$.
+    4. Il grafico della funzione è rosso; il dominio è la parte rossa dell'asse $x$, i punti di minimo e di massimo (globale) sono blu. Poiché $f$ assume valori negativi, l'asse $x$ è disegnato in basso nella figura. Negli estremi abbiamo $f(-2) = -3$ e $f(3) = -8$: poiché $f$ è crescente vicino a entrambi gli estremi, $x=-2$ è un punto di minimo locale e $x=3$ è un punto di massimo locale, che non sono globali, e sono viola.
 
         ![Figura 11](../img/es-05-problemi-ottimizzazione/fig11.svg){ .fig .ovale loading=lazy style="width:50%" }
 
@@ -915,7 +915,7 @@ title: "Esercizi · Problemi di ottimizzazione"
 
         con l'uguaglianza, rispettivamente, solo per $x=-1$ e solo per $x=2$. L'unico punto di massimo è $x=-1$, con massimo $12$, e l'unico punto di minimo è $x=2$, con minimo $-15$: entrambi i punti delle prime due domande sono ottimi globali.
 
-    4. Il grafico della funzione è rosso; il dominio è la parte rossa dell'asse $x$, i punti di minimo e di massimo (globale) sono blu. Poiché $f$ assume valori negativi, l'asse $x$ è disegnato in basso nella figura. Nell'estremo destro abbiamo $f(3) = -4$.
+    4. Il grafico della funzione è rosso; il dominio è la parte rossa dell'asse $x$, i punti di minimo e di massimo (globale) sono blu. Poiché $f$ assume valori negativi, l'asse $x$ è disegnato in basso nella figura. Nell'estremo destro abbiamo $f(3) = -4$: poiché $f$ è crescente vicino a $x=3$, è un punto di massimo locale che non è globale, ed è viola.
 
         ![Figura 14](../img/es-05-problemi-ottimizzazione/fig14.svg){ .fig .ovale loading=lazy style="width:50%" }
 
