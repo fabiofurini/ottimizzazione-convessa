@@ -122,8 +122,10 @@
       { k: "a", nome: "\\lambda_1", min: -0.5, max: 1.5, step: 0.01, val: 0.33,
         descr: T("peso di \\(\\boldsymbol p^{(1)}\\)", "weight of \\(\\boldsymbol p^{(1)}\\)") },
       { k: "b", nome: "\\lambda_2", min: -0.5, max: 1.5, step: 0.01, val: 0.5,
-        descr: T("peso di \\(\\boldsymbol p^{(2)}\\); il terzo peso è \\(\\lambda_3 = 1 - \\lambda_1 - \\lambda_2\\)",
-          "weight of \\(\\boldsymbol p^{(2)}\\); the third weight is \\(\\lambda_3 = 1 - \\lambda_1 - \\lambda_2\\)") },
+        descr: T("peso di \\(\\boldsymbol p^{(2)}\\)", "weight of \\(\\boldsymbol p^{(2)}\\)") },
+      { k: "c", nome: "\\lambda_3", min: -0.5, max: 1.5, step: 0.01, val: 0.17,
+        descr: T("peso di \\(\\boldsymbol p^{(3)}\\); muovendo un peso gli altri due si adattano in proporzione, così la somma resta \\(1\\)",
+          "weight of \\(\\boldsymbol p^{(3)}\\); moving one weight rescales the other two, so the sum stays \\(1\\)") },
     ],
     vista: [-2.2, 6.2, 8.2, -1.6],
     stessaScala: true,
@@ -165,6 +167,31 @@
         name: "", fixed: true, size: 6, showInfobox: false, highlight: false,
       }), () => (X().convessa ? C.blu : C.viola), PIENO);
     },
+    // tre cursori: quando se ne muove uno, gli altri due si riscalano (in proporzione) perché la somma resti 1
+    aggiorna(board, st) {
+      const D = st.dati, K = ["a", "b", "c"];
+      const inp = Object.fromEntries(K.map((k, i) => [k, st.el.querySelectorAll('input[type="range"]')[i]]));
+      const v = Object.fromEntries(K.map((k) => [k, parseFloat(inp[k].value)]));
+      const prec = D.pesiPrec;
+      const mossi = prec ? K.filter((k) => Math.abs(v[k] - prec[k]) > 1e-9) : [];
+      if (mossi.length === 1) {
+        const k = mossi[0], altri = K.filter((j) => j !== k), resto = 1 - v[k];
+        const S = prec[altri[0]] + prec[altri[1]];
+        let o0 = Math.abs(S) > 1e-9 ? (prec[altri[0]] * resto) / S : resto / 2;
+        o0 = Math.round(o0 * 100) / 100;
+        const o1 = Math.round((resto - o0) * 100) / 100;
+        if ([o0, o1].every((x) => x >= -0.5 - 1e-9 && x <= 1.5 + 1e-9)) {
+          inp[altri[0]].value = o0; inp[altri[1]].value = o1;
+          v[altri[0]] = o0; v[altri[1]] = o1;
+        } else {
+          K.forEach((j) => { inp[j].value = prec[j]; v[j] = prec[j]; });   // fuori dall'intervallo dei cursori: non si muove
+        }
+      } else if (Math.abs(v.a + v.b + v.c - 1) > 1e-6) {
+        v.c = Math.round((1 - v.a - v.b) * 100) / 100; inp.c.value = v.c;
+      }
+      D.pesiPrec = { ...v };
+      st.el.querySelectorAll(".gi-val").forEach((e, i) => { if (i < 3) e.textContent = GI.numTxt ? GI.numTxt(v[K[i]], 2) : String(v[K[i]]); });
+    },
     formula(p, st) {
       const { l, x, y, convessa } = combo(st.dati, p.a, p.b);
       const C = COL(st);
@@ -177,9 +204,8 @@
       const { l, convessa } = combo(st.dati, p.a, p.b);
       const neg = [0, 1, 2].filter((i) => l[i] < -1e-9).map((i) => `\\(\\lambda_${i + 1}\\)`);
       const zeri = [0, 1, 2].filter((i) => Math.abs(l[i]) < 1e-9);
-      let r = `\\(\\lambda_3 = 1 - \\lambda_1 - \\lambda_2 = ${st.col("c", num(l[2], 2))}\\)` +
-        T(", quindi \\(\\lambda_1+\\lambda_2+\\lambda_3 = 1\\) sempre.<br>",
-          ", so \\(\\lambda_1+\\lambda_2+\\lambda_3 = 1\\) always.<br>");
+      let r = `\\(${st.col("a", num(l[0], 2))} + ${st.col("b", num(l[1], 2))} + ${st.col("c", num(l[2], 2))} = 1\\)` +
+        T(": la somma dei pesi resta sempre \\(1\\).<br>", ": the weights always add up to \\(1\\).<br>");
       if (convessa) {
         r += T(`Tutti i pesi sono \\(\\ge 0\\): è una ${tinta(st, "blu", "combinazione convessa")} e il punto sta nel triangolo, l'involucro convesso di \\(\\boldsymbol p^{(1)}, \\boldsymbol p^{(2)}, \\boldsymbol p^{(3)}\\).`,
           `All weights are \\(\\ge 0\\): it is a ${tinta(st, "blu", "convex combination")} and the point lies in the triangle, the convex hull of \\(\\boldsymbol p^{(1)}, \\boldsymbol p^{(2)}, \\boldsymbol p^{(3)}\\).`);
@@ -196,11 +222,11 @@
       }
       return r;
     },
-    domanda: T("Metti \\(\\lambda_1 = 1\\) e \\(\\lambda_2 = 0\\): dove finisce il punto? Poi scegli \\(\\lambda_1 + \\lambda_2 = 1\\), cioè \\(\\lambda_3 = 0\\): su quale lato si muove? Infine rendi negativo uno dei pesi: da quale lato esce il punto, e perché nessuna combinazione convessa può uscire dal triangolo? Trascina anche i vertici.",
-      "Set \\(\\lambda_1 = 1\\) and \\(\\lambda_2 = 0\\): where does the point go? Then choose \\(\\lambda_1 + \\lambda_2 = 1\\), i.e. \\(\\lambda_3 = 0\\): along which side does it move? Finally make one weight negative: across which side does the point leave, and why can no convex combination leave the triangle? Drag the vertices too."),
+    domanda: T("Metti \\(\\lambda_1 = 1\\): dove finisce il punto? Poi metti \\(\\lambda_3 = 0\\) e muovi \\(\\lambda_1\\): su quale lato si muove il punto? Infine rendi negativo uno dei pesi: da quale lato esce il punto, e perché nessuna combinazione convessa può uscire dal triangolo? Trascina anche i vertici.",
+      "Set \\(\\lambda_1 = 1\\): where does the point go? Then set \\(\\lambda_3 = 0\\) and move \\(\\lambda_1\\): along which side does the point move? Finally make one weight negative: across which side does the point leave, and why can no convex combination leave the triangle? Drag the vertices too."),
     sfida: {
-      testo: T("Porta il punto sul <strong style=\"color:var(--gi-target)\">bersaglio</strong> muovendo \\(\\lambda_1\\) e \\(\\lambda_2\\): quali pesi servono?",
-        "Bring the point onto the <strong style=\"color:var(--gi-target)\">target</strong> by moving \\(\\lambda_1\\) and \\(\\lambda_2\\): which weights do you need?"),
+      testo: T("Porta il punto sul <strong style=\"color:var(--gi-target)\">bersaglio</strong> muovendo i pesi \\(\\lambda_1, \\lambda_2, \\lambda_3\\): quali pesi servono?",
+        "Bring the point onto the <strong style=\"color:var(--gi-target)\">target</strong> by moving the weights \\(\\lambda_1, \\lambda_2, \\lambda_3\\): which weights do you need?"),
       genera() {
         // pesi multipli di 0,05, tutti almeno 0,1: il bersaglio è dentro il triangolo
         let a, b;
