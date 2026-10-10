@@ -12,7 +12,7 @@ title: "Problemi di ottimizzazione"
 
 ## 5.1 Problemi di ottimizzazione
 
-<a id="box-1-defXX"></a>
+<a id="box-1-def-optProblem"></a>
 
 !!! definizione "Definizione 5.1: problema di ottimizzazione in forma di minimo e in forma di massimo"
 
@@ -172,7 +172,7 @@ title: "Problemi di ottimizzazione"
 
     2. Se la regione ammissibile è vuota, cioè non esistono soluzioni, il problema di ottimizzazione si dice <strong>inammissibile</strong>. In questi casi $z(P)$ non è definito.
 
-    3. Se l'estremo inferiore (o superiore) della funzione obiettivo esiste ma non è raggiunto nella regione ammissibile, si dice che il problema di ottimizzazione ha un <strong>estremo inferiore (o superiore) non raggiunto</strong>. In questi casi $z(P)$ non è definito.
+    3. Se l'estremo inferiore (o superiore) della funzione obiettivo esiste ma non è raggiunto nella regione ammissibile, si dice che il problema di ottimizzazione ha un <strong>estremo inferiore (o superiore) non raggiunto</strong>, come negli Esempi [5.5](#box-7-exOptUnattainable) e [Esempio 5.6](#box-8-exOptUnattainableInf). In questi casi $z(P)$ non è definito.
 
 - Nella <strong>forma di minimo</strong>, una soluzione ottima è un <strong>punto di minimo</strong> e il corrispondente valore ottimo è il <strong>minimo</strong> della funzione obiettivo sulla regione ammissibile.
 
@@ -256,6 +256,57 @@ title: "Problemi di ottimizzazione"
         z(P) = 1.
         $$
 
+<a id="box-8-exOptUnattainableInf"></a>
+
+!!! esempio "Esempio 5.6: un estremo inferiore non raggiunto all'infinito"
+
+    Consideriamo la seguente funzione obiettivo e la seguente regione ammissibile:
+
+    $$
+    f:\R \setminus \{0\} \to \R,~ f: x \mapsto \frac{1}{x}
+    \qquad \text{e} \qquad
+    F=\{\, x \in \R : x > 0 \,\} = (0,+\infty).
+    $$
+
+    I problemi di ottimizzazione associati, in forma di minimo e in forma di massimo, sono:
+
+    \begin{equation*}
+    \min \bigg\{\, \frac{1}{x} \ \text{ soggetto a } x > 0 \,\bigg\}
+    \qquad \text{e} \qquad
+    \max \bigg\{\, \frac{1}{x} \ \text{ soggetto a } x > 0 \,\bigg\}
+    \end{equation*}
+
+    Il punto $x=0$ non appartiene alla regione ammissibile (cerchio vuoto nella figura). Il grafico prosegue verso destra, avvicinandosi all'asse $x$, e verso l'alto, avvicinandosi alla retta tratteggiata $x=0$.
+
+    ![Figura 5](../img/05-problemi-ottimizzazione/fig05.svg){ .fig .ovale loading=lazy style="width:50%" }
+
+    - Per la forma di minimo, $f(x) = \frac{1}{x} > 0$ per ogni $x$ ammissibile, e i valori di $f$ si avvicinano a $0$ quanto vogliamo per $x \to +\infty$: l'estremo inferiore di $f$ su $F$ è $0$. Tuttavia, nessuna soluzione ammissibile è ottima: per ogni $x \in F$, il punto $2x$ è ammissibile e
+
+        $$
+        f(2x) = \frac{1}{2x} < \frac{1}{x} = f(x).
+        $$
+
+        Il problema ha un <strong>estremo inferiore non raggiunto</strong>: non esiste una soluzione ottima e
+
+        $$
+        \inf \bigg\{\, \frac{1}{x} \ \text{ soggetto a } x > 0 \,\bigg\} = 0,
+        \qquad z(P) \ \text{non è definito}.
+        $$
+
+    - Per la forma di massimo, la funzione obiettivo cresce indefinitamente per $x \to 0^+$: per ogni valore $M > 0$, la soluzione ammissibile $x = \frac{1}{M+1}$ ha
+
+        $$
+        f\Big(\frac{1}{M+1}\Big) = M+1 > M.
+        $$
+
+        Nessuna soluzione ammissibile può essere ottima e il problema è <strong>illimitato</strong>:
+
+        $$
+        \sup \bigg\{\, \frac{1}{x} \ \text{ soggetto a } x > 0 \,\bigg\} = +\infty
+        \qquad \text{e} \qquad
+        z(P) = +\infty.
+        $$
+
 ### 5.1.2 Soluzioni ammissibili e limitazioni sul valore ottimo
 
 - Data
@@ -296,11 +347,11 @@ title: "Problemi di ottimizzazione"
 
     e mostra come esse forniscano lower bound nel caso di massimo e upper bound nel caso di minimo per il valore ottimo $z(P)$ (la quarta raggiunge il valore ottimo).
 
-    ![Figura 5](../img/05-problemi-ottimizzazione/fig05.svg){ .fig .cornice loading=lazy style="width:62%" }
+    ![Figura 6](../img/05-problemi-ottimizzazione/fig06.svg){ .fig .cornice loading=lazy style="width:62%" }
 
-<a id="box-8-exOptBounds"></a>
+<a id="box-9-exOptBounds"></a>
 
-!!! esempio "Esempio 5.6: limitazioni fornite da soluzioni ammissibili"
+!!! esempio "Esempio 5.7: limitazioni fornite da soluzioni ammissibili"
 
     Consideriamo di nuovo la funzione obiettivo $f(x) = x^2$ e la regione ammissibile $F=[-1,2]$ dell'esempio con funzione obiettivo quadratica, dove $z(P) = 0$ in forma di minimo e $z(P) = 4$ in forma di massimo. Le soluzioni ammissibili
 
@@ -332,9 +383,9 @@ title: "Problemi di ottimizzazione"
 
 - Le soluzioni ottime non cambiano: un punto minimizza $f$ su $F$ se e solo se massimizza $-f$ su $F$. Nelle figure di questa sezione, la funzione obiettivo originale è rossa, quella trasformata è viola, la regione ammissibile è la parte rossa dell'asse $x$ e le soluzioni ottime sono blu.
 
-<a id="box-9-exPropMinMax"></a>
+<a id="box-10-exPropMinMax"></a>
 
-!!! esempio "Esempio 5.7: proprietà: minimo e massimo"
+!!! esempio "Esempio 5.8: proprietà: minimo e massimo"
 
     $$
     \begin{aligned}
@@ -345,7 +396,7 @@ title: "Problemi di ottimizzazione"
 
     Infatti, $\frac{1}{5}x^2+1 \ge 1$ e $-\left(\frac{1}{5}x^2+1\right) \le -1$ per ogni $x$, con l'uguaglianza solo per $x=0$: entrambi gli ottimi sono raggiunti in $x=0$.
 
-    ![Figura 6](../img/05-problemi-ottimizzazione/fig06.svg){ .fig .ovale loading=lazy style="width:50%" }
+    ![Figura 7](../img/05-problemi-ottimizzazione/fig07.svg){ .fig .ovale loading=lazy style="width:50%" }
 
 - Per ogni funzione obiettivo, ogni regione ammissibile e ogni $a \in \R$, abbiamo:
 
@@ -356,9 +407,9 @@ title: "Problemi di ottimizzazione"
 
 - Aggiungere una costante sposta il grafico della funzione obiettivo verso l'alto o verso il basso: le soluzioni ottime non cambiano.
 
-<a id="box-10-exPropAdd"></a>
+<a id="box-11-exPropAdd"></a>
 
-!!! esempio "Esempio 5.8: proprietà: somma di una costante"
+!!! esempio "Esempio 5.9: proprietà: somma di una costante"
 
     $$
     \begin{aligned}
@@ -369,7 +420,7 @@ title: "Problemi di ottimizzazione"
 
     Entrambi i minimi sono raggiunti in $x=0$, poiché $\frac{1}{5}x^2 \ge 0$ per ogni $x$, con l'uguaglianza solo per $x=0$.
 
-    ![Figura 7](../img/05-problemi-ottimizzazione/fig07.svg){ .fig .ovale loading=lazy style="width:50%" }
+    ![Figura 8](../img/05-problemi-ottimizzazione/fig08.svg){ .fig .ovale loading=lazy style="width:50%" }
 
 - Per ogni funzione obiettivo, ogni regione ammissibile e ogni $a \in \R_{>0}$, abbiamo:
 
@@ -380,9 +431,9 @@ title: "Problemi di ottimizzazione"
 
 - Moltiplicare per una costante positiva dilata (o comprime) il grafico in verticale: le soluzioni ottime non cambiano.
 
-<a id="box-11-exPropPos"></a>
+<a id="box-12-exPropPos"></a>
 
-!!! esempio "Esempio 5.9: proprietà: moltiplicazione per una costante positiva"
+!!! esempio "Esempio 5.10: proprietà: moltiplicazione per una costante positiva"
 
     $$
     \begin{aligned}
@@ -393,7 +444,7 @@ title: "Problemi di ottimizzazione"
 
     Entrambi i minimi sono raggiunti in $x=0$, poiché $\frac{1}{5}x^2-3 \ge -3$ per ogni $x$, con l'uguaglianza solo per $x=0$.
 
-    ![Figura 8](../img/05-problemi-ottimizzazione/fig08.svg){ .fig .ovale loading=lazy style="width:50%" }
+    ![Figura 9](../img/05-problemi-ottimizzazione/fig09.svg){ .fig .ovale loading=lazy style="width:50%" }
 
 - Per ogni funzione obiettivo, ogni regione ammissibile e ogni $a \in \R_{<0}$, abbiamo:
 
@@ -404,9 +455,9 @@ title: "Problemi di ottimizzazione"
 
 - Moltiplicare per una costante negativa capovolge il grafico: i punti di minimo di $a\,f$ sono i punti di massimo di $f$.
 
-<a id="box-12-exPropNeg"></a>
+<a id="box-13-exPropNeg"></a>
 
-!!! esempio "Esempio 5.10: proprietà: moltiplicazione per una costante negativa"
+!!! esempio "Esempio 5.11: proprietà: moltiplicazione per una costante negativa"
 
     $$
     \begin{aligned}
@@ -417,11 +468,11 @@ title: "Problemi di ottimizzazione"
 
     Per ogni $x$ ammissibile abbiamo $|x| \le 5$ e quindi $\frac{1}{5}x^2-3 \le \frac{25}{5}-3 = 2$, con l'uguaglianza solo per $x=-5$ e $x=5$: entrambi i problemi hanno le <strong>due</strong> soluzioni ottime $x=-5$ e $x=5$.
 
-    ![Figura 9](../img/05-problemi-ottimizzazione/fig09.svg){ .fig .ovale loading=lazy style="width:50%" }
+    ![Figura 10](../img/05-problemi-ottimizzazione/fig10.svg){ .fig .ovale loading=lazy style="width:50%" }
 
 ## 5.3 Soluzioni ottime locali e globali
 
-<a id="box-13-def-globalopt"></a>
+<a id="box-14-def-globalopt"></a>
 
 !!! definizione "Definizione 5.3: punto di minimo/massimo e minimo/massimo"
 
@@ -445,11 +496,11 @@ title: "Problemi di ottimizzazione"
 
 - Un punto di minimo (massimo) si chiama anche <strong>minimizzatore</strong> (<strong>massimizzatore</strong>) di $f$ in $D$.
 
-- Possono esistere più punti di minimo (massimo), anche infiniti, come nell'esempio «un problema di ottimizzazione con infinite soluzioni ottime».
+- Possono esistere più punti di minimo (massimo), anche infiniti, come nell'[Esempio 5.2](#box-4-exOptMultiple).
 
 - Le soluzioni ottime di un problema di minimo (massimo) con funzione obiettivo $f$ e regione ammissibile $F$ sono i punti di minimo (massimo) di $f$ in $F$: sono i suoi <strong>ottimi globali</strong>.
 
-<a id="box-14-def-neighborhood"></a>
+<a id="box-15-def-neighborhood"></a>
 
 !!! definizione "Definizione 5.4: intorno sferico di raggio $\delta$"
 
@@ -467,9 +518,9 @@ title: "Problemi di ottimizzazione"
 
     L'intorno $N(\bar{\boldsymbol x},\delta)$ contiene i punti la cui distanza dal centro è minore del <strong>raggio</strong> $\delta$: in $\R$ è l'intervallo aperto $(\bar x-\delta,\, \bar x+\delta)$, in $\R^2$ è il disco aperto di centro $\bar{\boldsymbol x}$ e raggio $\delta$, privo della circonferenza che lo delimita.
 
-<a id="box-15-exNeighborhoods"></a>
+<a id="box-16-exNeighborhoods"></a>
 
-!!! esempio "Esempio 5.11: intorni sferici"
+!!! esempio "Esempio 5.12: intorni sferici"
 
     Consideriamo il punto $\bar{\boldsymbol x} = \begin{pmatrix} 4 \\ 4 \end{pmatrix} \in \R^2$ e i raggi $\delta_1=1$ e $\delta_2=2$. Gli intorni sferici di raggio $\delta$ associati
 
@@ -487,9 +538,9 @@ title: "Problemi di ottimizzazione"
 
     sono i dischi rossi nella figura: il disco più scuro è $N\big(\bar{\boldsymbol x},1\big)$, che è contenuto in $N\big(\bar{\boldsymbol x},2\big)$. Le circonferenze che li delimitano sono tratteggiate perché non appartengono agli intorni: per esempio, i punti $\begin{pmatrix} 4 \\ 5 \end{pmatrix}$ e $\begin{pmatrix} 6 \\ 4 \end{pmatrix}$ (cerchi vuoti) hanno distanza dal centro esattamente $1$ e $2$, rispettivamente.
 
-    ![Figura 10](../img/05-problemi-ottimizzazione/fig10.svg){ .fig .ovale loading=lazy style="width:50%" }
+    ![Figura 11](../img/05-problemi-ottimizzazione/fig11.svg){ .fig .ovale loading=lazy style="width:50%" }
 
-<a id="box-16-def-localopt"></a>
+<a id="box-17-def-localopt"></a>
 
 !!! definizione "Definizione 5.5: punto di minimo/massimo locale e minimo/massimo locale"
 
@@ -515,9 +566,9 @@ title: "Problemi di ottimizzazione"
 
 - Per dimostrare con la definizione che un punto è un punto di minimo (massimo) locale, basta esibire <strong>un</strong> raggio $\delta$ per cui la disuguaglianza vale in $N(\bar{\boldsymbol x},\delta) \cap D$; anche ogni raggio più piccolo va bene.
 
-<a id="box-17-exLocalMinimum"></a>
+<a id="box-18-exLocalMinimum"></a>
 
-!!! esempio "Esempio 5.12: punti di minimo locale"
+!!! esempio "Esempio 5.13: punti di minimo locale"
 
     Consideriamo la seguente funzione:
 
@@ -530,7 +581,7 @@ title: "Problemi di ottimizzazione"
 
     Questo è il grafico della funzione in $[-3,3]\times[-3,3]$; il punto viola è $\big(0,0,f(0,0)\big) = (0,0,0)$.
 
-    ![Figura 11](../img/05-problemi-ottimizzazione/fig11.png){ .fig .ovale loading=lazy style="width:62%" }
+    ![Figura 12](../img/05-problemi-ottimizzazione/fig12.png){ .fig .ovale loading=lazy style="width:62%" }
 
     Per dimostrare che il punto $\begin{pmatrix}0\\0\end{pmatrix}$ è un punto di minimo locale, usiamo l'intorno sferico di raggio $\delta$ dato da $N\!\left(\begin{pmatrix}0\\0\end{pmatrix},1\right)$. Per ogni $\begin{pmatrix}x_1\\x_2\end{pmatrix}\in N\!\left(\begin{pmatrix}0\\0\end{pmatrix},1\right)$ abbiamo $x_2^2 \le x_1^2+x_2^2<1$, da cui $1-\dfrac{x_2^2}{2} > \dfrac{1}{2}$, e quindi:
 
@@ -558,9 +609,9 @@ title: "Problemi di ottimizzazione"
 
 - Ogni punto di minimo (globale) è un punto di minimo locale (con qualsiasi $\delta$), e ogni punto di massimo (globale) è un punto di massimo locale. Il viceversa è falso: un punto di minimo locale può non essere un punto di minimo, come mostrano l'esempio precedente e il seguente.
 
-<a id="box-18-exOptLocal"></a>
+<a id="box-19-exOptLocal"></a>
 
-!!! esempio "Esempio 5.13: un minimo locale che non è un minimo globale"
+!!! esempio "Esempio 5.14: un minimo locale che non è un minimo globale"
 
     Consideriamo la seguente funzione:
 
@@ -576,7 +627,7 @@ title: "Problemi di ottimizzazione"
 
     Nella figura, i punti di minimo e di massimo globale sono blu e gli altri punti di minimo e di massimo locale sono viola.
 
-    ![Figura 12](../img/05-problemi-ottimizzazione/fig12.svg){ .fig .ovale loading=lazy style="width:50%" }
+    ![Figura 13](../img/05-problemi-ottimizzazione/fig13.svg){ .fig .ovale loading=lazy style="width:50%" }
 
     - <strong>Minimo globale.</strong> Sia $(x+2)^2$ sia $(x-2)^2+1$ sono non negativi, quindi $f(x) \ge 0 = f(-2)$ per ogni $x \in [-4,4]$; poiché $(x-2)^2+1 \ge 1$, $f(x) = 0$ solo per $x=-2$. Il punto $x=-2$ è l'unico punto di minimo e il minimo è $0$.
 

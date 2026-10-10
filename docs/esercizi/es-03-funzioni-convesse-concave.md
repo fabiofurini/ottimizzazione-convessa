@@ -22,7 +22,7 @@ Negli esercizi di questo capitolo la convessità e la concavità si dimostrano s
     &= \lambda a^2+(1-\lambda)b^2-\lambda(1-\lambda)a^2+2\lambda(1-\lambda)ab-\lambda(1-\lambda)b^2 \\[1ex]
     &= \lambda a^2+(1-\lambda)b^2-\lambda(1-\lambda)(a^2-2ab+b^2) \\[1ex]
     &= \lambda a^2+(1-\lambda)b^2-\underbrace {\lambda(1-\lambda)(a-b)^2}_{\ge 0} \\[1ex]
-    &\le \lambda a^2+(1-\lambda)b^2.
+    &\le \lambda a^2+(1-\lambda)b^2 \quad (\text{poiché } \lambda \ge 0,~ 1-\lambda \ge 0 \text{ e } (a-b)^2 \ge 0)
     \end{align*}
 
 !!! nota ""
@@ -66,24 +66,22 @@ Negli esercizi di questo capitolo la convessità e la concavità si dimostrano s
 
 ??? soluzione "Soluzione"
 
-    1. Per ogni $x \in \R$ abbiamo $f(x) = (x-2)^2 + 1$. Per dimostrare che la funzione è convessa nel suo dominio, osserviamo che il dominio è convesso e che per ogni coppia di punti $p, w \in \R$ e ogni $\lambda \in [0,1]$, abbiamo:
+    1. Per ogni $x \in \R$ abbiamo $f(x) = (x-2)^2 + 1$. Per ogni coppia di punti $p, w \in \R$ e ogni $\lambda \in [0,1]$, abbiamo:
 
         \begin{align*}
-        & f\big(\lambda p+(1-\lambda)w\big) \\[2ex]
-        &\quad = \big(\lambda p+(1-\lambda)w-2\big)^2 + 1 \\[2ex]
-        &\quad = \big(\lambda (p-2)+(1-\lambda)(w-2)\big)^2 + 1 \\[2ex]
-        &\quad \le \lambda (p-2)^2+(1-\lambda)(w-2)^2 + 1
-        \quad \text{(poiché } (\lambda a+(1-\lambda)b)^2\le \lambda a^2+(1-\lambda)b^2\text{)} \\[2ex]
-        &\quad = \lambda\,\big((p-2)^2+1\big)+(1-\lambda)\,\big((w-2)^2+1\big) \\[2ex]
-        &\quad = \lambda f(p)+(1-\lambda)f(w).
+        f\big(\lambda p+(1-\lambda)w\big)
+        &= \big(\lambda p+(1-\lambda)w-2\big)^2 + 1 \\[2ex]
+        &= \big(\lambda (p-2)+(1-\lambda)(w-2)\big)^2 + 1 \\[2ex]
+        &\le \lambda (p-2)^2+(1-\lambda)(w-2)^2 + 1 \\[1ex]
+        &\qquad \text{(poiché } (\lambda a+(1-\lambda)b)^2\le \lambda a^2+(1-\lambda)b^2\text{)} \\[2ex]
+        &= \lambda\,\big((p-2)^2+1\big)+(1-\lambda)\,\big((w-2)^2+1\big) \\[2ex]
+        &= \lambda f(p)+(1-\lambda)f(w)
         \end{align*}
 
         Quindi,
 
         $$
-        f\big(\lambda p + (1-\lambda) w\big)
-        \le
-        \lambda f(p) + (1-\lambda) f(w)
+        f\big(\lambda p + (1-\lambda) w\big) \le \lambda f(p) + (1-\lambda) f(w)
         $$
 
         Per natura, il dominio $\R$ è un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio.
@@ -108,23 +106,21 @@ Negli esercizi di questo capitolo la convessità e la concavità si dimostrano s
 
         ![Figura 1](../img/es-03-funzioni-convesse-concave/fig01.svg){ .fig .ovale loading=lazy style="width:50%" }
 
-    4. Per ogni $x \in \R$ abbiamo $g(x) = -(x-2)^2 - 1$. Per dimostrare che la funzione è concava nel suo dominio, osserviamo che il dominio è convesso e che per ogni coppia di punti $p, w \in \R$ e ogni $\lambda \in [0,1]$, abbiamo:
+    4. Per ogni $x \in \R$ abbiamo $g(x) = -(x-2)^2 - 1$. Per ogni coppia di punti $p, w \in \R$ e ogni $\lambda \in [0,1]$, abbiamo:
 
         \begin{align*}
-        & g\big(\lambda p+(1-\lambda)w\big) \\[2ex]
-        &\quad = -\big(\lambda (p-2)+(1-\lambda)(w-2)\big)^2 - 1 \\[2ex]
-        &\quad \ge -\lambda (p-2)^2-(1-\lambda)(w-2)^2 - 1
-        \quad \text{(poiché } (\lambda a+(1-\lambda)b)^2\le \lambda a^2+(1-\lambda)b^2\text{)} \\[2ex]
-        &\quad = \lambda\,\big(-(p-2)^2-1\big)+(1-\lambda)\,\big(-(w-2)^2-1\big) \\[2ex]
-        &\quad = \lambda g(p)+(1-\lambda)g(w).
+        g\big(\lambda p+(1-\lambda)w\big)
+        &= -\big(\lambda (p-2)+(1-\lambda)(w-2)\big)^2 - 1 \\[2ex]
+        &\ge -\lambda (p-2)^2-(1-\lambda)(w-2)^2 - 1 \\[1ex]
+        &\qquad \text{(poiché } (\lambda a+(1-\lambda)b)^2\le \lambda a^2+(1-\lambda)b^2\text{)} \\[2ex]
+        &= \lambda\,\big(-(p-2)^2-1\big)+(1-\lambda)\,\big(-(w-2)^2-1\big) \\[2ex]
+        &= \lambda g(p)+(1-\lambda)g(w)
         \end{align*}
 
         Quindi,
 
         $$
-        g\big(\lambda p + (1-\lambda) w\big)
-        \ge
-        \lambda g(p) + (1-\lambda) g(w)
+        g\big(\lambda p + (1-\lambda) w\big) \ge \lambda g(p) + (1-\lambda) g(w)
         $$
 
         Per natura, il dominio $\R$ è un insieme convesso. Di conseguenza, la funzione è concava nel suo dominio.
@@ -172,22 +168,23 @@ Negli esercizi di questo capitolo la convessità e la concavità si dimostrano s
 
         ![Figura 2](../img/es-03-funzioni-convesse-concave/fig02.svg){ .fig .ovale loading=lazy style="width:50%" }
 
-    2. Per ogni $x \in [-1,4]$, $f(x)$ è il più grande dei tre valori $h_1(x) = 1-x$, $h_2(x)=\frac{1}{2}x$ e $h_3(x)=2x-3$, e ciascuno di essi ha la forma $h_k(x) = a_k\,x + b_k$. Per dimostrare che la funzione è convessa nel suo dominio, osserviamo che il dominio è convesso e che per ogni coppia di punti $p, w \in [-1,4]$ e ogni $\lambda \in [0,1]$, indicando con $k \in \{1,2,3\}$ un indice tale che $f\big(\lambda p + (1-\lambda) w\big) = h_k\big(\lambda p + (1-\lambda) w\big)$, abbiamo:
+    2. Per ogni $x \in [-1,4]$, $f(x)$ è il più grande dei tre valori $h_1(x) = 1-x$, $h_2(x)=\frac{1}{2}x$ e $h_3(x)=2x-3$, e ciascuno di essi ha la forma $h_k(x) = a_k\,x + b_k$. Per ogni coppia di punti $p, w \in [-1,4]$ e ogni $\lambda \in [0,1]$, abbiamo:
 
         \begin{align*}
-        & f\big(\lambda p+(1-\lambda)w\big) \\[2ex]
-        &\quad = a_k\,\big(\lambda p+(1-\lambda)w\big) + b_k \\[2ex]
-        &\quad = \lambda\,(a_k\,p + b_k) + (1-\lambda)\,(a_k\,w + b_k) \\[2ex]
-        &\quad \le \lambda f(p)+(1-\lambda)f(w)\\[1ex]
-        &\qquad (\text{poiché } a_k\,p + b_k \le f(p),~ a_k\,w + b_k \le f(w),~ \lambda, 1-\lambda \ge 0).
+        f\big(\lambda p+(1-\lambda)w\big)
+        &= h_k\big(\lambda p+(1-\lambda)w\big) \\[1ex]
+        &\qquad \text{(per un indice $k \in \{1,2,3\}$ che realizza il massimo)} \\[2ex]
+        &= a_k\,\big(\lambda p+(1-\lambda)w\big) + b_k \\[2ex]
+        &= \lambda\,(a_k\,p + b_k) + (1-\lambda)\,(a_k\,w + b_k) \\[1ex]
+        &\qquad (\text{poiché } \lambda + (1-\lambda) = 1) \\[2ex]
+        &\le \lambda f(p)+(1-\lambda)f(w)\\[1ex]
+        &\qquad (\text{poiché } a_k\,p + b_k \le f(p),~ a_k\,w + b_k \le f(w),~ \lambda, 1-\lambda \ge 0)
         \end{align*}
 
         Quindi,
 
         $$
-        f\big(\lambda p + (1-\lambda) w\big)
-        \le
-        \lambda f(p) + (1-\lambda) f(w)
+        f\big(\lambda p + (1-\lambda) w\big) \le \lambda f(p) + (1-\lambda) f(w)
         $$
 
         Il dominio $[-1,4]$ è un intervallo, quindi un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio.
@@ -246,49 +243,45 @@ Negli esercizi di questo capitolo la convessità e la concavità si dimostrano s
 
 ??? soluzione "Soluzione"
 
-    1. Per dimostrare che la funzione è convessa nel suo dominio, osserviamo che il dominio è convesso e che per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
+    1. Per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
 
         \begin{align*}
-        & f\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big) \\[2ex]
-        &\quad = \big(\lambda p_1+(1-\lambda)w_1\big)^2 + \big(\lambda p_2+(1-\lambda)w_2\big)^2 - 9 \\[2ex]
-        &\quad \le \lambda p_1^2+(1-\lambda)w_1^2 + \lambda p_2^2+(1-\lambda)w_2^2 - 9 \\[1ex]
+        f\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big)
+        &= \big(\lambda p_1+(1-\lambda)w_1\big)^2 + \big(\lambda p_2+(1-\lambda)w_2\big)^2 - 9 \\[2ex]
+        &\le \lambda p_1^2+(1-\lambda)w_1^2 + \lambda p_2^2+(1-\lambda)w_2^2 - 9 \\[1ex]
         &\qquad \text{(poiché } (\lambda a+(1-\lambda)b)^2\le \lambda a^2+(1-\lambda)b^2\text{)} \\[2ex]
-        &\quad = \lambda\,\big(p_1^2+p_2^2-9\big)+(1-\lambda)\,\big(w_1^2+w_2^2-9\big) \\[2ex]
-        &\quad = \lambda f({\boldsymbol p})+(1-\lambda)f({\boldsymbol w}).
+        &= \lambda\,\big(p_1^2+p_2^2-9\big)+(1-\lambda)\,\big(w_1^2+w_2^2-9\big) \\[2ex]
+        &= \lambda f({\boldsymbol p})+(1-\lambda)f({\boldsymbol w})
         \end{align*}
 
         Quindi,
 
         $$
-        f(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w})
-        \le
-        \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
+        f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \le \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
         $$
 
         Per natura, il dominio $\R^2$ è un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio.
 
-    2. Sia ${\boldsymbol c} = \begin{pmatrix} 2 \\ 2 \end{pmatrix}$. Per dimostrare che la funzione è convessa nel suo dominio, osserviamo che il dominio è convesso e che per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
+    2. Sia ${\boldsymbol c} = \begin{pmatrix} 2 \\ 2 \end{pmatrix}$. Per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
 
         \begin{align*}
-        & g\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big) \\[2ex]
-        &\quad = \big\| \lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w} - {\boldsymbol c} \big\|_2 + 1 \\[2ex]
-        &\quad = \big\| \lambda ({\boldsymbol p}-{\boldsymbol c})+(1-\lambda)({\boldsymbol w} - {\boldsymbol c}) \big\|_2 + 1 \\[2ex]
-        &\quad \le \big\| \lambda ({\boldsymbol p}-{\boldsymbol c}) \big\|_2 + \big\| (1-\lambda)({\boldsymbol w} - {\boldsymbol c}) \big\|_2 + 1
-        \quad \text{(per la disuguaglianza triangolare)} \\[2ex]
-        &\quad = |\lambda| \; \| {\boldsymbol p}-{\boldsymbol c} \|_2 + |1-\lambda| \; \| {\boldsymbol w} - {\boldsymbol c} \|_2 + 1
-        \quad \text{(per l'omogeneità assoluta)} \\[2ex]
-        &\quad = \lambda \; \| {\boldsymbol p}-{\boldsymbol c} \|_2 + (1-\lambda) \; \| {\boldsymbol w} - {\boldsymbol c} \|_2 + 1
-        \quad (\text{poiché } \lambda \ge 0 \text{ e } 1-\lambda \ge 0) \\[2ex]
-        &\quad = \lambda\,\big(\| {\boldsymbol p}-{\boldsymbol c} \|_2 + 1\big)+(1-\lambda)\,\big(\| {\boldsymbol w}-{\boldsymbol c} \|_2 + 1\big) \\[2ex]
-        &\quad = \lambda g({\boldsymbol p})+(1-\lambda)g({\boldsymbol w}).
+        g\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big)
+        &= \big\| \lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w} - {\boldsymbol c} \big\|_2 + 1 \\[2ex]
+        &= \big\| \lambda ({\boldsymbol p}-{\boldsymbol c})+(1-\lambda)({\boldsymbol w} - {\boldsymbol c}) \big\|_2 + 1 \\[2ex]
+        &\le \big\| \lambda ({\boldsymbol p}-{\boldsymbol c}) \big\|_2 + \big\| (1-\lambda)({\boldsymbol w} - {\boldsymbol c}) \big\|_2 + 1 \\[1ex]
+        &\qquad \text{(per la disuguaglianza triangolare)} \\[2ex]
+        &= |\lambda| \; \| {\boldsymbol p}-{\boldsymbol c} \|_2 + |1-\lambda| \; \| {\boldsymbol w} - {\boldsymbol c} \|_2 + 1 \\[1ex]
+        &\qquad \text{(per l'omogeneità assoluta)} \\[2ex]
+        &= \lambda \; \| {\boldsymbol p}-{\boldsymbol c} \|_2 + (1-\lambda) \; \| {\boldsymbol w} - {\boldsymbol c} \|_2 + 1 \\[1ex]
+        &\qquad (\text{poiché } \lambda \ge 0 \text{ e } 1-\lambda \ge 0) \\[2ex]
+        &= \lambda\,\big(\| {\boldsymbol p}-{\boldsymbol c} \|_2 + 1\big)+(1-\lambda)\,\big(\| {\boldsymbol w}-{\boldsymbol c} \|_2 + 1\big) \\[2ex]
+        &= \lambda g({\boldsymbol p})+(1-\lambda)g({\boldsymbol w})
         \end{align*}
 
         Quindi,
 
         $$
-        g(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w})
-        \le
-        \lambda g({\boldsymbol p}) + (1-\lambda) g({\boldsymbol w})
+        g\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \le \lambda g({\boldsymbol p}) + (1-\lambda) g({\boldsymbol w})
         $$
 
         Per natura, il dominio $\R^2$ è un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio.
@@ -296,15 +289,21 @@ Negli esercizi di questo capitolo la convessità e la concavità si dimostrano s
     3. L'insieme è $\big\{\, {\boldsymbol x} \in \R^2 : f({\boldsymbol x}) \le 0 \,\big\}$. Per ogni coppia di punti ${\boldsymbol p}$ e ${\boldsymbol w}$ dell'insieme e per ogni $\lambda \in [0,1]$, abbiamo:
 
         \begin{align*}
-        & f\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big) \\[2ex]
-        &\quad \le \lambda f({\boldsymbol p})+(1-\lambda)f({\boldsymbol w})
-        \quad \text{(per la prima domanda)} \\[2ex]
-        &\quad \le \lambda \cdot 0 + (1-\lambda) \cdot 0
-        \quad (\text{poiché } f({\boldsymbol p}) \le 0,~ f({\boldsymbol w}) \le 0,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0) \\[2ex]
-        &\quad = 0 .
+        f\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big)
+        &\le \lambda f({\boldsymbol p})+(1-\lambda)f({\boldsymbol w}) \\[1ex]
+        &\qquad \text{(per la prima domanda)} \\[2ex]
+        &\le \lambda \cdot 0 + (1-\lambda) \cdot 0 \\[1ex]
+        &\qquad (\text{poiché } f({\boldsymbol p}) \le 0,~ f({\boldsymbol w}) \le 0,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0) \\[2ex]
+        &= 0
         \end{align*}
 
-        Allora $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}$ appartiene all'insieme e, quindi, l'insieme è convesso. È il disco di raggio $3$ centrato nell'origine.
+        Quindi,
+
+        $$
+        f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \le 0
+        $$
+
+        Di conseguenza, $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}$ appartiene all'insieme e l'insieme è convesso. È il disco di raggio $3$ centrato nell'origine.
 
     4. Questo è il grafico della funzione $f$ nel dominio $\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \in [-4,4] \times [-4,4]$; il suo punto più basso è $\big(0,0,f(0,0)\big) = (0,0,-9)$.
 
@@ -350,29 +349,25 @@ Negli esercizi di questo capitolo la convessità e la concavità si dimostrano s
 
 ??? soluzione "Soluzione"
 
-    1. Per dimostrare che la funzione è convessa e concava nel suo dominio, osserviamo che il dominio è convesso e che per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
+    1. Per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
 
         \begin{align*}
-        & f\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big) \\[2ex]
-        &\quad = \big(\lambda p_1+(1-\lambda)w_1\big) + \big(\lambda p_2+(1-\lambda)w_2\big) - \big(\lambda + (1-\lambda)\big) \\[2ex]
-        &\quad = \lambda\,\big(p_1+p_2-1\big)+(1-\lambda)\,\big(w_1+w_2-1\big) \\[2ex]
-        &\quad = \lambda f({\boldsymbol p})+(1-\lambda)f({\boldsymbol w}).
+        f\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big)
+        &= \big(\lambda p_1+(1-\lambda)w_1\big) + \big(\lambda p_2+(1-\lambda)w_2\big) - \big(\lambda + (1-\lambda)\big) \\[2ex]
+        &= \lambda\,\big(p_1+p_2-1\big)+(1-\lambda)\,\big(w_1+w_2-1\big) \\[2ex]
+        &= \lambda f({\boldsymbol p})+(1-\lambda)f({\boldsymbol w})
         \end{align*}
 
         Quindi, valgono le disuguaglianze di entrambe le definizioni (con l'uguaglianza):
 
         $$
-        f(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w})
-        \le
-        \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
+        f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \le \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
         $$
 
         e
 
         $$
-        f(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w})
-        \ge
-        \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
+        f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \ge \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
         $$
 
         Per natura, il dominio $\R^2$ è un insieme convesso. Di conseguenza, la funzione è sia convessa sia concava nel suo dominio.
@@ -381,22 +376,22 @@ Negli esercizi di questo capitolo la convessità e la concavità si dimostrano s
 
         ![Figura 4](../img/es-03-funzioni-convesse-concave/fig04.svg){ .fig .ovale loading=lazy style="width:59%" }
 
-    3. Per ogni ${\boldsymbol x} \in \R^2$, $g({\boldsymbol x})$ è il più piccolo dei due valori $h_1({\boldsymbol x}) = x_1 + x_2 - 1$ e $h_2({\boldsymbol x}) = 2 - x_1$; come mostrato per $f$ nella prima domanda, ciascuno di essi soddisfa $h_k\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big) = \lambda h_k({\boldsymbol p}) + (1-\lambda) h_k({\boldsymbol w})$. Per dimostrare che la funzione è concava nel suo dominio, osserviamo che il dominio è convesso e che per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, indicando con $k \in \{1,2\}$ un indice tale che $g\big(\lambda {\boldsymbol p} + (1-\lambda) {\boldsymbol w}\big) = h_k\big(\lambda {\boldsymbol p} + (1-\lambda) {\boldsymbol w}\big)$, abbiamo:
+    3. Per ogni ${\boldsymbol x} \in \R^2$, $g({\boldsymbol x})$ è il più piccolo dei due valori $h_1({\boldsymbol x}) = x_1 + x_2 - 1$ e $h_2({\boldsymbol x}) = 2 - x_1$; come mostrato per $f$ nella prima domanda, ciascuno di essi soddisfa $h_k\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big) = \lambda h_k({\boldsymbol p}) + (1-\lambda) h_k({\boldsymbol w})$. Per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
 
         \begin{align*}
-        & g\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big) \\[2ex]
-        &\quad = h_k\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big) \\[2ex]
-        &\quad = \lambda\, h_k({\boldsymbol p}) + (1-\lambda)\, h_k({\boldsymbol w}) \\[2ex]
-        &\quad \ge \lambda g({\boldsymbol p})+(1-\lambda)g({\boldsymbol w})
-        \quad (\text{poiché } h_k({\boldsymbol p}) \ge g({\boldsymbol p}),~ h_k({\boldsymbol w}) \ge g({\boldsymbol w}),~ \lambda, 1-\lambda \ge 0).
+        g\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big)
+        &= h_k\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big) \\[1ex]
+        &\qquad \text{(per un indice $k \in \{1,2\}$ che realizza il minimo)} \\[2ex]
+        &= \lambda\, h_k({\boldsymbol p}) + (1-\lambda)\, h_k({\boldsymbol w}) \\[1ex]
+        &\qquad \text{(come mostrato per $f$ nella prima domanda)} \\[2ex]
+        &\ge \lambda g({\boldsymbol p})+(1-\lambda)g({\boldsymbol w}) \\[1ex]
+        &\qquad (\text{poiché } h_k({\boldsymbol p}) \ge g({\boldsymbol p}),~ h_k({\boldsymbol w}) \ge g({\boldsymbol w}),~ \lambda, 1-\lambda \ge 0)
         \end{align*}
 
         Quindi,
 
         $$
-        g(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w})
-        \ge
-        \lambda g({\boldsymbol p}) + (1-\lambda) g({\boldsymbol w})
+        g\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \ge \lambda g({\boldsymbol p}) + (1-\lambda) g({\boldsymbol w})
         $$
 
         Per natura, il dominio $\R^2$ è un insieme convesso. Di conseguenza, la funzione è concava nel suo dominio.
@@ -451,67 +446,63 @@ Negli esercizi di questo capitolo la convessità e la concavità si dimostrano s
 
 ??? soluzione "Soluzione"
 
-    1. Sia $d = p - w$, così che $p = w + d$ e $m = w + \lambda d$. Calcoliamo il contributo di ciascun termine di $f$:
-
-        \begin{align*}
-        & \lambda p^3 + (1-\lambda) w^3 - m^3 \\[2ex]
-        &\quad = \lambda\,\big(w^3 + 3w^2 d + 3 w d^2 + d^3\big) + (1-\lambda)\,w^3 \\[1ex]
-        &\quad \phantom{=} - \big(w^3 + 3\lambda w^2 d + 3\lambda^2 w d^2 + \lambda^3 d^3\big) \\[2ex]
-        &\quad = 3\,(\lambda - \lambda^2)\, w\, d^2 + (\lambda - \lambda^3)\, d^3 \\[2ex]
-        &\quad = \lambda(1-\lambda)\, d^2\, \big(3w + (1+\lambda)\, d\big) \\[2ex]
-        &\quad = \lambda(1-\lambda)\, d^2\, (p + w + m), \\[4ex]
-        & \lambda p^2 + (1-\lambda) w^2 - m^2 \\[2ex]
-        &\quad = \lambda\,\big(w^2 + 2 w d + d^2\big) + (1-\lambda)\,w^2 - \big(w^2 + 2\lambda w d + \lambda^2 d^2\big) \\[2ex]
-        &\quad = \lambda(1-\lambda)\, d^2, \\[4ex]
-        & \lambda p + (1-\lambda) w - m = 0
-        \qquad \text{e} \qquad
-        \lambda \cdot 2 + (1-\lambda) \cdot 2 - 2 = 0,
-        \end{align*}
-
-        dove abbiamo usato $3w + (1+\lambda)\,d = (w+d) + w + (w + \lambda d) = p + w + m$. Quindi:
+    1. Per ogni $p, w \in \R$ e ogni $\lambda \in [0,1]$, sia $d = p - w$, così che $p = w + d$ e $m = w + \lambda d$. Abbiamo:
 
         \begin{align*}
         \lambda f(p) + (1-\lambda) f(w) - f(m)
-        &= \lambda(1-\lambda)\, d^2\, (p + w + m) - 6\,\lambda(1-\lambda)\, d^2 \\[2ex]
-        &= \lambda (1-\lambda) (p-w)^2 \, (p + w + m - 6).
+        &= 2\,\big(\lambda + (1-\lambda) - 1\big) + 9\,\big(\lambda p + (1-\lambda) w - m\big) \\
+        &\qquad - 6\,\big(\lambda p^2 + (1-\lambda) w^2 - m^2\big) \\
+        &\qquad + \lambda p^3 + (1-\lambda) w^3 - m^3 \\[2ex]
+        &= - 6\,\big(\lambda p^2 + (1-\lambda) w^2 - m^2\big) \\
+        &\qquad + \lambda p^3 + (1-\lambda) w^3 - m^3 \\[1ex]
+        &\qquad (\text{poiché } \lambda + (1-\lambda) = 1 \\
+        &\qquad\quad \text{e } m = \lambda p + (1-\lambda) w) \\[2ex]
+        &= - 6\,\bigl(\lambda w^2 + 2\lambda w d + \lambda d^2 + (1-\lambda) w^2 \\
+        &\qquad - w^2 - 2\lambda w d - \lambda^2 d^2\bigr) \\
+        &\qquad + \lambda\,\big(w^3 + 3w^2 d + 3 w d^2 + d^3\big) + (1-\lambda)\,w^3 \\
+        &\qquad - \big(w^3 + 3\lambda w^2 d + 3\lambda^2 w d^2 + \lambda^3 d^3\big) \\[1ex]
+        &\qquad (\text{sviluppando le potenze, poiché } p = w + d \\
+        &\qquad\quad \text{e } m = w + \lambda d) \\[2ex]
+        &= - 6\,(\lambda - \lambda^2)\, d^2 + 3\,(\lambda - \lambda^2)\, w\, d^2 + (\lambda - \lambda^3)\, d^3 \\[2ex]
+        &= \lambda(1-\lambda)\, d^2\, \big(3w + (1+\lambda)\, d - 6\big) \\[2ex]
+        &= \lambda(1-\lambda)\, d^2\, (p + w + m - 6) \\[1ex]
+        &\qquad (\text{poiché } 3w + (1+\lambda)\,d = (w+d) + w + (w + \lambda d) \\
+        &\qquad\quad = p + w + m) \\[2ex]
+        &= \lambda (1-\lambda) (p-w)^2 \, (p + w + m - 6)
         \end{align*}
 
-    2. Per dimostrare che la funzione è convessa nel suo dominio, osserviamo che il dominio è convesso e che per ogni coppia di punti $p, w \in [2,4]$ e ogni $\lambda \in [0,1]$, con $m = \lambda p + (1-\lambda) w \in [2,4]$, abbiamo:
+    2. Per ogni coppia di punti $p, w \in [2,4]$ e ogni $\lambda \in [0,1]$, con $m = \lambda p + (1-\lambda) w \in [2,4]$, abbiamo:
 
         \begin{align*}
-        & f\big(\lambda p+(1-\lambda)w\big) \\[2ex]
-        &\quad = \lambda f(p)+(1-\lambda)f(w) - \lambda (1-\lambda) (p-w)^2 \, (p + w + m - 6)
-        \quad \text{(per la domanda 1)} \\[2ex]
-        &\quad \le \lambda f(p)+(1-\lambda)f(w)\\[1ex]
-        &\qquad (\text{poiché } \lambda (1-\lambda) (p-w)^2 \ge 0,~ p, w, m \ge 2).
+        f\big(\lambda p+(1-\lambda)w\big)
+        &= \lambda f(p)+(1-\lambda)f(w) - \lambda (1-\lambda) (p-w)^2 \, (p + w + m - 6) \\[1ex]
+        &\qquad \text{(per la domanda 1)} \\[2ex]
+        &\le \lambda f(p)+(1-\lambda)f(w)\\[1ex]
+        &\qquad (\text{poiché } \lambda (1-\lambda) (p-w)^2 \ge 0,~ p, w, m \ge 2)
         \end{align*}
 
         Quindi,
 
         $$
-        f\big(\lambda p + (1-\lambda) w\big)
-        \le
-        \lambda f(p) + (1-\lambda) f(w)
+        f\big(\lambda p + (1-\lambda) w\big) \le \lambda f(p) + (1-\lambda) f(w)
         $$
 
         Il dominio $[2,4]$ è un intervallo, quindi un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio.
 
-    3. Per dimostrare che la funzione è concava nel suo dominio, osserviamo che il dominio è convesso e che per ogni coppia di punti $p, w \in [-1,2]$ e ogni $\lambda \in [0,1]$, con $m = \lambda p + (1-\lambda) w \in [-1,2]$, abbiamo:
+    3. Per ogni coppia di punti $p, w \in [-1,2]$ e ogni $\lambda \in [0,1]$, con $m = \lambda p + (1-\lambda) w \in [-1,2]$, abbiamo:
 
         \begin{align*}
-        & f\big(\lambda p+(1-\lambda)w\big) \\[2ex]
-        &\quad = \lambda f(p)+(1-\lambda)f(w) - \lambda (1-\lambda) (p-w)^2 \, (p + w + m - 6)
-        \quad \text{(per la domanda 1)} \\[2ex]
-        &\quad \ge \lambda f(p)+(1-\lambda)f(w)
-        \quad (\text{poiché } \lambda (1-\lambda) (p-w)^2 \ge 0,~ p, w, m \le 2).
+        f\big(\lambda p+(1-\lambda)w\big)
+        &= \lambda f(p)+(1-\lambda)f(w) - \lambda (1-\lambda) (p-w)^2 \, (p + w + m - 6) \\[1ex]
+        &\qquad \text{(per la domanda 1)} \\[2ex]
+        &\ge \lambda f(p)+(1-\lambda)f(w) \\[1ex]
+        &\qquad (\text{poiché } \lambda (1-\lambda) (p-w)^2 \ge 0,~ p, w, m \le 2)
         \end{align*}
 
         Quindi,
 
         $$
-        f\big(\lambda p + (1-\lambda) w\big)
-        \ge
-        \lambda f(p) + (1-\lambda) f(w)
+        f\big(\lambda p + (1-\lambda) w\big) \ge \lambda f(p) + (1-\lambda) f(w)
         $$
 
         Il dominio $[-1,2]$ è un intervallo, quindi un insieme convesso. Di conseguenza, la funzione è concava nel suo dominio.

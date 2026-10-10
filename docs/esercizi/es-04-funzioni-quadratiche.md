@@ -112,7 +112,7 @@ dello stesso capitolo si applica a ciascun quadrato.
         \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
         $$
 
-        Il dominio $\R^2$ è, per sua natura, un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio.
+        Per natura, il dominio $\R^2$ è un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio.
 
     5. Questo è il grafico della funzione nel dominio $\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \in [-2,2] \times [-2,2]$; il suo punto più basso è $\big(0,0,f(0,0)\big) = (0,0,0)$ e i suoi punti più alti sono in $(2,2)$ e $(-2,-2)$, dove $f = 32$.
 
@@ -189,7 +189,7 @@ dello stesso capitolo si applica a ciascun quadrato.
         \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
         $$
 
-        Il dominio $\R^2$ è, per sua natura, un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio.
+        Per natura, il dominio $\R^2$ è un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio.
 
 <a id="esercizio-4-3"></a>
 
@@ -301,7 +301,7 @@ dello stesso capitolo si applica a ciascun quadrato.
         \lambda g({\boldsymbol p}) + (1-\lambda) g({\boldsymbol w})
         $$
 
-        Il dominio $\R^2$ è, per sua natura, un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio.
+        Per natura, il dominio $\R^2$ è un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio.
 
 <a id="esercizio-4-4"></a>
 
@@ -405,7 +405,7 @@ dello stesso capitolo si applica a ciascun quadrato.
         \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
         $$
 
-        Il dominio $\R^3$ è, per sua natura, un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio.
+        Per natura, il dominio $\R^3$ è un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio.
 
     4. Il coefficiente $4$ di $x_1 x_2$ si ripartisce in parti uguali fra i due elementi fuori diagonale:
 

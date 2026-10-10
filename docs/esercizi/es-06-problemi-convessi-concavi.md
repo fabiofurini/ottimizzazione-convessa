@@ -10,6 +10,8 @@ title: "Esercizi · Problemi di ottimizzazione convessi e concavi"
 
 </div>
 
+## Problemi in una variabile
+
 Negli esercizi di questo capitolo la convessità e la concavità delle funzioni obiettivo si dimostrano solo con le definizioni del capitolo «Funzioni convesse e concave», usando la disuguaglianza
 
 $$
@@ -106,89 +108,7 @@ dello stesso capitolo. Le regioni ammissibili sono descritte da vincoli $g_i({\b
 
 <a id="esercizio-6-2"></a>
 
-!!! esercizio "Esercizio 6.2: Problemi di ottimizzazione convessi e concavi (E2)"
-
-    Consideriamo il seguente problema di ottimizzazione:
-
-    $$
-    \min \bigg\{\, (x_1-2)^2 + (x_2-2)^2 \ \text{ soggetto a } \ x_1 + x_2 \le 2,~ x_1 \ge 0,~ x_2 \ge 0 \,\bigg\}
-    $$
-
-    con funzione obiettivo $f:\R^2 \to \R,~ f: {\boldsymbol x} \mapsto (x_1-2)^2 + (x_2-2)^2$ e regione ammissibile $F$.
-
-    **Domande**
-
-    1. Dimostrare che la regione ammissibile è un insieme convesso.
-
-    2. Dimostrare che la funzione obiettivo è convessa nel suo dominio, e dedurre che il problema è un problema di minimizzazione convesso.
-
-    3. Descrivere gli insiemi di livello della funzione obiettivo per $k=2$ e $k=8$, e disegnarli insieme alla regione ammissibile.
-
-    4. Dimostrare che ${\boldsymbol x} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ è l'unica soluzione ottima e calcolare il valore ottimo.
-
-    5. Il problema ha un punto di minimo locale diverso da $\begin{pmatrix} 1 \\ 1 \end{pmatrix}$?
-
-??? soluzione "Soluzione"
-
-    1. La regione ammissibile è l'insieme dei punti che soddisfano i tre vincoli
-
-        $$
-        g_1({\boldsymbol x}) = x_1 + x_2 - 2 \le 0, \qquad g_2({\boldsymbol x}) = -x_1 \le 0, \qquad g_3({\boldsymbol x}) = -x_2 \le 0 .
-        $$
-
-        Ogni funzione $g_i$ è lineare, ed è convessa, poiché la definizione vale con l'uguaglianza: per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo
-
-        $$
-        g_1\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big) = \lambda\,(p_1+p_2-2) + (1-\lambda)\,(w_1+w_2-2) = \lambda\, g_1({\boldsymbol p}) + (1-\lambda)\, g_1({\boldsymbol w}),
-        $$
-
-        e allo stesso modo per $g_2$ e $g_3$. La regione ammissibile è definita da vincoli con funzioni convesse, quindi è un insieme convesso: è il triangolo con vertici $\begin{pmatrix} 0 \\ 0 \end{pmatrix}$, $\begin{pmatrix} 2 \\ 0 \end{pmatrix}$ e $\begin{pmatrix} 0 \\ 2 \end{pmatrix}$, intersezione di tre semipiani.
-
-    2. Per dimostrare che la funzione obiettivo è convessa nel suo dominio, osserviamo che per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
-
-        \begin{align*}
-        f\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big)
-        &= \big(\lambda (p_1-2)+(1-\lambda)(w_1-2)\big)^2 \\
-        &\qquad + \big(\lambda (p_2-2)+(1-\lambda)(w_2-2)\big)^2 \\[1ex]
-        &\qquad (\text{poiché } \lambda + (1-\lambda) = 1) \\[2ex]
-        &\le \lambda (p_1-2)^2+(1-\lambda)(w_1-2)^2 + \lambda (p_2-2)^2+(1-\lambda)(w_2-2)^2 \\[1ex]
-        &\qquad \text{(poiché } \big(\lambda a+(1-\lambda)b\big)^2\le \lambda a^2+(1-\lambda)b^2\text{,} \\
-        &\qquad \phantom{\text{(}}\text{due volte)} \\[2ex]
-        &= \lambda \big((p_1-2)^2+(p_2-2)^2\big)+(1-\lambda)\big((w_1-2)^2+(w_2-2)^2\big) \\[2ex]
-        &= \lambda f({\boldsymbol p})+(1-\lambda)f({\boldsymbol w})
-        \end{align*}
-
-        Quindi,
-
-        $$
-        f\big(\lambda {\boldsymbol p} + (1-\lambda) {\boldsymbol w}\big) \le \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
-        $$
-
-        Per natura, il dominio $\R^2$ è un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio, e in particolare sulla regione ammissibile convessa $F$: il problema è un problema di minimizzazione convesso.
-
-    3. L'insieme di livello per $k$ è l'insieme dei punti con $(x_1-2)^2 + (x_2-2)^2 = k$, cioè la circonferenza di centro $\begin{pmatrix} 2 \\ 2 \end{pmatrix}$ e raggio $\sqrt{k}$. Per $k=2$, il raggio è $\sqrt{2}$ e la circonferenza passa per $\begin{pmatrix} 1 \\ 1 \end{pmatrix}$, poiché $1+1=2$; per $k=8$, il raggio è $2\sqrt{2}$ e la circonferenza passa per $\begin{pmatrix} 0 \\ 0 \end{pmatrix}$, poiché $4+4=8$. Nella figura, la regione ammissibile è rossa, l'insieme di livello $k=2$ è blu, l'insieme di livello $k=8$ è arancione e la soluzione ottima della domanda successiva è blu: la circonferenza $k=2$ tocca la regione ammissibile solo in questo punto.
-
-        ![Figura 2](../img/es-06-problemi-convessi-concavi/fig02.svg){ .fig .ovale loading=lazy style="width:50%" }
-
-    4. Per ogni punto ammissibile ${\boldsymbol x}$, poniamo $a = x_1 - 2$ e $b = x_2 - 2$. Poiché $x_1 + x_2 \le 2$, abbiamo $a + b = x_1 + x_2 - 4 \le -2$, e quindi $(a+b)^2 \ge 4$. Inoltre, $2\,(a^2+b^2) - (a+b)^2 = (a-b)^2 \ge 0$. Quindi:
-
-        $$
-        f({\boldsymbol x}) = a^2 + b^2 \ge \frac{(a+b)^2}{2} \ge \frac{4}{2} = 2 = f\left(\begin{pmatrix} 1 \\ 1 \end{pmatrix}\right), \qquad \forall {\boldsymbol x} \in F,
-        $$
-
-        e il punto $\begin{pmatrix} 1 \\ 1 \end{pmatrix}$ è ammissibile, poiché $1+1 = 2$. L'uguaglianza vale solo se $a = b$ e $a + b = -2$, cioè $a=b=-1$ e ${\boldsymbol x} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$. L'unica soluzione ottima e il valore ottimo sono:
-
-        $$
-        \tilde{\boldsymbol x}(P) = \begin{pmatrix} 1 \\ 1 \end{pmatrix}
-        \qquad \text{e} \qquad
-        z(P) = 2.
-        $$
-
-    5. No. Il problema è un problema di minimizzazione convesso: per la proposizione «minimi locali dei problemi di minimizzazione convessi» del capitolo «Problemi di ottimizzazione convessi e concavi», ogni punto di minimo locale è un punto di minimo, cioè una soluzione ottima, e la soluzione ottima è unica.
-
-<a id="esercizio-6-3"></a>
-
-!!! esercizio "Esercizio 6.3: Problemi di ottimizzazione convessi e concavi (E3)"
+!!! esercizio "Esercizio 6.2: Problemi di ottimizzazione convessi e concavi (E3)"
 
     Consideriamo la seguente funzione obiettivo e la seguente regione ammissibile:
 
@@ -251,7 +171,7 @@ dello stesso capitolo. Le regioni ammissibili sono descritte da vincoli $g_i({\b
 
     2. Abbiamo $f(-1) = -1$, $f(1) = 3$, $f(3) = -1$ e $f(4) = -6$. Il grafico della funzione obiettivo sulla regione ammissibile è rosso e la regione ammissibile è la parte rossa dell'asse $x$; le soluzioni ottime dei due problemi sono blu e il punto di minimo locale che non è un punto di minimo è viola.
 
-        ![Figura 3](../img/es-06-problemi-convessi-concavi/fig03.svg){ .fig .ovale loading=lazy style="width:50%" }
+        ![Figura 2](../img/es-06-problemi-convessi-concavi/fig02.svg){ .fig .ovale loading=lazy style="width:50%" }
 
     3. Nell'intorno $N\big((-1),1\big) = (-2,0)$, i punti ammissibili sono quelli di $N\big((-1),1\big) \cap F = [-1,0)$. Per ognuno di questi punti abbiamo $-2 \le x-1 < -1$, quindi $(x-1)^2 \le 4$ e
 
@@ -269,7 +189,7 @@ dello stesso capitolo. Le regioni ammissibili sono descritte da vincoli $g_i({\b
         z(P) = -6.
         $$
 
-    4. La proposizione «minimi locali dei problemi di minimizzazione convessi» del capitolo «Problemi di ottimizzazione convessi e concavi» richiede una funzione obiettivo convessa sulla regione ammissibile. Per la prima domanda, la funzione obiettivo non è convessa su $F$: il problema di minimo non è un problema di minimizzazione convesso, e uno dei suoi punti di minimo locale non è un punto di minimo. Un metodo che esplora solo i punti vicini a $x=-1$ si ferma al minimo locale $-1$, mentre il valore ottimo è $-6$.
+    4. La proposizione «minimi locali dei problemi di minimizzazione convessi» del capitolo «Problemi di ottimizzazione convessi e concavi» richiede una funzione obiettivo convessa sulla regione ammissibile. Per la prima domanda, la funzione obiettivo non è convessa su $F$: il problema di minimo non è un problema di minimizzazione convesso, e uno dei suoi punti di minimo locale non è un punto di minimo. Un metodo che esplora solo i punti vicini a $x=-1$ si ferma al punto di minimo locale $x=-1$, con minimo locale $f(-1) = -1$, mentre il valore ottimo è $-6$.
 
     5. Nell'intorno $N\big((1),1\big) = (0,2)$, tutti i punti sono ammissibili e
 
@@ -284,6 +204,90 @@ dello stesso capitolo. Le regioni ammissibili sono descritte da vincoli $g_i({\b
         \qquad \text{e} \qquad
         z(P) = 3.
         $$
+
+## Problemi in due variabili
+
+<a id="esercizio-6-3"></a>
+
+!!! esercizio "Esercizio 6.3: Problemi di ottimizzazione convessi e concavi (E2)"
+
+    Consideriamo il seguente problema di ottimizzazione:
+
+    $$
+    \min \bigg\{\, (x_1-2)^2 + (x_2-2)^2 \ \text{ soggetto a } \ x_1 + x_2 \le 2,~ x_1 \ge 0,~ x_2 \ge 0 \,\bigg\}
+    $$
+
+    con funzione obiettivo $f:\R^2 \to \R,~ f: {\boldsymbol x} \mapsto (x_1-2)^2 + (x_2-2)^2$ e regione ammissibile $F$.
+
+    **Domande**
+
+    1. Dimostrare che la regione ammissibile è un insieme convesso.
+
+    2. Dimostrare che la funzione obiettivo è convessa nel suo dominio, e dedurre che il problema è un problema di minimizzazione convesso.
+
+    3. Descrivere gli insiemi di livello della funzione obiettivo per $k=2$ e $k=8$, e disegnarli insieme alla regione ammissibile.
+
+    4. Dimostrare che ${\boldsymbol x} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ è l'unica soluzione ottima e calcolare il valore ottimo.
+
+    5. Il problema ha un punto di minimo locale diverso da $\begin{pmatrix} 1 \\ 1 \end{pmatrix}$?
+
+??? soluzione "Soluzione"
+
+    1. La regione ammissibile è l'insieme dei punti che soddisfano i tre vincoli
+
+        $$
+        g_1({\boldsymbol x}) = x_1 + x_2 - 2 \le 0, \qquad g_2({\boldsymbol x}) = -x_1 \le 0, \qquad g_3({\boldsymbol x}) = -x_2 \le 0 .
+        $$
+
+        Ogni funzione $g_i$ è lineare, ed è convessa, poiché la definizione vale con l'uguaglianza: per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo
+
+        $$
+        g_1\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big) = \lambda\,(p_1+p_2-2) + (1-\lambda)\,(w_1+w_2-2) = \lambda\, g_1({\boldsymbol p}) + (1-\lambda)\, g_1({\boldsymbol w}),
+        $$
+
+        e allo stesso modo per $g_2$ e $g_3$. La regione ammissibile è definita da vincoli con funzioni convesse, quindi è un insieme convesso: è il triangolo con vertici $\begin{pmatrix} 0 \\ 0 \end{pmatrix}$, $\begin{pmatrix} 2 \\ 0 \end{pmatrix}$ e $\begin{pmatrix} 0 \\ 2 \end{pmatrix}$, intersezione di tre semipiani.
+
+    2. Per dimostrare che la funzione obiettivo è convessa nel suo dominio, osserviamo che per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
+
+        \begin{align*}
+        f\big(\lambda {\boldsymbol p}+(1-\lambda){\boldsymbol w}\big)
+        &= \big(\lambda (p_1-2)+(1-\lambda)(w_1-2)\big)^2 \\
+        &\qquad + \big(\lambda (p_2-2)+(1-\lambda)(w_2-2)\big)^2 \\[1ex]
+        &\qquad (\text{poiché } \lambda + (1-\lambda) = 1) \\[2ex]
+        &\le \lambda (p_1-2)^2+(1-\lambda)(w_1-2)^2 + \lambda (p_2-2)^2+(1-\lambda)(w_2-2)^2 \\[1ex]
+        &\qquad \text{(poiché } \big(\lambda a+(1-\lambda)b\big)^2\le \lambda a^2+(1-\lambda)b^2\text{,} \\
+        &\qquad \phantom{\text{(}}\text{due volte)} \\[2ex]
+        &= \lambda \big((p_1-2)^2+(p_2-2)^2\big)+(1-\lambda)\big((w_1-2)^2+(w_2-2)^2\big) \\[2ex]
+        &= \lambda f({\boldsymbol p})+(1-\lambda)f({\boldsymbol w})
+        \end{align*}
+
+        Quindi,
+
+        $$
+        f\big(\lambda {\boldsymbol p} + (1-\lambda) {\boldsymbol w}\big) \le \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
+        $$
+
+        Per natura, il dominio $\R^2$ è un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio, e in particolare sulla regione ammissibile convessa $F$: il problema è un problema di minimizzazione convesso.
+
+    3. L'insieme di livello per $k$ è l'insieme dei punti con $(x_1-2)^2 + (x_2-2)^2 = k$, cioè la circonferenza di centro $\begin{pmatrix} 2 \\ 2 \end{pmatrix}$ e raggio $\sqrt{k}$. Per $k=2$, il raggio è $\sqrt{2}$ e la circonferenza passa per $\begin{pmatrix} 1 \\ 1 \end{pmatrix}$, poiché $1+1=2$; per $k=8$, il raggio è $2\sqrt{2}$ e la circonferenza passa per $\begin{pmatrix} 0 \\ 0 \end{pmatrix}$, poiché $4+4=8$. Nella figura, la regione ammissibile è rossa, l'insieme di livello $k=2$ è blu, l'insieme di livello $k=8$ è arancione e la soluzione ottima della domanda successiva è blu: la circonferenza $k=2$ tocca la regione ammissibile solo in questo punto.
+
+        ![Figura 3](../img/es-06-problemi-convessi-concavi/fig03.svg){ .fig .ovale loading=lazy style="width:50%" }
+
+    4. Per ogni punto ammissibile ${\boldsymbol x}$, poniamo $a = x_1 - 2$ e $b = x_2 - 2$. Poiché $x_1 + x_2 \le 2$, abbiamo $a + b = x_1 + x_2 - 4 \le -2$, e quindi $(a+b)^2 \ge 4$. Inoltre, $2\,(a^2+b^2) - (a+b)^2 = (a-b)^2 \ge 0$. Quindi:
+
+        $$
+        f({\boldsymbol x}) = a^2 + b^2 \ge \frac{(a+b)^2}{2} \ge \frac{4}{2} = 2 = f\left(\begin{pmatrix} 1 \\ 1 \end{pmatrix}\right), \qquad \forall {\boldsymbol x} \in F,
+        $$
+
+        e il punto $\begin{pmatrix} 1 \\ 1 \end{pmatrix}$ è ammissibile, poiché $1+1 = 2$. L'uguaglianza vale solo se $a = b$ e $a + b = -2$, cioè $a=b=-1$ e ${\boldsymbol x} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$. L'unica soluzione ottima e il valore ottimo sono:
+
+        $$
+        \tilde{\boldsymbol x}(P) = \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+        \qquad \text{e} \qquad
+        z(P) = 2.
+        $$
+
+    5. No. Il problema è un problema di minimizzazione convesso: per la proposizione «minimi locali dei problemi di minimizzazione convessi» del capitolo «Problemi di ottimizzazione convessi e concavi», ogni punto di minimo locale è un punto di minimo, cioè una soluzione ottima, e la soluzione ottima è unica.
 
 <a id="esercizio-6-4"></a>
 

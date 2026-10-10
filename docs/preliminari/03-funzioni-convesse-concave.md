@@ -98,7 +98,7 @@ title: "Funzioni convesse e concave"
 
     ![Figura 3](../img/03-funzioni-convesse-concave/fig03.svg){ .fig .ovale loading=lazy style="width:50%" }
 
-    Per dimostrare che la funzione è convessa nel suo dominio, osserviamo che per ogni coppia di punti $p,w\in\R$ e ogni $\lambda\in[0,1]$, abbiamo:
+    Per ogni coppia di punti $p,w\in\R$ e ogni $\lambda\in[0,1]$, abbiamo:
 
     \begin{align*}
     f\big(\lambda p+(1-\lambda)w\big)
@@ -129,7 +129,7 @@ title: "Funzioni convesse e concave"
 
     ![Figura 4](../img/03-funzioni-convesse-concave/fig04.svg){ .fig .ovale loading=lazy style="width:50%" }
 
-    Per dimostrare che la funzione è convessa nel suo dominio, osserviamo che per ogni coppia di punti $p,w\in\R$ e ogni $\lambda\in[0,1]$, abbiamo:
+    Per ogni coppia di punti $p,w\in\R$ e ogni $\lambda\in[0,1]$, abbiamo:
 
     \begin{align*}
     f\big(\lambda p+(1-\lambda)w\big)
@@ -165,7 +165,7 @@ title: "Funzioni convesse e concave"
 
     ![Figura 5](../img/03-funzioni-convesse-concave/fig05.svg){ .fig .ovale loading=lazy style="width:62%" }
 
-    Per dimostrare che la funzione è convessa nel suo dominio, osserviamo che per ogni coppia di punti ${\boldsymbol p} = \begin{pmatrix} p_1 \\ p_2 \end{pmatrix}, {\boldsymbol w} = \begin{pmatrix} w_1 \\ w_2 \end{pmatrix} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
+    Per ogni coppia di punti ${\boldsymbol p} = \begin{pmatrix} p_1 \\ p_2 \end{pmatrix}, {\boldsymbol w} = \begin{pmatrix} w_1 \\ w_2 \end{pmatrix} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
 
     \begin{align*}
     f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big)
@@ -199,15 +199,15 @@ title: "Funzioni convesse e concave"
 
     ![Figura 6](../img/03-funzioni-convesse-concave/fig06.svg){ .fig .ovale loading=lazy style="width:62%" }
 
-    Per dimostrare che la funzione è convessa nel suo dominio, osserviamo che per ogni coppia di punti ${\boldsymbol p} = \begin{pmatrix} p_1 \\ p_2 \end{pmatrix}, {\boldsymbol w} = \begin{pmatrix} w_1 \\ w_2 \end{pmatrix} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
+    Per ogni coppia di punti ${\boldsymbol p} = \begin{pmatrix} p_1 \\ p_2 \end{pmatrix}, {\boldsymbol w} = \begin{pmatrix} w_1 \\ w_2 \end{pmatrix} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
 
     \begin{align*}
     f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big)
     &= (\lambda p_1+(1-\lambda)w_1)^2+(\lambda p_2+(1-\lambda)w_2)^2-9 \\[2ex]
-    &\le \lambda p_1^2+(1-\lambda)w_1^2+\lambda p_2^2+(1-\lambda)w_2^2-9 \\[2ex]
-    &\hspace{1cm} \text{(per la disuguaglianza \eqref{eq:squares}, due volte)} \\[2ex]
-    &= \lambda(p_1^2+p_2^2-9)+(1-\lambda)(w_1^2+w_2^2-9) \\[2ex]
-    &\hspace{1cm} (\text{poiché } \lambda + (1-\lambda) = 1) \\[2ex]
+    &\le \lambda p_1^2+(1-\lambda)w_1^2+\lambda p_2^2+(1-\lambda)w_2^2-9 \\[1ex]
+    &\qquad \text{(per la disuguaglianza \eqref{eq:squares}, due volte)} \\[2ex]
+    &= \lambda(p_1^2+p_2^2-9)+(1-\lambda)(w_1^2+w_2^2-9) \\[1ex]
+    &\qquad (\text{poiché } \lambda + (1-\lambda) = 1) \\[2ex]
     &= \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
     \end{align*}
 
@@ -225,7 +225,7 @@ title: "Funzioni convesse e concave"
 
 !!! esempio "Esempio 3.5: il valore assoluto è una funzione convessa"
 
-    Consideriamo la funzione $f: \R \rightarrow \R$, $f(x) = |x|$. Per dimostrare che la funzione è convessa nel suo dominio, osserviamo che per ogni coppia di punti $p, w \in \R$ e ogni $\lambda \in [0,1]$, abbiamo:
+    Consideriamo la funzione $f: \R \rightarrow \R$, $f(x) = |x|$. Per ogni coppia di punti $p, w \in \R$ e ogni $\lambda \in [0,1]$, abbiamo:
 
     \begin{align*}
     f\big(\lambda p + (1-\lambda) w\big)
@@ -258,16 +258,16 @@ title: "Funzioni convesse e concave"
 
 !!! esempio "Esempio 3.6: il minimo di due funzioni lineari è una funzione concava"
 
-    Consideriamo la funzione $f: [-2,4] \rightarrow \R$, $f(x) = \min\{\, x+2, \; 4-\frac{1}{2}x \,\}$. Per dimostrare che la funzione è concava nel suo dominio, osserviamo che per ogni coppia di punti $p, w \in [-2,4]$ e ogni $\lambda \in [0,1]$, abbiamo:
+    Consideriamo la funzione $f: [-2,4] \rightarrow \R$, $f(x) = \min\{\, x+2, \; 4-\frac{1}{2}x \,\}$. Per ogni coppia di punti $p, w \in [-2,4]$ e ogni $\lambda \in [0,1]$, abbiamo:
 
     \begin{align*}
     f\big(\lambda p + (1-\lambda) w\big)
     &= \min\Big\{\, \lambda p + (1-\lambda) w + 2, \; 4 - \tfrac{1}{2}\big(\lambda p + (1-\lambda) w\big) \,\Big\} \\[2ex]
-    &= \min\Big\{\, \lambda (p+2) + (1-\lambda)(w+2), \; \lambda \big(4-\tfrac{1}{2}p\big) + (1-\lambda)\big(4-\tfrac{1}{2}w\big) \,\Big\} \\[2ex]
-    &\hspace{1cm} (\text{poiché } \lambda + (1-\lambda) = 1) \\[2ex]
-    &\ge \min\Big\{\, \lambda f(p) + (1-\lambda) f(w), \; \lambda f(p) + (1-\lambda) f(w) \,\Big\} \\[2ex]
-    &\hspace{1cm} (\text{poiché } f(p) \le p+2,~ f(p) \le 4-\tfrac{1}{2}p,~ f(w) \le w+2, \\
-    &\hspace{1.3cm} f(w) \le 4-\tfrac{1}{2}w,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0) \\[2ex]
+    &= \min\Big\{\, \lambda (p+2) + (1-\lambda)(w+2), \; \lambda \big(4-\tfrac{1}{2}p\big) + (1-\lambda)\big(4-\tfrac{1}{2}w\big) \,\Big\} \\[1ex]
+    &\qquad (\text{poiché } \lambda + (1-\lambda) = 1) \\[2ex]
+    &\ge \min\Big\{\, \lambda f(p) + (1-\lambda) f(w), \; \lambda f(p) + (1-\lambda) f(w) \,\Big\} \\[1ex]
+    &\qquad (\text{poiché } f(p) \le p+2,~ f(p) \le 4-\tfrac{1}{2}p,~ f(w) \le w+2, \\
+    &\qquad\quad f(w) \le 4-\tfrac{1}{2}w,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0) \\[2ex]
     &= \lambda f(p) + (1-\lambda) f(w)
     \end{align*}
 
@@ -361,9 +361,7 @@ title: "Funzioni convesse e concave"
     Quindi,
 
     $$
-    f(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w})
-    \le
-    \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
+    f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \le \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
     $$
 
     Per natura, il dominio $\mathbb{R}^{n}$ è un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio. <span class="qed">□</span>
@@ -397,9 +395,7 @@ title: "Funzioni convesse e concave"
     Quindi,
 
     $$
-    f(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w})
-    \le
-    \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
+    f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \le \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
     $$
 
     Per natura, il dominio $\mathbb{R}^{n}$ è un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio. <span class="qed">□</span>
@@ -436,7 +432,7 @@ title: "Funzioni convesse e concave"
 
     ![Figura 9](../img/03-funzioni-convesse-concave/fig09.svg){ .fig .ovale loading=lazy style="width:62%" }
 
-    Per dimostrare che la funzione è convessa nel suo dominio, osserviamo che per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
+    Per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
 
     \begin{align*}
     f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big)
@@ -483,12 +479,12 @@ title: "Funzioni convesse e concave"
     &= \lambda^2 \|\boldsymbol{p}\|_2^2 + (1 - \lambda)^2 \|\boldsymbol{w}\|_2^2
     + 2\lambda(1 - \lambda)\,(\boldsymbol{p}' \; \boldsymbol{w}) \\[2ex]
     &\le \lambda^2 \|\boldsymbol{p}\|_2^2 + (1 - \lambda)^2 \|\boldsymbol{w}\|_2^2
-    + 2\lambda(1 - \lambda)\,\|\boldsymbol{p}\|_2\,\|\boldsymbol{w}\|_2  \\[2ex]
-    &\hspace{1cm}  \text{(per la disuguaglianza di Cauchy--Schwarz)} \\[2ex]
+    + 2\lambda(1 - \lambda)\,\|\boldsymbol{p}\|_2\,\|\boldsymbol{w}\|_2  \\[1ex]
+    &\qquad \text{(per la disuguaglianza di Cauchy--Schwarz)} \\[2ex]
     &\le \lambda^2 \|\boldsymbol{p}\|_2^2 + (1 - \lambda)^2 \|\boldsymbol{w}\|_2^2
-    + \lambda(1 - \lambda)\|\boldsymbol{p}\|_2^2 + \lambda(1 - \lambda)\|\boldsymbol{w}\|_2^2 \\[2ex]
-    &\hspace{1cm}\text{(poiché $2ab\le a^2+b^2$ per ogni $a,b \in \R$,} \\
-    &\hspace{1.3cm}\text{con $a=\|\boldsymbol{p}\|_2$ e $b=\|\boldsymbol{w}\|_2$)} \\[2ex]
+    + \lambda(1 - \lambda)\|\boldsymbol{p}\|_2^2 + \lambda(1 - \lambda)\|\boldsymbol{w}\|_2^2 \\[1ex]
+    &\qquad \text{(poiché $2ab\le a^2+b^2$ per ogni $a,b \in \R$,} \\
+    &\qquad\quad \text{con $a=\|\boldsymbol{p}\|_2$ e $b=\|\boldsymbol{w}\|_2$)} \\[2ex]
     &= \big(\lambda^2+\lambda(1-\lambda)\big)\|\boldsymbol{p}\|_2^2
     + \big((1-\lambda)^2+\lambda(1-\lambda)\big)\|\boldsymbol{w}\|_2^2 \\[2ex]
     &= \lambda\|\boldsymbol{p}\|_2^2 + (1 - \lambda)\|\boldsymbol{w}\|_2^2 \\[2ex]
@@ -498,9 +494,7 @@ title: "Funzioni convesse e concave"
     Quindi,
 
     $$
-    f(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w})
-    \le
-    \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
+    f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \le \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
     $$
 
     Per natura, il dominio $\mathbb{R}^{n}$ è un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio. <span class="qed">□</span>
@@ -516,8 +510,8 @@ title: "Funzioni convesse e concave"
     &= \big(\lambda \boldsymbol{p} + (1 - \lambda) \boldsymbol{w}\big)' \big(\lambda \boldsymbol{p} + (1 - \lambda) \boldsymbol{w}\big) \\[2ex]
     &= \lambda^2 \|\boldsymbol{p}\|_2^2 + (1 - \lambda)^2 \|\boldsymbol{w}\|_2^2 + 2\lambda(1 - \lambda)\,(\boldsymbol{p}' \boldsymbol{w}) \\[2ex]
     &= \lambda^2 \|\boldsymbol{p}\|_2^2 + (1 - \lambda)^2 \|\boldsymbol{w}\|_2^2 \\
-    &\qquad + \lambda(1 - \lambda)\bigl(\|\boldsymbol{p}\|_2^2 + \|\boldsymbol{w}\|_2^2 - \|\boldsymbol{p}-\boldsymbol{w}\|_2^2\bigr) \\[2ex]
-    &\hspace{1cm}\text{(poiché } \|\boldsymbol{p}-\boldsymbol{w}\|_2^2 = \|\boldsymbol{p}\|_2^2+\|\boldsymbol{w}\|_2^2-2\boldsymbol{p}'\boldsymbol{w}\text{)} \\[2ex]
+    &\qquad + \lambda(1 - \lambda)\bigl(\|\boldsymbol{p}\|_2^2 + \|\boldsymbol{w}\|_2^2 - \|\boldsymbol{p}-\boldsymbol{w}\|_2^2\bigr) \\[1ex]
+    &\qquad \text{(poiché } \|\boldsymbol{p}-\boldsymbol{w}\|_2^2 = \|\boldsymbol{p}\|_2^2+\|\boldsymbol{w}\|_2^2-2\boldsymbol{p}'\boldsymbol{w}\text{)} \\[2ex]
     &= \big(\lambda^2+\lambda(1-\lambda)\big)\|\boldsymbol{p}\|_2^2 + \big((1-\lambda)^2+\lambda(1-\lambda)\big)\|\boldsymbol{w}\|_2^2 \\
     &\qquad - \lambda(1-\lambda)\|\boldsymbol{p}-\boldsymbol{w}\|_2^2 \\[2ex]
     &= \lambda\|\boldsymbol{p}\|_2^2 + (1 - \lambda)\|\boldsymbol{w}\|_2^2 - \lambda(1-\lambda)\|\boldsymbol{p}-\boldsymbol{w}\|_2^2 \\[2ex]
@@ -528,9 +522,7 @@ title: "Funzioni convesse e concave"
     Quindi,
 
     $$
-    f(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w})
-    \le
-    \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
+    f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \le \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
     $$
 
     Per natura, il dominio $\mathbb{R}^{n}$ è un insieme convesso. Di conseguenza, la funzione è convessa nel suo dominio. <span class="qed">□</span>
@@ -567,7 +559,7 @@ title: "Funzioni convesse e concave"
 
     ![Figura 10](../img/03-funzioni-convesse-concave/fig10.svg){ .fig .ovale loading=lazy style="width:62%" }
 
-    Per dimostrare che la funzione è convessa nel suo dominio, osserviamo che per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
+    Per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo:
 
     \begin{align*}
     f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big)
@@ -603,8 +595,8 @@ title: "Funzioni convesse e concave"
     \begin{align*}
     (-f)\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big)
     &= -f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \\[2ex]
-    &\ge -\big(\lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})\big) \\[2ex]
-    &\hspace{1cm} \text{(poiché $f$ è convessa, e $-1$ inverte la disuguaglianza)} \\[2ex]
+    &\ge -\big(\lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})\big) \\[1ex]
+    &\qquad \text{(poiché $f$ è convessa, e $-1$ inverte la disuguaglianza)} \\[2ex]
     &= \lambda \, (-f)({\boldsymbol p}) + (1-\lambda) \, (-f)({\boldsymbol w})
     \end{align*}
 
@@ -629,8 +621,8 @@ title: "Funzioni convesse e concave"
     \begin{align*}
     (\alpha f + \beta g)\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big)
     &= \alpha f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) + \beta g\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \\[2ex]
-    &\le \alpha \big(\lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})\big) + \beta \big(\lambda g({\boldsymbol p}) + (1-\lambda) g({\boldsymbol w})\big) \\[2ex]
-    &\hspace{1cm} \text{(poiché $f$ e $g$ sono convesse, e $\alpha \ge 0$, $\beta \ge 0$)} \\[2ex]
+    &\le \alpha \big(\lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})\big) + \beta \big(\lambda g({\boldsymbol p}) + (1-\lambda) g({\boldsymbol w})\big) \\[1ex]
+    &\qquad \text{(poiché $f$ e $g$ sono convesse, e $\alpha \ge 0$, $\beta \ge 0$)} \\[2ex]
     &= \lambda \big(\alpha f({\boldsymbol p}) + \beta g({\boldsymbol p})\big) + (1-\lambda)\big(\alpha f({\boldsymbol w}) + \beta g({\boldsymbol w})\big) \\[2ex]
     &= \lambda \, (\alpha f + \beta g)({\boldsymbol p}) + (1-\lambda) \, (\alpha f + \beta g)({\boldsymbol w})
     \end{align*}
@@ -659,26 +651,25 @@ title: "Funzioni convesse e concave"
 
 ??? dimostrazione "Dimostrazione"
 
-    Per ogni coppia di punti ${\boldsymbol p},{\boldsymbol w} \in \bigcap_{i=1}^m D_i$ e ogni $\lambda \in [0,1]$, poiché ogni dominio $D_i$ è convesso, abbiamo $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w} \in \bigcap_{i=1}^m D_i$. Sia $k \in \{1,2,\dots,m\}$ tale che $f(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}) = f_k(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w})$. Abbiamo:
+    Per ogni coppia di punti ${\boldsymbol p},{\boldsymbol w} \in \bigcap_{i=1}^m D_i$ e ogni $\lambda \in [0,1]$, abbiamo:
 
     \begin{align*}
     f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big)
     &= \max \big\{ f_i(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}) : i \in \{1,2,\dots,m\} \big\} \\[2ex]
-    &= f_k\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \\[2ex]
+    &= f_k\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \\[1ex]
+    &\qquad \text{(per un indice $k \in \{1,2,\dots,m\}$ che realizza il massimo)} \\[2ex]
     &\le \lambda f_k({\boldsymbol p}) + (1-\lambda) f_k({\boldsymbol w})
     \quad \text{(poiché $f_k$ è convessa)} \\[2ex]
     &\le \lambda \max \big\{ f_i({\boldsymbol p}) : i \in \{1,2,\dots,m\} \big\} \\
-    &\qquad + (1-\lambda) \max \big\{ f_i({\boldsymbol w}) : i \in \{1,2,\dots,m\} \big\} \\[2ex]
-    &\hspace{1cm} (\text{poiché } \lambda \ge 0 \text{ e } 1-\lambda \ge 0) \\[2ex]
+    &\qquad + (1-\lambda) \max \big\{ f_i({\boldsymbol w}) : i \in \{1,2,\dots,m\} \big\} \\[1ex]
+    &\qquad (\text{poiché } \lambda \ge 0 \text{ e } 1-\lambda \ge 0) \\[2ex]
     &= \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
     \end{align*}
 
     Quindi,
 
     $$
-    f(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w})
-    \le
-    \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
+    f\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \le \lambda f({\boldsymbol p}) + (1-\lambda) f({\boldsymbol w})
     $$
 
     Il dominio $\bigcap_{i=1}^m D_i$ è un insieme convesso, poiché è l'intersezione di insiemi convessi. Di conseguenza, la funzione $f$ è convessa nel suo dominio. L'enunciato per il minimo di funzioni concave segue applicando questo a $-f_1, \dots, -f_m$. <span class="qed">□</span>
@@ -719,16 +710,23 @@ title: "Funzioni convesse e concave"
 
 ??? dimostrazione "Dimostrazione"
 
-    Per ogni coppia di punti ${\boldsymbol p}$ e ${\boldsymbol w}$ dell'insieme e ogni $\lambda \in [0,1]$, poiché ${\boldsymbol p},{\boldsymbol w} \in D_i$ e ogni dominio $D_i$ è convesso, abbiamo $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w} \in \bigcap_{i=1}^m D_i$. Inoltre, per ogni $i \in \{1,2,\dots,m\}$, abbiamo:
+    Per ogni coppia di punti ${\boldsymbol p}$ e ${\boldsymbol w}$ dell'insieme e ogni $\lambda \in [0,1]$, il punto $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}$ appartiene a $\bigcap_{i=1}^m D_i$, poiché ${\boldsymbol p},{\boldsymbol w} \in D_i$ e ogni dominio $D_i$ è convesso, e per ogni $i \in \{1,2,\dots,m\}$ abbiamo:
 
     \begin{align*}
     f_i\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big)
     &\le \lambda f_i({\boldsymbol p}) + (1-\lambda) f_i({\boldsymbol w}) \quad \text{(poiché $f_i$ è convessa)} \\[2ex]
-    &\le \lambda \, 0 + (1-\lambda) \, 0 \quad \text{(poiché $f_i({\boldsymbol p}) \le 0$, $f_i({\boldsymbol w}) \le 0$, $\lambda \ge 0$ e $1-\lambda \ge 0$)} \\[2ex]
+    &\le \lambda \, 0 + (1-\lambda) \, 0 \\[1ex]
+    &\qquad \text{(poiché $f_i({\boldsymbol p}) \le 0$, $f_i({\boldsymbol w}) \le 0$, $\lambda \ge 0$ e $1-\lambda \ge 0$)} \\[2ex]
     &= 0
     \end{align*}
 
-    Allora $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}$ appartiene all'insieme e, quindi, l'insieme è convesso. <span class="qed">□</span>
+    Quindi,
+
+    $$
+    f_i\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \le 0, \qquad \forall i \in \{1,2,\dots,m\}
+    $$
+
+    Di conseguenza, $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}$ appartiene all'insieme e l'insieme è convesso. <span class="qed">□</span>
 
 <a id="box-25-exSetFromConvexCircle"></a>
 

@@ -12,7 +12,7 @@ title: "Insiemi convessi"
 
 ## 1.1 Combinazione convessa
 
-<a id="box-1-defXX"></a>
+<a id="box-1-def-convexcombination"></a>
 
 !!! definizione "Definizione 1.1: combinazione convessa"
 
@@ -55,7 +55,7 @@ title: "Insiemi convessi"
 
     ![Figura 1](../img/01-insiemi-convessi/fig01.svg){ .fig .ovale loading=lazy style="width:82%" }
 
-<a id="box-2-texexpbox1"></a>
+<a id="box-2-exConvexCombination"></a>
 
 !!! esempio "Esempio 1.1: combinazione convessa"
 
@@ -71,7 +71,7 @@ title: "Insiemi convessi"
 
     ![Figura 2](../img/01-insiemi-convessi/fig02.svg){ .fig .ovale loading=lazy style="width:71%" }
 
-<a id="box-3-defXX"></a>
+<a id="box-3-def-convexcombinationm"></a>
 
 !!! definizione "Definizione 1.2: combinazione convessa di $m$ punti"
 
@@ -131,7 +131,7 @@ title: "Insiemi convessi"
 
     ![Figura 3](../img/01-insiemi-convessi/fig03.svg){ .fig .ovale loading=lazy style="width:82%" }
 
-<a id="box-4-texexpbox1"></a>
+<a id="box-4-exConvexCombinationThree"></a>
 
 !!! esempio "Esempio 1.2: combinazione convessa di $3$ punti"
 
@@ -149,7 +149,7 @@ title: "Insiemi convessi"
 
 ## 1.2 Insiemi convessi
 
-<a id="box-5-defXX"></a>
+<a id="box-5-def-convexset"></a>
 
 !!! definizione "Definizione 1.3: insieme convesso"
 
@@ -185,7 +185,7 @@ title: "Insiemi convessi"
 
 ## 1.3 Esempi di insiemi convessi
 
-<a id="box-6-propXX"></a>
+<a id="box-6-obs-ballone"></a>
 
 !!! teorema "Osservazione 1.4"
 
@@ -207,7 +207,7 @@ title: "Insiemi convessi"
 
 ??? dimostrazione "Dimostrazione"
 
-    Per ogni coppia di punti ${\boldsymbol p}$ e ${\boldsymbol w}$ dell'insieme e per ogni $\lambda \in [0,1]$, abbiamo:
+    Per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w}$ dell'insieme e per ogni $\lambda \in [0,1]$, abbiamo:
 
     \begin{align*}
     \| \lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w} - {\boldsymbol c} \|_1
@@ -223,9 +223,9 @@ title: "Insiemi convessi"
     & = r
     \end{align*}
 
-    Allora $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}$ appartiene all'insieme e, quindi, l'insieme è convesso. <span class="qed">□</span>
+    Quindi, $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}$ appartiene all'insieme e l'insieme è convesso. <span class="qed">□</span>
 
-<a id="box-7-texexpbox1"></a>
+<a id="box-7-exDiamond"></a>
 
 !!! esempio "Esempio 1.3: rombo in $\R^2$"
 
@@ -246,7 +246,7 @@ title: "Insiemi convessi"
 
     ![Figura 9](../img/01-insiemi-convessi/fig09.svg){ .fig .ovale loading=lazy style="width:59%" }
 
-<a id="box-8-propXX"></a>
+<a id="box-8-obs-balltwo"></a>
 
 !!! teorema "Osservazione 1.5"
 
@@ -268,7 +268,7 @@ title: "Insiemi convessi"
 
 ??? dimostrazione "Dimostrazione"
 
-    Per ogni coppia di punti ${\boldsymbol p}$ e ${\boldsymbol w}$ dell'insieme e per ogni $\lambda \in [0,1]$, abbiamo:
+    Per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w}$ dell'insieme e per ogni $\lambda \in [0,1]$, abbiamo:
 
     \begin{align*}
     \| \lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w} - {\boldsymbol c} \|_2
@@ -284,9 +284,9 @@ title: "Insiemi convessi"
     & = r
     \end{align*}
 
-    Allora $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}$ appartiene all'insieme e, quindi, l'insieme è convesso. <span class="qed">□</span>
+    Quindi, $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}$ appartiene all'insieme e l'insieme è convesso. <span class="qed">□</span>
 
-<a id="box-9-texexpbox1"></a>
+<a id="box-9-exDisk"></a>
 
 !!! esempio "Esempio 1.4: palla chiusa in $\R^2$"
 
@@ -303,11 +303,11 @@ title: "Insiemi convessi"
     ~\right\}
     $$
 
-    I punti di questo insieme sono tutti quelli interni alla circonferenza di raggio $3$ o su di essa, con centro in  $\begin{pmatrix} 3 \\[0.3ex] 3 \end{pmatrix}$, rappresentati dalla regione ombreggiata in rosso nella figura seguente.
+    I punti di questo insieme sono tutti quelli interni al disco di raggio $3$ o sul suo bordo, con centro in  $\begin{pmatrix} 3 \\[0.3ex] 3 \end{pmatrix}$, rappresentati dalla regione ombreggiata in rosso nella figura seguente.
 
     ![Figura 10](../img/01-insiemi-convessi/fig10.svg){ .fig .ovale loading=lazy style="width:59%" }
 
-<a id="box-10-propXX"></a>
+<a id="box-10-obs-ballinf"></a>
 
 !!! teorema "Osservazione 1.6"
 
@@ -330,7 +330,7 @@ title: "Insiemi convessi"
 
 ??? dimostrazione "Dimostrazione"
 
-    Per ogni coppia di punti ${\boldsymbol p}$ e ${\boldsymbol w}$ dell'insieme e per ogni $\lambda \in [0,1]$, abbiamo:
+    Per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w}$ dell'insieme e per ogni $\lambda \in [0,1]$, abbiamo:
 
     \begin{align*}
     \| \lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w} - {\boldsymbol c} \|_\infty
@@ -346,9 +346,9 @@ title: "Insiemi convessi"
     & = r
     \end{align*}
 
-    Allora $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}$ appartiene all'insieme e, quindi, l'insieme è convesso. <span class="qed">□</span>
+    Quindi, $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}$ appartiene all'insieme e l'insieme è convesso. <span class="qed">□</span>
 
-<a id="box-11-texexpbox1"></a>
+<a id="box-11-exSquareBox"></a>
 
 !!! esempio "Esempio 1.5: quadrato in $\R^2$"
 
@@ -371,7 +371,7 @@ title: "Insiemi convessi"
 
 ## 1.4 Proprietà degli insiemi convessi
 
-<a id="box-12-propXX"></a>
+<a id="box-12-obs-intersection"></a>
 
 !!! teorema "Osservazione 1.7"
 
@@ -389,7 +389,7 @@ title: "Insiemi convessi"
 
 ??? dimostrazione "Dimostrazione"
 
-    Per ogni coppia di punti ${\boldsymbol p}$ e ${\boldsymbol w}$ dell'insieme e per ogni $\lambda \in [0,1]$, abbiamo:
+    Per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \bigcap_{i=1}^m A_i$ e per ogni $\lambda \in [0,1]$, abbiamo:
 
     \begin{align*}
     {\boldsymbol p},\,{\boldsymbol w} \in \bigcap_{i=1}^m A_i
@@ -401,7 +401,7 @@ title: "Insiemi convessi"
     &\phantom{\Longrightarrow}~~ \text{(per definizione di intersezione)}
     \end{align*}
 
-    Allora $\lambda\,{\boldsymbol p}+(1-\lambda)\,{\boldsymbol w}$ appartiene all'insieme e, quindi, l'insieme è convesso. <span class="qed">□</span>
+    Quindi, $\lambda\,{\boldsymbol p}+(1-\lambda)\,{\boldsymbol w} \in \bigcap_{i=1}^m A_i$ e l'insieme è convesso. <span class="qed">□</span>
 
 - In $\R^2$ (lo spazio a 2 dimensioni), esempi di intersezione di tre insiemi convessi $A_1,A_2$ e $A_3$ sono dati dalle figure seguenti, prima con tre ellissi:
 

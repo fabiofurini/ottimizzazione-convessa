@@ -22,13 +22,13 @@ title: "Problemi di ottimizzazione convessi e concavi"
 
     - se la funzione obiettivo è concava sulla regione ammissibile, il problema si chiama <strong>problema di ottimizzazione concavo</strong>.
 
-- Le definizioni di funzione convessa e di funzione concava del capitolo «Funzioni convesse e concave» richiedono un dominio convesso: se la funzione obiettivo è convessa o concava sulla regione ammissibile, la regione ammissibile è un insieme convesso.
-
-- La regione ammissibile è spesso descritta da un numero finito di vincoli, $F = \{\, {\boldsymbol x} \in \R^n : g_i({\boldsymbol x}) \le 0, ~ i \in \{1,2,\dots,m\} \,\}$. Se ogni funzione $g_i$ è convessa, $F$ è un insieme convesso, per la proprietà degli insiemi definiti da funzioni convesse del capitolo «Funzioni convesse e concave». Per esempio, l'intervallo $[a,b] = \{\, x \in \R : a - x \le 0, ~ x - b \le 0 \,\}$ è definito da due funzioni lineari, e quindi convesse.
-
 - Nelle figure di questo capitolo, come nel capitolo «Problemi di ottimizzazione», il grafico della funzione obiettivo sulla regione ammissibile è rosso, la regione ammissibile è la parte rossa dell'asse $x$ e le soluzioni ottime sono blu. Esempi di un problema di minimizzazione convesso e di un problema di massimizzazione concavo con regione ammissibile $[a,b] \subseteq \R$:
 
 ![Figura 1](../img/06-problemi-convessi-concavi/fig01.svg){ .fig .ovale loading=lazy style="width:88%" }
+
+- Le definizioni di funzione convessa e di funzione concava del capitolo «Funzioni convesse e concave» richiedono un dominio convesso: se la funzione obiettivo è convessa o concava sulla regione ammissibile, la regione ammissibile è un insieme convesso.
+
+- La regione ammissibile è spesso descritta da un numero finito di vincoli, $F = \{\, {\boldsymbol x} \in \R^n : g_i({\boldsymbol x}) \le 0, ~ i \in \{1,2,\dots,m\} \,\}$. Se ogni funzione $g_i$ è convessa, $F$ è un insieme convesso, per la proprietà degli insiemi definiti da funzioni convesse del capitolo «Funzioni convesse e concave». Per esempio, l'intervallo $[a,b] = \{\, x \in \R : a - x \le 0, ~ x - b \le 0 \,\}$ è definito da due funzioni lineari, e quindi convesse.
 
 ## 6.2 Ottimi locali dei problemi convessi e concavi
 
@@ -297,15 +297,20 @@ title: "Problemi di ottimizzazione convessi e concavi"
 
     - <strong>Regione ammissibile.</strong> La regione ammissibile $F=[2,4]$ è un intervallo, e quindi un insieme convesso.
 
-    - <strong>Funzione obiettivo.</strong> Per ogni coppia di punti $p,w \in F$, poniamo $a = p-2$ e $b = w-2$, così che $a \ge 0$, $b \ge 0$, $f(p) = a^3 - 3a + 4$ e $f(w) = b^3 - 3b + 4$. Per ogni $\lambda \in [0,1]$, poiché $\lambda p+(1-\lambda)w - 2 = \lambda a + (1-\lambda) b$, abbiamo:
+    - <strong>Funzione obiettivo.</strong> Per ogni coppia di punti $p,w \in F$ e ogni $\lambda \in [0,1]$, con $a = p-2 \ge 0$ e $b = w-2 \ge 0$, abbiamo:
 
         \begin{align*}
         f\big(\lambda p+(1-\lambda)w\big)
-        &= \big(\lambda a+(1-\lambda)b\big)^3 - 3\big(\lambda a+(1-\lambda)b\big) + \lambda\,4 + (1-\lambda)\,4 \\[2ex]
+        &= \big(\lambda p+(1-\lambda)w-2\big)^3 - 3\big(\lambda p+(1-\lambda)w-2\big) + 4 \\[1ex]
+        &\qquad \text{(poiché } f(x) = (x-2)^3 - 3\,(x-2) + 4 \text{)} \\[2ex]
+        &= \big(\lambda a+(1-\lambda)b\big)^3 - 3\big(\lambda a+(1-\lambda)b\big) + \lambda\,4 + (1-\lambda)\,4 \\[1ex]
+        &\qquad \text{(poiché } \lambda p+(1-\lambda)w - 2 = \lambda a + (1-\lambda) b \text{,} \\
+        &\qquad \phantom{\text{(}}\text{e } \lambda + (1-\lambda) = 1 \text{)} \\[2ex]
         &\le \lambda a^3+(1-\lambda)b^3 - 3\big(\lambda a+(1-\lambda)b\big) + \lambda\,4 + (1-\lambda)\,4 \\[1ex]
         &\qquad \text{(per l'osservazione precedente, poiché } a \ge 0 \text{ e } b \ge 0) \\[2ex]
         &= \lambda \big(a^3-3a+4\big)+(1-\lambda)\big(b^3-3b+4\big) \\[2ex]
-        &= \lambda f(p)+(1-\lambda)f(w)
+        &= \lambda f(p)+(1-\lambda)f(w) \\[1ex]
+        &\qquad \text{(poiché } f(p) = a^3-3a+4 \text{ e } f(w) = b^3-3b+4 \text{)}
         \end{align*}
 
         Quindi,
@@ -356,15 +361,20 @@ title: "Problemi di ottimizzazione convessi e concavi"
 
     - <strong>Regione ammissibile.</strong> La regione ammissibile $F=[0,2]$ è un intervallo, e quindi un insieme convesso.
 
-    - <strong>Funzione obiettivo.</strong> Per ogni coppia di punti $p,w \in F$, poniamo $a = p-2$ e $b = w-2$, così che $a \le 0$, $b \le 0$, $f(p) = a^3 - 3a + 4$ e $f(w) = b^3 - 3b + 4$. Per ogni $\lambda \in [0,1]$, poiché $\lambda p+(1-\lambda)w - 2 = \lambda a + (1-\lambda) b$, abbiamo:
+    - <strong>Funzione obiettivo.</strong> Per ogni coppia di punti $p,w \in F$ e ogni $\lambda \in [0,1]$, con $a = p-2 \le 0$ e $b = w-2 \le 0$, abbiamo:
 
         \begin{align*}
         f\big(\lambda p+(1-\lambda)w\big)
-        &= \big(\lambda a+(1-\lambda)b\big)^3 - 3\big(\lambda a+(1-\lambda)b\big) + \lambda\,4 + (1-\lambda)\,4 \\[2ex]
+        &= \big(\lambda p+(1-\lambda)w-2\big)^3 - 3\big(\lambda p+(1-\lambda)w-2\big) + 4 \\[1ex]
+        &\qquad \text{(poiché } f(x) = (x-2)^3 - 3\,(x-2) + 4 \text{)} \\[2ex]
+        &= \big(\lambda a+(1-\lambda)b\big)^3 - 3\big(\lambda a+(1-\lambda)b\big) + \lambda\,4 + (1-\lambda)\,4 \\[1ex]
+        &\qquad \text{(poiché } \lambda p+(1-\lambda)w - 2 = \lambda a + (1-\lambda) b \text{,} \\
+        &\qquad \phantom{\text{(}}\text{e } \lambda + (1-\lambda) = 1 \text{)} \\[2ex]
         &\ge \lambda a^3+(1-\lambda)b^3 - 3\big(\lambda a+(1-\lambda)b\big) + \lambda\,4 + (1-\lambda)\,4 \\[1ex]
         &\qquad \text{(per l'osservazione precedente, poiché } a \le 0 \text{ e } b \le 0) \\[2ex]
         &= \lambda \big(a^3-3a+4\big)+(1-\lambda)\big(b^3-3b+4\big) \\[2ex]
-        &= \lambda f(p)+(1-\lambda)f(w)
+        &= \lambda f(p)+(1-\lambda)f(w) \\[1ex]
+        &\qquad \text{(poiché } f(p) = a^3-3a+4 \text{ e } f(w) = b^3-3b+4 \text{)}
         \end{align*}
 
         Quindi,

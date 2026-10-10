@@ -183,7 +183,7 @@ title: "Funzioni quadratiche"
     \left\{~~{\boldsymbol x} \in \R^{n}:~~ {\boldsymbol x}' \; {\boldsymbol Q} \; {\boldsymbol x}= k  ~~\right\} , \qquad \forall k \in \mathbb{R}
     \end{align*}
 
-- A seconda della matrice $\boldsymbol Q$, gli insiemi di livello non vuoti possono essere <strong>ellissoidi</strong> (ellissi in $\R^2$), <strong>iperboloidi</strong> (iperboli in $\R^2$) oppure, quando alcune direzioni non cambiano il valore della funzione, <strong>cilindri</strong> (coppie di rette parallele in $\R^2$). Il grafico delle funzioni quadratiche degli esempi seguenti è un <strong>paraboloide</strong>.
+- A seconda della matrice $\boldsymbol Q$, gli insiemi di livello non vuoti possono essere <strong>ellissoidi</strong> (ellissi in $\R^2$), <strong>iperboloidi</strong> (iperboli in $\R^2$) oppure, quando alcune direzioni non cambiano il valore della funzione, <strong>cilindri</strong> (coppie di rette parallele in $\R^2$). Per $k=0$ ci sono anche casi degeneri: il solo punto ${\boldsymbol 0}$ al posto di un ellissoide, due rette incidenti nell'origine in $\R^2$ (un cono in $\R^n$) al posto di un iperboloide, e una sola retta passante per l'origine in $\R^2$ (un sottospazio lineare in $\R^n$) al posto di un cilindro. Il grafico delle funzioni quadratiche degli esempi seguenti è un <strong>paraboloide</strong>.
 
 !!! chiave ""
 
@@ -381,41 +381,20 @@ title: "Funzioni quadratiche"
 
 ??? dimostrazione "Dimostrazione"
 
-    Se la matrice ${\boldsymbol Q}$ è semidefinita positiva, per ogni coppia di vettori colonna ${\boldsymbol p}, {\boldsymbol w} \in \mathbb{R}^{n}$ abbiamo:
+    Se la matrice ${\boldsymbol Q}$ è semidefinita positiva, per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^n$ e per ogni $\lambda \in [0,1]$, abbiamo:
 
     \begin{align*}
-    0 &\le ({\boldsymbol p}-{\boldsymbol w})' {\boldsymbol Q} \;  ({\boldsymbol p}-{\boldsymbol w}) \\[2ex]
-    &= {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol p} +  {\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol w} -  {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol w} -  {\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol p}
-    \end{align*}
-
-    Inoltre, per ogni scalare $\lambda \in [0,1]$, moltiplicando per $\lambda\;(1-\lambda) \ge 0$, otteniamo:
-
-    \begin{align*}
-    & \lambda\;(1-\lambda) \; {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol p}
-    + \lambda\;(1-\lambda)\; {\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol w} \\[1ex]
-    & \qquad - \lambda\;(1-\lambda) \; {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol w}
-    - \lambda\;(1-\lambda)\; {\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol p}
-    ~\ge~ 0
-    \end{align*}
-
-    dove i primi due termini sono:
-
-    \begin{align*}
-    \lambda\;(1-\lambda) \; {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol p}
-    &= \lambda \; {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol p} - \lambda^2 \; {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol p} \\[2ex]
-    \lambda\;(1-\lambda)\; {\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol w}
-    &= (1-\lambda)\big(1-(1-\lambda)\big)\;{\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol w} \\[1ex]
-    &= (1-\lambda)\;{\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol w} - (1-\lambda)^2\; {\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol w}
-    \end{align*}
-
-    e, riordinando i termini, abbiamo:
-
-    \begin{align*}
-    & \underbrace{\lambda^2 \; {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol p} + (1-\lambda)^2\; {\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol w} + \lambda\;(1-\lambda)\; {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol w} + \lambda\;(1-\lambda) \;{\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol p}}_{
-    =(\lambda \;{\boldsymbol p} + (1-\lambda)\; {\boldsymbol w} )' ~{\boldsymbol Q} \; (\lambda \;{\boldsymbol p} + (1-\lambda)\; {\boldsymbol w} )
-    } \\[1ex]
-    & \qquad \le
-    \lambda \; {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol p} + (1-\lambda)\;{\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol w}
+    & f\big(\lambda \; {\boldsymbol p} + (1-\lambda)\;{\boldsymbol w}\big) \\[2ex]
+    &\quad = (\lambda \;{\boldsymbol p} + (1-\lambda)\; {\boldsymbol w} )' ~{\boldsymbol Q} \; (\lambda \;{\boldsymbol p} + (1-\lambda)\; {\boldsymbol w} ) \\[2ex]
+    &\quad = \lambda^2 \; {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol p} + (1-\lambda)^2\; {\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol w} \\[1ex]
+    &\qquad + \lambda\;(1-\lambda)\; {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol w} + \lambda\;(1-\lambda) \;{\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol p} \\[2ex]
+    &\quad = \lambda \; {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol p} + (1-\lambda)\;{\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol w} \\[1ex]
+    &\qquad - \lambda\;(1-\lambda) \; \big( {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol p} + {\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol w} - {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol w} - {\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol p} \big) \\[1ex]
+    &\qquad \text{(poiché $\lambda^2 = \lambda - \lambda\;(1-\lambda)$ e $(1-\lambda)^2 = (1-\lambda) - \lambda\;(1-\lambda)$)} \\[2ex]
+    &\quad = \lambda \; {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol p} + (1-\lambda)\;{\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol w} - \lambda\;(1-\lambda) \; ({\boldsymbol p}-{\boldsymbol w})' {\boldsymbol Q} \;  ({\boldsymbol p}-{\boldsymbol w}) \\[2ex]
+    &\quad \le \lambda \; {\boldsymbol p}' {\boldsymbol Q} \; {\boldsymbol p} + (1-\lambda)\;{\boldsymbol w}' {\boldsymbol Q} \; {\boldsymbol w} \\[1ex]
+    &\qquad \text{(poiché ${\boldsymbol Q}$ è semidefinita positiva e $\lambda\;(1-\lambda) \ge 0$)} \\[2ex]
+    &\quad = \lambda \; f({\boldsymbol p}) + (1-\lambda)\; f({\boldsymbol w})
     \end{align*}
 
     Quindi,
@@ -584,13 +563,17 @@ title: "Funzioni quadratiche"
     \nabla g({\boldsymbol x}) = 2\,{\boldsymbol Q}\,{\boldsymbol x} + {\boldsymbol c}, \qquad \nabla^2 g({\boldsymbol x}) = 2\,{\boldsymbol Q}
     $$
 
-- La funzione $h({\boldsymbol x}) = {\boldsymbol c}' {\boldsymbol x} + d$ è convessa (e concava) nel suo dominio, poiché la definizione vale con l'uguaglianza: per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^n$ e ogni $\lambda \in [0,1]$, abbiamo
+- La funzione $h({\boldsymbol x}) = {\boldsymbol c}' {\boldsymbol x} + d$ è convessa (e concava) nel suo dominio, poiché la definizione vale con l'uguaglianza: per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in \R^n$ e ogni $\lambda \in [0,1]$, abbiamo:
 
-    $$
-    h\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) = \lambda\, {\boldsymbol c}'{\boldsymbol p} + (1-\lambda)\, {\boldsymbol c}'{\boldsymbol w} + \lambda d + (1-\lambda) d = \lambda h({\boldsymbol p}) + (1-\lambda) h({\boldsymbol w})
-    $$
+    \begin{align*}
+    & h\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) \\[2ex]
+    &\quad = {\boldsymbol c}'\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) + d \\[2ex]
+    &\quad = \lambda\, {\boldsymbol c}'{\boldsymbol p} + (1-\lambda)\, {\boldsymbol c}'{\boldsymbol w} + \lambda d + (1-\lambda) d \\[1ex]
+    &\qquad \text{(poiché $\lambda + (1-\lambda) = 1$)} \\[2ex]
+    &\quad = \lambda h({\boldsymbol p}) + (1-\lambda) h({\boldsymbol w})
+    \end{align*}
 
-    Poiché la somma di funzioni convesse è convessa (capitolo «Funzioni convesse e concave»), se la matrice ${\boldsymbol Q}$ è semidefinita positiva, la funzione $g$ è convessa nel suo dominio. Viceversa, se $g$ è convessa, la funzione quadratica ${\boldsymbol x}' {\boldsymbol Q} \; {\boldsymbol x} = g({\boldsymbol x}) + \big(-{\boldsymbol c}' {\boldsymbol x} - d\big)$ è convessa, in quanto somma di due funzioni convesse, e la matrice ${\boldsymbol Q}$ è semidefinita positiva per il corollario.
+    Quindi, entrambe le disuguaglianze delle definizioni di funzione convessa e concava valgono con l'uguaglianza. Per natura, il dominio $\R^n$ è un insieme convesso. Di conseguenza, la funzione $h$ è convessa e concava nel suo dominio. Poiché la somma di funzioni convesse è convessa (capitolo «Funzioni convesse e concave»), se la matrice ${\boldsymbol Q}$ è semidefinita positiva, la funzione $g$ è convessa nel suo dominio. Viceversa, se $g$ è convessa, la funzione quadratica ${\boldsymbol x}' {\boldsymbol Q} \; {\boldsymbol x} = g({\boldsymbol x}) + \big(-{\boldsymbol c}' {\boldsymbol x} - d\big)$ è convessa, in quanto somma di due funzioni convesse, e la matrice ${\boldsymbol Q}$ è semidefinita positiva per il corollario.
 
 !!! chiave ""
 

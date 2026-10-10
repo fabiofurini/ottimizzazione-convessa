@@ -10,6 +10,8 @@ title: "Esercizi · Problemi di ottimizzazione"
 
 </div>
 
+## Problemi in una variabile
+
 <a id="esercizio-5-1"></a>
 
 !!! esercizio "Esercizio 5.1: Problema di ottimizzazione (E1)"
@@ -435,65 +437,7 @@ title: "Esercizi · Problemi di ottimizzazione"
 
 <a id="esercizio-5-8"></a>
 
-!!! esercizio "Esercizio 5.8: Problema di ottimizzazione (E8)"
-
-    Consideriamo la seguente funzione obiettivo di due variabili e la seguente regione ammissibile:
-
-    $$
-    f:\R^2 \to \R,~ f: \begin{pmatrix}x_1\\x_2\end{pmatrix} \mapsto (x_1 - x_2)^2
-    $$
-
-    e
-
-    $$
-    F=\{\, \boldsymbol x \in \R^2 : 0 \le x_1 \le 2,~ 0 \le x_2 \le 2 \,\} = [0,2]\times[0,2].
-    $$
-
-    **Domande**
-
-    1. Scrivere i problemi di ottimizzazione associati in forma di minimo e in forma di massimo.
-
-    2. Disegnare la regione ammissibile e le curve di livello della funzione obiettivo di valore $0$, $1$ e $4$.
-
-    3. Trovare tutte le soluzioni ottime e il valore ottimo per entrambe le forme.
-
-??? soluzione "Soluzione"
-
-    1. I problemi di ottimizzazione associati, in forma di minimo e in forma di massimo, sono:
-
-        \begin{equation*}
-        \min \bigg\{\, (x_1 - x_2)^2 \ \text{ soggetto a } 0 \le x_1 \le 2,~ 0 \le x_2 \le 2 \,\bigg\}
-        \end{equation*}
-
-        \begin{equation*}
-        \max \bigg\{\, (x_1 - x_2)^2 \ \text{ soggetto a } 0 \le x_1 \le 2,~ 0 \le x_2 \le 2 \,\bigg\}
-        \end{equation*}
-
-    2. La regione ammissibile è il quadrato rosso. Poiché $f(\boldsymbol x) = c$ se e solo se $x_1 - x_2 = \sqrt{c}$ oppure $x_1 - x_2 = -\sqrt{c}$, le curve di livello sono rette parallele alla retta $x_1 = x_2$: la curva di livello di valore $0$ è la retta $x_1 = x_2$, quella di valore $1$ è formata dalle due rette $x_1 - x_2 = \pm 1$ (tratteggiate) e quella di valore $4$ è formata dalle due rette $x_1 - x_2 = \pm 2$, che toccano il quadrato solo nei vertici $(2,0)$ e $(0,2)$. Le soluzioni ottime sono blu.
-
-        ![Figura 8](../img/es-05-problemi-ottimizzazione/fig08.svg){ .fig .ovale loading=lazy style="width:50%" }
-
-    3. La regione ammissibile è il quadrato $F=[0,2]\times[0,2]$.
-
-        - Per la forma di minimo, $f(\boldsymbol x) = (x_1 - x_2)^2 \ge 0$ per ogni $\boldsymbol x$ ammissibile, con l'uguaglianza esattamente quando $x_1 = x_2$. Il problema ha <strong>infinite</strong> soluzioni ottime (la diagonale blu del quadrato) e il valore ottimo è:
-
-            $$
-            \argmin \big\{\, (x_1 - x_2)^2 \ \text{ soggetto a } \boldsymbol x \in F \,\big\} = \left\{ \begin{pmatrix} t\\ t \end{pmatrix} : 0 \le t \le 2 \right\}
-            \quad \text{e} \quad
-            z(P) = 0.
-            $$
-
-        - Per la forma di massimo, per ogni $\boldsymbol x$ ammissibile abbiamo $0 \le x_1 \le 2$ e $-2 \le -x_2 \le 0$, quindi $-2 \le x_1 - x_2 \le 2$ e $f(\boldsymbol x) \le 4$. L'uguaglianza $x_1 - x_2 = 2$ vale solo per $x_1 = 2$ e $x_2 = 0$, e $x_1 - x_2 = -2$ solo per $x_1 = 0$ e $x_2 = 2$. Il problema ha <strong>due</strong> soluzioni ottime e il valore ottimo è:
-
-            $$
-            \argmax \big\{\, (x_1 - x_2)^2 \ \text{ soggetto a } \boldsymbol x \in F \,\big\} = \left\{ \begin{pmatrix} 2\\ 0 \end{pmatrix},\, \begin{pmatrix} 0\\ 2 \end{pmatrix} \right\}
-            \quad \text{e} \quad
-            z(P) = 4.
-            $$
-
-<a id="esercizio-5-9"></a>
-
-!!! esercizio "Esercizio 5.9: Problema di ottimizzazione (E9)"
+!!! esercizio "Esercizio 5.8: Problema di ottimizzazione (E9)"
 
     Consideriamo la seguente funzione obiettivo lineare e la seguente regione ammissibile:
 
@@ -525,7 +469,7 @@ title: "Esercizi · Problemi di ottimizzazione"
 
     2. Il grafico della funzione obiettivo sulla regione ammissibile è rosso; la regione ammissibile è la parte rossa dell'asse $x$ e le soluzioni ottime sono indicate in blu. Il punto $x=3$ non appartiene alla regione ammissibile: i cerchi vuoti indicano l'estremo escluso della regione ammissibile e del grafico.
 
-        ![Figura 9](../img/es-05-problemi-ottimizzazione/fig09.svg){ .fig .ovale loading=lazy style="width:50%" }
+        ![Figura 8](../img/es-05-problemi-ottimizzazione/fig08.svg){ .fig .ovale loading=lazy style="width:50%" }
 
     3. La regione ammissibile è l'intervallo $F=[0,3)$, che contiene $0$ ma non $3$, e la funzione lineare $f$ è strettamente crescente.
 
@@ -551,9 +495,9 @@ title: "Esercizi · Problemi di ottimizzazione"
             z(P) \text{ non è definito}.
             $$
 
-<a id="esercizio-5-10"></a>
+<a id="esercizio-5-9"></a>
 
-!!! esercizio "Esercizio 5.10: Problema di ottimizzazione (E10)"
+!!! esercizio "Esercizio 5.9: Problema di ottimizzazione (E10)"
 
     Consideriamo la seguente funzione:
 
@@ -621,11 +565,11 @@ title: "Esercizi · Problemi di ottimizzazione"
 
     4. Il grafico della funzione è rosso; il dominio è la parte rossa dell'asse $x$, i punti di minimo e di massimo (globale) sono blu e i punti di minimo o di massimo locale che non sono globali sono viola. Poiché $f$ assume valori negativi, l'asse $x$ è disegnato in basso nella figura.
 
-        ![Figura 10](../img/es-05-problemi-ottimizzazione/fig10.svg){ .fig .ovale loading=lazy style="width:50%" }
+        ![Figura 9](../img/es-05-problemi-ottimizzazione/fig09.svg){ .fig .ovale loading=lazy style="width:50%" }
 
-<a id="esercizio-5-11"></a>
+<a id="esercizio-5-10"></a>
 
-!!! esercizio "Esercizio 5.11: Problema di ottimizzazione (E11)"
+!!! esercizio "Esercizio 5.10: Problema di ottimizzazione (E11)"
 
     Consideriamo la seguente funzione:
 
@@ -693,11 +637,11 @@ title: "Esercizi · Problemi di ottimizzazione"
 
     4. Il grafico della funzione è rosso; il dominio è la parte rossa dell'asse $x$, i punti di minimo e di massimo (globale) sono blu e i punti di minimo o di massimo locale che non sono globali sono viola.
 
-        ![Figura 11](../img/es-05-problemi-ottimizzazione/fig11.svg){ .fig .ovale loading=lazy style="width:50%" }
+        ![Figura 10](../img/es-05-problemi-ottimizzazione/fig10.svg){ .fig .ovale loading=lazy style="width:50%" }
 
-<a id="esercizio-5-12"></a>
+<a id="esercizio-5-11"></a>
 
-!!! esercizio "Esercizio 5.12: Problema di ottimizzazione (E12)"
+!!! esercizio "Esercizio 5.11: Problema di ottimizzazione (E12)"
 
     Consideriamo la seguente funzione:
 
@@ -755,13 +699,13 @@ title: "Esercizi · Problemi di ottimizzazione"
 
         con l'uguaglianza, rispettivamente, solo per $x=-1$ e solo per $x=2$. L'unico punto di massimo è $x=-1$, con massimo $8$, e l'unico punto di minimo è $x=2$, con minimo $-19$: entrambi i punti delle prime due domande sono ottimi globali.
 
-    4. Il grafico della funzione è rosso; il dominio è la parte rossa dell'asse $x$, i punti di minimo e di massimo (globale) sono blu e i punti di minimo o di massimo locale che non sono globali sono viola. Poiché $f$ assume valori negativi, l'asse $x$ è disegnato in basso nella figura. Negli estremi abbiamo $f(-2) = -3$ e $f(3) = -8$.
+    4. Il grafico della funzione è rosso; il dominio è la parte rossa dell'asse $x$, i punti di minimo e di massimo (globale) sono blu. Poiché $f$ assume valori negativi, l'asse $x$ è disegnato in basso nella figura. Negli estremi abbiamo $f(-2) = -3$ e $f(3) = -8$.
 
-        ![Figura 12](../img/es-05-problemi-ottimizzazione/fig12.svg){ .fig .ovale loading=lazy style="width:50%" }
+        ![Figura 11](../img/es-05-problemi-ottimizzazione/fig11.svg){ .fig .ovale loading=lazy style="width:50%" }
 
-<a id="esercizio-5-13"></a>
+<a id="esercizio-5-12"></a>
 
-!!! esercizio "Esercizio 5.13: Problema di ottimizzazione (E13)"
+!!! esercizio "Esercizio 5.12: Problema di ottimizzazione (E13)"
 
     Consideriamo la seguente funzione:
 
@@ -837,11 +781,11 @@ title: "Esercizi · Problemi di ottimizzazione"
 
     5. Il grafico della funzione nell'intervallo $[-2,2]$ è rosso e l'intervallo $[-2,2]$, che è una parte del dominio, è la parte rossa dell'asse $x$; i punti di minimo (globale) sono blu e il punto di massimo locale che non è globale è viola. Il punto di massimo $x=3$, con $f(3)=66$, è fuori dalla figura.
 
-        ![Figura 13](../img/es-05-problemi-ottimizzazione/fig13.svg){ .fig .ovale loading=lazy style="width:50%" }
+        ![Figura 12](../img/es-05-problemi-ottimizzazione/fig12.svg){ .fig .ovale loading=lazy style="width:50%" }
 
-<a id="esercizio-5-14"></a>
+<a id="esercizio-5-13"></a>
 
-!!! esercizio "Esercizio 5.14: Problema di ottimizzazione (E14)"
+!!! esercizio "Esercizio 5.13: Problema di ottimizzazione (E14)"
 
     Consideriamo la seguente funzione:
 
@@ -909,11 +853,11 @@ title: "Esercizi · Problemi di ottimizzazione"
 
     4. Il grafico della funzione è rosso; il dominio è la parte rossa dell'asse $x$, i punti di minimo e di massimo (globale) sono blu e i punti di minimo o di massimo locale che non sono globali sono viola. Poiché $f$ assume valori negativi, l'asse $x$ è disegnato in basso nella figura.
 
-        ![Figura 14](../img/es-05-problemi-ottimizzazione/fig14.svg){ .fig .ovale loading=lazy style="width:50%" }
+        ![Figura 13](../img/es-05-problemi-ottimizzazione/fig13.svg){ .fig .ovale loading=lazy style="width:50%" }
 
-<a id="esercizio-5-15"></a>
+<a id="esercizio-5-14"></a>
 
-!!! esercizio "Esercizio 5.15: Problema di ottimizzazione (E15)"
+!!! esercizio "Esercizio 5.14: Problema di ottimizzazione (E15)"
 
     Consideriamo la seguente funzione:
 
@@ -971,9 +915,69 @@ title: "Esercizi · Problemi di ottimizzazione"
 
         con l'uguaglianza, rispettivamente, solo per $x=-1$ e solo per $x=2$. L'unico punto di massimo è $x=-1$, con massimo $12$, e l'unico punto di minimo è $x=2$, con minimo $-15$: entrambi i punti delle prime due domande sono ottimi globali.
 
-    4. Il grafico della funzione è rosso; il dominio è la parte rossa dell'asse $x$, i punti di minimo e di massimo (globale) sono blu e i punti di minimo o di massimo locale che non sono globali sono viola. Poiché $f$ assume valori negativi, l'asse $x$ è disegnato in basso nella figura. Nell'estremo destro abbiamo $f(3) = -4$.
+    4. Il grafico della funzione è rosso; il dominio è la parte rossa dell'asse $x$, i punti di minimo e di massimo (globale) sono blu. Poiché $f$ assume valori negativi, l'asse $x$ è disegnato in basso nella figura. Nell'estremo destro abbiamo $f(3) = -4$.
+
+        ![Figura 14](../img/es-05-problemi-ottimizzazione/fig14.svg){ .fig .ovale loading=lazy style="width:50%" }
+
+## Problemi in due variabili
+
+<a id="esercizio-5-15"></a>
+
+!!! esercizio "Esercizio 5.15: Problema di ottimizzazione (E8)"
+
+    Consideriamo la seguente funzione obiettivo di due variabili e la seguente regione ammissibile:
+
+    $$
+    f:\R^2 \to \R,~ f: \begin{pmatrix}x_1\\x_2\end{pmatrix} \mapsto (x_1 - x_2)^2
+    $$
+
+    e
+
+    $$
+    F=\{\, \boldsymbol x \in \R^2 : 0 \le x_1 \le 2,~ 0 \le x_2 \le 2 \,\} = [0,2]\times[0,2].
+    $$
+
+    **Domande**
+
+    1. Scrivere i problemi di ottimizzazione associati in forma di minimo e in forma di massimo.
+
+    2. Disegnare la regione ammissibile e le curve di livello della funzione obiettivo di valore $0$, $1$ e $4$.
+
+    3. Trovare tutte le soluzioni ottime e il valore ottimo per entrambe le forme.
+
+??? soluzione "Soluzione"
+
+    1. I problemi di ottimizzazione associati, in forma di minimo e in forma di massimo, sono:
+
+        \begin{equation*}
+        \min \bigg\{\, (x_1 - x_2)^2 \ \text{ soggetto a } 0 \le x_1 \le 2,~ 0 \le x_2 \le 2 \,\bigg\}
+        \end{equation*}
+
+        \begin{equation*}
+        \max \bigg\{\, (x_1 - x_2)^2 \ \text{ soggetto a } 0 \le x_1 \le 2,~ 0 \le x_2 \le 2 \,\bigg\}
+        \end{equation*}
+
+    2. La regione ammissibile è il quadrato rosso. Poiché $f(\boldsymbol x) = c$ se e solo se $x_1 - x_2 = \sqrt{c}$ oppure $x_1 - x_2 = -\sqrt{c}$, le curve di livello sono rette parallele alla retta $x_1 = x_2$: la curva di livello di valore $0$ è la retta $x_1 = x_2$, quella di valore $1$ è formata dalle due rette $x_1 - x_2 = \pm 1$ (tratteggiate) e quella di valore $4$ è formata dalle due rette $x_1 - x_2 = \pm 2$, che toccano il quadrato solo nei vertici $(2,0)$ e $(0,2)$. Le soluzioni ottime sono blu.
 
         ![Figura 15](../img/es-05-problemi-ottimizzazione/fig15.svg){ .fig .ovale loading=lazy style="width:50%" }
+
+    3. La regione ammissibile è il quadrato $F=[0,2]\times[0,2]$.
+
+        - Per la forma di minimo, $f(\boldsymbol x) = (x_1 - x_2)^2 \ge 0$ per ogni $\boldsymbol x$ ammissibile, con l'uguaglianza esattamente quando $x_1 = x_2$. Il problema ha <strong>infinite</strong> soluzioni ottime (la diagonale blu del quadrato) e il valore ottimo è:
+
+            $$
+            \argmin \big\{\, (x_1 - x_2)^2 \ \text{ soggetto a } \boldsymbol x \in F \,\big\} = \left\{ \begin{pmatrix} t\\ t \end{pmatrix} : 0 \le t \le 2 \right\}
+            \quad \text{e} \quad
+            z(P) = 0.
+            $$
+
+        - Per la forma di massimo, per ogni $\boldsymbol x$ ammissibile abbiamo $0 \le x_1 \le 2$ e $-2 \le -x_2 \le 0$, quindi $-2 \le x_1 - x_2 \le 2$ e $f(\boldsymbol x) \le 4$. L'uguaglianza $x_1 - x_2 = 2$ vale solo per $x_1 = 2$ e $x_2 = 0$, e $x_1 - x_2 = -2$ solo per $x_1 = 0$ e $x_2 = 2$. Il problema ha <strong>due</strong> soluzioni ottime e il valore ottimo è:
+
+            $$
+            \argmax \big\{\, (x_1 - x_2)^2 \ \text{ soggetto a } \boldsymbol x \in F \,\big\} = \left\{ \begin{pmatrix} 2\\ 0 \end{pmatrix},\, \begin{pmatrix} 0\\ 2 \end{pmatrix} \right\}
+            \quad \text{e} \quad
+            z(P) = 4.
+            $$
 
 <a id="esercizio-5-16"></a>
 
@@ -1031,7 +1035,7 @@ title: "Esercizi · Problemi di ottimizzazione"
 
         con l'uguaglianza solo per $x_1 = x_2 = 2$, e $\begin{pmatrix}2\\2\end{pmatrix}$ è l'unico punto di massimo di $f$ in $D$, con massimo $4$.
 
-    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il rettangolo rosso disegnato sul piano di base; i punti del grafico corrispondenti al punto di minimo e al punto di massimo sono blu, con un segmento tratteggiato che li collega al piano di base.
+    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il quadrato rosso disegnato sul piano di base; i punti del grafico corrispondenti al punto di minimo e al punto di massimo sono blu, con un segmento tratteggiato che li collega al piano di base.
 
         ![Figura 16](../img/es-05-problemi-ottimizzazione/fig16.svg){ .fig .ovale loading=lazy style="width:59%" }
 
@@ -1086,7 +1090,7 @@ title: "Esercizi · Problemi di ottimizzazione"
 
             e $\begin{pmatrix}-4\\-4\end{pmatrix}$ è l'unico punto di massimo di $f$ in $D$, con massimo $73$.
 
-    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il rettangolo rosso disegnato sul piano di base; i punti del grafico corrispondenti al punto di minimo e al punto di massimo sono blu, con un segmento tratteggiato che li collega al piano di base.
+    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il quadrato rosso disegnato sul piano di base; i punti del grafico corrispondenti al punto di minimo e al punto di massimo sono blu, con un segmento tratteggiato che li collega al piano di base.
 
         ![Figura 17](../img/es-05-problemi-ottimizzazione/fig17.png){ .fig .ovale loading=lazy style="width:59%" }
 
@@ -1166,7 +1170,7 @@ title: "Esercizi · Problemi di ottimizzazione"
 
         Il punto di minimo locale $\begin{pmatrix}0\\0\end{pmatrix}$ non è un punto di minimo (globale), poiché $-\frac{86}{5} < 2$.
 
-    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il rettangolo rosso disegnato sul piano di base; i punti del grafico corrispondenti ai quattro punti di minimo sono blu e il punto corrispondente al punto di minimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
+    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il quadrato rosso disegnato sul piano di base; i punti del grafico corrispondenti ai quattro punti di minimo sono blu e il punto corrispondente al punto di minimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
 
         ![Figura 18](../img/es-05-problemi-ottimizzazione/fig18.png){ .fig .ovale loading=lazy style="width:59%" }
 
@@ -1233,7 +1237,7 @@ title: "Esercizi · Problemi di ottimizzazione"
         = \left\{ \begin{pmatrix}-3\\-3\end{pmatrix},\begin{pmatrix}-3\\3\end{pmatrix},\begin{pmatrix}3\\-3\end{pmatrix},\begin{pmatrix}3\\3\end{pmatrix} \right\}.
         $$
 
-    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il rettangolo rosso disegnato sul piano di base; i punti del grafico corrispondenti ai quattro punti di minimo sono blu e il punto corrispondente al punto di minimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
+    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il quadrato rosso disegnato sul piano di base; i punti del grafico corrispondenti ai quattro punti di minimo sono blu e il punto corrispondente al punto di minimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
 
         ![Figura 19](../img/es-05-problemi-ottimizzazione/fig19.png){ .fig .ovale loading=lazy style="width:59%" }
 
@@ -1285,7 +1289,7 @@ title: "Esercizi · Problemi di ottimizzazione"
 
         dove $x_1^2 + 3x_1 + 12 = \big(x_1 + \frac{3}{2}\big)^2 + \frac{39}{4} > 0$. Per ogni $\begin{pmatrix}x_1\\x_2\end{pmatrix}\in D$ abbiamo $4 - x_1 \ge 0$, quindi $f({\boldsymbol x}) \ge -48$, con l'uguaglianza solo per $x_1 = 4$ e $x_2 = 0$. Il punto $\begin{pmatrix}4\\0\end{pmatrix}$ è l'unico punto di minimo di $f$ in $D$ e il minimo è $-48$.
 
-    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il rettangolo rosso disegnato sul piano di base; il punto del grafico corrispondente al punto di minimo è blu e il punto corrispondente al punto di minimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
+    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il quadrato rosso disegnato sul piano di base; il punto del grafico corrispondente al punto di minimo è blu e il punto corrispondente al punto di minimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
 
         ![Figura 20](../img/es-05-problemi-ottimizzazione/fig20.png){ .fig .ovale loading=lazy style="width:59%" }
 
@@ -1352,7 +1356,7 @@ title: "Esercizi · Problemi di ottimizzazione"
         = \left\{ \begin{pmatrix}\frac{9}{2}\\-3\end{pmatrix},\begin{pmatrix}\frac{9}{2}\\3\end{pmatrix} \right\}.
         $$
 
-    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il rettangolo rosso disegnato sul piano di base; i punti del grafico corrispondenti ai due punti di minimo sono blu e il punto corrispondente al punto di minimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
+    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il quadrato rosso disegnato sul piano di base; i punti del grafico corrispondenti ai due punti di minimo sono blu e il punto corrispondente al punto di minimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
 
         ![Figura 21](../img/es-05-problemi-ottimizzazione/fig21.png){ .fig .ovale loading=lazy style="width:59%" }
 
@@ -1407,7 +1411,7 @@ title: "Esercizi · Problemi di ottimizzazione"
 
             e $\begin{pmatrix}-4\\-4\end{pmatrix}$ è l'unico punto di minimo di $f$ in $D$, con minimo $-67$.
 
-    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il rettangolo rosso disegnato sul piano di base; i punti del grafico corrispondenti al punto di massimo e al punto di minimo sono blu, con un segmento tratteggiato che li collega al piano di base.
+    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il quadrato rosso disegnato sul piano di base; i punti del grafico corrispondenti al punto di massimo e al punto di minimo sono blu, con un segmento tratteggiato che li collega al piano di base.
 
         ![Figura 22](../img/es-05-problemi-ottimizzazione/fig22.png){ .fig .ovale loading=lazy style="width:59%" }
 
@@ -1481,7 +1485,7 @@ title: "Esercizi · Problemi di ottimizzazione"
 
         Il punto di massimo locale $\begin{pmatrix}0\\0\end{pmatrix}$ non è un punto di massimo (globale), poiché $2 < \frac{106}{5}$.
 
-    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il rettangolo rosso disegnato sul piano di base; i punti del grafico corrispondenti ai quattro punti di massimo sono blu e il punto corrispondente al punto di massimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
+    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il quadrato rosso disegnato sul piano di base; i punti del grafico corrispondenti ai quattro punti di massimo sono blu e il punto corrispondente al punto di massimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
 
         ![Figura 23](../img/es-05-problemi-ottimizzazione/fig23.png){ .fig .ovale loading=lazy style="width:59%" }
 
@@ -1548,7 +1552,7 @@ title: "Esercizi · Problemi di ottimizzazione"
         = \left\{ \begin{pmatrix}-4\\-4\end{pmatrix},\begin{pmatrix}-4\\4\end{pmatrix},\begin{pmatrix}4\\-4\end{pmatrix},\begin{pmatrix}4\\4\end{pmatrix} \right\}.
         $$
 
-    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il rettangolo rosso disegnato sul piano di base; i punti del grafico corrispondenti ai quattro punti di massimo sono blu e il punto corrispondente al punto di massimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
+    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il quadrato rosso disegnato sul piano di base; i punti del grafico corrispondenti ai quattro punti di massimo sono blu e il punto corrispondente al punto di massimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
 
         ![Figura 24](../img/es-05-problemi-ottimizzazione/fig24.png){ .fig .ovale loading=lazy style="width:59%" }
 
@@ -1613,7 +1617,7 @@ title: "Esercizi · Problemi di ottimizzazione"
 
         con l'uguaglianza solo per $x_1 = 3$ e $x_2 = 0$. Il punto $\begin{pmatrix}3\\0\end{pmatrix}$ è l'unico punto di massimo di $f$ in $D$ e il massimo è $18$.
 
-    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il rettangolo rosso disegnato sul piano di base; il punto del grafico corrispondente al punto di massimo è blu e il punto corrispondente al punto di massimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
+    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il quadrato rosso disegnato sul piano di base; il punto del grafico corrispondente al punto di massimo è blu e il punto corrispondente al punto di massimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
 
         ![Figura 25](../img/es-05-problemi-ottimizzazione/fig25.png){ .fig .ovale loading=lazy style="width:59%" }
 
@@ -1689,6 +1693,6 @@ title: "Esercizi · Problemi di ottimizzazione"
         = \left\{ \begin{pmatrix}3\\-3\end{pmatrix},\begin{pmatrix}3\\3\end{pmatrix} \right\}.
         $$
 
-    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il rettangolo rosso disegnato sul piano di base; i punti del grafico corrispondenti ai due punti di massimo sono blu e il punto corrispondente al punto di massimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
+    3. Il grafico della funzione è la superficie sopra il dominio $D$, che è il quadrato rosso disegnato sul piano di base; i punti del grafico corrispondenti ai due punti di massimo sono blu e il punto corrispondente al punto di massimo locale che non è globale è viola, con un segmento tratteggiato che li collega al piano di base.
 
         ![Figura 26](../img/es-05-problemi-ottimizzazione/fig26.png){ .fig .ovale loading=lazy style="width:59%" }

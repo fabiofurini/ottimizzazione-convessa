@@ -214,9 +214,9 @@ title: "Esercizi · Insiemi convessi"
     e i seguenti due punti di $F$ e il seguente scalare:
 
     $$
-    {\boldsymbol p}=\begin{pmatrix} 0 \\[0.3ex] 4 \end{pmatrix},
+    {\boldsymbol q}^{(1)}=\begin{pmatrix} 0 \\[0.3ex] 4 \end{pmatrix},
     \qquad
-    {\boldsymbol w}=\begin{pmatrix} 3 \\[0.3ex] 0 \end{pmatrix}
+    {\boldsymbol q}^{(2)}=\begin{pmatrix} 3 \\[0.3ex] 0 \end{pmatrix}
     \qquad \text{e} \qquad
     \lambda = \frac{1}{3}.
     $$
@@ -227,34 +227,27 @@ title: "Esercizi · Insiemi convessi"
 
     2. Trovare i vertici di $F$ e disegnare l'insieme.
 
-    3. Calcolare la combinazione convessa di ${\boldsymbol p}$ e ${\boldsymbol w}$ con lo scalare $\lambda$ e verificare che appartiene a $F$.
+    3. Calcolare la combinazione convessa di ${\boldsymbol q}^{(1)}$ e ${\boldsymbol q}^{(2)}$ con lo scalare $\lambda$ e verificare che appartiene a $F$.
 
 ??? soluzione "Soluzione"
 
-    1. Per ogni coppia di punti ${\boldsymbol p}$ e ${\boldsymbol w}$ dell'insieme e per ogni $\lambda \in [0,1]$, abbiamo:
+    1. Ciascuna delle quattro disuguaglianze che definiscono $F$ ha la forma $a_1\,x_1 + a_2\,x_2 \le b$, con
+
+        $$
+        (a_1,a_2,b) \in \big\{\,(1,2,8),~(3,1,9),~(-1,0,0),~(0,-1,0)\,\big\}
+        $$
+
+        (le ultime due sono $x_1 \ge 0$ e $x_2 \ge 0$). Per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in F$ e per ogni $\lambda \in [0,1]$, per ciascuna delle quattro disuguaglianze abbiamo:
 
         \begin{align*}
-        & \big(\lambda p_1 + (1-\lambda) w_1\big) + 2\,\big(\lambda p_2 + (1-\lambda) w_2\big) \\[2ex]
-        &\quad = \lambda\,(p_1 + 2\,p_2) + (1-\lambda)\,(w_1 + 2\,w_2) \\[2ex]
-        &\quad \le \lambda \cdot 8 + (1-\lambda) \cdot 8
-        \quad (\text{poiché } {\boldsymbol p}, {\boldsymbol w} \in F,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0)\\[2ex]
-        &\quad = 8 \\[4ex]
-        & 3\,\big(\lambda p_1 + (1-\lambda) w_1\big) + \big(\lambda p_2 + (1-\lambda) w_2\big) \\[2ex]
-        &\quad = \lambda\,(3\,p_1 + p_2) + (1-\lambda)\,(3\,w_1 + w_2) \\[2ex]
-        &\quad \le \lambda \cdot 9 + (1-\lambda) \cdot 9
-        \quad (\text{poiché } {\boldsymbol p}, {\boldsymbol w} \in F,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0)\\[2ex]
-        &\quad = 9 \\[4ex]
-        & \lambda p_1 + (1-\lambda) w_1 \\[2ex]
-        &\quad \ge \lambda \cdot 0 + (1-\lambda) \cdot 0
-        \quad (\text{poiché } {\boldsymbol p}, {\boldsymbol w} \in F,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0)\\[2ex]
-        &\quad = 0 \\[4ex]
-        & \lambda p_2 + (1-\lambda) w_2 \\[2ex]
-        &\quad \ge \lambda \cdot 0 + (1-\lambda) \cdot 0
-        \quad (\text{poiché } {\boldsymbol p}, {\boldsymbol w} \in F,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0)\\[2ex]
-        &\quad = 0
+        & a_1\,\big(\lambda p_1 + (1-\lambda) w_1\big) + a_2\,\big(\lambda p_2 + (1-\lambda) w_2\big) \\[2ex]
+        &\quad = \lambda\,(a_1\,p_1 + a_2\,p_2) + (1-\lambda)\,(a_1\,w_1 + a_2\,w_2) \\[2ex]
+        &\quad \le \lambda\, b + (1-\lambda)\, b \\[1ex]
+        &\qquad\quad (\text{poiché } {\boldsymbol p}, {\boldsymbol w} \in F,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0)\\[2ex]
+        &\quad = b
         \end{align*}
 
-        Allora $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}$ appartiene all'insieme e, quindi, l'insieme è convesso.
+        Quindi, $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w} \in F$ e l'insieme è convesso.
 
         Lo stesso calcolo mostra che ciascuno dei quattro insiemi definiti da una sola disuguaglianza (un semipiano) è convesso: $F$ è la loro intersezione, che è convessa poiché l'intersezione di insiemi convessi è convessa (capitolo «Insiemi convessi»).
 
@@ -279,11 +272,11 @@ title: "Esercizi · Insiemi convessi"
         \end{pmatrix}
         \end{equation*}
 
-        L'insieme $F$ è il quadrilatero di vertici $\begin{pmatrix} 0 \\[0.3ex] 0 \end{pmatrix}$, $\begin{pmatrix} 3 \\[0.3ex] 0 \end{pmatrix}$, $\begin{pmatrix} 2 \\[0.3ex] 3 \end{pmatrix}$ e $\begin{pmatrix} 0 \\[0.3ex] 4 \end{pmatrix}$ (in rosso). La figura mostra anche il segmento che congiunge ${\boldsymbol p}$ e ${\boldsymbol w}$ (in blu) e la combinazione convessa della domanda successiva.
+        L'insieme $F$ è il quadrilatero di vertici $\begin{pmatrix} 0 \\[0.3ex] 0 \end{pmatrix}$, $\begin{pmatrix} 3 \\[0.3ex] 0 \end{pmatrix}$, $\begin{pmatrix} 2 \\[0.3ex] 3 \end{pmatrix}$ e $\begin{pmatrix} 0 \\[0.3ex] 4 \end{pmatrix}$ (in rosso). La figura mostra anche il segmento che congiunge ${\boldsymbol q}^{(1)}$ e ${\boldsymbol q}^{(2)}$ (in blu) e la combinazione convessa della domanda successiva.
 
         ![Figura 3](../img/es-01-insiemi-convessi/fig03.svg){ .fig .ovale loading=lazy style="width:50%" }
 
-    3. La combinazione convessa di ${\boldsymbol p}$ e ${\boldsymbol w}$ con $\lambda = \frac{1}{3}$ è il punto:
+    3. La combinazione convessa di ${\boldsymbol q}^{(1)}$ e ${\boldsymbol q}^{(2)}$ con $\lambda = \frac{1}{3}$ è il punto:
 
         $$
         \frac{1}{3}\begin{pmatrix} 0 \\[0.3ex] 4 \end{pmatrix} + \frac{2}{3}\begin{pmatrix} 3 \\[0.3ex] 0 \end{pmatrix}
@@ -354,25 +347,26 @@ title: "Esercizi · Insiemi convessi"
 
         Il vettore ${\boldsymbol u}({\boldsymbol x})$ dipende linearmente da ${\boldsymbol x}$: per ogni ${\boldsymbol p}, {\boldsymbol w} \in \R^2$ e ogni $\lambda \in [0,1]$, abbiamo ${\boldsymbol u}\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big) = \lambda\, {\boldsymbol u}({\boldsymbol p}) + (1-\lambda)\, {\boldsymbol u}({\boldsymbol w})$.
 
-    2. Per ogni coppia di punti ${\boldsymbol p}$ e ${\boldsymbol w}$ dell'insieme e per ogni $\lambda \in [0,1]$, abbiamo:
+    2. Per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in F$ e per ogni $\lambda \in [0,1]$, abbiamo:
 
         \begin{align*}
         & \sqrt{\big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big)' \, {\boldsymbol Q} \, \big(\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}\big)} \\[2ex]
-        &\quad = \big\| \lambda\, {\boldsymbol u}({\boldsymbol p}) + (1-\lambda)\, {\boldsymbol u}({\boldsymbol w}) \big\|_2
-        \quad \text{(per la prima domanda)}\\[2ex]
-        &\quad \le \big\| \lambda\, {\boldsymbol u}({\boldsymbol p}) \big\|_2 + \big\| (1-\lambda)\, {\boldsymbol u}({\boldsymbol w}) \big\|_2
-        \quad \text{(per la disuguaglianza triangolare)}\\[2ex]
-        &\quad = |\lambda| \; \| {\boldsymbol u}({\boldsymbol p}) \|_2 + |1-\lambda| \; \| {\boldsymbol u}({\boldsymbol w}) \|_2
-        \quad \text{(per l'omogeneità assoluta)}\\[2ex]
-        &\quad = \lambda \; \| {\boldsymbol u}({\boldsymbol p}) \|_2 + (1-\lambda) \; \| {\boldsymbol u}({\boldsymbol w}) \|_2
-        \quad (\text{poiché } \lambda \ge 0 \text{ e } 1-\lambda \ge 0)\\[2ex]
-        &\quad = \lambda \, \sqrt{{\boldsymbol p}' \, {\boldsymbol Q} \, {\boldsymbol p}} + (1-\lambda) \, \sqrt{{\boldsymbol w}' \, {\boldsymbol Q} \, {\boldsymbol w}}\\[2ex]
-        &\quad \le \lambda \cdot 1 + (1-\lambda) \cdot 1
-        \quad (\text{poiché } {\boldsymbol p}, {\boldsymbol w} \in F,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0)\\[2ex]
+        &\quad = \big\| \lambda\, {\boldsymbol u}({\boldsymbol p}) + (1-\lambda)\, {\boldsymbol u}({\boldsymbol w}) \big\|_2 \\[1ex]
+        &\qquad\quad \text{(per la prima domanda)}\\[2ex]
+        &\quad \le \big\| \lambda\, {\boldsymbol u}({\boldsymbol p}) \big\|_2 + \big\| (1-\lambda)\, {\boldsymbol u}({\boldsymbol w}) \big\|_2 \\[1ex]
+        &\qquad\quad \text{(per la disuguaglianza triangolare)}\\[2ex]
+        &\quad = |\lambda| \; \| {\boldsymbol u}({\boldsymbol p}) \|_2 + |1-\lambda| \; \| {\boldsymbol u}({\boldsymbol w}) \|_2 \\[1ex]
+        &\qquad\quad \text{(per l'omogeneità assoluta)}\\[2ex]
+        &\quad = \lambda \; \| {\boldsymbol u}({\boldsymbol p}) \|_2 + (1-\lambda) \; \| {\boldsymbol u}({\boldsymbol w}) \|_2 \\[1ex]
+        &\qquad\quad (\text{poiché } \lambda \ge 0 \text{ e } 1-\lambda \ge 0)\\[2ex]
+        &\quad = \lambda \, \sqrt{{\boldsymbol p}' \, {\boldsymbol Q} \, {\boldsymbol p}} + (1-\lambda) \, \sqrt{{\boldsymbol w}' \, {\boldsymbol Q} \, {\boldsymbol w}} \\[1ex]
+        &\qquad\quad \text{(per la prima domanda)}\\[2ex]
+        &\quad \le \lambda \cdot 1 + (1-\lambda) \cdot 1 \\[1ex]
+        &\qquad\quad (\text{poiché } {\boldsymbol p}, {\boldsymbol w} \in F,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0)\\[2ex]
         &\quad = 1
         \end{align*}
 
-        Allora $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}$ appartiene all'insieme e, quindi, l'insieme è convesso.
+        Quindi, $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w} \in F$ e l'insieme è convesso.
 
     3. Abbiamo:
 
@@ -461,9 +455,9 @@ title: "Esercizi · Insiemi convessi"
     2. Per mostrare che un insieme non è convesso, basta trovare due punti dell'insieme e uno scalare $\lambda \in [0,1]$ la cui combinazione convessa non appartiene all'insieme. Prendiamo
 
         $$
-        {\boldsymbol p}=\begin{pmatrix} -\frac{3}{2} \\[0.6ex] 0 \end{pmatrix},
+        {\boldsymbol q}^{(1)}=\begin{pmatrix} -\frac{3}{2} \\[0.6ex] 0 \end{pmatrix},
         \qquad
-        {\boldsymbol w}=\begin{pmatrix} \frac{3}{2} \\[0.6ex] 0 \end{pmatrix}
+        {\boldsymbol q}^{(2)}=\begin{pmatrix} \frac{3}{2} \\[0.6ex] 0 \end{pmatrix}
         \qquad \text{e} \qquad
         \lambda = \frac{1}{2}.
         $$
@@ -477,29 +471,23 @@ title: "Esercizi · Insiemi convessi"
 
         La combinazione convessa non appartiene ad $A$: l'insieme $A$ non è convesso.
 
-    3. Per ogni coppia di punti ${\boldsymbol p}$ e ${\boldsymbol w}$ dell'insieme $B_1$ e per ogni $\lambda \in [0,1]$, abbiamo:
+    3. Sia $k \in \{1,2\}$. L'insieme $B_k$ è definito dai limiti $0 \le x_1 \le u_1$ e $0 \le x_2 \le u_2$, con $(u_1,u_2) = (4,1)$ per $B_1$ e $(u_1,u_2) = (1,4)$ per $B_2$. Per ogni coppia di punti ${\boldsymbol p}, {\boldsymbol w} \in B_k$ e per ogni $\lambda \in [0,1]$, per ciascuna coordinata $i \in \{1,2\}$ abbiamo:
 
         \begin{align*}
-        & \lambda p_1 + (1-\lambda) w_1 \ge \lambda \cdot 0 + (1-\lambda) \cdot 0 = 0
-        \quad (\text{poiché } {\boldsymbol p}, {\boldsymbol w} \in B_1,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0)\\[2ex]
-        & \lambda p_1 + (1-\lambda) w_1 \le \lambda \cdot 4 + (1-\lambda) \cdot 4 = 4
-        \quad (\text{poiché } {\boldsymbol p}, {\boldsymbol w} \in B_1,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0)\\[2ex]
-        & \lambda p_2 + (1-\lambda) w_2 \ge \lambda \cdot 0 + (1-\lambda) \cdot 0 = 0
-        \quad (\text{poiché } {\boldsymbol p}, {\boldsymbol w} \in B_1,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0)\\[2ex]
-        & \lambda p_2 + (1-\lambda) w_2 \le \lambda \cdot 1 + (1-\lambda) \cdot 1 = 1
-        \quad (\text{poiché } {\boldsymbol p}, {\boldsymbol w} \in B_1,~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0)
+        \lambda p_i + (1-\lambda) w_i
+        &\in \big[\,\lambda \cdot 0 + (1-\lambda) \cdot 0,~~ \lambda\, u_i + (1-\lambda)\, u_i\,\big] \\[1ex]
+        &\qquad\quad (\text{poiché } p_i, w_i \in [0,u_i],~ \lambda \ge 0 \text{ e } 1-\lambda \ge 0)\\[2ex]
+        &= [\,0,~u_i\,]
         \end{align*}
 
-        Allora $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w}$ appartiene all'insieme e, quindi, l'insieme è convesso.
-
-        La dimostrazione per $B_2$ è la stessa, scambiando i ruoli dei limiti $1$ e $4$.
+        Quindi, $\lambda {\boldsymbol p} + (1-\lambda){\boldsymbol w} \in B_k$ e l'insieme $B_k$ è convesso.
 
     4. Prendiamo
 
         $$
-        {\boldsymbol p}=\begin{pmatrix} 1 \\[0.3ex] 4 \end{pmatrix} \in B_2,
+        {\boldsymbol q}^{(1)}=\begin{pmatrix} 1 \\[0.3ex] 4 \end{pmatrix} \in B_2,
         \qquad
-        {\boldsymbol w}=\begin{pmatrix} 4 \\[0.3ex] 1 \end{pmatrix} \in B_1
+        {\boldsymbol q}^{(2)}=\begin{pmatrix} 4 \\[0.3ex] 1 \end{pmatrix} \in B_1
         \qquad \text{e} \qquad
         \lambda = \frac{1}{2}.
         $$
