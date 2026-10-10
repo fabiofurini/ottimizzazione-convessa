@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "Se usi questo materiale, per favore citalo come segue."
+title: "Ottimizzazione convessa: dispense online con esercizi svolti"
+abstract: >-
+  Le dispense del corso di Ottimizzazione convessa — funzioni di più variabili,
+  insiemi convessi, funzioni convesse e concave, funzioni quadratiche, problemi
+  di ottimizzazione convessi e concavi — con definizioni, teoremi e dimostrazioni,
+  esempi svolti ed esercizi con le soluzioni.
+authors:
+  - family-names: Furini
+    given-names: Fabio
+    email: fabio.furini@uniroma1.it
+    affiliation: "DIAG, Sapienza Università di Roma"
+url: "https://fabiofurini.github.io/ottimizzazione-convessa/"
+repository-code: "https://github.com/fabiofurini/ottimizzazione-convessa"
+license:
+  - CC-BY-4.0
+  - MIT
+date-released: 2026-10-10
+keywords:
+  - ottimizzazione convessa
+  - insiemi convessi
+  - funzioni convesse
+  - problemi di ottimizzazione
+  - ricerca operativa
+  - materiale didattico
