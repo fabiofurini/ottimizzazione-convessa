@@ -6,7 +6,7 @@ title: "Funzioni di più variabili"
 
 <div class="info-capitolo" markdown>
 
-**Parte 1 · Preliminari · Capitolo 2** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-pencil: Esercizi](../esercizi/es-02-funzioni-piu-variabili.md)
+**Parte 1 · Preliminari · Capitolo 2** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-presentation: Slide](../pdf/slide-02-funzioni-piu-variabili.pdf) · [:material-pencil: Esercizi](../esercizi/es-02-funzioni-piu-variabili.md)
 
 </div>
 

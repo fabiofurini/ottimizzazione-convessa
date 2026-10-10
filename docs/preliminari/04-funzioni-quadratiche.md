@@ -6,7 +6,7 @@ title: "Funzioni quadratiche"
 
 <div class="info-capitolo" markdown>
 
-**Parte 1 · Preliminari · Capitolo 4** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-pencil: Esercizi](../esercizi/es-04-funzioni-quadratiche.md)
+**Parte 1 · Preliminari · Capitolo 4** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-presentation: Slide](../pdf/slide-04-funzioni-quadratiche.pdf) · [:material-pencil: Esercizi](../esercizi/es-04-funzioni-quadratiche.md)
 
 </div>
 
@@ -193,7 +193,7 @@ title: "Funzioni quadratiche"
 
 !!! esempio "Esempio 4.2: insiemi di livello di funzioni quadratiche"
 
-    With ${\boldsymbol Q}=\begin{pmatrix} 1 & 0\\ 0 & 1 \end{pmatrix}$, la funzione quadratica associata è:
+    Con ${\boldsymbol Q}=\begin{pmatrix} 1 & 0\\ 0 & 1 \end{pmatrix}$, la funzione quadratica associata è:
 
     $$
     f: \mathbb{R}^{2} \rightarrow \mathbb{R},~~ f: \begin{pmatrix}
@@ -229,7 +229,7 @@ title: "Funzioni quadratiche"
 
 !!! esempio "Esempio 4.3: insiemi di livello di funzioni quadratiche"
 
-    With ${\boldsymbol Q}=\begin{pmatrix} 2 & -1\\ -1 & 2 \end{pmatrix}$, la funzione quadratica associata è:
+    Con ${\boldsymbol Q}=\begin{pmatrix} 2 & -1\\ -1 & 2 \end{pmatrix}$, la funzione quadratica associata è:
 
     \begin{align*}
     f: \mathbb{R}^{2} \rightarrow \mathbb{R},~~ f: \begin{pmatrix}
@@ -265,7 +265,7 @@ title: "Funzioni quadratiche"
 
 !!! esempio "Esempio 4.4: gradienti di funzioni quadratiche"
 
-    With ${\boldsymbol Q}=\begin{pmatrix} 1 & 0\\ 0 & 1 \end{pmatrix}$, il gradiente della funzione quadratica è:
+    Con ${\boldsymbol Q}=\begin{pmatrix} 1 & 0\\ 0 & 1 \end{pmatrix}$, il gradiente della funzione quadratica è:
 
     $$
     \nabla f\left(\begin{pmatrix}
@@ -314,7 +314,7 @@ title: "Funzioni quadratiche"
 
 !!! esempio "Esempio 4.5: gradienti di funzioni quadratiche"
 
-    With ${\boldsymbol Q}=\begin{pmatrix} 2 & -1\\ -1 & 2 \end{pmatrix}$, il gradiente della funzione quadratica è:
+    Con ${\boldsymbol Q}=\begin{pmatrix} 2 & -1\\ -1 & 2 \end{pmatrix}$, il gradiente della funzione quadratica è:
 
     $$
     \nabla f\left(\begin{pmatrix}
@@ -349,7 +349,7 @@ title: "Funzioni quadratiche"
 
 !!! esempio "Esempio 4.6: grafici di funzioni quadratiche"
 
-    With ${\boldsymbol Q}=\begin{pmatrix} 1 & 0\\[1ex] 0 & 1 \\ \end{pmatrix}$, abbiamo $f\left(\begin{pmatrix} x_1 \\ x_2 \\ \end{pmatrix}\right)=x_1^2+x_2^2$. Il suo grafico è:
+    Con ${\boldsymbol Q}=\begin{pmatrix} 1 & 0\\[1ex] 0 & 1 \\ \end{pmatrix}$, abbiamo $f\left(\begin{pmatrix} x_1 \\ x_2 \\ \end{pmatrix}\right)=x_1^2+x_2^2$. Il suo grafico è:
 
     ![Figura 5](../img/04-funzioni-quadratiche/fig05.svg){ .fig .ovale loading=lazy style="width:62%" }
 
@@ -357,7 +357,7 @@ title: "Funzioni quadratiche"
 
 !!! esempio "Esempio 4.7: grafici di funzioni quadratiche"
 
-    With ${\boldsymbol Q}=\begin{pmatrix} 2 & -1\\[1ex] -1 & 2 \\ \end{pmatrix}$, abbiamo $f\left(\begin{pmatrix} x_1 \\ x_2 \\ \end{pmatrix}\right) = 2\;x_1^2 - 2 \;x_1\;x_2  + 2\;x_2^2$. Il suo grafico è:
+    Con ${\boldsymbol Q}=\begin{pmatrix} 2 & -1\\[1ex] -1 & 2 \\ \end{pmatrix}$, abbiamo $f\left(\begin{pmatrix} x_1 \\ x_2 \\ \end{pmatrix}\right) = 2\;x_1^2 - 2 \;x_1\;x_2  + 2\;x_2^2$. Il suo grafico è:
 
     ![Figura 6](../img/04-funzioni-quadratiche/fig06.svg){ .fig .ovale loading=lazy style="width:62%" }
 
@@ -484,7 +484,7 @@ title: "Funzioni quadratiche"
 
 !!! esempio "Esempio 4.8: una funzione quadratica convessa"
 
-    With ${\boldsymbol Q}=\begin{pmatrix} 2 & -1\\ -1 & 2 \end{pmatrix}$, per ogni ${\boldsymbol x} \in \R^2$ abbiamo:
+    Con ${\boldsymbol Q}=\begin{pmatrix} 2 & -1\\ -1 & 2 \end{pmatrix}$, per ogni ${\boldsymbol x} \in \R^2$ abbiamo:
 
     $$
     {\boldsymbol x}' {\boldsymbol Q} \; {\boldsymbol x} = 2\;x_1^2 - 2\;x_1\;x_2  + 2\;x_2^2 = x_1^2 + x_2^2 + (x_1 - x_2)^2 \ge 0
@@ -519,7 +519,7 @@ title: "Funzioni quadratiche"
 
 !!! esempio "Esempio 4.9: una funzione quadratica non convessa"
 
-    With ${\boldsymbol Q}=\begin{pmatrix} 1 & 0\\ 0 & -1 \end{pmatrix}$, la funzione quadratica è
+    Con ${\boldsymbol Q}=\begin{pmatrix} 1 & 0\\ 0 & -1 \end{pmatrix}$, la funzione quadratica è
 
     $$
     f\left(\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\right) = x_1^2 - x_2^2

@@ -6,7 +6,7 @@ title: "Problemi di ottimizzazione convessi e concavi"
 
 <div class="info-capitolo" markdown>
 
-**Parte 2 · Problemi di ottimizzazione · Capitolo 6** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../pdf/dispensa-2-problemi-di-ottimizzazione.pdf) · [:material-pencil: Esercizi](../esercizi/es-06-problemi-convessi-concavi.md)
+**Parte 2 · Problemi di ottimizzazione · Capitolo 6** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../pdf/dispensa-2-problemi-di-ottimizzazione.pdf) · [:material-presentation: Slide](../pdf/slide-06-problemi-convessi-concavi.pdf) · [:material-pencil: Esercizi](../esercizi/es-06-problemi-convessi-concavi.md)
 
 </div>
 

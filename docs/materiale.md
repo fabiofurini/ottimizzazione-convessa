@@ -49,3 +49,17 @@ Le dispense e gli eserciziari in PDF, aggiornati a ogni pubblicazione del sito, 
     [:octicons-download-24: esercizi-2-problemi-di-ottimizzazione.pdf](pdf/esercizi-2-problemi-di-ottimizzazione.pdf)
 
 </div>
+
+## Slide
+
+### Preliminari
+
+- :material-presentation: [Capitolo 1 · Insiemi convessi](pdf/slide-01-insiemi-convessi.pdf)
+- :material-presentation: [Capitolo 2 · Funzioni di più variabili](pdf/slide-02-funzioni-piu-variabili.pdf)
+- :material-presentation: [Capitolo 3 · Funzioni convesse e concave](pdf/slide-03-funzioni-convesse-concave.pdf)
+- :material-presentation: [Capitolo 4 · Funzioni quadratiche](pdf/slide-04-funzioni-quadratiche.pdf)
+
+### Problemi di ottimizzazione
+
+- :material-presentation: [Capitolo 5 · Problemi di ottimizzazione](pdf/slide-05-problemi-ottimizzazione.pdf)
+- :material-presentation: [Capitolo 6 · Problemi di ottimizzazione convessi e concavi](pdf/slide-06-problemi-convessi-concavi.pdf)

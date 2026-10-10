@@ -6,7 +6,7 @@ title: "Funzioni convesse e concave"
 
 <div class="info-capitolo" markdown>
 
-**Parte 1 · Preliminari · Capitolo 3** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-pencil: Esercizi](../esercizi/es-03-funzioni-convesse-concave.md)
+**Parte 1 · Preliminari · Capitolo 3** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-presentation: Slide](../pdf/slide-03-funzioni-convesse-concave.pdf) · [:material-pencil: Esercizi](../esercizi/es-03-funzioni-convesse-concave.md)
 
 </div>
 

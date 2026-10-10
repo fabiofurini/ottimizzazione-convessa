@@ -6,7 +6,7 @@ title: "Problemi di ottimizzazione"
 
 <div class="info-capitolo" markdown>
 
-**Parte 2 · Problemi di ottimizzazione · Capitolo 5** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../pdf/dispensa-2-problemi-di-ottimizzazione.pdf) · [:material-pencil: Esercizi](../esercizi/es-05-problemi-ottimizzazione.md)
+**Parte 2 · Problemi di ottimizzazione · Capitolo 5** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../pdf/dispensa-2-problemi-di-ottimizzazione.pdf) · [:material-presentation: Slide](../pdf/slide-05-problemi-ottimizzazione.pdf) · [:material-pencil: Esercizi](../esercizi/es-05-problemi-ottimizzazione.md)
 
 </div>
 

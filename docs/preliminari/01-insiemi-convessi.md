@@ -6,7 +6,7 @@ title: "Insiemi convessi"
 
 <div class="info-capitolo" markdown>
 
-**Parte 1 · Preliminari · Capitolo 1** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-pencil: Esercizi](../esercizi/es-01-insiemi-convessi.md)
+**Parte 1 · Preliminari · Capitolo 1** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-presentation: Slide](../pdf/slide-01-insiemi-convessi.pdf) · [:material-pencil: Esercizi](../esercizi/es-01-insiemi-convessi.md)
 
 </div>
 
