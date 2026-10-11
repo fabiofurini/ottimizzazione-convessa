@@ -396,7 +396,7 @@
     function adattaAlContenitore() {
       if (!board || !el.classList.contains("gi-app-intera")) return;
       const w = boardEl.clientWidth, hh = boardEl.clientHeight;
-      if (w > 0 && hh > 0) { board.resizeContainer(w, hh, false, true); board.update(); }
+      if (w > 0 && hh > 0) { board.resizeContainer(w, hh, true); board.update(); }
       if (!ro && window.ResizeObserver) {
         let ultimo = w + "x" + hh;
         ro = new ResizeObserver(() => requestAnimationFrame(() => {
@@ -404,7 +404,7 @@
           const w2 = boardEl.clientWidth, h2 = boardEl.clientHeight, k = w2 + "x" + h2;
           if (k === ultimo || w2 <= 0 || h2 <= 0) return;
           ultimo = k;
-          if (board) { board.resizeContainer(w2, h2, false, true); board.update(); }
+          if (board) { board.resizeContainer(w2, h2, true); board.update(); }
         }));
         ro.observe(boardEl);
       }
@@ -537,7 +537,7 @@
       btn.classList.add("on"); btn.textContent = "⏸";
       const step = (t) => {
         if (!document.body.contains(el)) return;
-        const v = lo + (hi - lo) * (0.5 - 0.5 * Math.cos((t - t0) / 1500));
+        const v = lo + (hi - lo) * (0.5 - 0.5 * Math.cos((t - t0) / 3200));
         inp.value = (lo + Math.round((v - lo) / ps) * ps).toFixed(6);
         aggiorna();
         if (anim) anim.id = requestAnimationFrame(step);
