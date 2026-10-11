@@ -125,7 +125,8 @@ Dello stesso autore:
 - **[Laboratorio di Ricerca Operativa](https://fabiofurini.github.io/laboratorio-ricerca-operativa/)** — il laboratorio di modellazione e risoluzione di problemi di ottimizzazione, con Python e i solver;
 - **[Modellazione MIP](https://fabiofurini.github.io/modellazione-mip/)** — il modulo sui modelli a variabili intere, con gli stessi strumenti e lo stesso stile;
 - **[Analisi Matematica 1](https://fabiofurini.github.io/analisi-matematica-1/)** — le dispense di analisi, con i grafici interattivi;
-- **[Algebra lineare](https://fabiofurini.github.io/algebra-lineare/)** — il corso propedeutico, con il laboratorio di calcolo passo per passo.
+- **[Algebra lineare](https://fabiofurini.github.io/algebra-lineare/)** — il corso propedeutico, con il laboratorio di calcolo passo per passo;
+- **[Algoritmi](https://fabiofurini.github.io/algoritmi/)** — rappresentazione dei numeri, pseudocodice, linguaggi C++, Python e Java, ordinamento e ricerca, notazione asintotica, analisi e algoritmi ricorsivi, con grafici interattivi.
 
 Materiale didattico di **[Fabio Furini](https://fabiofurini.github.io/)** —
 [DIAG](https://www.diag.uniroma1.it/), Sapienza Università di Roma.
