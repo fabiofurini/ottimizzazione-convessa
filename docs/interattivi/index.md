@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Laboratorio interattivo
 
 Qui l'ottimizzazione si tocca con mano. Ogni app si apre in una pagina tutta sua, a grande
