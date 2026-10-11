@@ -1,67 +1,124 @@
 # Laboratorio interattivo
 
-Qui l'ottimizzazione si tocca con mano. Ogni grafico ha dei **cursori**: ciascun
-parametro ha il suo colore, lo stesso nel cursore e nella formula, così si vede subito
-*chi fa che cosa*. In molti grafici puoi anche **trascinare i punti**. Il pulsante ▶
-accanto a un parametro lo fa muovere da solo; in alcuni grafici la scheda **Sfida**
-propone un bersaglio da riprodurre. I colori sono quelli delle dispense: la regione
-ammissibile in rosso, gli ottimi in blu, i punti locali in viola.
+Qui l'ottimizzazione si tocca con mano. Ogni app si apre in una pagina tutta sua, a grande
+schermo: trascina i punti, muovi i cursori e guarda come cambiano insiemi, funzioni e ottimi.
 
-!!! tip "Come si usa"
-    Trascina i cursori e i punti, oppure clicca ▶ per l'animazione. Sul grafico puoi
-    spostarti trascinando con due dita (o con il mouse) e ingrandire con
-    Maiusc + rotellina. Ogni grafico si ritrova anche in fondo al capitolo delle
-    dispense a cui si riferisce.
+## 1. Insiemi convessi { #cap-1 }
 
 <div class="grid cards" markdown>
 
--   :material-vector-triangle: **[Preliminari](#parte-1)** — combinazioni convesse di punti · insiemi convessi e non convessi · palle unitarie delle norme · insiemi di livello e gradiente · la corda e il grafico di una funzione convessa · funzioni quadratiche e matrice \(Q\)
--   :material-chart-bell-curve-cumulative: **[Problemi di ottimizzazione](#parte-2)** — ottimo di una funzione su un intervallo · ottimi locali e globali · discesa verso un ottimo locale
+-   :material-triangle-outline: **Combinazione convessa**
+
+    ---
+
+    Tre punti, tre pesi: vedi come le combinazioni convesse riempiono il triangolo.
+
+    [Apri l’app →](combinazione-convessa.md)
+
+-   :material-vector-polyline: **Test di convessità**
+
+    ---
+
+    Insiemi convessi e non convessi: il segmento fra due punti resta nell'insieme?
+
+    [Apri l’app →](test-convessita.md)
+
+-   :material-circle-double: **Palle in norma q**
+
+    ---
+
+    Le palle unitarie delle norme: dal rombo al cerchio fino al quadrato.
+
+    [Apri l’app →](palle-norma.md)
 
 </div>
 
-## Preliminari { #parte-1 }
-
-### 1. Insiemi convessi { #cap-1 }
-
-<div class="gi" data-grafico="combinazione"></div>
-
-<div class="gi" data-grafico="test-convessita"></div>
-
-<div class="gi" data-grafico="palle-norma"></div>
-
 Il capitolo: [Insiemi convessi](../preliminari/01-insiemi-convessi.md).
 
-### 2. Funzioni di più variabili { #cap-2 }
+## 2. Funzioni di più variabili { #cap-2 }
 
-<div class="gi" data-grafico="livello-gradiente"></div>
+<div class="grid cards" markdown>
+
+-   :material-contour: **Insiemi di livello e gradiente**
+
+    ---
+
+    Le curve di livello di una funzione di due variabili e il gradiente, sempre perpendicolare.
+
+    [Apri l’app →](livello-gradiente.md)
+
+</div>
 
 Il capitolo: [Funzioni di più variabili](../preliminari/02-funzioni-piu-variabili.md).
 
-### 3. Funzioni convesse e concave { #cap-3 }
+## 3. Funzioni convesse e concave { #cap-3 }
 
-<div class="gi" data-grafico="corda"></div>
+<div class="grid cards" markdown>
+
+-   :material-chart-bell-curve: **La corda e il grafico**
+
+    ---
+
+    La definizione di funzione convessa: il grafico sta sotto la corda?
+
+    [Apri l’app →](corda.md)
+
+</div>
 
 Il capitolo: [Funzioni convesse e concave](../preliminari/03-funzioni-convesse-concave.md).
 
-### 4. Funzioni quadratiche { #cap-4 }
+## 4. Funzioni quadratiche { #cap-4 }
 
-<div class="gi" data-grafico="matrice-q"></div>
+<div class="grid cards" markdown>
+
+-   :material-matrix: **La matrice Q**
+
+    ---
+
+    Funzioni quadratiche: come la matrice \(Q\) decide la forma degli insiemi di livello e la convessità.
+
+    [Apri l’app →](matrice-q.md)
+
+</div>
 
 Il capitolo: [Funzioni quadratiche](../preliminari/04-funzioni-quadratiche.md).
 
-## Problemi di ottimizzazione { #parte-2 }
+## 5. Problemi di ottimizzazione { #cap-5 }
 
-### 5. Problemi di ottimizzazione { #cap-5 }
+<div class="grid cards" markdown>
 
-<div class="gi" data-grafico="ottimo-intervallo"></div>
+-   :material-target: **Ottimo su un intervallo**
 
-<div class="gi" data-grafico="ottimi-locali"></div>
+    ---
+
+    Ottimo, illimitato, estremo non raggiunto, inammissibile: gli esiti di un problema di ottimizzazione.
+
+    [Apri l’app →](ottimo-intervallo.md)
+
+-   :material-image-filter-hdr: **Ottimi locali e globali**
+
+    ---
+
+    Intorni, minimi locali e globali di una funzione su un insieme ammissibile.
+
+    [Apri l’app →](ottimi-locali.md)
+
+</div>
 
 Il capitolo: [Problemi di ottimizzazione](../problemi/05-problemi-ottimizzazione.md).
 
-### 6. Problemi di ottimizzazione convessi e concavi { #cap-6 }
+## 6. Problemi di ottimizzazione convessi e concavi { #cap-6 }
 
-<div class="gi" data-grafico="discesa-locale"></div>
+<div class="grid cards" markdown>
+
+-   :material-stairs-down: **Discesa verso un ottimo locale**
+
+    ---
+
+    Dove si ferma un metodo locale? Nei problemi convessi ogni minimo locale è globale.
+
+    [Apri l’app →](discesa-locale.md)
+
+</div>
 
 Il capitolo: [Problemi di ottimizzazione convessi e concavi](../problemi/06-problemi-convessi-concavi.md).

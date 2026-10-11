@@ -389,6 +389,27 @@
     };
     const vista = () => (typeof R.vista === "function" ? R.vista(chiave, st) : R.vista) || [-5, 5, 5, -5];
 
+    // App a tutta pagina (.gi-app-intera): la board prende la dimensione del suo contenitore
+    // e si ridisegna quando la finestra cambia. Le altre app (incorporate nei capitoli) restano
+    // com'erano, con il rapporto 4/3 dato dal CSS.
+    let ro = null;
+    function adattaAlContenitore() {
+      if (!board || !el.classList.contains("gi-app-intera")) return;
+      const w = boardEl.clientWidth, hh = boardEl.clientHeight;
+      if (w > 0 && hh > 0) { board.resizeContainer(w, hh, false, true); board.update(); }
+      if (!ro && window.ResizeObserver) {
+        let ultimo = w + "x" + hh;
+        ro = new ResizeObserver(() => requestAnimationFrame(() => {
+          if (!document.body.contains(el)) { ro.disconnect(); return; }
+          const w2 = boardEl.clientWidth, h2 = boardEl.clientHeight, k = w2 + "x" + h2;
+          if (k === ultimo || w2 <= 0 || h2 <= 0) return;
+          ultimo = k;
+          if (board) { board.resizeContainer(w2, h2, false, true); board.update(); }
+        }));
+        ro.observe(boardEl);
+      }
+    }
+
     function creaBoard() {
       if (board) JXG.JSXGraph.freeBoard(board);
       const muted = css(el, "--gi-muted"), line = css(el, "--gi-line");
@@ -400,6 +421,7 @@
         defaultAxes: { x: assi, y: assi },
       }, R.opzioniBoard || {}));
       st.board = board;
+      adattaAlContenitore();
       if (R.originale) board.create("functiongraph", [(x) => voce().f(x)], R.fPieno
         ? { strokeColor: colore("b"), strokeWidth: 3, highlight: false }
         : { strokeColor: colore("orig"), strokeWidth: 2.2, dash: 2, highlight: false });

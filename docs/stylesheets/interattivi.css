@@ -90,3 +90,16 @@
 /* dentro i grafici le formule non hanno barre di scorrimento proprie (extra.css le dà a .arithmatex
    per le formule lunghe del testo): se una formula è davvero più larga, scorre il riquadro .gi-formula */
 .md-typeset .gi .arithmatex, .md-typeset .gi mjx-container { overflow: visible !important; }
+
+/* App a tutta pagina: una pagina per app (docs/interattivi/<slug>.md). */
+body:has(.gi-app-intera) .md-grid { max-width: none; }
+.gi-app-intera { margin: .6em 0 1.2em; }
+.gi-app-intera .gi-corpo { grid-template-columns: minmax(0, 1fr) minmax(250px, 340px); align-items: start; }
+.gi-app-intera .gi-board { aspect-ratio: auto; height: calc(100vh - 230px); min-height: 480px; }
+@media (max-width: 860px) {
+  .gi-app-intera .gi-corpo { grid-template-columns: 1fr; padding: .6em; }
+  .gi-app-intera .gi-board { width: 100%; height: 70vh; min-height: 320px; }
+}
+.md-content__inner:has(.gi-app-intera) { margin-top: .4rem; }
+.md-content__inner:has(.gi-app-intera) h1 { margin: 0 0 .3em; }
+.md-content__inner:has(.gi-app-intera)::before { height: .2rem; }
