@@ -89,7 +89,7 @@ extra:
 extra_css:
   - stylesheets/extra.css?v=d60085bd58
   - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css
-  - stylesheets/interattivi.css?v=f5a40b5b5e
+  - stylesheets/interattivi.css?v=8bcb4eaccc
 
 markdown_extensions:
   - admonition
@@ -114,7 +114,7 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
   # grafici interattivi: JSXGraph, il motore, poi le ricette (gi-*.js, le aggiunge genera_sito.py)
   - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js
-  - javascripts/interattivi.js?v=406f5d5faf
+  - javascripts/interattivi.js?v=bc939b13b1
   - javascripts/gi-cap1.js?v=27c38e033c
   - javascripts/gi-cap2-4.js?v=64088905fd
   - javascripts/gi-cap5-6.js?v=3713a1d99f
