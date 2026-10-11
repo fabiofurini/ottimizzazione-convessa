@@ -122,6 +122,7 @@ dispensa: sul sito e nel PDF trovi tutto allo stesso posto.
 
 Dello stesso autore:
 
+- **[Programmazione lineare](https://fabiofurini.github.io/programmazione-lineare/)** — poliedri, algoritmo del simplesso, dualità e modellazione, con il laboratorio interattivo;
 - **[Laboratorio di Ricerca Operativa](https://fabiofurini.github.io/laboratorio-ricerca-operativa/)** — il laboratorio di modellazione e risoluzione di problemi di ottimizzazione, con Python e i solver;
 - **[Modellazione MIP](https://fabiofurini.github.io/modellazione-mip/)** — il modulo sui modelli a variabili intere, con gli stessi strumenti e lo stesso stile;
 - **[Analisi Matematica 1](https://fabiofurini.github.io/analisi-matematica-1/)** — le dispense di analisi, con i grafici interattivi;

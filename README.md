@@ -56,6 +56,7 @@ The whole course is also available in English:
 - [Analisi Matematica 1](https://fabiofurini.github.io/analisi-matematica-1/)
 - [Algebra lineare](https://fabiofurini.github.io/algebra-lineare/)
 - [Algoritmi](https://fabiofurini.github.io/algoritmi/)
+- [Programmazione lineare](https://fabiofurini.github.io/programmazione-lineare/)
 
 ---
 

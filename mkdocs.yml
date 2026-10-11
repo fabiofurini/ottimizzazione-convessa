@@ -78,6 +78,9 @@ extra:
     - icon: material/code-braces
       link: https://fabiofurini.github.io/algoritmi/
       name: Algoritmi
+    - icon: material/vector-triangle
+      link: https://fabiofurini.github.io/programmazione-lineare/
+      name: Programmazione lineare
   alternate:
     - name: Italiano
       link: https://fabiofurini.github.io/ottimizzazione-convessa/
