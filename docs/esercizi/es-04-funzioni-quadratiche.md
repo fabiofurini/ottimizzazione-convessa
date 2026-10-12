@@ -6,7 +6,7 @@ title: "Esercizi · Funzioni quadratiche"
 
 <div class="info-capitolo" markdown>
 
-**Esercizi · Capitolo 4** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 4](../preliminari/04-funzioni-quadratiche.md) · [:material-file-pdf-box: Eserciziario, volume 1 (PDF)](../pdf/esercizi-1-preliminari.pdf)
+**Esercizi · Capitolo 4** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 4: Funzioni quadratiche](../preliminari/04-funzioni-quadratiche.md) · [:material-file-pdf-box: Eserciziario, volume 1 (PDF)](../pdf/esercizi-1-preliminari.pdf)
 
 </div>
 

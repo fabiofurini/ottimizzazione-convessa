@@ -6,7 +6,7 @@ title: "Esercizi · Insiemi convessi"
 
 <div class="info-capitolo" markdown>
 
-**Esercizi · Capitolo 1** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 1](../preliminari/01-insiemi-convessi.md) · [:material-file-pdf-box: Eserciziario, volume 1 (PDF)](../pdf/esercizi-1-preliminari.pdf)
+**Esercizi · Capitolo 1** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 1: Insiemi convessi](../preliminari/01-insiemi-convessi.md) · [:material-file-pdf-box: Eserciziario, volume 1 (PDF)](../pdf/esercizi-1-preliminari.pdf)
 
 </div>
 

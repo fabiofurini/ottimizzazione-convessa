@@ -6,7 +6,7 @@ title: "Funzioni di più variabili"
 
 <div class="info-capitolo" markdown>
 
-**Parte 1 · Preliminari · Capitolo 2** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-presentation: Slide](../pdf/slide-02-funzioni-piu-variabili.pdf) · [:material-pencil: Esercizi](../esercizi/es-02-funzioni-piu-variabili.md)
+**Parte 1 · Preliminari · Capitolo 2** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-presentation: Slide](../pdf/slide-02-funzioni-piu-variabili.pdf) · [:material-pencil: Esercizi: Funzioni di più variabili](../esercizi/es-02-funzioni-piu-variabili.md) · [:material-gesture-tap: App: Insiemi di livello e gradiente](../interattivi/livello-gradiente.md)
 
 </div>
 
@@ -293,6 +293,10 @@ title: "Funzioni di più variabili"
 !!! chiave ""
 
     Il gradiente $\nabla f(\boldsymbol x)$ è il vettore colonna delle derivate parziali prime: punta nella direzione di massima crescita ed è perpendicolare all'insieme di livello passante per $\boldsymbol x$. La matrice Hessiana $\nabla^2 f(\boldsymbol x)$ è la matrice (simmetrica) delle derivate parziali seconde e descrive la curvatura locale di $f$.
+
+---
+
+**Esercizi su questo capitolo:** [:material-pencil: Funzioni di più variabili](../esercizi/es-02-funzioni-piu-variabili.md)
 
 <!-- laboratorio-interattivo: sezione generata da interattivi.py -->
 

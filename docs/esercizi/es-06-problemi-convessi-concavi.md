@@ -6,7 +6,7 @@ title: "Esercizi · Problemi di ottimizzazione convessi e concavi"
 
 <div class="info-capitolo" markdown>
 
-**Esercizi · Capitolo 6** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 6](../problemi/06-problemi-convessi-concavi.md) · [:material-file-pdf-box: Eserciziario, volume 2 (PDF)](../pdf/esercizi-2-problemi-di-ottimizzazione.pdf)
+**Esercizi · Capitolo 6** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 6: Problemi di ottimizzazione convessi e concavi](../problemi/06-problemi-convessi-concavi.md) · [:material-file-pdf-box: Eserciziario, volume 2 (PDF)](../pdf/esercizi-2-problemi-di-ottimizzazione.pdf)
 
 </div>
 

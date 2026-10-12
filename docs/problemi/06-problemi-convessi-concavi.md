@@ -6,7 +6,7 @@ title: "Problemi di ottimizzazione convessi e concavi"
 
 <div class="info-capitolo" markdown>
 
-**Parte 2 · Problemi di ottimizzazione · Capitolo 6** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../pdf/dispensa-2-problemi-di-ottimizzazione.pdf) · [:material-presentation: Slide](../pdf/slide-06-problemi-convessi-concavi.pdf) · [:material-pencil: Esercizi](../esercizi/es-06-problemi-convessi-concavi.md)
+**Parte 2 · Problemi di ottimizzazione · Capitolo 6** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../pdf/dispensa-2-problemi-di-ottimizzazione.pdf) · [:material-presentation: Slide](../pdf/slide-06-problemi-convessi-concavi.pdf) · [:material-pencil: Esercizi: Problemi di ottimizzazione convessi e concavi](../esercizi/es-06-problemi-convessi-concavi.md) · [:material-gesture-tap: App: Discesa verso un ottimo locale](../interattivi/discesa-locale.md)
 
 </div>
 
@@ -400,6 +400,10 @@ title: "Problemi di ottimizzazione convessi e concavi"
         \qquad \text{e} \qquad
         z(P) = f(1) = 6.
         $$
+
+---
+
+**Esercizi su questo capitolo:** [:material-pencil: Problemi di ottimizzazione convessi e concavi](../esercizi/es-06-problemi-convessi-concavi.md)
 
 <!-- laboratorio-interattivo: sezione generata da interattivi.py -->
 

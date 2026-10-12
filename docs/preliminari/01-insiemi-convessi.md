@@ -6,7 +6,7 @@ title: "Insiemi convessi"
 
 <div class="info-capitolo" markdown>
 
-**Parte 1 · Preliminari · Capitolo 1** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-presentation: Slide](../pdf/slide-01-insiemi-convessi.pdf) · [:material-pencil: Esercizi](../esercizi/es-01-insiemi-convessi.md)
+**Parte 1 · Preliminari · Capitolo 1** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-presentation: Slide](../pdf/slide-01-insiemi-convessi.pdf) · [:material-pencil: Esercizi: Insiemi convessi](../esercizi/es-01-insiemi-convessi.md) · [:material-gesture-tap: App: Combinazione convessa](../interattivi/combinazione-convessa.md) · [:material-gesture-tap: App: Test di convessità](../interattivi/test-convessita.md) · [:material-gesture-tap: App: Palle in norma q](../interattivi/palle-norma.md)
 
 </div>
 
@@ -422,6 +422,10 @@ title: "Insiemi convessi"
 ![Figura 15](../img/01-insiemi-convessi/fig15.svg){ .fig .ovale loading=lazy style="width:37%" }
 
 </div>
+
+---
+
+**Esercizi su questo capitolo:** [:material-pencil: Insiemi convessi](../esercizi/es-01-insiemi-convessi.md)
 
 <!-- laboratorio-interattivo: sezione generata da interattivi.py -->
 

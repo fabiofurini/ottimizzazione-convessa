@@ -6,7 +6,7 @@ title: "Problemi di ottimizzazione"
 
 <div class="info-capitolo" markdown>
 
-**Parte 2 · Problemi di ottimizzazione · Capitolo 5** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../pdf/dispensa-2-problemi-di-ottimizzazione.pdf) · [:material-presentation: Slide](../pdf/slide-05-problemi-ottimizzazione.pdf) · [:material-pencil: Esercizi](../esercizi/es-05-problemi-ottimizzazione.md)
+**Parte 2 · Problemi di ottimizzazione · Capitolo 5** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../pdf/dispensa-2-problemi-di-ottimizzazione.pdf) · [:material-presentation: Slide](../pdf/slide-05-problemi-ottimizzazione.pdf) · [:material-pencil: Esercizi: Problemi di ottimizzazione](../esercizi/es-05-problemi-ottimizzazione.md) · [:material-gesture-tap: App: Ottimo su un intervallo](../interattivi/ottimo-intervallo.md) · [:material-gesture-tap: App: Ottimi locali e globali](../interattivi/ottimi-locali.md)
 
 </div>
 
@@ -644,6 +644,10 @@ title: "Problemi di ottimizzazione"
     - <strong>Massimi locali che non sono globali.</strong> In $N\big((-4),1\big) \cap [-4,4] = [-4,-3)$ abbiamo $-2 \le x+2 < -1$ e quindi $f(x) = (x+2)^2 \le 4 = f(-4)$: il punto $x=-4$ è un punto di massimo locale. In $N\big((\frac{1}{8}),1\big) = (-\frac{7}{8},\frac{9}{8})$ abbiamo $0 < x+2 \le \frac{17}{8}$ quando $x \le \frac{1}{8}$, per cui $f(x) = (x+2)^2 \le \frac{289}{64}$, e $-\frac{15}{8} \le x-2 < 0$ quando $x \ge \frac{1}{8}$, per cui $f(x) = (x-2)^2+1 \le \frac{225}{64}+1 = \frac{289}{64}$; in entrambi i casi $f(x) \le f(\frac{1}{8})$: il punto $x=\frac{1}{8}$ è un punto di massimo locale. Nessuno dei due è un punto di massimo (globale), poiché $f(-4) = 4 < 5$ e $f(\frac{1}{8}) = \frac{289}{64} < 5$.
 
     Consideriamo il problema di ottimizzazione $\min \{\, f(x) \text{ soggetto a } -4 \le x \le 4 \,\}$: un metodo che guarda solo i punti vicini a $x=2$ trova il minimo locale $1$, ma il valore ottimo è $z(P) = 0$, raggiunto in $\tilde{\boldsymbol x}(P) = (-2)$.
+
+---
+
+**Esercizi su questo capitolo:** [:material-pencil: Problemi di ottimizzazione](../esercizi/es-05-problemi-ottimizzazione.md)
 
 <!-- laboratorio-interattivo: sezione generata da interattivi.py -->
 

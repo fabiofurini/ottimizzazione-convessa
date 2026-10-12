@@ -6,7 +6,7 @@ title: "Esercizi · Problemi di ottimizzazione"
 
 <div class="info-capitolo" markdown>
 
-**Esercizi · Capitolo 5** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 5](../problemi/05-problemi-ottimizzazione.md) · [:material-file-pdf-box: Eserciziario, volume 2 (PDF)](../pdf/esercizi-2-problemi-di-ottimizzazione.pdf)
+**Esercizi · Capitolo 5** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 5: Problemi di ottimizzazione](../problemi/05-problemi-ottimizzazione.md) · [:material-file-pdf-box: Eserciziario, volume 2 (PDF)](../pdf/esercizi-2-problemi-di-ottimizzazione.pdf)
 
 </div>
 

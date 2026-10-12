@@ -6,7 +6,7 @@ title: "Funzioni convesse e concave"
 
 <div class="info-capitolo" markdown>
 
-**Parte 1 · Preliminari · Capitolo 3** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-presentation: Slide](../pdf/slide-03-funzioni-convesse-concave.pdf) · [:material-pencil: Esercizi](../esercizi/es-03-funzioni-convesse-concave.md)
+**Parte 1 · Preliminari · Capitolo 3** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-presentation: Slide](../pdf/slide-03-funzioni-convesse-concave.pdf) · [:material-pencil: Esercizi: Funzioni convesse e concave](../esercizi/es-03-funzioni-convesse-concave.md) · [:material-gesture-tap: App: La corda e il grafico](../interattivi/corda.md)
 
 </div>
 
@@ -783,6 +783,10 @@ title: "Funzioni convesse e concave"
 !!! chiave ""
 
     I punti che soddisfano un numero finito di vincoli $f_i({\boldsymbol x}) \le 0$ con funzioni convesse $f_i$ formano un insieme convesso. Ad esempio, ogni semispazio $\{{\boldsymbol x} \in \R^n : {\boldsymbol a}'{\boldsymbol x} \le b\}$, con ${\boldsymbol a} \in \R^n$ e $b \in \R$, è un insieme convesso di questo tipo, poiché la funzione lineare ${\boldsymbol a}'{\boldsymbol x} - b$ è convessa; lo è anche ogni intersezione di un numero finito di semispazi, come i poliedri della programmazione lineare.
+
+---
+
+**Esercizi su questo capitolo:** [:material-pencil: Funzioni convesse e concave](../esercizi/es-03-funzioni-convesse-concave.md)
 
 <!-- laboratorio-interattivo: sezione generata da interattivi.py -->
 

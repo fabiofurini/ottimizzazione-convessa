@@ -6,7 +6,7 @@ title: "Esercizi · Funzioni di più variabili"
 
 <div class="info-capitolo" markdown>
 
-**Esercizi · Capitolo 2** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 2](../preliminari/02-funzioni-piu-variabili.md) · [:material-file-pdf-box: Eserciziario, volume 1 (PDF)](../pdf/esercizi-1-preliminari.pdf)
+**Esercizi · Capitolo 2** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 2: Funzioni di più variabili](../preliminari/02-funzioni-piu-variabili.md) · [:material-file-pdf-box: Eserciziario, volume 1 (PDF)](../pdf/esercizi-1-preliminari.pdf)
 
 </div>
 

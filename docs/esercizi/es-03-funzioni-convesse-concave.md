@@ -6,7 +6,7 @@ title: "Esercizi · Funzioni convesse e concave"
 
 <div class="info-capitolo" markdown>
 
-**Esercizi · Capitolo 3** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 3](../preliminari/03-funzioni-convesse-concave.md) · [:material-file-pdf-box: Eserciziario, volume 1 (PDF)](../pdf/esercizi-1-preliminari.pdf)
+**Esercizi · Capitolo 3** · ogni soluzione si apre con un clic · [:material-book-open-variant: Capitolo 3: Funzioni convesse e concave](../preliminari/03-funzioni-convesse-concave.md) · [:material-file-pdf-box: Eserciziario, volume 1 (PDF)](../pdf/esercizi-1-preliminari.pdf)
 
 </div>
 

@@ -6,7 +6,7 @@ title: "Funzioni quadratiche"
 
 <div class="info-capitolo" markdown>
 
-**Parte 1 · Preliminari · Capitolo 4** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-presentation: Slide](../pdf/slide-04-funzioni-quadratiche.pdf) · [:material-pencil: Esercizi](../esercizi/es-04-funzioni-quadratiche.md)
+**Parte 1 · Preliminari · Capitolo 4** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf) · [:material-presentation: Slide](../pdf/slide-04-funzioni-quadratiche.pdf) · [:material-pencil: Esercizi: Funzioni quadratiche](../esercizi/es-04-funzioni-quadratiche.md) · [:material-gesture-tap: App: La matrice Q](../interattivi/matrice-q.md)
 
 </div>
 
@@ -578,6 +578,10 @@ title: "Funzioni quadratiche"
 !!! chiave ""
 
     Una funzione quadratica ${\boldsymbol x}' {\boldsymbol Q} \; {\boldsymbol x}$ è convessa nel suo dominio se e solo se la matrice ${\boldsymbol Q}$ è semidefinita positiva. L'aggiunta di una funzione lineare e di una costante non ne modifica la convessità.
+
+---
+
+**Esercizi su questo capitolo:** [:material-pencil: Funzioni quadratiche](../esercizi/es-04-funzioni-quadratiche.md)
 
 <!-- laboratorio-interattivo: sezione generata da interattivi.py -->
 
