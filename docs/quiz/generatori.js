@@ -90,8 +90,8 @@
         const cc = (a, b) => [0, 1].map((i) => a.mul(p[i]).add(b.mul(w[i])));
         const v = [cc(lam, mu), cc(mu, lam), cc(F(1, 2), F(1, 2)), cc(lam, lam)];
         const testo = T(l,
-          `Qual è la combinazione convessa dei punti ${"$" + vec(p) + "$"} e ${"$" + vec(w) + "$"} con scalare $\\lambda = ${lam.tex()}$, cioè il punto $\\lambda {\\boldsymbol p} + (1-\\lambda){\\boldsymbol w}$?`,
-          `What is the convex combination of the points ${"$" + vec(p) + "$"} and ${"$" + vec(w) + "$"} with scalar $\\lambda = ${lam.tex()}$, that is, the point $\\lambda {\\boldsymbol p} + (1-\\lambda){\\boldsymbol w}$?`);
+          `Siano ${"${\\boldsymbol p} = " + vec(p) + "$"} e ${"${\\boldsymbol w} = " + vec(w) + "$"}. Qual è la loro combinazione convessa $\\lambda {\\boldsymbol p} + (1-\\lambda){\\boldsymbol w}$ con scalare $\\lambda = ${lam.tex()}$?`,
+          `Let ${"${\\boldsymbol p} = " + vec(p) + "$"} and ${"${\\boldsymbol w} = " + vec(w) + "$"}. What is their convex combination $\\lambda {\\boldsymbol p} + (1-\\lambda){\\boldsymbol w}$ with scalar $\\lambda = ${lam.tex()}$?`);
         const sp = T(l,
           `Componente per componente: $${lam.tex()}\\cdot ${p[0]} + ${mu.tex()}\\cdot ${w[0]} = ${v[0][0].tex()}$ e $${lam.tex()}\\cdot ${p[1]} + ${mu.tex()}\\cdot ${w[1]} = ${v[0][1].tex()}$. Errore tipico: scambiare $\\lambda$ e $1-\\lambda$.`,
           `Component by component: $${lam.tex()}\\cdot ${p[0]} + ${mu.tex()}\\cdot ${w[0]} = ${v[0][0].tex()}$ and $${lam.tex()}\\cdot ${p[1]} + ${mu.tex()}\\cdot ${w[1]} = ${v[0][1].tex()}$. Typical mistake: swapping $\\lambda$ and $1-\\lambda$.`);
@@ -114,8 +114,8 @@
         const pts = P.map((x, k) => `${"$" + "{\\boldsymbol p}^{(" + (k + 1) + ")} = " + vec(x) + "$"}`).join(", ");
         const pesi = `$\\lambda_1 = ${L[0].tex()}$, $\\lambda_2 = ${L[1].tex()}$, $\\lambda_3 = ${L[2].tex()}$`;
         const testo = T(l,
-          `Qual è la combinazione convessa dei punti ${pts} con scalari ${pesi}?`,
-          `What is the convex combination of the points ${pts} with scalars ${pesi}?`);
+          `Qual è la combinazione convessa $\\lambda_1 {\\boldsymbol p}^{(1)} + \\lambda_2 {\\boldsymbol p}^{(2)} + \\lambda_3 {\\boldsymbol p}^{(3)}$ dei punti ${pts}, con scalari ${pesi}?`,
+          `What is the convex combination $\\lambda_1 {\\boldsymbol p}^{(1)} + \\lambda_2 {\\boldsymbol p}^{(2)} + \\lambda_3 {\\boldsymbol p}^{(3)}$ of the points ${pts}, with scalars ${pesi}?`);
         const sp = T(l,
           `Il punto è $\\sum_{k=1}^{3} \\lambda_k {\\boldsymbol p}^{(k)} = ${vec(v[0])}$: ogni scalare moltiplica il <em>suo</em> punto. Le altre opzioni associano gli scalari ai punti sbagliati o usano il baricentro (scalari tutti uguali a $\\frac{1}{3}$).`,
           `The point is $\\sum_{k=1}^{3} \\lambda_k {\\boldsymbol p}^{(k)} = ${vec(v[0])}$: each scalar multiplies <em>its own</em> point. The other options pair the scalars with the wrong points or use the centroid (all scalars equal to $\\frac{1}{3}$).`);
@@ -148,15 +148,15 @@
         if (giusto === null || sbagli.length < 3) return null;
         const pts = [giusto, ...sbagli].map((d) => [c[0] + d[0], c[1] + d[1]]);
         const insieme = `\\{ {\\boldsymbol x} \\in \\R^2 : \\|{\\boldsymbol x} - ${vec(c)}\\|_{${q}} \\le ${r} \\}`;
-        const testo = T(l, `Quale punto appartiene all'insieme convesso $${insieme}$?`,
-          `Which point belongs to the convex set $${insieme}$?`);
+        const testo = T(l, `Quale punto appartiene all'insieme convesso $${insieme}$, cioè alla palla della norma $${q}$ con centro ${"$" + vec(c) + "$"} e raggio $${r}$?`,
+          `Which point belongs to the convex set $${insieme}$, that is, to the ball of the norm $${q}$ with center ${"$" + vec(c) + "$"} and radius $${r}$?`);
         const g = giusto;
         const calc = q === "1" ? `|${g[0]}| + |${g[1]}| = ${dist(g, q)} \\le ${r}`
           : q === "2" ? `(${g[0]})^2 + (${g[1]})^2 = ${dist(g, q)} \\le ${r * r}`
           : `\\max\\{|${g[0]}|, |${g[1]}|\\} = ${dist(g, q)} \\le ${r}`;
         const sp = T(l,
-          `Per il punto corretto ${"${\\boldsymbol x} - {\\boldsymbol c} = " + vec(g) + "$"} e $${calc}$. Gli altri punti superano il raggio nella norma $${q}$ (ma starebbero dentro con un'altra norma: errore tipico).`,
-          `For the correct point ${"${\\boldsymbol x} - {\\boldsymbol c} = " + vec(g) + "$"} and $${calc}$. The other points exceed the radius in the norm $${q}$ (but would be inside with another norm: typical mistake).`);
+          `Per il punto corretto ${"${\\boldsymbol x}$"}, la differenza dal centro è ${"${\\boldsymbol x} - " + vec(c) + " = " + vec(g) + "$"} e $${calc}$. Gli altri punti superano il raggio nella norma $${q}$ (ma starebbero dentro con un'altra norma: errore tipico).`,
+          `For the correct point ${"${\\boldsymbol x}$"}, the difference from the center is ${"${\\boldsymbol x} - " + vec(c) + " = " + vec(g) + "$"} and $${calc}$. The other points exceed the radius in the norm $${q}$ (but would be inside with another norm: typical mistake).`);
         return { testo, opzioni: pts.map((x) => "$" + vec(x) + "$"), corretta: 0, spiegazione: sp,
           dati: { q: q === "\\infty" ? "inf" : q, c, r, valori: pts } };
       });
@@ -231,8 +231,8 @@
         const C = vec([a, b]);
         const f = `(x_1 ${a < 0 ? "+ " + (-a) : "- " + a})^2 + (x_2 ${b < 0 ? "+ " + (-b) : "- " + b})^2 ${d < 0 ? "- " + (-d) : d === 0 ? "" : "+ " + d}`;
         const testo = T(l,
-          `Per $f: \\R^2 \\to \\R$, $f({\\boldsymbol x}) = ${f}$, che cos'è l'insieme di livello $L(${k})$?`,
-          `For $f: \\R^2 \\to \\R$, $f({\\boldsymbol x}) = ${f}$, what is the level set $L(${k})$?`);
+          `Per $f: \\R^2 \\to \\R$, $f({\\boldsymbol x}) = ${f}$, che cos'è l'insieme di livello $L(${k}) = \\{ {\\boldsymbol x} \\in \\R^2 : f({\\boldsymbol x}) = ${k} \\}$?`,
+          `For $f: \\R^2 \\to \\R$, $f({\\boldsymbol x}) = ${f}$, what is the level set $L(${k}) = \\{ {\\boldsymbol x} \\in \\R^2 : f({\\boldsymbol x}) = ${k} \\}$?`);
         const qq = `(x_1 ${a < 0 ? "+ " + (-a) : "- " + a})^2 + (x_2 ${b < 0 ? "+ " + (-b) : "- " + b})^2`;
         const sp = caso === "cerchio"
           ? T(l, `$L(${k})$: $${qq} = ${k - d}$, circonferenza di centro $${C}$ e raggio $\\sqrt{${rr * rr}} = ${rr}$. Errori tipici: raggio $${rr * rr}$ senza radice, segno del centro sbagliato.`,
@@ -260,8 +260,8 @@
         const opz = [passo(-1, g, al), passo(1, g, al), passo(-1, g, F(1)), passo(-1, g.map((t) => t / 2), al)];
         const f = `${a1 === 1 ? "" : a1}(x_1 ${h[0] < 0 ? "+ " + (-h[0]) : "- " + h[0]})^2 + ${a2 === 1 ? "" : a2}(x_2 ${h[1] < 0 ? "+ " + (-h[1]) : "- " + h[1]})^2`;
         const testo = T(l,
-          `Data $f({\\boldsymbol x}) = ${f}$, partendo da $\\bar{\\boldsymbol x} = ${vec(x)}$ ci si sposta di un passo $\\alpha = ${al.tex()}$ nella direzione di massima decrescita, cioè nel punto $\\bar{\\boldsymbol x} - \\alpha\\, \\nabla f(\\bar{\\boldsymbol x})$. Qual è il nuovo punto?`,
-          `Given $f({\\boldsymbol x}) = ${f}$, starting from $\\bar{\\boldsymbol x} = ${vec(x)}$ we move by a step $\\alpha = ${al.tex()}$ along the direction of steepest descent, that is, to the point $\\bar{\\boldsymbol x} - \\alpha\\, \\nabla f(\\bar{\\boldsymbol x})$. What is the new point?`);
+          `Data $f: \\R^2 \\to \\R$, $f({\\boldsymbol x}) = ${f}$, partendo da $\\bar{\\boldsymbol x} = ${vec(x)}$ ci si sposta di un passo $\\alpha = ${al.tex()}$ nella direzione di massima decrescita, cioè nel punto $\\bar{\\boldsymbol x} - \\alpha\\, \\nabla f(\\bar{\\boldsymbol x})$. Qual è il nuovo punto?`,
+          `Given $f: \\R^2 \\to \\R$, $f({\\boldsymbol x}) = ${f}$, starting from $\\bar{\\boldsymbol x} = ${vec(x)}$ we move by a step $\\alpha = ${al.tex()}$ along the direction of steepest descent, that is, to the point $\\bar{\\boldsymbol x} - \\alpha\\, \\nabla f(\\bar{\\boldsymbol x})$. What is the new point?`);
         const sp = T(l,
           `$\\nabla f(\\bar{\\boldsymbol x}) = ${vec(g)}$, quindi $\\bar{\\boldsymbol x} - ${al.tex()}\\,\\nabla f(\\bar{\\boldsymbol x}) = ${vec(opz[0])}$. Errori tipici: il segno $+$ (direzione di massima crescita), il passo $\\alpha$ dimenticato, il fattore $2$ del gradiente dimenticato.`,
           `$\\nabla f(\\bar{\\boldsymbol x}) = ${vec(g)}$, hence $\\bar{\\boldsymbol x} - ${al.tex()}\\,\\nabla f(\\bar{\\boldsymbol x}) = ${vec(opz[0])}$. Typical mistakes: the sign $+$ (direction of steepest ascent), the step $\\alpha$ forgotten, the factor $2$ of the gradient forgotten.`);
@@ -287,8 +287,8 @@
         const n1 = ab.reduce((s, t) => s + t, 0), ninf = Math.max(...ab), nmin = Math.min(...ab), sgn = x.reduce((s, t) => s + t, 0);
         const v = [[n1, n2, ninf], [sgn, n2, ninf], [n1, n2 * n2, ninf], [n1, n2, nmin]];
         const fm = (t) => `$\\|{\\boldsymbol x}\\|_1 = ${t[0]}$, $\\|{\\boldsymbol x}\\|_2 = ${t[1]}$, $\\|{\\boldsymbol x}\\|_\\infty = ${t[2]}$`;
-        const testo = T(l, `Per ${"${\\boldsymbol x} = " + vec(x) + "$"}, quali sono le norme $1$, $2$ e $\\infty$?`,
-          `For ${"${\\boldsymbol x} = " + vec(x) + "$"}, what are the norms $1$, $2$ and $\\infty$?`);
+        const testo = T(l, `Per il vettore ${"${\\boldsymbol x} = " + vec(x) + "$"}, quanto valgono le norme $\\|{\\boldsymbol x}\\|_1$, $\\|{\\boldsymbol x}\\|_2$ e $\\|{\\boldsymbol x}\\|_\\infty$?`,
+          `For the vector ${"${\\boldsymbol x} = " + vec(x) + "$"}, what are the norms $\\|{\\boldsymbol x}\\|_1$, $\\|{\\boldsymbol x}\\|_2$ and $\\|{\\boldsymbol x}\\|_\\infty$?`);
         const sp = T(l,
           `$\\|{\\boldsymbol x}\\|_1 = ${ab.join(" + ")} = ${n1}$, $\\|{\\boldsymbol x}\\|_2 = \\sqrt{${ab.map((t) => t * t).join(" + ")}} = ${n2}$, $\\|{\\boldsymbol x}\\|_\\infty = \\max\\{${ab.join(", ")}\\} = ${ninf}$. Errori tipici: valori assoluti dimenticati, radice dimenticata, minimo al posto del massimo.`,
           `$\\|{\\boldsymbol x}\\|_1 = ${ab.join(" + ")} = ${n1}$, $\\|{\\boldsymbol x}\\|_2 = \\sqrt{${ab.map((t) => t * t).join(" + ")}} = ${n2}$, $\\|{\\boldsymbol x}\\|_\\infty = \\max\\{${ab.join(", ")}\\} = ${ninf}$. Typical mistakes: absolute values forgotten, square root forgotten, minimum instead of maximum.`);
@@ -315,8 +315,8 @@
         const fs = tipo === "abs" ? (h === 0 ? "|x|" : `|x ${h < 0 ? "+ " + (-h) : "- " + h}|`) : (h === 0 ? "x^2" : `(x ${h < 0 ? "+ " + (-h) : "- " + h})^2`);
         const fm = (t) => `$f(\\lambda p + (1-\\lambda) w) = ${t[0].tex()}$, $\\lambda f(p) + (1-\\lambda) f(w) = ${t[1].tex()}$`;
         const testo = T(l,
-          `Per la funzione convessa $f(x) = ${fs}$, con $p = ${p}$, $w = ${w}$ e $\\lambda = ${lam.tex()}$, quanto valgono i due membri della disuguaglianza della definizione di funzione convessa?`,
-          `For the convex function $f(x) = ${fs}$, with $p = ${p}$, $w = ${w}$ and $\\lambda = ${lam.tex()}$, what are the two sides of the inequality in the definition of convex function?`);
+          `Per la funzione convessa $f(x) = ${fs}$, con $p = ${p}$, $w = ${w}$ e $\\lambda = ${lam.tex()}$, quanto valgono i due membri $f(\\lambda p + (1-\\lambda) w)$ e $\\lambda f(p) + (1-\\lambda) f(w)$ della disuguaglianza di convessità?`,
+          `For the convex function $f(x) = ${fs}$, with $p = ${p}$, $w = ${w}$ and $\\lambda = ${lam.tex()}$, what are the two sides $f(\\lambda p + (1-\\lambda) w)$ and $\\lambda f(p) + (1-\\lambda) f(w)$ of the convexity inequality?`);
         const sp = T(l,
           `$\\lambda p + (1-\\lambda) w = ${m.tex()}$ e $f(${m.tex()}) = ${A.tex()}$; $\\lambda f(p) + (1-\\lambda) f(w) = ${lam.tex()}\\cdot ${fF(p).tex()} + ${mu.tex()}\\cdot ${fF(w).tex()} = ${B.tex()}$. Come deve essere, $${A.tex()} \\le ${B.tex()}$.`,
           `$\\lambda p + (1-\\lambda) w = ${m.tex()}$ and $f(${m.tex()}) = ${A.tex()}$; $\\lambda f(p) + (1-\\lambda) f(w) = ${lam.tex()}\\cdot ${fF(p).tex()} + ${mu.tex()}\\cdot ${fF(w).tex()} = ${B.tex()}$. As it must be, $${A.tex()} \\le ${B.tex()}$.`);
@@ -339,8 +339,8 @@
         const opz = [[[a, m], [m, d]], [[a, q12], [q12, d]], [[a, q21], [q21, d]], [[a, q12 + q21], [q12 + q21, d]]];
         const Q = [[a, q12], [q21, d]];
         const testo = T(l,
-          `La matrice non simmetrica $${mat(Q)}$ definisce la funzione quadratica ${"${\\boldsymbol x}' {\\boldsymbol Q}\\, {\\boldsymbol x}$"}. Quale matrice simmetrica definisce la stessa funzione?`,
-          `The non-symmetric matrix $${mat(Q)}$ defines the quadratic function ${"${\\boldsymbol x}' {\\boldsymbol Q}\\, {\\boldsymbol x}$"}. Which symmetric matrix defines the same function?`);
+          `La matrice non simmetrica ${"${\\boldsymbol Q} = " + mat(Q) + "$"} definisce la funzione quadratica ${"$f({\\boldsymbol x}) = {\\boldsymbol x}' {\\boldsymbol Q}\\, {\\boldsymbol x}$"} di ${"${\\boldsymbol x} \\in \\R^2$"}. Quale matrice simmetrica definisce la stessa funzione?`,
+          `The non-symmetric matrix ${"${\\boldsymbol Q} = " + mat(Q) + "$"} defines the quadratic function ${"$f({\\boldsymbol x}) = {\\boldsymbol x}' {\\boldsymbol Q}\\, {\\boldsymbol x}$"} of ${"${\\boldsymbol x} \\in \\R^2$"}. Which symmetric matrix defines the same function?`);
         const sp = T(l,
           `Si sostituisce ogni coppia fuori diagonale con la media: $\\frac{${q12} + (${q21})}{2} = ${m}$, cioè si usa $\\tfrac{1}{2}({\\boldsymbol Q} + {\\boldsymbol Q}')$. Con $${q12 + q21}$ fuori diagonale il coefficiente di $x_1 x_2$ raddoppierebbe.`,
           `Each off-diagonal pair is replaced by its average: $\\frac{${q12} + (${q21})}{2} = ${m}$, that is, we use $\\tfrac{1}{2}({\\boldsymbol Q} + {\\boldsymbol Q}')$. With $${q12 + q21}$ off the diagonal the coefficient of $x_1 x_2$ would double.`);
@@ -392,8 +392,8 @@
         const tutte = [giusta, s1, s2, s3];
         if (tutte.slice(1).some(psd)) return null;
         const opz = tutte.map((q) => `$f({\\boldsymbol x}) = ${fq(q)}$`);
-        const testo = T(l, `Quale delle seguenti funzioni quadratiche è convessa in $\\R^2$?`,
-          `Which of the following quadratic functions is convex in $\\R^2$?`);
+        const testo = T(l, `Quale delle seguenti funzioni quadratiche $f({\\boldsymbol x}) = {\\boldsymbol x}' {\\boldsymbol Q}\\, {\\boldsymbol x}$, con $\\,{\\boldsymbol x} \\in \\R^2$, è convessa in $\\R^2$?`,
+          `Which of the following quadratic functions $f({\\boldsymbol x}) = {\\boldsymbol x}' {\\boldsymbol Q}\\, {\\boldsymbol x}$, with $\\,{\\boldsymbol x} \\in \\R^2$, is convex in $\\R^2$?`);
         // certificato per la corretta: somma di quadrati; per le altre: un vettore con x'Qx < 0
         const r = F(b, a), resto = F(c).sub(F(b * b, a));
         const sq = `${a === 1 ? "" : a}\\left(x_1 ${r.n < 0 ? "-" : "+"} ${(r.n < 0 ? r.neg() : r).eq(1) ? "" : (r.n < 0 ? r.neg().tex() : r.tex())}\\, x_2\\right)^2${resto.n === 0 ? "" : " + " + resto.tex() + "\\, x_2^2"}`;
@@ -401,8 +401,8 @@
         const val = (q, x) => q[0] * x[0] * x[0] + 2 * q[1] * x[0] * x[1] + q[2] * x[1] * x[1];
         const cs = tutte.slice(1).map((q) => { const x = ctr(q); return T(l, `per $${fq(q)}$ il vettore $${vec(x)}$ dà $${val(q, x)} < 0$`, `for $${fq(q)}$ the vector $${vec(x)}$ gives $${val(q, x)} < 0$`); }).join("; ");
         const sp = T(l,
-          `La funzione corretta si scrive $${sq} \\ge 0$: ${"${\\boldsymbol Q}$"} è semidefinita positiva e, per il Corollario 4.8, la funzione è convessa. Le altre non hanno ${"${\\boldsymbol Q}$"} semidefinita positiva: ${cs}. Una diagonale positiva non basta.`,
-          `The correct function can be written as $${sq} \\ge 0$: ${"${\\boldsymbol Q}$"} is positive semidefinite and, by Corollary 4.8, the function is convex. The others do not have ${"${\\boldsymbol Q}$"} positive semidefinite: ${cs}. A positive diagonal is not enough.`);
+          `La funzione corretta si scrive $${sq} \\ge 0$: ${"${\\boldsymbol Q}$"} è semidefinita positiva e quindi la funzione è convessa (una funzione quadratica è convessa se e solo se ${"${\\boldsymbol Q}$"} è semidefinita positiva). Le altre non hanno ${"${\\boldsymbol Q}$"} semidefinita positiva: ${cs}. Una diagonale positiva non basta.`,
+          `The correct function can be written as $${sq} \\ge 0$: ${"${\\boldsymbol Q}$"} is positive semidefinite and hence the function is convex (a quadratic function is convex if and only if ${"${\\boldsymbol Q}$"} is positive semidefinite). The others do not have ${"${\\boldsymbol Q}$"} positive semidefinite: ${cs}. A positive diagonal is not enough.`);
         return { testo, opzioni: opz, corretta: 0, spiegazione: sp, dati: { valori: tutte } };
       });
     },
@@ -429,8 +429,8 @@
         const pr = `${forma === "min" ? "\\min" : "\\max"}\\{\\, ${fpar(h, k)} \\ \\text{${T(l, "soggetto a", "subject to")}}\\ ${lo} \\le x \\le ${up} \\,\\}`;
         const plist = pts.map((t, i) => `$\\bar{\\boldsymbol x}^{(${i + 1})} = (${t})$`).join(", ");
         const testo = T(l,
-          `Per il problema $${pr}$ si conoscono le soluzioni ammissibili ${plist}. Qual è la migliore limitazione sul valore ottimo $z(P)$ che esse forniscono?`,
-          `For the problem $${pr}$ the feasible solutions ${plist} are known. What is the best bound on the optimal value $z(P)$ that they provide?`);
+          `Per il problema $P$: $${pr}$ si conoscono le soluzioni ammissibili ${plist}. Qual è la migliore limitazione sul valore ottimo $z(P)$ che esse forniscono?`,
+          `For the problem $P$: $${pr}$ the feasible solutions ${plist} are known. What is the best bound on the optimal value $z(P)$ that they provide?`);
         const sp = T(l,
           `I valori sono ${vals.map((v) => "$" + v + "$").join(", ")}. In forma di ${forma === "min" ? "minimo ogni soluzione ammissibile dà un upper bound e il migliore è il più piccolo" : "massimo ogni soluzione ammissibile dà un lower bound e il migliore è il più grande"}.`,
           `The values are ${vals.map((v) => "$" + v + "$").join(", ")}. In ${forma === "min" ? "minimization form every feasible solution gives an upper bound and the best one is the smallest" : "maximization form every feasible solution gives a lower bound and the best one is the largest"}.`);
@@ -450,8 +450,8 @@
         const giusto = a > 0 ? a * m + b : a * M + b, altro = a > 0 ? a * M + b : a * m + b;
         const opz = [giusto, altro, giusto - b, -giusto];
         const testo = T(l,
-          `Su una regione ammissibile $F$ la funzione $f$ ha minimo $${m}$ e massimo $${M}$ (entrambi raggiunti). Quanto vale $\\min\\{\\, ${a}\\, f({\\boldsymbol x}) ${b < 0 ? "- " + (-b) : "+ " + b} \\ \\text{${T(l, "soggetto a", "subject to")}}\\ {\\boldsymbol x} \\in F \\,\\}$?`,
-          `Over a feasible region $F$ the function $f$ has minimum $${m}$ and maximum $${M}$ (both attained). What is $\\min\\{\\, ${a}\\, f({\\boldsymbol x}) ${b < 0 ? "- " + (-b) : "+ " + b} \\ \\text{${T(l, "soggetto a", "subject to")}}\\ {\\boldsymbol x} \\in F \\,\\}$?`);
+          `Su una regione ammissibile $F$ la funzione obiettivo $f$ ha minimo $${m}$ e massimo $${M}$ (entrambi raggiunti). Qual è il valore ottimo $\\min\\{\\, ${a}\\, f({\\boldsymbol x}) ${b < 0 ? "- " + (-b) : "+ " + b} \\ \\text{${T(l, "soggetto a", "subject to")}}\\ {\\boldsymbol x} \\in F \\,\\}$?`,
+          `Over a feasible region $F$ the objective function $f$ has minimum $${m}$ and maximum $${M}$ (both attained). What is the optimal value $\\min\\{\\, ${a}\\, f({\\boldsymbol x}) ${b < 0 ? "- " + (-b) : "+ " + b} \\ \\text{${T(l, "soggetto a", "subject to")}}\\ {\\boldsymbol x} \\in F \\,\\}$?`);
         const sp = a > 0
           ? T(l, `La costante si somma fuori e, con $a = ${a} > 0$, $\\min\\{a f\\} = a \\min\\{f\\}$: $${a}\\cdot(${m}) ${b < 0 ? "- " + (-b) : "+ " + b} = ${giusto}$.`,
             `The constant is added outside and, with $a = ${a} > 0$, $\\min\\{a f\\} = a \\min\\{f\\}$: $${a}\\cdot(${m}) ${b < 0 ? "- " + (-b) : "+ " + b} = ${giusto}$.`)
@@ -479,8 +479,8 @@
         if (dentro === null || fuori.length < 2) return null;
         const pts = [dentro, bordo, ...fuori].map((d) => [c[0] + d[0], c[1] + d[1]]);
         const testo = T(l,
-          `Quale punto appartiene all'intorno sferico $N\\left(${vec(c)}, ${dl}\\right)$?`,
-          `Which point belongs to the spherical neighborhood $N\\left(${vec(c)}, ${dl}\\right)$?`);
+          `Quale punto appartiene all'intorno sferico $N\\left(${vec(c)}, ${dl}\\right)$ di centro ${"$" + vec(c) + "$"} e raggio $${dl}$, cioè l'insieme dei punti a distanza euclidea <em>minore</em> di $${dl}$ dal centro?`,
+          `Which point belongs to the spherical neighborhood $N\\left(${vec(c)}, ${dl}\\right)$ with center ${"$" + vec(c) + "$"} and radius $${dl}$, that is, the set of the points at Euclidean distance <em>less</em> than $${dl}$ from the center?`);
         const sp = T(l,
           `Il punto corretto ha distanza al quadrato $${d2(dentro)} < ${dl * dl}$ dal centro. Il punto ${"$" + vec(pts[1]) + "$"} ha distanza esattamente $${dl}$: sta sulla circonferenza, che non appartiene all'intorno (disuguaglianza stretta). Gli altri hanno distanza maggiore di $${dl}$.`,
           `The correct point has squared distance $${d2(dentro)} < ${dl * dl}$ from the center. The point ${"$" + vec(pts[1]) + "$"} has distance exactly $${dl}$: it lies on the circle, which does not belong to the neighborhood (strict inequality). The others have distance greater than $${dl}$.`);
@@ -508,8 +508,8 @@
         if (opz.length < 4) return null;
         const pr = `${forma === "min" ? "\\min" : "\\max"}\\{\\, ${fpar(h, k)} \\ \\text{${T(l, "soggetto a", "subject to")}}\\ ${lo} \\le x \\le ${up} \\,\\}`;
         const fm = (o) => `$\\tilde{\\boldsymbol x}(P) = (${o[0]})$, $z(P) = ${o[1]}$`;
-        const testo = T(l, `Qual è la soluzione ottima del problema $${pr}$, e quale il valore ottimo?`,
-          `What are the optimal solution and the optimal value of the problem $${pr}$?`);
+        const testo = T(l, `Quali sono la soluzione ottima e il valore ottimo del problema $P$: $${pr}$ (con $\\tilde{\\boldsymbol x}(P)$ la soluzione ottima e $z(P)$ il valore ottimo)?`,
+          `What are the optimal solution and the optimal value of the problem $P$: $${pr}$ (with $\\tilde{\\boldsymbol x}(P)$ the optimal solution and $z(P)$ the optimal value)?`);
         const sp = forma === "min"
           ? (xs === h
             ? T(l, `$f(x) \\ge ${k} = f(${h})$ per ogni $x$ e $${h}$ è ammissibile: $\\tilde{\\boldsymbol x}(P) = (${h})$, $z(P) = ${k}$.`, `$f(x) \\ge ${k} = f(${h})$ for every $x$ and $${h}$ is feasible: $\\tilde{\\boldsymbol x}(P) = (${h})$, $z(P) = ${k}$.`)
@@ -541,8 +541,8 @@
         const fm = (o) => `$\\tilde{\\boldsymbol x}(P) = ${vec(o[0])}$, $z(P) = ${o[1]}$`;
         const pr = `\\min\\{\\, (x_1 ${c[0] < 0 ? "+ " + (-c[0]) : "- " + c[0]})^2 + (x_2 ${c[1] < 0 ? "+ " + (-c[1]) : "- " + c[1]})^2 \\ \\text{${T(l, "soggetto a", "subject to")}}\\ ${lo[0]} \\le x_1 \\le ${up[0]},~ ${lo[1]} \\le x_2 \\le ${up[1]} \\,\\}`;
         const testo = T(l,
-          `Il problema $${pr}$ cerca il punto del rettangolo più vicino a ${"$" + vec(c) + "$"}. Quali sono la soluzione ottima e il valore ottimo?`,
-          `The problem $${pr}$ looks for the point of the rectangle closest to ${"$" + vec(c) + "$"}. What are the optimal solution and the optimal value?`);
+          `Il problema $P$: $${pr}$ cerca il punto del rettangolo più vicino a ${"$" + vec(c) + "$"}. Quali sono la soluzione ottima e il valore ottimo (con $\\tilde{\\boldsymbol x}(P)$ la soluzione ottima e $z(P)$ il valore ottimo)?`,
+          `The problem $P$: $${pr}$ looks for the point of the rectangle closest to ${"$" + vec(c) + "$"}. What are the optimal solution and the optimal value (with $\\tilde{\\boldsymbol x}(P)$ the optimal solution and $z(P)$ the optimal value)?`);
         const sp = T(l,
           `La funzione obiettivo è somma di due termini in variabili diverse, e ciascuno è minimo riportando la coordinata di ${"$" + vec(c) + "$"} dentro il suo intervallo: $\\tilde{\\boldsymbol x}(P) = ${vec(xs)}$, $z(P) = ${z(xs)}$. Il punto ${"$" + vec(c) + "$"} non è ammissibile, e il vertice più vicino non è ottimo.`,
           `The objective function is the sum of two terms in different variables, and each is smallest when the coordinate of ${"$" + vec(c) + "$"} is brought back into its interval: $\\tilde{\\boldsymbol x}(P) = ${vec(xs)}$, $z(P) = ${z(xs)}$. The point ${"$" + vec(c) + "$"} is not feasible, and the closest vertex is not optimal.`);
@@ -569,11 +569,11 @@
         const opz = [[curv, F(h), f(h)], [altra, F(h), f(h)], [curv, finto, f(finto)], [curv, F(est), f(est)]];
         const fm = (o) => `${T(l, "È un", "It is a")} ${TIPO(l, o[0], forma)}; $\\tilde{\\boldsymbol x}(P) = (${o[1].tex()})$, $z(P) = ${o[2].tex()}$`;
         const pr = `${forma === "min" ? "\\min" : "\\max"}\\{\\, ${poly([[a, "x^2"], [b, "x"], [c0, ""]])} \\ \\text{${T(l, "soggetto a", "subject to")}}\\ ${lo} \\le x \\le ${up} \\,\\}`;
-        const testo = T(l, `Si consideri il problema $${pr}$. Quale affermazione è corretta?`,
-          `Consider the problem $${pr}$. Which statement is correct?`);
+        const testo = T(l, `Si consideri il problema $P$: $${pr}$ (con $\\tilde{\\boldsymbol x}(P)$ la soluzione ottima e $z(P)$ il valore ottimo). Quale affermazione è corretta?`,
+          `Consider the problem $P$: $${pr}$ (with $\\tilde{\\boldsymbol x}(P)$ the optimal solution and $z(P)$ the optimal value). Which statement is correct?`);
         const sp = T(l,
-          `$f(x) = ${a === 1 ? "" : a === -1 ? "-" : a + "\\,"}(x ${h < 0 ? "+ " + (-h) : "- " + h})^2 ${k < 0 ? "- " + (-k) : "+ " + k}$ è ${curv} e $F = [${lo}, ${up}]$ è convesso: è un ${TIPO(l, curv, forma)}. La derivata $${poly([[2 * a, "x"], [b, ""]])}$ si annulla in $x = ${h}$, ammissibile; $x = ${h}$ è un punto di ${forma === "min" ? "minimo" : "massimo"} locale e quindi, per ${forma === "min" ? "la Proposizione 6.2" : "il Corollario 6.3"}, ottimo: $z(P) = ${f(h).tex()}$.`,
-          `$f(x) = ${a === 1 ? "" : a === -1 ? "-" : a + "\\,"}(x ${h < 0 ? "+ " + (-h) : "- " + h})^2 ${k < 0 ? "- " + (-k) : "+ " + k}$ is ${curv === "convessa" ? "convex" : "concave"} and $F = [${lo}, ${up}]$ is convex: it is a ${TIPO(l, curv, forma)}. The derivative $${poly([[2 * a, "x"], [b, ""]])}$ vanishes at $x = ${h}$, which is feasible; $x = ${h}$ is a point of local ${forma === "min" ? "minimum" : "maximum"} and hence, by ${forma === "min" ? "Proposition 6.2" : "Corollary 6.3"}, optimal: $z(P) = ${f(h).tex()}$.`);
+          `$f(x) = ${a === 1 ? "" : a === -1 ? "-" : a + "\\,"}(x ${h < 0 ? "+ " + (-h) : "- " + h})^2 ${k < 0 ? " - " + (-k) : k > 0 ? " + " + k : ""}$ è ${curv} e $F = [${lo}, ${up}]$ è convesso: è un ${TIPO(l, curv, forma)}. La derivata $${poly([[2 * a, "x"], [b, ""]])}$ si annulla in $x = ${h}$, ammissibile; $x = ${h}$ è un punto di ${forma === "min" ? "minimo" : "massimo"} locale e quindi ottimo, perché in un ${TIPO(l, curv, forma)} ogni ${forma === "min" ? "minimo" : "massimo"} locale è ottimo: $z(P) = ${f(h).tex()}$.`,
+          `$f(x) = ${a === 1 ? "" : a === -1 ? "-" : a + "\\,"}(x ${h < 0 ? "+ " + (-h) : "- " + h})^2 ${k < 0 ? " - " + (-k) : k > 0 ? " + " + k : ""}$ is ${curv === "convessa" ? "convex" : "concave"} and $F = [${lo}, ${up}]$ is convex: it is a ${TIPO(l, curv, forma)}. The derivative $${poly([[2 * a, "x"], [b, ""]])}$ vanishes at $x = ${h}$, which is feasible; $x = ${h}$ is a point of local ${forma === "min" ? "minimum" : "maximum"} and hence optimal, because in a ${TIPO(l, curv, forma)} every local ${forma === "min" ? "minimum" : "maximum"} is optimal: $z(P) = ${f(h).tex()}$.`);
         return { testo, opzioni: opz.map(fm), corretta: 0, spiegazione: sp,
           dati: { a, b, c: c0, lo, up, forma, valori: opz.map((o) => [o[0], o[1].s(), o[2].s()]) } };
       });
@@ -598,11 +598,11 @@
         const pr = `${forma === "min" ? "\\min" : "\\max"}\\{\\, ${poly([[c3, "x^3"], [c2, "x^2"], [c1, "x"], [c0, ""]])} \\ \\text{${T(l, "soggetto a", "subject to")}}\\ ${lo} \\le x \\le ${up} \\,\\}`;
         const hs = h === 0 ? "x" : `(x ${h < 0 ? "+ " + (-h) : "- " + h})`;
         const testo = T(l,
-          `Si consideri il problema $${pr}$, la cui funzione obiettivo si scrive anche $${hs}^3 - ${3 * s * s}\\,${hs} ${k < 0 ? "- " + (-k) : "+ " + k}$. Quale affermazione è corretta?`,
-          `Consider the problem $${pr}$, whose objective function can also be written as $${hs}^3 - ${3 * s * s}\\,${hs} ${k < 0 ? "- " + (-k) : "+ " + k}$. Which statement is correct?`);
+          `Si consideri il problema $P$: $${pr}$ (con $\\tilde{\\boldsymbol x}(P)$ la soluzione ottima e $z(P)$ il valore ottimo), la cui funzione obiettivo si scrive anche $${hs}^3 - ${3 * s * s}\\,${hs} ${k < 0 ? " - " + (-k) : k > 0 ? " + " + k : ""}$. Quale affermazione è corretta?`,
+          `Consider the problem $P$: $${pr}$ (with $\\tilde{\\boldsymbol x}(P)$ the optimal solution and $z(P)$ the optimal value), whose objective function can also be written as $${hs}^3 - ${3 * s * s}\\,${hs} ${k < 0 ? " - " + (-k) : k > 0 ? " + " + k : ""}$. Which statement is correct?`);
         const sp = T(l,
-          `Con $a = p ${h < 0 ? "+ " + (-h) : "- " + h}$ e $b = w ${h < 0 ? "+ " + (-h) : "- " + h}$ ${caso === "A" ? "non negativi" : "non positivi"}, l'Osservazione 6.4 dà che $f$ è ${curv} su $[${lo}, ${up}]$: è un ${TIPO(l, curv, forma)}. La derivata $3${hs}^2 - ${3 * s * s}$ si annulla in $${h - s}$ e $${h + s}$; solo $${xs}$ è ammissibile ed è ottimo (per ${caso === "A" ? "la Proposizione 6.2" : "il Corollario 6.3"}), con $z(P) = ${f(xs)}$.`,
-          `With $a = p ${h < 0 ? "+ " + (-h) : "- " + h}$ and $b = w ${h < 0 ? "+ " + (-h) : "- " + h}$ ${caso === "A" ? "nonnegative" : "nonpositive"}, Observation 6.4 shows that $f$ is ${curv === "convessa" ? "convex" : "concave"} over $[${lo}, ${up}]$: it is a ${TIPO(l, curv, forma)}. The derivative $3${hs}^2 - ${3 * s * s}$ vanishes at $${h - s}$ and $${h + s}$; only $${xs}$ is feasible and it is optimal (by ${caso === "A" ? "Proposition 6.2" : "Corollary 6.3"}), with $z(P) = ${f(xs)}$.`);
+          `Con $a = p ${h < 0 ? "+ " + (-h) : "- " + h}$ e $b = w ${h < 0 ? "+ " + (-h) : "- " + h}$ ${caso === "A" ? "non negativi" : "non positivi"}, la disuguaglianza dei cubi $\\big(\\lambda a + (1-\\lambda) b\\big)^3 ${caso === "A" ? "\\le" : "\\ge"} \\lambda a^3 + (1-\\lambda) b^3$ (la parte restante è lineare) dà che $f$ è ${curv} su $[${lo}, ${up}]$: è un ${TIPO(l, curv, forma)}. La derivata $3${hs}^2 - ${3 * s * s}$ si annulla in $${h - s}$ e $${h + s}$; solo $${xs}$ è ammissibile, è un ottimo locale ed è quindi ottimo (nei problemi di questo tipo gli ottimi locali sono globali), con $z(P) = ${f(xs)}$.`,
+          `With $a = p ${h < 0 ? "+ " + (-h) : "- " + h}$ and $b = w ${h < 0 ? "+ " + (-h) : "- " + h}$ ${caso === "A" ? "nonnegative" : "nonpositive"}, the inequality of cubes $\\big(\\lambda a + (1-\\lambda) b\\big)^3 ${caso === "A" ? "\\le" : "\\ge"} \\lambda a^3 + (1-\\lambda) b^3$ (the rest is linear) shows that $f$ is ${curv === "convessa" ? "convex" : "concave"} over $[${lo}, ${up}]$: it is a ${TIPO(l, curv, forma)}. The derivative $3${hs}^2 - ${3 * s * s}$ vanishes at $${h - s}$ and $${h + s}$; only $${xs}$ is feasible, it is a local optimum and hence optimal (in problems of this kind local optima are global), with $z(P) = ${f(xs)}$.`);
         return { testo, opzioni: opz.map(fm), corretta: 0, spiegazione: sp,
           dati: { coef: [c3, c2, c1, c0], lo, up, forma, valori: opz } };
       });
@@ -630,14 +630,183 @@
         const fm = (o) => `$\\tilde{\\boldsymbol x}(P) = ${vec(o[0])}$, $z(P) = ${o[1]}$`;
         const fs = poly([[a[0], "x_1^2"], [a[1], "x_2^2"], [c[0], "x_1"], [c[1], "x_2"]]);
         const pr = `\\min\\{\\, ${fs} \\ \\text{${T(l, "soggetto a", "subject to")}}\\ ${lo[0]} \\le x_1 \\le ${up[0]},~ ${lo[1]} \\le x_2 \\le ${up[1]} \\,\\}`;
-        const testo = T(l, `Si consideri il problema di minimizzazione convesso $${pr}$. Quali sono la soluzione ottima e il valore ottimo?`,
-          `Consider the convex minimization problem $${pr}$. What are the optimal solution and the optimal value?`);
+        const testo = T(l, `Si consideri il problema di minimizzazione convesso $P$: $${pr}$. Quali sono la soluzione ottima e il valore ottimo (con $\\tilde{\\boldsymbol x}(P)$ la soluzione ottima e $z(P)$ il valore ottimo)?`,
+          `Consider the convex minimization problem $P$: $${pr}$. What are the optimal solution and the optimal value (with $\\tilde{\\boldsymbol x}(P)$ the optimal solution and $z(P)$ the optimal value)?`);
         const q = (i) => `${a[i] === 1 ? "" : a[i]}(x_${i + 1} ${h[i] < 0 ? "+ " + (-h[i]) : "- " + h[i]})^2`;
         const kk = -(a[0] * h[0] * h[0] + a[1] * h[1] * h[1]);
         const sp = T(l,
           `Completando i quadrati, $f({\\boldsymbol x}) = ${q(0)} + ${q(1)} ${kk < 0 ? "- " + (-kk) : "+ " + kk}$. Il punto ${"$" + vec(h) + "$"} non è ammissibile; ogni termine dipende da una sola variabile ed è minimo riportando $${h[0]}$ in $[${lo[0]}, ${up[0]}]$ e $${h[1]}$ in $[${lo[1]}, ${up[1]}]$: $\\tilde{\\boldsymbol x}(P) = ${vec(xs)}$, $z(P) = ${f(xs)}$.`,
           `Completing the squares, $f({\\boldsymbol x}) = ${q(0)} + ${q(1)} ${kk < 0 ? "- " + (-kk) : "+ " + kk}$. The point ${"$" + vec(h) + "$"} is not feasible; each term depends on a single variable and is smallest when $${h[0]}$ is brought back into $[${lo[0]}, ${up[0]}]$ and $${h[1]}$ into $[${lo[1]}, ${up[1]}]$: $\\tilde{\\boldsymbol x}(P) = ${vec(xs)}$, $z(P) = ${f(xs)}$.`);
         return { testo, opzioni: opz.map(fm), corretta: 0, spiegazione: sp, dati: { a, c, lo, up, valori: opz } };
+      });
+    },
+  });
+
+  /* ===================== Generatori aggiunti (6 novembre 2026): media/complessa nei capitoli 1, 3, 4, 5 ===================== */
+
+  LISTA.push({
+    id: "co-g-ballcap", livello: "media", capitolo: CAP.c1, link: link("c1", "box-12-obs-intersection"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const c1 = [ri(rng, -1, 3), ri(rng, -1, 3)], r1 = ri(rng, 2, 4);
+        const c2 = [c1[0] + ri(rng, -2, 2), c1[1] + ri(rng, -2, 2)], r2 = ri(rng, 1, 3);
+        const inA = (x) => Math.abs(x[0] - c1[0]) + Math.abs(x[1] - c1[1]) <= r1;
+        const inB = (x) => Math.max(Math.abs(x[0] - c2[0]), Math.abs(x[1] - c2[1])) <= r2;
+        const both = [], soloA = [], soloB = [];
+        for (let x1 = c1[0] - r1 - 1; x1 <= c1[0] + r1 + 1; x1++) for (let x2 = c1[1] - r1 - 1; x2 <= c1[1] + r1 + 1; x2++) {
+          const x = [x1, x2];
+          if (inA(x) && inB(x)) both.push(x); else if (inA(x)) soloA.push(x); else if (inB(x)) soloB.push(x);
+        }
+        if (both.length === 0 || soloA.length === 0 || soloB.length === 0 || soloA.length + soloB.length < 3) return null;
+        const giusto = sc(rng, both);
+        const sb = [sc(rng, soloA), sc(rng, soloB)];
+        const resto = soloA.concat(soloB).filter((x) => !sb.some((y) => y[0] === x[0] && y[1] === x[1]));
+        if (resto.length === 0) return null;
+        sb.push(sc(rng, resto));
+        const pts = [giusto, ...sb];
+        const A = `\\{ {\\boldsymbol x} \\in \\R^2 : \\|{\\boldsymbol x} - ${vec(c1)}\\|_1 \\le ${r1} \\}`;
+        const B = `\\{ {\\boldsymbol x} \\in \\R^2 : \\|{\\boldsymbol x} - ${vec(c2)}\\|_\\infty \\le ${r2} \\}`;
+        const testo = T(l,
+          `Siano $A = ${A}$ (palla della norma $1$) e $B = ${B}$ (palla della norma $\\infty$). Quale punto appartiene all'insieme convesso $A \\cap B$?`,
+          `Let $A = ${A}$ (ball of the norm $1$) and $B = ${B}$ (ball of the norm $\\infty$). Which point belongs to the convex set $A \\cap B$?`);
+        const d1 = (x) => Math.abs(x[0] - c1[0]) + Math.abs(x[1] - c1[1]);
+        const d2 = (x) => Math.max(Math.abs(x[0] - c2[0]), Math.abs(x[1] - c2[1]));
+        const g = giusto;
+        const sp = T(l,
+          `Per ${"$" + vec(g) + "$"}: distanza in norma $1$ da ${"$" + vec(c1) + "$"} pari a $${d1(g)} \\le ${r1}$ e distanza in norma $\\infty$ da ${"$" + vec(c2) + "$"} pari a $${d2(g)} \\le ${r2}$: sta in entrambi gli insiemi. Ciascuno degli altri punti sta in uno solo dei due (errore tipico: confondere intersezione e unione).`,
+          `For ${"$" + vec(g) + "$"}: distance in the norm $1$ from ${"$" + vec(c1) + "$"} equal to $${d1(g)} \\le ${r1}$ and distance in the norm $\\infty$ from ${"$" + vec(c2) + "$"} equal to $${d2(g)} \\le ${r2}$: it belongs to both sets. Each of the other points belongs to only one of the two (typical mistake: confusing intersection and union).`);
+        return { testo, opzioni: pts.map((x) => "$" + vec(x) + "$"), corretta: 0, spiegazione: sp,
+          dati: { c1, r1, c2, r2, valori: pts } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-normchord", livello: "media", capitolo: CAP.c3, link: link("c3", "box-16-exDistance"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const q = sc(rng, ["1", "\\infty"]);
+        const c = [ri(rng, -2, 3), ri(rng, -2, 3)], k = sc(rng, [-2, -1, 1, 2, 3]);
+        const p = [ri(rng, -3, 5), ri(rng, -3, 5)], w = [ri(rng, -3, 5), ri(rng, -3, 5)];
+        const lam = sc(rng, [F(1, 3), F(2, 3), F(1, 4), F(3, 4)]), mu = F(1).sub(lam);
+        const ab = (t) => (t.n < 0 ? t.neg() : t);
+        const nrm = (x) => { const d = [0, 1].map((i) => ab(Fr.of(x[i]).sub(c[i]))); return q === "1" ? d[0].add(d[1]) : (d[0].lt(d[1]) ? d[1] : d[0]); };
+        const f = (x) => nrm(x).add(k);
+        const par = (t) => (t.n < 0 ? "(" + t.tex() + ")" : t.tex());
+        const m = [0, 1].map((i) => lam.mul(p[i]).add(mu.mul(w[i])));
+        const A = f(m), B = lam.mul(f(p)).add(mu.mul(f(w)));
+        if (!A.lt(B)) return null;
+        const v = [[A, B], [B, A], [A.sub(k), B], [A, mu.mul(f(p)).add(lam.mul(f(w)))]];
+        const fm = (t) => T(l, `$${t[0].tex()}$ e $${t[1].tex()}$`, `$${t[0].tex()}$ and $${t[1].tex()}$`);
+        const fs = `\\|{\\boldsymbol x} - ${vec(c)}\\|_{${q}} ${k < 0 ? "- " + (-k) : "+ " + k}`;
+        const testo = T(l,
+          `Per la funzione convessa $f({\\boldsymbol x}) = ${fs}$ in $\\R^2$, con ${"${\\boldsymbol p} = " + vec(p) + "$"}, ${"${\\boldsymbol w} = " + vec(w) + "$"} e $\\lambda = ${lam.tex()}$, quanto valgono (in quest'ordine) i due membri $f(\\lambda {\\boldsymbol p} + (1-\\lambda){\\boldsymbol w})$ e $\\lambda f({\\boldsymbol p}) + (1-\\lambda) f({\\boldsymbol w})$ della disuguaglianza di convessità?`,
+          `For the convex function $f({\\boldsymbol x}) = ${fs}$ in $\\R^2$, with ${"${\\boldsymbol p} = " + vec(p) + "$"}, ${"${\\boldsymbol w} = " + vec(w) + "$"} and $\\lambda = ${lam.tex()}$, what are (in this order) the two sides $f(\\lambda {\\boldsymbol p} + (1-\\lambda){\\boldsymbol w})$ and $\\lambda f({\\boldsymbol p}) + (1-\\lambda) f({\\boldsymbol w})$ of the convexity inequality?`);
+        const sp = T(l,
+          `$\\lambda {\\boldsymbol p} + (1-\\lambda){\\boldsymbol w} = ${vec(m)}$ e $f(${vec(m)}) = ${A.tex()}$; $f({\\boldsymbol p}) = ${f(p).tex()}$, $f({\\boldsymbol w}) = ${f(w).tex()}$ e $${lam.tex()}\\cdot ${par(f(p))} + ${mu.tex()}\\cdot ${par(f(w))} = ${B.tex()}$. Come deve essere, $${A.tex()} \\le ${B.tex()}$. Errori tipici: dimenticare la costante $${k}$, scambiare i pesi $\\lambda$ e $1-\\lambda$.`,
+          `$\\lambda {\\boldsymbol p} + (1-\\lambda){\\boldsymbol w} = ${vec(m)}$ and $f(${vec(m)}) = ${A.tex()}$; $f({\\boldsymbol p}) = ${f(p).tex()}$, $f({\\boldsymbol w}) = ${f(w).tex()}$ and $${lam.tex()}\\cdot ${par(f(p))} + ${mu.tex()}\\cdot ${par(f(w))} = ${B.tex()}$. As it must be, $${A.tex()} \\le ${B.tex()}$. Typical mistakes: forgetting the constant $${k}$, swapping the weights $\\lambda$ and $1-\\lambda$.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp,
+          dati: { q: q === "1" ? "1" : "inf", c, k, p, w, lam: lam.s(), valori: S(v) } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-stationary", livello: "complessa", capitolo: CAP.c4, link: link("c4", "44-quadratic-functions-with-a-linear-part"),
+    linkIt: "44-funzioni-quadratiche-con-una-parte-lineare",
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const a = ri(rng, -2, 3), cc = ri(rng, -2, 3), b = ri(rng, -2, 2);
+        const det = a * cc - b * b;
+        if (det === 0 || (a === 0 && cc === 0)) return null;
+        const conv = a >= 0 && cc >= 0 && det > 0;
+        const xs = [ri(rng, -2, 2), ri(rng, -2, 2)];
+        if (xs[0] === 0 && xs[1] === 0) return null;
+        const Q = [[a, b], [b, cc]], d = ri(rng, -4, 6);
+        const Qx = (x) => [a * x[0] + b * x[1], b * x[0] + cc * x[1]];
+        const c = Qx(xs).map((t) => -2 * t);
+        const g = (x) => { const y = Qx(x); return x[0] * y[0] + x[1] * y[1] + c[0] * x[0] + c[1] * x[1] + d; };
+        const x2 = [2 * xs[0], 2 * xs[1]], xm = [-xs[0], -xs[1]];
+        const C = conv ? "si" : "no", NC = conv ? "no" : "si";
+        const v = [[C, xs, g(xs)], [NC, xs, g(xs)], [C, x2, g(x2)], [C, xm, g(xm)]];
+        const fm = (o) => T(l,
+          `$g$ ${o[0] === "si" ? "è" : "non è"} convessa; $\\nabla g$ si annulla in $${vec(o[1])}$, dove $g = ${o[2]}$`,
+          `$g$ is ${o[0] === "si" ? "" : "not "}convex; $\\nabla g$ vanishes at $${vec(o[1])}$, where $g = ${o[2]}$`);
+        const gs = poly([[a, "x_1^2"], [2 * b, "x_1 x_2"], [cc, "x_2^2"], [c[0], "x_1"], [c[1], "x_2"], [d, ""]]);
+        const testo = T(l,
+          `Sia $g({\\boldsymbol x}) = {\\boldsymbol x}' {\\boldsymbol Q}\\, {\\boldsymbol x} + {\\boldsymbol c}' {\\boldsymbol x} + d = ${gs}$, con ${"${\\boldsymbol Q} = " + mat(Q) + "$"}, ${"${\\boldsymbol c} = " + vec(c) + "$"} e $d = ${d}$. Quale affermazione su convessità e punto in cui il gradiente si annulla è corretta?`,
+          `Let $g({\\boldsymbol x}) = {\\boldsymbol x}' {\\boldsymbol Q}\\, {\\boldsymbol x} + {\\boldsymbol c}' {\\boldsymbol x} + d = ${gs}$, with ${"${\\boldsymbol Q} = " + mat(Q) + "$"}, ${"${\\boldsymbol c} = " + vec(c) + "$"} and $d = ${d}$. Which statement on convexity and on the point where the gradient vanishes is correct?`);
+        const conT = conv
+          ? T(l, `${"${\\boldsymbol Q}$"} è semidefinita positiva ($q_{11}, q_{22} \\ge 0$ e $\\det {\\boldsymbol Q} = ${det} > 0$), quindi $g$ è convessa`,
+              `${"${\\boldsymbol Q}$"} is positive semidefinite ($q_{11}, q_{22} \\ge 0$ and $\\det {\\boldsymbol Q} = ${det} > 0$), hence $g$ is convex`)
+          : T(l, `${"${\\boldsymbol Q}$"} non è semidefinita positiva (${a < 0 || cc < 0 ? "ha un elemento diagonale negativo" : "$\\det {\\boldsymbol Q} = " + det + " < 0$"}), quindi $g$ non è convessa`,
+              `${"${\\boldsymbol Q}$"} is not positive semidefinite (${a < 0 || cc < 0 ? "it has a negative diagonal entry" : "$\\det {\\boldsymbol Q} = " + det + " < 0$"}), hence $g$ is not convex`);
+        const sp = T(l,
+          `${conT}. $\\nabla g({\\boldsymbol x}) = 2{\\boldsymbol Q}{\\boldsymbol x} + {\\boldsymbol c} = {\\boldsymbol 0}$ dà ${"${\\boldsymbol Q}{\\boldsymbol x} = " + vec(c.map((t) => -t / 2)) + "$"}, cioè ${"${\\boldsymbol x} = " + vec(xs) + "$"}, con $g = ${g(xs)}$. Errori tipici: fattore $2$ dimenticato (${"$" + vec(x2) + "$"}), segno di ${"${\\boldsymbol c}$"} sbagliato (${"$" + vec(xm) + "$"}).`,
+          `${conT}. $\\nabla g({\\boldsymbol x}) = 2{\\boldsymbol Q}{\\boldsymbol x} + {\\boldsymbol c} = {\\boldsymbol 0}$ gives ${"${\\boldsymbol Q}{\\boldsymbol x} = " + vec(c.map((t) => -t / 2)) + "$"}, that is, ${"${\\boldsymbol x} = " + vec(xs) + "$"}, with $g = ${g(xs)}$. Typical mistakes: factor $2$ forgotten (${"$" + vec(x2) + "$"}), wrong sign of ${"${\\boldsymbol c}$"} (${"$" + vec(xm) + "$"}).`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { Q, c, d, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-classify", livello: "complessa", capitolo: CAP.c5, link: link("c5", "51-optimization-problems"),
+    linkIt: "51-problemi-di-ottimizzazione",
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const a = sc(rng, [1, -1]), h = ri(rng, -2, 3), k = ri(rng, -4, 5);
+        const forma = sc(rng, ["min", "max"]);
+        const tipoF = sc(rng, ["cc", "oc", "co", "oo", "cinf", "infc"]);
+        const lo = tipoF === "infc" ? null : ri(rng, -4, 2), up = tipoF === "cinf" ? null : (lo === null ? ri(rng, -2, 4) : lo + ri(rng, 2, 5));
+        const loC = tipoF === "cc" || tipoF === "co" || tipoF === "cinf", upC = tipoF === "cc" || tipoF === "oc" || tipoF === "infc";
+        const f = (t) => a * (t - h) * (t - h) + k;
+        // s = +1: si minimizza a(x-h)^2 con a > 0 (oppure si massimizza con a < 0) -> conta il punto più vicino a h
+        const vicino = (forma === "min") === (a > 0);
+        const ok = (t) => (lo === null || t > lo || (t === lo && loC)) && (up === null || t < up || (t === up && upC));
+        let giusto;
+        if (vicino) {
+          const e = lo !== null && h < lo ? lo : up !== null && h > up ? up : h;
+          giusto = ok(e) ? ["O", e, f(e)] : ["N", f(e)];
+        } else {
+          if (lo === null || up === null) giusto = ["U", forma === "max" ? "+" : "-"];
+          else {
+            if (Math.abs(lo - h) === Math.abs(up - h)) return null;
+            const e = Math.abs(lo - h) > Math.abs(up - h) ? lo : up;
+            giusto = ok(e) ? ["O", e, f(e)] : ["N", f(e)];
+          }
+        }
+        const pool = [];
+        for (const e of [lo, up, h]) if (e !== null) { pool.push(["O", e, f(e)]); pool.push(["N", f(e)]); }
+        pool.push(["U", forma === "max" ? "+" : "-"]);
+        const key = (o) => JSON.stringify(o);
+        const altri = [];
+        for (const o of pool) if (key(o) !== key(giusto) && !altri.some((x) => key(x) === key(o))) altri.push(o);
+        if (altri.length < 3) return null;
+        // mescola gli errori e prendine 3
+        for (let i = altri.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [altri[i], altri[j]] = [altri[j], altri[i]]; }
+        const v = [giusto, ...altri.slice(0, 3)];
+        const sup = forma === "min" ? T(l, "inferiore", "infimum") : T(l, "superiore", "supremum");
+        const fm = (o) => (o[0] === "O"
+          ? T(l, `ha soluzione ottima $\\tilde{\\boldsymbol x}(P) = (${o[1]})$, con $z(P) = ${o[2]}$`, `it has optimal solution $\\tilde{\\boldsymbol x}(P) = (${o[1]})$, with $z(P) = ${o[2]}$`)
+          : o[0] === "N"
+            ? T(l, `ha estremo ${sup} $${o[1]}$ non raggiunto: non esiste soluzione ottima`, `it has an unattainable ${sup} $${o[1]}$: there is no optimal solution`)
+            : T(l, `è illimitato, con $z(P) = ${o[1]}\\infty$`, `it is unbounded, with $z(P) = ${o[1]}\\infty$`));
+        const Fs = lo === null ? `(-\\infty, ${up}]` : up === null ? `[${lo}, +\\infty)` : `${loC ? "[" : "("}${lo}, ${up}${upC ? "]" : ")"}`;
+        const fs = `${a < 0 ? "-" : ""}${fpar(h, 0)}${k === 0 ? "" : k < 0 ? " - " + (-k) : " + " + k}`;
+        const pr = `${forma === "min" ? "\\min" : "\\max"}\\{\\, ${fs} \\ \\text{${T(l, "soggetto a", "subject to")}}\\ x \\in ${Fs} \\,\\}`;
+        const testo = T(l,
+          `Si consideri il problema $P$: $${pr}$, con $\\tilde{\\boldsymbol x}(P)$ la soluzione ottima (se esiste) e $z(P)$ il valore ottimo. Quale affermazione su $P$ è corretta?`,
+          `Consider the problem $P$: $${pr}$, with $\\tilde{\\boldsymbol x}(P)$ the optimal solution (if any) and $z(P)$ the optimal value. Which statement on $P$ is correct?`);
+        const spG = giusto[0] === "O"
+          ? T(l, `il punto migliore della chiusura di $F$ è $x = ${giusto[1]}$, che appartiene a $F$: è la soluzione ottima, con $z(P) = ${giusto[2]}$`, `the best point of the closure of $F$ is $x = ${giusto[1]}$, which belongs to $F$: it is the optimal solution, with $z(P) = ${giusto[2]}$`)
+          : giusto[0] === "N"
+            ? T(l, `il valore $${giusto[1]}$ si otterrebbe in un estremo escluso da $F$: ci si avvicina quanto si vuole senza raggiungerlo`, `the value $${giusto[1]}$ would be obtained at an endpoint excluded from $F$: we get arbitrarily close without attaining it`)
+            : T(l, `$F$ è illimitato e la funzione obiettivo ${forma === "max" ? "cresce" : "decresce"} indefinitamente allontanandosi da $${h}$`, `$F$ is unbounded and the objective function ${forma === "max" ? "increases" : "decreases"} indefinitely moving away from $${h}$`);
+        const sp = T(l,
+          `La parabola ha vertice in $x = ${h}$ (valore $${k}$) ed è rivolta verso ${a > 0 ? "l'alto" : "il basso"}: in forma di ${forma === "min" ? "minimo" : "massimo"} conta il punto di $F$ ${vicino ? "più vicino al" : "più lontano dal"} vertice. Qui ${spG}. Errori tipici: ignorare se gli estremi appartengono a $F$, o usare il vertice nella forma sbagliata.`,
+          `The parabola has vertex at $x = ${h}$ (value $${k}$) and opens ${a > 0 ? "upward" : "downward"}: in ${forma === "min" ? "minimization" : "maximization"} form what matters is the point of $F$ ${vicino ? "closest to" : "farthest from"} the vertex. Here ${spG}. Typical mistakes: ignoring whether the endpoints belong to $F$, or using the vertex in the wrong form.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp,
+          dati: { a, h, k, forma, lo, up, loC, upC, valori: v } };
       });
     },
   });
