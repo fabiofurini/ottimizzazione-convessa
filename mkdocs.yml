@@ -93,6 +93,7 @@ extra_css:
   - stylesheets/extra.css?v=d60085bd58
   - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css
   - stylesheets/interattivi.css?v=44363aef3d
+  - stylesheets/quiz.css?v=9e3792b41c
 
 markdown_extensions:
   - admonition
@@ -113,7 +114,7 @@ markdown_extensions:
 
 extra_javascript:
   - javascripts/cloudflare-analytics.js?v=bff73345a1
-  - javascripts/mathjax.js?v=c6bff11806
+  - javascripts/mathjax.js?v=ef31b84e78
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
   # grafici interattivi: JSXGraph, il motore, poi le ricette (gi-*.js, le aggiunge genera_sito.py)
   - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js
@@ -121,6 +122,7 @@ extra_javascript:
   - javascripts/gi-cap1.js?v=27c38e033c
   - javascripts/gi-cap2-4.js?v=64088905fd
   - javascripts/gi-cap5-6.js?v=3713a1d99f
+  - javascripts/quiz.js?v=3990768383
 
 # le pagine delle singole app del laboratorio non stanno nel menu
 not_in_nav: |
@@ -146,6 +148,7 @@ nav:
       - "4. Funzioni quadratiche": esercizi/es-04-funzioni-quadratiche.md
       - "5. Problemi di ottimizzazione": esercizi/es-05-problemi-ottimizzazione.md
       - "6. Problemi di ottimizzazione convessi e concavi": esercizi/es-06-problemi-convessi-concavi.md
+  - Quiz: autovalutazione.md
   - Laboratorio interattivo:
       - interattivi/index.md
   - Materiale: materiale.md
