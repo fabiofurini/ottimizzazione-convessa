@@ -69,18 +69,10 @@ La discesa locale: su una funzione convessa ogni minimo locale è globale; su un
 
 </div>
 
+<!-- collana-da-non-perdere -->
 ## Da non perdere
 
 <div class="grid cards" markdown>
-
--   :material-gesture-tap: **Laboratorio interattivo**
-
-    ---
-
-    Muovi i parametri con i cursori, trascina i punti e guarda insiemi, funzioni e ottimi
-    cambiare; poi mettiti alla prova con le sfide.
-
-    [:octicons-arrow-right-24: I grafici](interattivi/index.md)
 
 -   :material-pencil-box-multiple: **Esercizi con le soluzioni**
 
@@ -90,21 +82,27 @@ La discesa locale: su una funzione convessa ogni minimo locale è globale; su un
 
     [:octicons-arrow-right-24: Gli esercizi](esercizi/index.md)
 
--   :material-clipboard-check-outline: **Autovalutazione**
+-   :material-clipboard-check-outline: **Quiz di autovalutazione**
 
     ---
 
-    *Facsimile d'esame*
-
-    Un facsimile nuovo a ogni avvio: 13 domande, 33 punti, con la soluzione e il link alle dispense.
+    Un facsimile d'esame nuovo a ogni avvio: 13 domande, 33 punti, con la soluzione e il link alle dispense. In Materiale c'è anche la banca completa delle domande.
 
     [:octicons-arrow-right-24: Mettiti alla prova](autovalutazione.md)
 
--   :material-download: **Dispense ed eserciziari in PDF**
+-   :material-gesture-tap: **Laboratorio interattivo**
 
     ---
 
-    Due volumi di dispense e due di esercizi, con la stessa numerazione del sito.
+    App che girano nel browser: muovi i parametri e guarda le idee del corso lavorare, un passo alla volta.
+
+    [:octicons-arrow-right-24: Il laboratorio](interattivi/index.md)
+
+-   :material-download: **Dispense in PDF**
+
+    ---
+
+    Dispense, eserciziari e slide in PDF, con la stessa numerazione del sito.
 
     [:octicons-arrow-right-24: Il materiale](materiale.md)
 
@@ -112,11 +110,12 @@ La discesa locale: su una funzione convessa ogni minimo locale è globale; su un
 
     ---
 
-    Tutti i capitoli con le loro sezioni, in una pagina.
+    Tutti i capitoli con le loro sezioni in una pagina, e come è fatto ogni capitolo.
 
-    [:octicons-arrow-right-24: L’indice](indice.md)
+    [:octicons-arrow-right-24: L'indice](indice.md)
 
 </div>
+<!-- /collana-da-non-perdere -->
 
 ---
 
@@ -169,6 +168,8 @@ Dieci corsi con la stessa impostazione: dispense online e in PDF, esercizi con l
 
 </div>
 <!-- /collana -->
+
+---
 
 Materiale didattico di **[Fabio Furini](https://fabiofurini.github.io/)** —
 [DIAG](https://www.diag.uniroma1.it/), Sapienza Università di Roma.
