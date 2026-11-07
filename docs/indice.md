@@ -1,5 +1,32 @@
 # Indice completo
 
+<!-- collana-organizzazione -->
+## Come è organizzato ogni capitolo
+
+Ogni capitolo è una delle note del corso, con gli stessi numeri e gli stessi colori della
+dispensa: sul sito e nel PDF trovi tutto allo stesso posto.
+
+<div class="grid" markdown>
+
+!!! definizione "Definizione"
+    Il significato preciso di un concetto nuovo.
+
+!!! teorema "Teorema, proposizione, osservazione"
+    Un risultato da ricordare, con le sue ipotesi.
+
+!!! esempio "Esempio"
+    Un calcolo svolto per intero, un passo alla volta.
+
+!!! chiave ""
+    **In verde** il punto chiave da portare a casa.
+
+</div>
+
+??? dimostrazione "Dimostrazione — si apre con un clic"
+    Le dimostrazioni ci sono tutte, ma chiuse: prima leggi l'enunciato, poi apri la
+    dimostrazione quando vuoi studiarla. Lo stesso vale per le soluzioni degli esercizi.
+<!-- /collana-organizzazione -->
+
 ## [Preliminari](preliminari/index.md)
 
 1. [Insiemi convessi](preliminari/01-insiemi-convessi.md)

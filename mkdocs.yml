@@ -90,6 +90,7 @@ extra:
       lang: en
 
 extra_css:
+  - stylesheets/collana.css
   - stylesheets/extra.css?v=d60085bd58
   - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css
   - stylesheets/interattivi.css?v=44363aef3d
@@ -149,7 +150,7 @@ nav:
       - "5. Problemi di ottimizzazione": esercizi/es-05-problemi-ottimizzazione.md
       - "6. Problemi di ottimizzazione convessi e concavi": esercizi/es-06-problemi-convessi-concavi.md
   - Quiz: autovalutazione.md
-  - Laboratorio interattivo:
+  - Laboratorio:
       - interattivi/index.md
   - Materiale: materiale.md
-  - Indice completo: indice.md
+  - Indice: indice.md
