@@ -811,6 +811,676 @@
     },
   });
 
+  /* ===================== Generatori aggiunti (7 novembre 2026): parte «Problemi di ottimizzazione» e media/complessa ===================== */
+
+  /* x - h, (x - h), con h intero */
+  const xm = (h, v = "x") => (h === 0 ? v : `${v} ${h < 0 ? "+ " + (-h) : "- " + h}`);
+  const px = (h, v = "x") => (h === 0 ? v : `(${xm(h, v)})`);
+  const sa = (l) => T(l, "soggetto a", "subject to");
+  const XT = "$\\tilde{\\boldsymbol x}(P)$", ZP = "$z(P)$";
+  const SOLT = (l) => T(l, `(con ${XT} la soluzione ottima e ${ZP} il valore ottimo)`, `(with ${XT} the optimal solution and ${ZP} the optimal value)`);
+  const mescolaR = (rng, a) => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+  /* ---------- capitolo 5 ---------- */
+
+  LISTA.push({
+    id: "co-g-feas", livello: "facile", capitolo: CAP.c5, link: link("c5", "511-feasible-region-and-objective-function"),
+    linkIt: "511-regione-ammissibile-e-funzione-obiettivo",
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const a = sc(rng, [1, 2]), c = [ri(rng, -1, 2), ri(rng, 0, 2)], r = sc(rng, [2, 3]);
+        const s = ri(rng, 1, 4);
+        const ok = [(x) => x[0] + a * x[1] <= s, (x) => x[1] >= 0, (x) => (x[0] - c[0]) ** 2 + (x[1] - c[1]) ** 2 <= r * r];
+        const trova = (viol) => {
+          for (let t = 0; t < 300; t++) {
+            const x = [ri(rng, c[0] - r - 1, c[0] + r + 1), ri(rng, c[1] - r - 1, c[1] + r + 1)];
+            if (ok.every((g, i) => g(x) === (i !== viol))) return x;
+          }
+          return null;
+        };
+        const pts = [trova(-1), trova(0), trova(1), trova(2)];
+        if (pts.some((x) => x === null)) return null;
+        const vinc = `${poly([[1, "x_1"], [a, "x_2"]])} \\le ${s},~ x_2 \\ge 0,~ ${px(c[0], "x_1")}^2 + ${px(c[1], "x_2")}^2 \\le ${r * r}`;
+        const testo = T(l,
+          `Un problema di ottimizzazione ha regione ammissibile $F = \\{\\, {\\boldsymbol x} \\in \\R^2 : ${vinc} \\,\\}$. Quale punto è una soluzione ammissibile, cioè un punto di $F$?`,
+          `An optimization problem has feasible region $F = \\{\\, {\\boldsymbol x} \\in \\R^2 : ${vinc} \\,\\}$. Which point is a feasible solution, that is, a point of $F$?`);
+        const nomi = T(l, ["il primo vincolo", "il secondo vincolo", "il terzo vincolo"], ["the first constraint", "the second constraint", "the third constraint"]);
+        const sp = T(l,
+          `Un punto è ammissibile se soddisfa <em>tutti</em> i vincoli: ${"$" + vec(pts[0]) + "$"} li soddisfa; ${"$" + vec(pts[1]) + "$"} viola ${nomi[0]}, ${"$" + vec(pts[2]) + "$"} viola ${nomi[1]} e ${"$" + vec(pts[3]) + "$"} viola ${nomi[2]}.`,
+          `A point is feasible if it satisfies <em>all</em> the constraints: ${"$" + vec(pts[0]) + "$"} satisfies them; ${"$" + vec(pts[1]) + "$"} violates ${nomi[0]}, ${"$" + vec(pts[2]) + "$"} violates ${nomi[1]} and ${"$" + vec(pts[3]) + "$"} violates ${nomi[2]}.`);
+        return { testo, opzioni: pts.map((x) => "$" + vec(x) + "$"), corretta: 0, spiegazione: sp, dati: { a, s, c, r, valori: pts } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-status", livello: "facile", capitolo: CAP.c5, link: link("c5", "51-optimization-problems"),
+    linkIt: "51-problemi-di-ottimizzazione",
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const m = sc(rng, [-3, -2, -1, 1, 2, 3]), q = ri(rng, -4, 4), forma = sc(rng, ["min", "max"]);
+        const tipo = sc(rng, ["cc", "oc", "co", "cinf", "infc", "oinf", "vuoto"]);
+        const lo = ri(rng, -3, 2), up = lo + ri(rng, 2, 4);
+        const f = (t) => m * t + q;
+        const Fs = { cc: `[${lo}, ${up}]`, oc: `(${lo}, ${up}]`, co: `[${lo}, ${up})`, cinf: `[${lo}, +\\infty)`,
+          infc: `(-\\infty, ${up}]`, oinf: `(${lo}, +\\infty)`, vuoto: `\\{\\, x \\in \\R : x \\ge ${up},~ x \\le ${lo} \\,\\}` }[tipo];
+        // si minimizza g = s f: conta l'estremo sinistro se s m > 0, il destro se s m < 0
+        const s = forma === "min" ? 1 : -1, sinistro = s * m > 0;
+        const haLo = tipo !== "infc", haUp = !["cinf", "oinf"].includes(tipo);
+        const loC = ["cc", "co", "cinf"].includes(tipo), upC = ["cc", "oc", "infc"].includes(tipo);
+        let giusto;
+        if (tipo === "vuoto") giusto = ["E"];
+        else if (sinistro ? !haLo : !haUp) giusto = ["U", forma === "max" ? "+" : "-"];
+        else { const e = sinistro ? lo : up, chiuso = sinistro ? loC : upC; giusto = chiuso ? ["O", e, f(e)] : ["N", f(e)]; }
+        const eFin = giusto[0] === "O" || giusto[0] === "N" ? (sinistro ? lo : up) : (haLo ? lo : up);
+        const cand = {
+          O: ["O", eFin, f(eFin)], N: ["N", f(eFin)], U: ["U", forma === "max" ? "+" : "-"], E: ["E"],
+        };
+        if (tipo === "vuoto") { cand.O = ["O", sinistro ? up : lo, f(sinistro ? up : lo)]; cand.N = ["N", f(sinistro ? lo : up)]; }
+        const v = [giusto, ...["O", "N", "U", "E"].filter((k) => k !== giusto[0]).map((k) => cand[k])];
+        const sup = forma === "min" ? T(l, "inferiore", "infimum") : T(l, "superiore", "supremum");
+        const fm = (o) => (o[0] === "O"
+          ? T(l, `ha soluzione ottima $\\tilde{\\boldsymbol x}(P) = (${o[1]})$ e valore ottimo $z(P) = ${o[2]}$`, `it has optimal solution $\\tilde{\\boldsymbol x}(P) = (${o[1]})$ and optimal value $z(P) = ${o[2]}$`)
+          : o[0] === "N" ? T(l, `ha estremo ${sup} $${o[1]}$ non raggiunto: nessuna soluzione ottima`, `it has an unattainable ${sup} $${o[1]}$: no optimal solution`)
+            : o[0] === "U" ? T(l, `è illimitato: $z(P) = ${o[1]}\\infty$ e nessuna soluzione ottima`, `it is unbounded: $z(P) = ${o[1]}\\infty$ and no optimal solution`)
+              : T(l, `è inammissibile: $F = \\emptyset$ e nessuna soluzione ottima`, `it is infeasible: $F = \\emptyset$ and no optimal solution`));
+        const pr = `${forma === "min" ? "\\min" : "\\max"}\\{\\, ${poly([[m, "x"], [q, ""]])} \\ \\text{${sa(l)}}\\ x \\in F \\,\\}`;
+        const testo = T(l,
+          `Si consideri il problema $P$: $${pr}$, con regione ammissibile $F = ${Fs}$, soluzione ottima $\\tilde{\\boldsymbol x}(P)$ (se esiste) e valore ottimo $z(P)$. Quale affermazione è corretta?`,
+          `Consider the problem $P$: $${pr}$, with feasible region $F = ${Fs}$, optimal solution $\\tilde{\\boldsymbol x}(P)$ (if any) and optimal value $z(P)$. Which statement is correct?`);
+        const dir = T(l, m > 0 ? "crescente" : "decrescente", m > 0 ? "increasing" : "decreasing");
+        const spG = giusto[0] === "E" ? T(l, `nessun $x$ soddisfa insieme $x \\ge ${up}$ e $x \\le ${lo}$: $F$ è vuoto`, `no $x$ satisfies both $x \\ge ${up}$ and $x \\le ${lo}$: $F$ is empty`)
+          : giusto[0] === "U" ? T(l, `$F$ è illimitato dalla parte in cui la funzione obiettivo migliora`, `$F$ is unbounded on the side where the objective function improves`)
+            : giusto[0] === "N" ? T(l, `conta l'estremo $${sinistro ? lo : up}$, che non appartiene a $F$: il valore $${giusto[1]}$ non è raggiunto`, `the endpoint $${sinistro ? lo : up}$ matters, and it does not belong to $F$: the value $${giusto[1]}$ is not attained`)
+              : T(l, `conta l'estremo $${giusto[1]}$, che appartiene a $F$`, `the endpoint $${giusto[1]}$ matters, and it belongs to $F$`);
+        const sp = T(l,
+          `La funzione obiettivo è lineare e ${dir}; in forma di ${forma === "min" ? "minimo" : "massimo"} conviene andare verso ${sinistro ? "sinistra" : "destra"}. Qui ${spG}.`,
+          `The objective function is linear and ${dir}; in ${forma === "min" ? "minimization" : "maximization"} form it pays to move to the ${sinistro ? "left" : "right"}. Here ${spG}.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { m, q, forma, tipo, lo, up, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-finite", livello: "facile", capitolo: CAP.c5, link: link("c5", "box-2-def-optimal"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const c = [sc(rng, [-3, -2, -1, 1, 2, 3]), sc(rng, [-3, -2, -1, 1, 2, 3])], q = ri(rng, -3, 3);
+        const forma = sc(rng, ["min", "max"]);
+        const P = []; while (P.length < 4) { const x = [ri(rng, -2, 4), ri(rng, -2, 4)]; if (!P.some((y) => y[0] === x[0] && y[1] === x[1])) P.push(x); }
+        const f = (x) => c[0] * x[0] + c[1] * x[1] + q;
+        if (new Set(P.map(f)).size < 4) return null;
+        const ord = P.slice().sort((x, y) => (forma === "min" ? f(x) - f(y) : f(y) - f(x)));
+        const v = ord.map((x) => [x, f(x)]);
+        const fm = (o) => `$\\tilde{\\boldsymbol x}(P) = ${vec(o[0])}$, $z(P) = ${o[1]}$`;
+        const Fs = P.map((x) => vec(x)).join(", ");
+        const testo = T(l,
+          `Il problema $P$: $${forma === "min" ? "\\min" : "\\max"}\\{\\, ${poly([[c[0], "x_1"], [c[1], "x_2"], [q, ""]])} \\ \\text{${sa(l)}}\\ {\\boldsymbol x} \\in F \\,\\}$ ha la regione ammissibile finita $F = \\left\\{ ${Fs} \\right\\}$. Quali sono la soluzione ottima e il valore ottimo ${SOLT(l)}?`,
+          `The problem $P$: $${forma === "min" ? "\\min" : "\\max"}\\{\\, ${poly([[c[0], "x_1"], [c[1], "x_2"], [q, ""]])} \\ \\text{${sa(l)}}\\ {\\boldsymbol x} \\in F \\,\\}$ has the finite feasible region $F = \\left\\{ ${Fs} \\right\\}$. What are the optimal solution and the optimal value ${SOLT(l)}?`);
+        const sp = T(l,
+          `Si confronta il valore della funzione obiettivo in ogni soluzione ammissibile: ${P.map((x) => "$" + f(x) + "$").join(", ")}. In forma di ${forma === "min" ? "minimo vince il più piccolo" : "massimo vince il più grande"}, $${v[0][1]}$, raggiunto in ${"$" + vec(v[0][0]) + "$"}.`,
+          `We compare the value of the objective function at every feasible solution: ${P.map((x) => "$" + f(x) + "$").join(", ")}. In ${forma === "min" ? "minimization form the smallest" : "maximization form the largest"} wins, $${v[0][1]}$, attained at ${"$" + vec(v[0][0]) + "$"}.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { c, q, forma, P, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-neighcap", livello: "facile", capitolo: CAP.c5, link: link("c5", "box-17-def-localopt"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const lo = ri(rng, -3, 2), up = lo + ri(rng, 3, 7), dl = sc(rng, [1, 2, 3]);
+        const xb = ri(rng, lo, up);
+        const a = Math.max(lo, xb - dl), aC = xb - dl < lo, b = Math.min(up, xb + dl), bC = xb + dl > up;
+        if (!aC && !bC && rng() < 0.6) return null;                    // più spesso un caso con un estremo di F
+        const I = (o) => `${o[1] ? "[" : "("}${o[0]}, ${o[2]}${o[3] ? "]" : ")"}`;
+        const giusto = [a, aC, b, bC];
+        const cand = [[a, !aC, b, !bC], [xb - dl, false, xb + dl, false], [xb - dl, true, xb + dl, true], [lo, true, up, true], [a, true, b, true], [a, false, b, false]];
+        const k = (o) => JSON.stringify(o), v = [giusto];
+        for (const o of cand) if (v.length < 4 && !v.some((x) => k(x) === k(o))) v.push(o);
+        if (v.length < 4) return null;
+        const testo = T(l,
+          `Nella definizione di punto di minimo locale si usa l'intorno sferico $N(\\bar{\\boldsymbol x}, \\delta)$, l'insieme dei punti a distanza minore di $\\delta$ da $\\bar{\\boldsymbol x}$. In $\\R$, con regione ammissibile $F = [${lo}, ${up}]$, $\\bar x = ${xb}$ e $\\delta = ${dl}$, quale insieme è $N\\big((${xb}), ${dl}\\big) \\cap F$?`,
+          `The definition of a local minimum point uses the spherical neighborhood $N(\\bar{\\boldsymbol x}, \\delta)$, the set of the points at distance less than $\\delta$ from $\\bar{\\boldsymbol x}$. In $\\R$, with feasible region $F = [${lo}, ${up}]$, $\\bar x = ${xb}$ and $\\delta = ${dl}$, which set is $N\\big((${xb}), ${dl}\\big) \\cap F$?`);
+        const sp = T(l,
+          `In $\\R$ l'intorno è l'intervallo aperto $(${xb - dl}, ${xb + dl})$; intersecandolo con $F = [${lo}, ${up}]$ si ottiene $${I(giusto)}$: un estremo di $F$ che cade dentro l'intorno resta incluso, un estremo dell'intorno resta escluso.`,
+          `In $\\R$ the neighborhood is the open interval $(${xb - dl}, ${xb + dl})$; intersecting it with $F = [${lo}, ${up}]$ gives $${I(giusto)}$: an endpoint of $F$ falling inside the neighborhood stays included, an endpoint of the neighborhood stays excluded.`);
+        return { testo, opzioni: v.map((o) => "$" + I(o) + "$"), corretta: 0, spiegazione: sp, dati: { lo, up, xb, dl, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-negprop", livello: "media", capitolo: CAP.c5, link: link("c5", "52-properties-of-optimization-problems"),
+    linkIt: "52-proprieta-dei-problemi-di-ottimizzazione",
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const h = ri(rng, -2, 3), k = ri(rng, -3, 3), lo = ri(rng, -3, h), up = ri(rng, h + 1, h + 4);
+        const a = sc(rng, [-3, -2, -1, 2, 3]), b = ri(rng, -6, 6);
+        if (b === 0 || Math.abs(lo - h) === Math.abs(up - h)) return null;
+        const f = (t) => (t - h) * (t - h) + k;
+        const xmin = h, xmax = Math.abs(lo - h) > Math.abs(up - h) ? lo : up;
+        const xs = a > 0 ? xmin : xmax, xo = a > 0 ? xmax : xmin;
+        const z = a * f(xs) + b;
+        const v = [[xs, z], [xo, a * f(xo) + b], [xs, a * f(xs)], [xs, -z]];
+        const fm = (o) => `$\\tilde{\\boldsymbol x}(P) = (${o[0]})$, $z(P) = ${o[1]}$`;
+        const pr = `\\min\\{\\, ${a === -1 ? "-" : a + "\\,"}f(x) ${b < 0 ? "- " + (-b) : "+ " + b} \\ \\text{${sa(l)}}\\ ${lo} \\le x \\le ${up} \\,\\}`;
+        const testo = T(l,
+          `Sia $f(x) = ${fpar(h, k)}$. Quali sono la soluzione ottima e il valore ottimo del problema $P$: $${pr}$ ${SOLT(l)}?`,
+          `Let $f(x) = ${fpar(h, k)}$. What are the optimal solution and the optimal value of the problem $P$: $${pr}$ ${SOLT(l)}?`);
+        const sp = a > 0
+          ? T(l, `La costante $${b}$ si somma fuori e, con $a = ${a} > 0$, $\\min\\{a f\\} = a \\min\\{f\\}$: il minimo di $f$ su $[${lo}, ${up}]$ è $${f(h)}$, in $x = ${h}$, quindi $z(P) = ${a}\\cdot(${f(h)}) ${b < 0 ? "- " + (-b) : "+ " + b} = ${z}$.`,
+            `The constant $${b}$ is added outside and, with $a = ${a} > 0$, $\\min\\{a f\\} = a \\min\\{f\\}$: the minimum of $f$ over $[${lo}, ${up}]$ is $${f(h)}$, at $x = ${h}$, hence $z(P) = ${a}\\cdot(${f(h)}) ${b < 0 ? "- " + (-b) : "+ " + b} = ${z}$.`)
+          : T(l, `La costante $${b}$ si somma fuori e, con $a = ${a} < 0$, $\\min\\{a f\\} = a \\max\\{f\\}$: il massimo di $f$ su $[${lo}, ${up}]$ è $${f(xmax)}$, nell'estremo $x = ${xmax}$ più lontano da $${h}$, quindi $z(P) = ${a}\\cdot ${f(xmax) < 0 ? "(" + f(xmax) + ")" : f(xmax)} ${b < 0 ? "- " + (-b) : "+ " + b} = ${z}$. Errore tipico: usare il minimo di $f$.`,
+            `The constant $${b}$ is added outside and, with $a = ${a} < 0$, $\\min\\{a f\\} = a \\max\\{f\\}$: the maximum of $f$ over $[${lo}, ${up}]$ is $${f(xmax)}$, at the endpoint $x = ${xmax}$ farthest from $${h}$, hence $z(P) = ${a}\\cdot ${f(xmax) < 0 ? "(" + f(xmax) + ")" : f(xmax)} ${b < 0 ? "- " + (-b) : "+ " + b} = ${z}$. Typical mistake: using the minimum of $f$.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { h, k, lo, up, a, b, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-localcubic", livello: "media", capitolo: CAP.c5, link: link("c5", "box-17-def-localopt"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const [s, t] = sc(rng, [[1, 3], [2, 3], [2, 5], [1, 4], [3, 4], [3, 5], [3, 7]]), h = ri(rng, -2, 2), k = ri(rng, -3, 6);
+        const lo = h - t, up = h + s + ri(rng, 1, 2);
+        const f = (x) => (x - h) ** 3 - 3 * s * s * (x - h) + k;
+        const xm1 = h + s, xM = h - s;
+        if (f(lo) === f(xm1)) return null;
+        const best = f(lo) < f(xm1) ? lo : xm1, altro = best === lo ? xm1 : lo;
+        const v = [[[lo, xm1], best], [[lo, xm1], altro], [[xm1], xm1], [[xM, up], best === lo ? up : xM]];
+        const fs = poly([[1, "x^3"], [-3 * h, "x^2"], [3 * h * h - 3 * s * s, "x"], [-(h ** 3) + 3 * s * s * h + k, ""]]);
+        const hs = px(h);
+        const fm = (o) => T(l, `punti di minimo locale: $${o[0].join(",\\ ")}$; soluzione ottima $\\tilde{\\boldsymbol x}(P) = (${o[1]})$`, `local minimum points: $${o[0].join(",\\ ")}$; optimal solution $\\tilde{\\boldsymbol x}(P) = (${o[1]})$`);
+        const testo = T(l,
+          `Si consideri il problema $P$: $\\min\\{\\, ${fs} \\ \\text{${sa(l)}}\\ ${lo} \\le x \\le ${up} \\,\\}$, con funzione obiettivo $f(x) = ${hs}^3 - ${3 * s * s}\\,${hs} ${k < 0 ? "- " + (-k) : k > 0 ? "+ " + k : ""}$ e derivata nulla in $x = ${xM}$ e $x = ${xm1}$. Quali sono i punti di minimo locale di $f$ in $F = [${lo}, ${up}]$ e la soluzione ottima $\\tilde{\\boldsymbol x}(P)$?`,
+          `Consider the problem $P$: $\\min\\{\\, ${fs} \\ \\text{${sa(l)}}\\ ${lo} \\le x \\le ${up} \\,\\}$, with objective function $f(x) = ${hs}^3 - ${3 * s * s}\\,${hs} ${k < 0 ? "- " + (-k) : k > 0 ? "+ " + k : ""}$ and zero derivative at $x = ${xM}$ and $x = ${xm1}$. What are the local minimum points of $f$ in $F = [${lo}, ${up}]$ and the optimal solution $\\tilde{\\boldsymbol x}(P)$?`);
+        const sp = T(l,
+          `$f$ cresce in $[${lo}, ${xM}]$, decresce in $[${xM}, ${xm1}]$ e cresce in $[${xm1}, ${up}]$: sono punti di minimo locale $x = ${xm1}$ e anche l'estremo $x = ${lo}$ (vicino a esso, in $F$, $f$ non scende sotto $f(${lo})$). Confrontando $f(${lo}) = ${f(lo)}$ e $f(${xm1}) = ${f(xm1)}$, la soluzione ottima è $x = ${best}$. Errore tipico: dimenticare gli estremi della regione ammissibile.`,
+          `$f$ increases on $[${lo}, ${xM}]$, decreases on $[${xM}, ${xm1}]$ and increases on $[${xm1}, ${up}]$: the local minimum points are $x = ${xm1}$ and also the endpoint $x = ${lo}$ (near it, in $F$, $f$ does not go below $f(${lo})$). Comparing $f(${lo}) = ${f(lo)}$ and $f(${xm1}) = ${f(xm1)}$, the optimal solution is $x = ${best}$. Typical mistake: forgetting the endpoints of the feasible region.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { h, s, k, lo, up, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-multiopt", livello: "media", capitolo: CAP.c5, link: link("c5", "box-4-exOptMultiple"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const h = ri(rng, -2, 2), r = ri(rng, 1, 2), lo = h - r - ri(rng, -1, 2), up = h + r + ri(rng, 1, 3);
+        const f = (t) => Math.max(0, Math.abs(t - h) - r);
+        const am = [Math.max(lo, h - r), h + r];
+        if (am[0] >= am[1]) return null;
+        const M = Math.max(f(lo), f(up)), aM = [lo, up].filter((t) => f(t) === M);
+        const altroM = aM.length === 2 ? [up] : [aM[0] === lo ? up : lo];
+        const terzoM = aM.length === 2 ? [lo] : [lo, up];
+        const taglio = am[0] > h - r;
+        const v = [[am, aM], [[h, h], aM], [am, altroM], taglio ? [[h - r, h + r], aM] : [am, terzoM]];
+        const I = (a) => (a[0] === a[1] ? `\\{${a[0]}\\}` : `[${a[0]}, ${a[1]}]`);
+        const fm = (o) => `$\\arg\\min = ${I(o[0])}$, $\\arg\\max = \\{${o[1].join(", ")}\\}$`;
+        const fs = `\\max\\{\\, 0,\\; |${xm(h)}| - ${r} \\,\\}`;
+        const testo = T(l,
+          `Per la funzione obiettivo $f(x) = ${fs}$ sulla regione ammissibile $F = [${lo}, ${up}]$, quali sono gli insiemi delle soluzioni ottime $\\arg\\min\\{ f(x) \\text{ ${sa(l)} } x \\in F \\}$ e $\\arg\\max\\{ f(x) \\text{ ${sa(l)} } x \\in F \\}$?`,
+          `For the objective function $f(x) = ${fs}$ over the feasible region $F = [${lo}, ${up}]$, what are the sets of optimal solutions $\\arg\\min\\{ f(x) \\text{ ${sa(l)} } x \\in F \\}$ and $\\arg\\max\\{ f(x) \\text{ ${sa(l)} } x \\in F \\}$?`);
+        const sp = T(l,
+          `$f(x) = 0$ per $${h - r} \\le x \\le ${h + r}$ e $f(x) = |${xm(h)}| - ${r}$ altrove: in $F$ il valore minimo $0$ è raggiunto in tutto $${I(am)}$ (infinite soluzioni ottime). Il massimo sta negli estremi: $f(${lo}) = ${f(lo)}$, $f(${up}) = ${f(up)}$.`,
+          `$f(x) = 0$ for $${h - r} \\le x \\le ${h + r}$ and $f(x) = |${xm(h)}| - ${r}$ elsewhere: in $F$ the minimum value $0$ is attained on all of $${I(am)}$ (infinitely many optimal solutions). The maximum is at the endpoints: $f(${lo}) = ${f(lo)}$, $f(${up}) = ${f(up)}$.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { h, r, lo, up, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-localglobal", livello: "complessa", capitolo: CAP.c5, link: link("c5", "box-19-exOptLocal"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const a = ri(rng, -4, -1), b = a + ri(rng, 4, 6), c1 = ri(rng, 0, 3), c2 = ri(rng, 0, 3);
+        if (c1 === c2) return null;
+        const lo = a - ri(rng, 1, 2), up = b + ri(rng, 1, 2);
+        const xg = c1 < c2 ? a : b, xl = c1 < c2 ? b : a, cg = Math.min(c1, c2), cl = Math.max(c1, c2);
+        const v = [[xl, cg], [xg, cg], [xl, cl], [xg, cl]];
+        const fm = (o) => T(l, `$x = ${o[0]}$; valore ottimo $z(P) = ${o[1]}$`, `$x = ${o[0]}$; optimal value $z(P) = ${o[1]}$`);
+        const fs = `\\min\\{\\, ${fpar(a, c1)},\\; ${fpar(b, c2)} \\,\\}`;
+        const testo = T(l,
+          `Si consideri il problema $P$: $\\min\\{\\, f(x) \\ \\text{${sa(l)}}\\ ${lo} \\le x \\le ${up} \\,\\}$ con $f(x) = ${fs}$ e valore ottimo $z(P)$. Quale punto è un punto di minimo locale di $f$ in $[${lo}, ${up}]$ che <em>non</em> è una soluzione ottima, e quanto vale $z(P)$?`,
+          `Consider the problem $P$: $\\min\\{\\, f(x) \\ \\text{${sa(l)}}\\ ${lo} \\le x \\le ${up} \\,\\}$ with $f(x) = ${fs}$ and optimal value $z(P)$. Which point is a local minimum point of $f$ in $[${lo}, ${up}]$ that is <em>not</em> an optimal solution, and what is $z(P)$?`);
+        const sp = T(l,
+          `Vicino a $x = ${a}$ vale $f(x) = ${fpar(a, c1)} \\ge ${c1}$ e vicino a $x = ${b}$ vale $f(x) = ${fpar(b, c2)} \\ge ${c2}$: entrambi sono punti di minimo locale, con minimi locali $${c1}$ e $${c2}$. Poiché $f(x) \\ge ${cg}$ ovunque, la soluzione ottima è $x = ${xg}$ con $z(P) = ${cg}$, e $x = ${xl}$ è un minimo locale non globale (gli estremi $${lo}$ e $${up}$ sono punti di massimo locale).`,
+          `Near $x = ${a}$ we have $f(x) = ${fpar(a, c1)} \\ge ${c1}$ and near $x = ${b}$ we have $f(x) = ${fpar(b, c2)} \\ge ${c2}$: both are local minimum points, with local minima $${c1}$ and $${c2}$. Since $f(x) \\ge ${cg}$ everywhere, the optimal solution is $x = ${xg}$ with $z(P) = ${cg}$, and $x = ${xl}$ is a local minimum that is not global (the endpoints $${lo}$ and $${up}$ are local maximum points).`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { a, b, c1, c2, lo, up, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-gap", livello: "complessa", capitolo: CAP.c5, link: link("c5", "512-feasible-solutions-and-bounds-on-the-optimal-value"),
+    linkIt: "512-soluzioni-ammissibili-e-limitazioni-sul-valore-ottimo",
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const a = sc(rng, [1, 2, -1, -2]), h = ri(rng, -2, 3), k = ri(rng, -3, 4), forma = sc(rng, ["min", "max"]);
+        const lo = ri(rng, -4, 1), up = lo + ri(rng, 3, 6);
+        const f = (t) => a * (t - h) * (t - h) + k;
+        // punto ottimo: vertice "proiettato" se (min con a > 0) o (max con a < 0), altrimenti estremo più lontano
+        const vicino = (forma === "min") === (a > 0);
+        if (!vicino && Math.abs(lo - h) === Math.abs(up - h)) return null;
+        const clip = Math.min(Math.max(h, lo), up), lont = Math.abs(lo - h) > Math.abs(up - h) ? lo : up;
+        const xs = vicino ? clip : lont, z = f(xs);
+        const wrong = vicino ? (clip !== h ? k : f(lont)) : (h >= lo && h <= up ? k : f(clip));
+        if (wrong === z) return null;
+        const pts = []; while (pts.length < 3) { const t = ri(rng, lo, up); if (!pts.includes(t) && t !== xs) pts.push(t); }
+        const vals = pts.map(f);
+        if (new Set(vals).size < 3) return null;
+        const bb = forma === "min" ? Math.min(...vals) : Math.max(...vals), bw = forma === "min" ? Math.max(...vals) : Math.min(...vals);
+        const T1 = forma === "min" ? "UB" : "LB", T2 = forma === "min" ? "LB" : "UB";
+        const v = [[T1, bb, z], [T1, bw, z], [T1, bb, wrong], [T2, bb, z]];
+        const fb = (t, b) => (t === "UB" ? `z(P) \\le ${b}` : `${b} \\le z(P)`);
+        const fm = (o) => T(l, `limitazione migliore $${fb(o[0], o[1])}$; valore ottimo $z(P) = ${o[2]}$`, `best bound $${fb(o[0], o[1])}$; optimal value $z(P) = ${o[2]}$`);
+        const pr = `${forma === "min" ? "\\min" : "\\max"}\\{\\, ${a === 1 ? "" : a === -1 ? "-" : a}${a === 1 || a === -1 ? "" : "\\,"}${px(h)}^2 ${k < 0 ? "- " + (-k) : k > 0 ? "+ " + k : ""} \\ \\text{${sa(l)}}\\ ${lo} \\le x \\le ${up} \\,\\}`;
+        const plist = pts.map((t, i) => `$\\bar{\\boldsymbol x}^{(${i + 1})} = (${t})$`).join(", ");
+        const testo = T(l,
+          `Per il problema $P$: $${pr}$, con valore ottimo $z(P)$, si conoscono le soluzioni ammissibili ${plist}. Qual è la migliore limitazione su $z(P)$ che esse forniscono, e quanto vale $z(P)$?`,
+          `For the problem $P$: $${pr}$, with optimal value $z(P)$, the feasible solutions ${plist} are known. What is the best bound on $z(P)$ that they provide, and what is $z(P)$?`);
+        const sp = T(l,
+          `I valori obiettivo sono ${vals.map((x) => "$" + x + "$").join(", ")}; in forma di ${forma === "min" ? "minimo danno upper bound e il migliore è il più piccolo" : "massimo danno lower bound e il migliore è il più grande"}, $${bb}$. La parabola ha vertice in $x = ${h}$ ed è rivolta verso ${a > 0 ? "l'alto" : "il basso"}: l'ottimo è in $x = ${xs}$, con $z(P) = ${z}$.`,
+          `The objective values are ${vals.map((x) => "$" + x + "$").join(", ")}; in ${forma === "min" ? "minimization form they give upper bounds and the best one is the smallest" : "maximization form they give lower bounds and the best one is the largest"}, $${bb}$. The parabola has vertex at $x = ${h}$ and opens ${a > 0 ? "upward" : "downward"}: the optimum is at $x = ${xs}$, with $z(P) = ${z}$.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { a, h, k, forma, lo, up, pts, valori: v } };
+      });
+    },
+  });
+
+  /* ---------- capitolo 6 ---------- */
+
+  LISTA.push({
+    id: "co-g-convtype", livello: "facile", capitolo: CAP.c6, link: link("c6", "box-1-def-convexproblem"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const h = ri(rng, -2, 2), forma = sc(rng, ["min", "max"]);
+        const ob = sc(rng, ["conv", "conc", "cubo"]), reg = sc(rng, ["int", "int", "unione", "fuori"]);
+        const a = ob === "conv" ? sc(rng, [1, 2, 3]) : -sc(rng, [1, 2, 3]), k = ri(rng, -3, 4);
+        let lo, up, Fs, Fconv = reg === "int";
+        const fs = ob === "cubo" ? `${px(h)}^3 ${k < 0 ? "- " + (-k) : k > 0 ? "+ " + k : ""}` : `${a === 1 ? "" : a === -1 ? "-" : a}${px(h)}^2 ${k < 0 ? "- " + (-k) : k > 0 ? "+ " + k : ""}`;
+        if (reg === "int") {
+          if (ob === "cubo") { const c = sc(rng, ["d", "s", "m"]), t = ri(rng, 1, 3); lo = c === "d" ? h : c === "s" ? h - t : h - t; up = c === "d" ? h + t : c === "s" ? h : h + ri(rng, 1, 3); }
+          else { lo = ri(rng, -3, 1); up = lo + ri(rng, 2, 5); }
+          Fs = `[${lo}, ${up}]`;
+        } else if (reg === "unione") { lo = ri(rng, -4, -1); const m1 = lo + ri(rng, 1, 2), m2 = m1 + ri(rng, 1, 2); up = m2 + ri(rng, 1, 3); Fs = `[${lo}, ${m1}] \\cup [${m2}, ${up}]`; }
+        else { const r = ri(rng, 1, 3); Fs = `\\{\\, x \\in \\R : ${px(h)}^2 \\ge ${r * r} \\,\\}`; }
+        let curv;                                                          // curvatura di f sulla regione (se convessa)
+        if (ob === "conv") curv = "conv"; else if (ob === "conc") curv = "conc";
+        else curv = Fconv ? (lo >= h ? "conv" : up <= h ? "conc" : "nessuna") : "nessuna";
+        const giusto = !Fconv ? "Fnc" : curv === "conv" ? "conv" : curv === "conc" ? "conc" : "fnc";
+        const v = [giusto, ...["conv", "conc", "Fnc", "fnc"].filter((x) => x !== giusto)];
+        const fm = (o) => ({
+          conv: T(l, "è un problema convesso: $F$ è convesso e $f$ è convessa su $F$", "it is a convex problem: $F$ is convex and $f$ is convex on $F$"),
+          conc: T(l, "è un problema concavo: $F$ è convesso e $f$ è concava su $F$", "it is a concave problem: $F$ is convex and $f$ is concave on $F$"),
+          Fnc: T(l, "non è né convesso né concavo, perché $F$ non è convesso", "it is neither convex nor concave, because $F$ is not convex"),
+          fnc: T(l, "non è né convesso né concavo, perché $f$ non lo è su $F$", "it is neither convex nor concave, because $f$ is neither on $F$"),
+        })[o];
+        const testo = T(l,
+          `Un problema di ottimizzazione con regione ammissibile convessa è convesso se la funzione obiettivo è convessa sulla regione, concavo se è concava. Che cosa si può dire del problema $P$: $${forma === "min" ? "\\min" : "\\max"}\\{\\, f(x) = ${fs} \\ \\text{${sa(l)}}\\ x \\in F \\,\\}$, con $F = ${Fs}$?`,
+          `An optimization problem with a convex feasible region is convex if the objective function is convex on the region, concave if it is concave. What can be said of the problem $P$: $${forma === "min" ? "\\min" : "\\max"}\\{\\, f(x) = ${fs} \\ \\text{${sa(l)}}\\ x \\in F \\,\\}$, with $F = ${Fs}$?`);
+        const spF = !Fconv ? T(l, `$F = ${Fs}$ non è convesso (contiene due punti ma non il segmento fra loro)`, `$F = ${Fs}$ is not convex (it contains two points but not the segment between them)`)
+          : T(l, `$F = ${Fs}$ è un intervallo, quindi convesso`, `$F = ${Fs}$ is an interval, hence convex`);
+        const spf = ob === "cubo" ? T(l, `$${px(h)}^3$ è convessa dove $x \\ge ${h}$ e concava dove $x \\le ${h}$ (disuguaglianza dei cubi)`, `$${px(h)}^3$ is convex where $x \\ge ${h}$ and concave where $x \\le ${h}$ (inequality of cubes)`)
+          : T(l, `$${fs}$ è ${a > 0 ? "convessa" : "concava"} (coefficiente di $x^2$ ${a > 0 ? "positivo" : "negativo"})`, `$${fs}$ is ${a > 0 ? "convex" : "concave"} (coefficient of $x^2$ ${a > 0 ? "positive" : "negative"})`);
+        const sp = T(l, `${spF}; ${spf}. La forma (minimo o massimo) non conta nella definizione.`, `${spF}; ${spf}. The form (minimization or maximization) does not matter in the definition.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { ob, reg, h, a, k, lo: lo === undefined ? null : lo, up: up === undefined ? null : up, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-cubeineq", livello: "facile", capitolo: CAP.c6, link: link("c6", "box-6-obs-cubes"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const sg = sc(rng, [1, -1]), a = sg * ri(rng, 0, 3), b = sg * ri(rng, 0, 3);
+        if (a === b) return null;
+        const lam = sc(rng, [F(1, 3), F(2, 3), F(1, 4), F(3, 4)]), mu = F(1).sub(lam);
+        const D = lam.mul(mu).mul((a - b) * (a - b)).mul(lam.add(1).mul(a).add(mu.add(1).mul(b)));
+        const Dsw = lam.mul(mu).mul((a - b) * (a - b)).mul(mu.add(1).mul(a).add(lam.add(1).mul(b)));
+        const Dno = lam.add(1).mul(a).add(mu.add(1).mul(b)).mul((a - b) * (a - b));
+        const v = [D, D.neg(), Dsw, Dno];
+        const testo = T(l,
+          `Per ogni $\\lambda \\in [0,1]$ e $a, b \\in \\R$ vale $\\lambda a^3 + (1-\\lambda) b^3 - \\big(\\lambda a + (1-\\lambda) b\\big)^3 = \\lambda(1-\\lambda)(a-b)^2\\big((1+\\lambda)a + (2-\\lambda)b\\big)$. Quanto vale questa differenza per $a = ${a}$, $b = ${b}$ e $\\lambda = ${lam.tex()}$?`,
+          `For every $\\lambda \\in [0,1]$ and $a, b \\in \\R$ we have $\\lambda a^3 + (1-\\lambda) b^3 - \\big(\\lambda a + (1-\\lambda) b\\big)^3 = \\lambda(1-\\lambda)(a-b)^2\\big((1+\\lambda)a + (2-\\lambda)b\\big)$. What is this difference for $a = ${a}$, $b = ${b}$ and $\\lambda = ${lam.tex()}$?`);
+        const sp = T(l,
+          `$\\lambda(1-\\lambda) = ${lam.mul(mu).tex()}$, $(a-b)^2 = ${(a - b) * (a - b)}$ e $(1+\\lambda)a + (2-\\lambda)b = ${lam.add(1).mul(a).add(mu.add(1).mul(b)).tex()}$: il prodotto è $${D.tex()}$. Con $a, b ${sg > 0 ? "\\ge" : "\\le"} 0$ la differenza è ${sg > 0 ? "non negativa" : "non positiva"}, come afferma l'osservazione sui cubi.`,
+          `$\\lambda(1-\\lambda) = ${lam.mul(mu).tex()}$, $(a-b)^2 = ${(a - b) * (a - b)}$ and $(1+\\lambda)a + (2-\\lambda)b = ${lam.add(1).mul(a).add(mu.add(1).mul(b)).tex()}$: the product is $${D.tex()}$. With $a, b ${sg > 0 ? "\\ge" : "\\le"} 0$ the difference is ${sg > 0 ? "nonnegative" : "nonpositive"}, as the observation on cubes states.`);
+        return { testo, opzioni: v.map((x) => "$" + x.tex() + "$"), corretta: 0, spiegazione: sp, dati: { a, b, lam: lam.s(), valori: S(v) } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-concmin", livello: "facile", capitolo: CAP.c6, link: link("c6", "62-local-optima-of-convex-and-concave-problems"),
+    linkIt: "62-ottimi-locali-dei-problemi-convessi-e-concavi",
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const h = ri(rng, -2, 2), k = ri(rng, -2, 9), lo = h - ri(rng, 1, 3), up = h + ri(rng, 1, 3);
+        if (h - lo === up - h) return null;
+        const f = (t) => k - (t - h) * (t - h);
+        const far = h - lo > up - h ? lo : up, near = far === lo ? up : lo;
+        const v = [[[lo, up], far, f(far)], [[h], h, k], [[lo, up], near, f(near)], [[far], far, f(far)]];
+        const fm = (o) => T(l, `minimi locali in $x = ${o[0].join("$ e $x = ")}$; $\\tilde{\\boldsymbol x}(P) = (${o[1]})$, $z(P) = ${o[2]}$`, `local minima at $x = ${o[0].join("$ and $x = ")}$; $\\tilde{\\boldsymbol x}(P) = (${o[1]})$, $z(P) = ${o[2]}$`);
+        const fs = `${k === 0 ? "" : k + " "}- ${px(h)}^2`;
+        const testo = T(l,
+          `Nel problema $P$: $\\min\\{\\, ${fs} \\ \\text{${sa(l)}}\\ ${lo} \\le x \\le ${up} \\,\\}$ la funzione obiettivo è concava: non è un problema di minimizzazione convesso. Quali sono i punti di minimo locale, la soluzione ottima e il valore ottimo ${SOLT(l)}?`,
+          `In the problem $P$: $\\min\\{\\, ${fs} \\ \\text{${sa(l)}}\\ ${lo} \\le x \\le ${up} \\,\\}$ the objective function is concave: it is not a convex minimization problem. What are the local minimum points, the optimal solution and the optimal value ${SOLT(l)}?`);
+        const sp = T(l,
+          `La funzione cresce fino a $x = ${h}$ (punto di massimo, valore $${k}$) e poi decresce: entrambi gli estremi sono punti di minimo locale, con valori $f(${lo}) = ${f(lo)}$ e $f(${up}) = ${f(up)}$. La soluzione ottima è l'estremo più lontano da $${h}$, $x = ${far}$; l'altro è un minimo locale non globale, cosa impossibile in un problema di minimizzazione convesso.`,
+          `The function increases up to $x = ${h}$ (maximum point, value $${k}$) and then decreases: both endpoints are local minimum points, with values $f(${lo}) = ${f(lo)}$ and $f(${up}) = ${f(up)}$. The optimal solution is the endpoint farthest from $${h}$, $x = ${far}$; the other is a local minimum that is not global, which is impossible in a convex minimization problem.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { h, k, lo, up, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-lpbox", livello: "facile", capitolo: CAP.c6, link: link("c6", "61-convex-and-concave-optimization-problems"),
+    linkIt: "61-problemi-di-ottimizzazione-convessi-e-concavi",
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const c = [sc(rng, [-3, -2, -1, 1, 2, 3]), sc(rng, [-3, -2, -1, 1, 2, 3])], forma = sc(rng, ["min", "max"]);
+        const lo = [ri(rng, -2, 1), ri(rng, -2, 1)], up = [lo[0] + ri(rng, 1, 3), lo[1] + ri(rng, 1, 3)];
+        const f = (x) => c[0] * x[0] + c[1] * x[1];
+        const s = forma === "min" ? 1 : -1;
+        const best = [0, 1].map((i) => (s * c[i] > 0 ? lo[i] : up[i])), opp = [0, 1].map((i) => (best[i] === lo[i] ? up[i] : lo[i]));
+        const v = [best, [opp[0], best[1]], [best[0], opp[1]], opp].map((x) => [x, f(x)]);
+        const fm = (o) => `$\\tilde{\\boldsymbol x}(P) = ${vec(o[0])}$, $z(P) = ${o[1]}$`;
+        const pr = `${forma === "min" ? "\\min" : "\\max"}\\{\\, ${poly([[c[0], "x_1"], [c[1], "x_2"]])} \\ \\text{${sa(l)}}\\ ${lo[0]} \\le x_1 \\le ${up[0]},~ ${lo[1]} \\le x_2 \\le ${up[1]} \\,\\}`;
+        const testo = T(l,
+          `La funzione obiettivo lineare del problema $P$: $${pr}$ è sia convessa sia concava, e il rettangolo è convesso. Quali sono la soluzione ottima e il valore ottimo ${SOLT(l)}?`,
+          `The linear objective function of the problem $P$: $${pr}$ is both convex and concave, and the rectangle is convex. What are the optimal solution and the optimal value ${SOLT(l)}?`);
+        const sp = T(l,
+          `Ogni termine dipende da una sola variabile: in forma di ${forma === "min" ? "minimo" : "massimo"}, $x_i$ va all'estremo inferiore se il suo coefficiente è ${forma === "min" ? "positivo" : "negativo"}, a quello superiore altrimenti. Quindi $\\tilde{\\boldsymbol x}(P) = ${vec(best)}$ e $z(P) = ${f(best)}$. Errore tipico: sbagliare il verso per un coefficiente negativo.`,
+          `Each term depends on a single variable: in ${forma === "min" ? "minimization" : "maximization"} form, $x_i$ goes to its lower bound if its coefficient is ${forma === "min" ? "positive" : "negative"}, to its upper bound otherwise. Hence $\\tilde{\\boldsymbol x}(P) = ${vec(best)}$ and $z(P) = ${f(best)}$. Typical mistake: getting the direction wrong for a negative coefficient.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { c, forma, lo, up, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-cubicregion", livello: "facile", capitolo: CAP.c6, link: link("c6", "box-6-obs-cubes"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const h = ri(rng, -2, 3), s = sc(rng, [1, 2]), k = ri(rng, -3, 5), t = ri(rng, 2, 4), u = ri(rng, 0, 1);
+        const conv = rng() < 0.5;
+        const giusto = conv ? [h + u, h + u + t] : [h - u - t, h - u];
+        const altri = conv ? [[h - t, h], [h - t + 1, h + 1], [h - u - t - 1, h - u - 1]] : [[h, h + t], [h - 1, h + t - 1], [h + u + 1, h + u + t + 1]];
+        const v = [giusto, ...altri];
+        const hs = px(h);
+        const fs = `${hs}^3 - ${3 * s * s}\\,${hs} ${k < 0 ? "- " + (-k) : k > 0 ? "+ " + k : ""}`;
+        const tipo = conv ? T(l, "di minimizzazione convesso", "convex minimization") : T(l, "di massimizzazione concavo", "concave maximization");
+        const testo = T(l,
+          `Sia $f(x) = ${fs}$. Per quale regione ammissibile $F$ il problema $${conv ? "\\min" : "\\max"}\\{\\, f(x) \\ \\text{${sa(l)}}\\ x \\in F \\,\\}$ è un problema ${tipo}?`,
+          `Let $f(x) = ${fs}$. For which feasible region $F$ is the problem $${conv ? "\\min" : "\\max"}\\{\\, f(x) \\ \\text{${sa(l)}}\\ x \\in F \\,\\}$ a ${tipo} problem?`);
+        const sp = T(l,
+          `Con $a = p ${h < 0 ? "+ " + (-h) : "- " + h}$ e $b = w ${h < 0 ? "+ " + (-h) : "- " + h}$, la disuguaglianza dei cubi dà $\\big(\\lambda a + (1-\\lambda) b\\big)^3 \\le \\lambda a^3 + (1-\\lambda) b^3$ se $a, b \\ge 0$ e $\\ge$ se $a, b \\le 0$; il termine $-${3 * s * s}\\,${hs}$ è lineare. Quindi $f$ è convessa su intervalli con $x \\ge ${h}$ e concava su intervalli con $x \\le ${h}$: serve $F = [${giusto[0]}, ${giusto[1]}]$. Un intervallo che contiene $${h}$ al suo interno non va bene.`,
+          `With $a = p ${h < 0 ? "+ " + (-h) : "- " + h}$ and $b = w ${h < 0 ? "+ " + (-h) : "- " + h}$, the inequality of cubes gives $\\big(\\lambda a + (1-\\lambda) b\\big)^3 \\le \\lambda a^3 + (1-\\lambda) b^3$ if $a, b \\ge 0$ and $\\ge$ if $a, b \\le 0$; the term $-${3 * s * s}\\,${hs}$ is linear. Hence $f$ is convex on intervals with $x \\ge ${h}$ and concave on intervals with $x \\le ${h}$: we need $F = [${giusto[0]}, ${giusto[1]}]$. An interval containing $${h}$ in its interior does not work.`);
+        return { testo, opzioni: v.map((o) => `$F = [${o[0]}, ${o[1]}]$`), corretta: 0, spiegazione: sp, dati: { h, s, k, conv, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-diskproj", livello: "media", capitolo: CAP.c6, link: link("c6", "63-examples-of-convex-and-concave-optimization-problems"),
+    linkIt: "63-esempi-di-problemi-di-ottimizzazione-convessi-e-concavi",
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const base = sc(rng, [[3, 4], [4, 3]]), sg = [sc(rng, [1, -1]), sc(rng, [1, -1])];
+        const u = [base[0] * sg[0], base[1] * sg[1]];
+        const rho = sc(rng, [1, 2]), kap = rho + ri(rng, 1, 2), r = 5 * rho;
+        const c = [kap * u[0], kap * u[1]], xs = [rho * u[0], rho * u[1]];
+        const f = (x) => (x[0] - c[0]) ** 2 + (x[1] - c[1]) ** 2;
+        const clip = c.map((t) => Math.max(-r, Math.min(r, t)));
+        const v = [[xs, f(xs)], [xs, 5 * (kap - rho)], [c, 0], [clip, f(clip)]];
+        const fm = (o) => `$\\tilde{\\boldsymbol x}(P) = ${vec(o[0])}$, $z(P) = ${o[1]}$`;
+        const pr = `\\min\\{\\, ${px(c[0], "x_1")}^2 + ${px(c[1], "x_2")}^2 \\ \\text{${sa(l)}}\\ x_1^2 + x_2^2 \\le ${r * r} \\,\\}`;
+        const testo = T(l,
+          `Il problema convesso $P$: $${pr}$ cerca il punto del disco di centro ${"$" + vec([0, 0]) + "$"} e raggio $${r}$ più vicino a ${"$" + vec(c) + "$"}. Quali sono la soluzione ottima e il valore ottimo ${SOLT(l)}?`,
+          `The convex problem $P$: $${pr}$ looks for the point of the disk with center ${"$" + vec([0, 0]) + "$"} and radius $${r}$ closest to ${"$" + vec(c) + "$"}. What are the optimal solution and the optimal value ${SOLT(l)}?`);
+        const sp = T(l,
+          `Il punto ${"$" + vec(c) + "$"} ha norma $${5 * kap} > ${r}$, quindi non è ammissibile; il punto del disco più vicino sta sul segmento verso il centro, a distanza $${r}$ dall'origine: $\\tilde{\\boldsymbol x}(P) = \\frac{${r}}{${5 * kap}}${vec(c)} = ${vec(xs)}$. La funzione obiettivo è la distanza <em>al quadrato</em>: $z(P) = ${5 * (kap - rho)}^2 = ${f(xs)}$. Errore tipico: riportare ogni coordinata in $[-${r}, ${r}]$, come per un quadrato.`,
+          `The point ${"$" + vec(c) + "$"} has norm $${5 * kap} > ${r}$, so it is not feasible; the closest point of the disk lies on the segment towards the center, at distance $${r}$ from the origin: $\\tilde{\\boldsymbol x}(P) = \\frac{${r}}{${5 * kap}}${vec(c)} = ${vec(xs)}$. The objective function is the <em>squared</em> distance: $z(P) = ${5 * (kap - rho)}^2 = ${f(xs)}$. Typical mistake: bringing each coordinate back into $[-${r}, ${r}]$, as for a square.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { c, r, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-halfplane", livello: "media", capitolo: CAP.c6, link: link("c6", "63-examples-of-convex-and-concave-optimization-problems"),
+    linkIt: "63-esempi-di-problemi-di-ottimizzazione-convessi-e-concavi",
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const a = ri(rng, 1, 5), b = ri(rng, 1, 5), s = ri(rng, 1, 4);
+        const d = a + b - s;
+        if (d <= 0 || d % 2) return null;
+        const t = d / 2, xs = [a - t, b - t];
+        if (xs[0] < 0 || xs[1] < 0) return null;
+        const f = (x) => (x[0] - a) ** 2 + (x[1] - b) ** 2;
+        const w1 = [s - b, b];
+        if (w1[0] < 0) return null;
+        const v = [[xs, f(xs)], [xs, t * t], [[a, b], 0], [w1, f(w1)]];
+        const fm = (o) => `$\\tilde{\\boldsymbol x}(P) = ${vec(o[0])}$, $z(P) = ${o[1]}$`;
+        const pr = `\\min\\{\\, ${px(a, "x_1")}^2 + ${px(b, "x_2")}^2 \\ \\text{${sa(l)}}\\ x_1 + x_2 \\le ${s},~ x_1 \\ge 0,~ x_2 \\ge 0 \\,\\}`;
+        const testo = T(l,
+          `Il problema convesso $P$: $${pr}$ cerca il punto ammissibile più vicino a ${"$" + vec([a, b]) + "$"}. Quali sono la soluzione ottima e il valore ottimo ${SOLT(l)}?`,
+          `The convex problem $P$: $${pr}$ looks for the feasible point closest to ${"$" + vec([a, b]) + "$"}. What are the optimal solution and the optimal value ${SOLT(l)}?`);
+        const sp = T(l,
+          `${"$" + vec([a, b]) + "$"} viola $x_1 + x_2 \\le ${s}$ ($${a + b} > ${s}$). Il punto più vicino della retta $x_1 + x_2 = ${s}$ si ottiene togliendo la stessa quantità $\\frac{${a + b} - ${s}}{2} = ${t}$ a entrambe le coordinate: $\\tilde{\\boldsymbol x}(P) = ${vec(xs)}$, ammissibile, e $z(P) = ${t}^2 + ${t}^2 = ${f(xs)}$. Spostare una sola coordinata dà un punto ammissibile ma più lontano.`,
+          `${"$" + vec([a, b]) + "$"} violates $x_1 + x_2 \\le ${s}$ ($${a + b} > ${s}$). The closest point of the line $x_1 + x_2 = ${s}$ is obtained by subtracting the same amount $\\frac{${a + b} - ${s}}{2} = ${t}$ from both coordinates: $\\tilde{\\boldsymbol x}(P) = ${vec(xs)}$, which is feasible, and $z(P) = ${t}^2 + ${t}^2 = ${f(xs)}$. Moving a single coordinate gives a feasible but farther point.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { a, b, s, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-meanpoint", livello: "media", capitolo: CAP.c6, link: link("c6", "box-4-exConvexMin"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const A = [ri(rng, -3, 5), ri(rng, -3, 5), ri(rng, -3, 5)].sort((x, y) => x - y);
+        if (A[0] === A[2]) return null;
+        const lo = ri(rng, -3, 2), up = lo + ri(rng, 2, 5);
+        const m = F(A[0] + A[1] + A[2], 3);
+        const clip = m.lt(lo) ? F(lo) : F(up).lt(m) ? F(up) : m;
+        const f = (x) => A.reduce((s, a) => s.add(Fr.of(x).sub(a).mul(Fr.of(x).sub(a))), F(0));
+        const cand = [clip, F(A[1]), m, F(lo), F(up), F(A[0]), F(A[2])];
+        const v = [];
+        for (const x of cand) if (v.length < 4 && !v.some((y) => y[0].eq(x))) v.push([x, f(x)]);
+        if (v.length < 4) return null;
+        const fm = (o) => `$\\tilde{\\boldsymbol x}(P) = (${o[0].tex()})$, $z(P) = ${o[1].tex()}$`;
+        const fs = A.map((a) => `${px(a)}^2`).join(" + ");
+        const testo = T(l,
+          `Il problema $P$: $\\min\\{\\, ${fs} \\ \\text{${sa(l)}}\\ ${lo} \\le x \\le ${up} \\,\\}$ è un problema di minimizzazione convesso (somma di funzioni convesse su un intervallo). Quali sono la soluzione ottima e il valore ottimo ${SOLT(l)}?`,
+          `The problem $P$: $\\min\\{\\, ${fs} \\ \\text{${sa(l)}}\\ ${lo} \\le x \\le ${up} \\,\\}$ is a convex minimization problem (sum of convex functions over an interval). What are the optimal solution and the optimal value ${SOLT(l)}?`);
+        const dentro = clip.eq(m);
+        const sp = T(l,
+          `La derivata $2\\big(3x - (${A[0]}) - (${A[1]}) - (${A[2]})\\big)$ si annulla nella media $x = ${m.tex()}$, ${dentro ? "che è ammissibile: è un minimo locale e quindi la soluzione ottima" : `che non è ammissibile: la funzione è convessa e decresce fino alla media, quindi l'ottimo è l'estremo più vicino, $x = ${clip.tex()}$`}; $z(P) = ${f(clip).tex()}$. Errore tipico: usare la mediana $${A[1]}$, che minimizza la somma dei valori assoluti, non dei quadrati.`,
+          `The derivative $2\\big(3x - (${A[0]}) - (${A[1]}) - (${A[2]})\\big)$ vanishes at the mean $x = ${m.tex()}$, ${dentro ? "which is feasible: it is a local minimum and hence the optimal solution" : `which is not feasible: the function is convex and decreases up to the mean, so the optimum is the closest endpoint, $x = ${clip.tex()}$`}; $z(P) = ${f(clip).tex()}$. Typical mistake: using the median $${A[1]}$, which minimizes the sum of absolute values, not of squares.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { A, lo, up, valori: v.map((o) => [o[0].s(), o[1].s()]) } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-eqconstr", livello: "complessa", capitolo: CAP.c6, link: link("c6", "63-examples-of-convex-and-concave-optimization-problems"),
+    linkIt: "63-esempi-di-problemi-di-ottimizzazione-convessi-e-concavi",
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const q = [sc(rng, [1, 2, 3]), sc(rng, [1, 2, 3])], c = [ri(rng, -6, 6), ri(rng, -6, 6)], s = ri(rng, -2, 5);
+        const f = (x) => Fr.of(x[0]).mul(x[0]).mul(q[0]).add(Fr.of(x[1]).mul(x[1]).mul(q[1])).add(Fr.of(x[0]).mul(c[0])).add(Fr.of(x[1]).mul(c[1]));
+        // g(x1) = f(x1, s - x1): g'(x1) = 2 q1 x1 - 2 q2 (s - x1) + c1 - c2
+        const x1 = F(2 * q[1] * s - c[0] + c[1], 2 * (q[0] + q[1])), xs = [x1, F(s).sub(x1)];
+        if (x1.d > 4) return null;
+        const xu = [F(-c[0], 2 * q[0]), F(-c[1], 2 * q[1])];                     // senza vincolo
+        if (xu[0].add(xu[1]).eq(s)) return null;
+        if (q[0] === q[1]) return null;
+        const x1w = F(-2 * q[1] * s - c[0] + c[1], 2 * (q[0] - q[1])), xw = [x1w, F(s).sub(x1w)];     // segno sbagliato nella derivata di (s - x1)^2
+        const x1c = F(2 * q[1] * s - c[0], 2 * (q[0] + q[1])), xc = [x1c, F(s).sub(x1c)];             // termine c2 x2 dimenticato
+        if (x1w.d > 6 || x1c.d > 6) return null;
+        const v = [[xs, f(xs)], [xu, f(xu)], [xw, f(xw)], [xc, f(xc)]];
+        const fm = (o) => `$\\tilde{\\boldsymbol x}(P) = ${vec(o[0])}$, $z(P) = ${o[1].tex()}$`;
+        const fs = poly([[q[0], "x_1^2"], [q[1], "x_2^2"], [c[0], "x_1"], [c[1], "x_2"]]);
+        const testo = T(l,
+          `Il problema $P$: $\\min\\{\\, ${fs} \\ \\text{${sa(l)}}\\ x_1 + x_2 = ${s} \\,\\}$ è convesso (funzione obiettivo convessa, vincolo lineare). Sostituendo $x_2 = ${s} - x_1$ diventa un problema in una variabile. Quali sono la soluzione ottima e il valore ottimo ${SOLT(l)}?`,
+          `The problem $P$: $\\min\\{\\, ${fs} \\ \\text{${sa(l)}}\\ x_1 + x_2 = ${s} \\,\\}$ is convex (convex objective function, linear constraint). Substituting $x_2 = ${s} - x_1$ it becomes a problem in one variable. What are the optimal solution and the optimal value ${SOLT(l)}?`);
+        const sp = T(l,
+          `Con $g(x_1) = f(x_1, ${s} - x_1)$, $g'(x_1) = ${2 * q[0]}x_1 - ${2 * q[1]}(${s} - x_1) ${c[0] - c[1] < 0 ? "- " + (c[1] - c[0]) : "+ " + (c[0] - c[1])} = 0$ dà $x_1 = ${x1.tex()}$, quindi $\\tilde{\\boldsymbol x}(P) = ${vec(xs)}$ e $z(P) = ${f(xs).tex()}$; $g$ è convessa, e il minimo locale è la soluzione ottima. Il punto ${"$" + vec(xu) + "$"}, che annulla il gradiente di $f$, non rispetta il vincolo.`,
+          `With $g(x_1) = f(x_1, ${s} - x_1)$, $g'(x_1) = ${2 * q[0]}x_1 - ${2 * q[1]}(${s} - x_1) ${c[0] - c[1] < 0 ? "- " + (c[1] - c[0]) : "+ " + (c[0] - c[1])} = 0$ gives $x_1 = ${x1.tex()}$, hence $\\tilde{\\boldsymbol x}(P) = ${vec(xs)}$ and $z(P) = ${f(xs).tex()}$; $g$ is convex, and the local minimum is the optimal solution. The point ${"$" + vec(xu) + "$"}, where the gradient of $f$ vanishes, does not satisfy the constraint.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { q, c, s, valori: v.map((o) => [S(o[0]), o[1].s()]) } };
+      });
+    },
+  });
+
+  /* ---------- capitoli 1-4: medie e complesse ---------- */
+
+  LISTA.push({
+    id: "co-g-bary", livello: "complessa", capitolo: CAP.c1, link: link("c1", "box-3-def-convexcombinationm"),
+    genera(rng, l) {
+      const PESI = [[F(1, 2), F(1, 4), F(1, 4)], [F(1, 2), F(1, 2), F(0)], [F(3, 4), F(1, 4), F(0)],
+        [F(1, 2), F(3, 4), F(-1, 4)], [F(-1, 2), F(1, 2), F(1)], [F(1, 4), F(1, 2), F(1, 4)], [F(3, 2), F(-1, 4), F(-1, 4)]];
+      return ripeti(rng, () => {
+        const P = [[0, 0], [ri(rng, 2, 4) * 2, 0], [ri(rng, 0, 2) * 2, ri(rng, 1, 2) * 4]];
+        const sh = [ri(rng, -2, 2), ri(rng, -2, 2)];
+        for (const p of P) { p[0] += sh[0]; p[1] += sh[1]; }
+        const L = sc(rng, PESI).slice();
+        mescolaR(rng, L);
+        const q = [0, 1].map((i) => L.reduce((s, la, k) => s.add(la.mul(P[k][i])), F(0)));
+        if (q.some((x) => x.d !== 1)) return null;
+        const conv = L.every((x) => !x.lt(0));
+        const perm = [L[1], L[2], L[0]];
+        const swap = [L[0], L[2], L[1]];
+        const vale = (A) => A.every((x) => !x.lt(0));
+        const v = [[L, conv], [L, !conv], [perm, vale(perm)], [swap, vale(swap)]];
+        const k = (o) => JSON.stringify([S(o[0]), o[1]]);
+        if (new Set(v.map(k)).size < 4) return null;
+        const tl = (A) => `(${A.map((x) => x.tex()).join(", ")})`;
+        const fm = (o) => T(l, `$(\\lambda_1, \\lambda_2, \\lambda_3) = ${tl(o[0])}$: ${o[1] ? "è" : "non è"} combinazione convessa`, `$(\\lambda_1, \\lambda_2, \\lambda_3) = ${tl(o[0])}$: it ${o[1] ? "is" : "is not"} a convex combination`);
+        const pts = P.map((x, i) => `${"$" + "{\\boldsymbol p}^{(" + (i + 1) + ")} = " + vec(x) + "$"}`).join(", ");
+        const testo = T(l,
+          `Siano ${pts}. Il punto ${"${\\boldsymbol q} = " + vec(q) + "$"} si scrive in un solo modo come $\\lambda_1 {\\boldsymbol p}^{(1)} + \\lambda_2 {\\boldsymbol p}^{(2)} + \\lambda_3 {\\boldsymbol p}^{(3)}$ con $\\lambda_1 + \\lambda_2 + \\lambda_3 = 1$. Quali sono gli scalari, ed è ${"${\\boldsymbol q}$"} una combinazione convessa dei tre punti?`,
+          `Let ${pts}. The point ${"${\\boldsymbol q} = " + vec(q) + "$"} can be written in exactly one way as $\\lambda_1 {\\boldsymbol p}^{(1)} + \\lambda_2 {\\boldsymbol p}^{(2)} + \\lambda_3 {\\boldsymbol p}^{(3)}$ with $\\lambda_1 + \\lambda_2 + \\lambda_3 = 1$. What are the scalars, and is ${"${\\boldsymbol q}$"} a convex combination of the three points?`);
+        const sp = T(l,
+          `Le due equazioni delle coordinate e $\\lambda_1 + \\lambda_2 + \\lambda_3 = 1$ danno $${tl(L)}$. Una combinazione convessa richiede scalari non negativi con somma $1$: ${conv ? "qui sono tutti $\\ge 0$, e ${\\boldsymbol q}$ sta nel triangolo" : "qui uno scalare è negativo, e ${\\boldsymbol q}$ sta fuori dal triangolo"}.`,
+          `The two coordinate equations and $\\lambda_1 + \\lambda_2 + \\lambda_3 = 1$ give $${tl(L)}$. A convex combination requires nonnegative scalars summing to $1$: ${conv ? "here they are all $\\ge 0$, and ${\\boldsymbol q}$ lies in the triangle" : "here one scalar is negative, and ${\\boldsymbol q}$ lies outside the triangle"}.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { P, q: S(q), valori: v.map((o) => [S(o[0]), o[1]]) } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-levelvert", livello: "complessa", capitolo: CAP.c3, link: link("c3", "box-24-obs-levelconvex"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const nq = sc(rng, ["1", "inf"]), r = ri(rng, 2, 4), s = ri(rng, 1, r - 1), sg = sc(rng, [[1, 1], [1, -1], [-1, 1], [-1, -1]]);
+        if (nq === "1" && (r + s) % 2) return null;
+        const S2 = (A) => A.map((x) => [x[0] * sg[0], x[1] * sg[1]]);          // riflessione: il caso base è x1 + x2 <= s
+        const ord = (A) => A.map((x) => x.slice()).sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+        let ver, pall, via, sbagliati, conUno;
+        if (nq === "1") {
+          const t = (r + s) / 2, u = (s - r) / 2;
+          pall = [[r, 0], [0, r], [-r, 0], [0, -r]]; via = [[r, 0], [0, r]];
+          ver = [[-r, 0], [0, -r], [t, u], [u, t]];
+          sbagliati = [[-r, 0], [0, -r], [s, 0], [0, s]];                        // la retta intersecata con gli assi
+          conUno = ver.concat([[r, 0]]);
+        } else {
+          pall = [[r, r], [r, -r], [-r, r], [-r, -r]]; via = [[r, r]];
+          ver = [[-r, -r], [r, -r], [r, s - r], [s - r, r], [-r, r]];
+          sbagliati = [[-r, -r], [r, -r], [r, r - s], [r - s, r], [-r, r]];      // segno sbagliato
+          conUno = ver.concat([[r, r]]);
+        }
+        const w = [ver, pall, sbagliati, conUno].map((A) => ord(S2(A)));
+        const fm = (o) => "$" + o.map((x) => vec(x)).join(",\\ ") + "$";
+        const g1 = nq === "1" ? `|x_1| + |x_2| - ${r} \\le 0` : `\\max\\{|x_1|, |x_2|\\} - ${r} \\le 0`;
+        const lin = poly([[sg[0], "x_1"], [sg[1], "x_2"]]);
+        const testo = T(l,
+          `L'insieme $\\{\\, {\\boldsymbol x} \\in \\R^2 : ${g1},~ ${lin} - ${s} \\le 0 \\,\\}$ è convesso, perché è definito da vincoli $g_i({\\boldsymbol x}) \\le 0$ con funzioni $g_i$ convesse (una norma e una funzione lineare). È un poligono: quali sono i suoi vertici?`,
+          `The set $\\{\\, {\\boldsymbol x} \\in \\R^2 : ${g1},~ ${lin} - ${s} \\le 0 \\,\\}$ is convex, because it is defined by constraints $g_i({\\boldsymbol x}) \\le 0$ with convex functions $g_i$ (a norm and a linear function). It is a polygon: what are its vertices?`);
+        const tv = fm(ord(S2(via)));
+        const sp = T(l,
+          `La ${nq === "1" ? "palla di norma $1$ è il rombo" : "palla di norma $\\infty$ è il quadrato"} con vertici ${fm(w[1])}; la retta $${lin} = ${s}$ taglia via ${via.length > 1 ? "i vertici" : "il vertice"} ${tv} e incontra due lati in due nuovi vertici. I vertici sono ${fm(w[0])}.`,
+          `The ${nq === "1" ? "ball of norm $1$ is the diamond" : "ball of norm $\\infty$ is the square"} with vertices ${fm(w[1])}; the line $${lin} = ${s}$ cuts off the ${via.length > 1 ? "vertices" : "vertex"} ${tv} and meets two sides at two new vertices. The vertices are ${fm(w[0])}.`);
+        return { testo, opzioni: w.map(fm), corretta: 0, spiegazione: sp, dati: { nq, r, s, sg, valori: w } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-tangent", livello: "media", capitolo: CAP.c2, link: link("c2", "box-5-def-levelset"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const a = sc(rng, [1, 2, 3]), b = sc(rng, [1, 2, 3]), x = [sc(rng, [-2, -1, 1, 2]), sc(rng, [-2, -1, 1, 2])];
+        const g = [2 * a * x[0], 2 * b * x[1]];
+        if (Math.abs(g[0]) === Math.abs(g[1])) return null;
+        const d = gcd(g[0], g[1]), gn = [g[0] / d, g[1] / d];
+        const v = [[-gn[1], gn[0]], gn, [gn[1], gn[0]], [gn[0], -gn[1]]];
+        const lev = a * x[0] * x[0] + b * x[1] * x[1];
+        const fs = poly([[a, "x_1^2"], [b, "x_2^2"]]);
+        const testo = T(l,
+          `Per $f({\\boldsymbol x}) = ${fs}$, il punto ${"$" + vec(x) + "$"} sta sull'insieme di livello $\\{\\, {\\boldsymbol x} \\in \\R^2 : f({\\boldsymbol x}) = ${lev} \\,\\}$. Quale direzione è tangente all'insieme di livello in quel punto?`,
+          `For $f({\\boldsymbol x}) = ${fs}$, the point ${"$" + vec(x) + "$"} lies on the level set $\\{\\, {\\boldsymbol x} \\in \\R^2 : f({\\boldsymbol x}) = ${lev} \\,\\}$. Which direction is tangent to the level set at that point?`);
+        const sp = T(l,
+          `Il gradiente $\\nabla f = ${vec([`${2 * a}x_1`, `${2 * b}x_2`])}$ vale ${"$" + vec(g) + "$"}, parallelo a ${"$" + vec(gn) + "$"}, ed è perpendicolare all'insieme di livello: la tangente è perpendicolare al gradiente, cioè ${"$" + vec(v[0]) + "$"} (prodotto scalare nullo). Le altre direzioni hanno prodotto scalare non nullo con il gradiente.`,
+          `The gradient $\\nabla f = ${vec([`${2 * a}x_1`, `${2 * b}x_2`])}$ equals ${"$" + vec(g) + "$"}, parallel to ${"$" + vec(gn) + "$"}, and is perpendicular to the level set: the tangent is perpendicular to the gradient, that is, ${"$" + vec(v[0]) + "$"} (zero dot product). The other directions have a nonzero dot product with the gradient.`);
+        return { testo, opzioni: v.map((o) => "$" + vec(o) + "$"), corretta: 0, spiegazione: sp, dati: { a, b, x, valori: v } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-cubicchord", livello: "media", capitolo: CAP.c3, link: link("c3", "box-1-def-convexfunction"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const p = ri(rng, -3, -1), w = ri(rng, 1, 3), m = ri(rng, -3, 3);
+        const lam = sc(rng, [F(1, 2), F(1, 3), F(2, 3), F(1, 4), F(3, 4)]), mu = F(1).sub(lam);
+        const f = (t) => { t = Fr.of(t); return t.mul(t).mul(t).add(t.mul(m)); };
+        const x = lam.mul(p).add(mu.mul(w));
+        const A = f(x), B = lam.mul(f(p)).add(mu.mul(f(w)));
+        if (A.eq(B)) return null;
+        const xw = mu.mul(p).add(lam.mul(w)), A2 = f(xw), B2 = mu.mul(f(p)).add(lam.mul(f(w)));
+        if (A2.eq(B2) || (A2.eq(A) && B2.eq(B))) return null;
+        const c1 = B.lt(A) ? "noconv" : "noconc", c2 = B.lt(A) ? "conc" : "conv", c3 = B.lt(A) ? "noconc" : "noconv";
+        const c4 = B2.lt(A2) ? "noconv" : "noconc";
+        const v = [[A, B, c1], [A, B, c2], [A, B, c3], [A2, B2, c4]];
+        const fr = { noconv: T(l, "$f$ non è convessa su $[p, w]$", "$f$ is not convex on $[p, w]$"), noconc: T(l, "$f$ non è concava su $[p, w]$", "$f$ is not concave on $[p, w]$"),
+          conv: T(l, "$f$ è convessa su $[p, w]$", "$f$ is convex on $[p, w]$"), conc: T(l, "$f$ è concava su $[p, w]$", "$f$ is concave on $[p, w]$") };
+        const fm = (o) => `$${o[0].tex()}$ ${T(l, "e", "and")} $${o[1].tex()}$: ${fr[o[2]]}`;
+        const fs = poly([[1, "x^3"], [m, "x"]]);
+        const testo = T(l,
+          `Per $f(x) = ${fs}$, con $p = ${p}$, $w = ${w}$ e $\\lambda = ${lam.tex()}$, quanto valgono $f\\big(\\lambda p + (1-\\lambda) w\\big)$ e $\\lambda f(p) + (1-\\lambda) f(w)$, e che cosa se ne conclude?`,
+          `For $f(x) = ${fs}$, with $p = ${p}$, $w = ${w}$ and $\\lambda = ${lam.tex()}$, what are $f\\big(\\lambda p + (1-\\lambda) w\\big)$ and $\\lambda f(p) + (1-\\lambda) f(w)$, and what can be concluded?`);
+        const sp = T(l,
+          `$\\lambda p + (1-\\lambda) w = ${x.tex()}$, $f(${x.tex()}) = ${A.tex()}$, mentre $${lam.tex()} \\cdot (${f(p).tex()}) + ${mu.tex()} \\cdot ${f(w).tex()} = ${B.tex()}$. ${B.lt(A) ? "Il punto del grafico sta sopra la corda: la disuguaglianza di convessità è violata" : "Il punto del grafico sta sotto la corda: la disuguaglianza di concavità è violata"}. Una sola coppia di punti può escludere una proprietà, non dimostrarla.`,
+          `$\\lambda p + (1-\\lambda) w = ${x.tex()}$, $f(${x.tex()}) = ${A.tex()}$, while $${lam.tex()} \\cdot (${f(p).tex()}) + ${mu.tex()} \\cdot ${f(w).tex()} = ${B.tex()}$. ${B.lt(A) ? "The point of the graph lies above the chord: the convexity inequality is violated" : "The point of the graph lies below the chord: the concavity inequality is violated"}. A single pair of points can rule out a property, not prove it.`);
+        return { testo, opzioni: v.map(fm), corretta: 0, spiegazione: sp, dati: { m, p, w, lam: lam.s(), valori: v.map((o) => [o[0].s(), o[1].s(), o[2]]) } };
+      });
+    },
+  });
+
+  LISTA.push({
+    id: "co-g-witness", livello: "media", capitolo: CAP.c4, link: link("c4", "box-12-def-psd"),
+    genera(rng, l) {
+      return ripeti(rng, () => {
+        const a = ri(rng, 0, 3), c = ri(rng, 0, 3), b = sc(rng, [-3, -2, -1, 1, 2, 3]);
+        if (b * b <= a * c) return null;
+        const qf = (x) => a * x[0] * x[0] + 2 * b * x[0] * x[1] + c * x[1] * x[1];
+        const C = [];
+        for (let i = -2; i <= 2; i++) for (let j = -2; j <= 2; j++) if ((i || j) && gcd(i, j) === 1) C.push([i, j]);
+        mescolaR(rng, C);
+        const neg = C.filter((x) => qf(x) < 0), pos = C.filter((x) => qf(x) >= 0);
+        if (!neg.length || pos.length < 3) return null;
+        const v = [neg[0], pos[0], pos[1], pos[2]];
+        const Q = [[a, b], [b, c]];
+        const testo = T(l,
+          `Una matrice simmetrica ${"${\\boldsymbol Q}$"} è semidefinita positiva se ${"${\\boldsymbol x}' {\\boldsymbol Q}\\, {\\boldsymbol x} \\ge 0$"} per ogni ${"${\\boldsymbol x} \\in \\R^2$"}. Per ${"${\\boldsymbol Q} = " + mat(Q) + "$"}, quale vettore dimostra che ${"${\\boldsymbol Q}$"} <em>non</em> è semidefinita positiva?`,
+          `A symmetric matrix ${"${\\boldsymbol Q}$"} is positive semidefinite if ${"${\\boldsymbol x}' {\\boldsymbol Q}\\, {\\boldsymbol x} \\ge 0$"} for every ${"${\\boldsymbol x} \\in \\R^2$"}. For ${"${\\boldsymbol Q} = " + mat(Q) + "$"}, which vector shows that ${"${\\boldsymbol Q}$"} is <em>not</em> positive semidefinite?`);
+        const sp = T(l,
+          `${"${\\boldsymbol x}' {\\boldsymbol Q}\\, {\\boldsymbol x} = " + poly([[a, "x_1^2"], [2 * b, "x_1 x_2"], [c, "x_2^2"]]) + "$"}: nei quattro vettori vale ${v.map((x) => "$" + qf(x) + "$").join(", ")}. Basta un vettore con valore negativo, ${"$" + vec(v[0]) + "$"}; un valore non negativo in alcuni vettori non dimostra nulla.`,
+          `${"${\\boldsymbol x}' {\\boldsymbol Q}\\, {\\boldsymbol x} = " + poly([[a, "x_1^2"], [2 * b, "x_1 x_2"], [c, "x_2^2"]]) + "$"}: at the four vectors it equals ${v.map((x) => "$" + qf(x) + "$").join(", ")}. One vector with a negative value is enough, ${"$" + vec(v[0]) + "$"}; a nonnegative value at some vectors proves nothing.`);
+        return { testo, opzioni: v.map((x) => "$" + vec(x) + "$"), corretta: 0, spiegazione: sp, dati: { Q, valori: v } };
+      });
+    },
+  });
+
   /* link alle sezioni con ancora diversa nelle due lingue (titoli tradotti) */
   for (const g of LISTA) {
     if (g.linkIt) { g.link = { it: g.link.it.replace(/#.*$/, "#" + g.linkIt), en: g.link.en }; delete g.linkIt; }
