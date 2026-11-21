@@ -31,3 +31,5 @@ __pycache__/
 *conflicted copy*
 
 # volumi generati (tex e PDF): fuori da git; online i PDF stanno in docs/pdf/
+# nessun sorgente LaTeX su GitHub; copie in conflitto di Dropbox
+*.tex
