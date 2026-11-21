@@ -10,6 +10,26 @@ title: "Problemi di ottimizzazione"
 
 </div>
 
+!!! nota "Prerequisiti"
+
+    - Da questo modulo, [Capitolo 2 «Funzioni di più variabili»](https://fabiofurini.github.io/ottimizzazione-convessa/preliminari/02-funzioni-piu-variabili/): funzioni di più variabili.
+
+    - Dal modulo <em>Analisi Matematica 1</em>, il capitolo [«Campi ordinati, estremo superiore/inferiore e assioma di continuità»](https://fabiofurini.github.io/analisi-matematica-1/numeri/03-campi-ordinati/): estremo inferiore ed estremo superiore di un insieme di numeri reali.
+
+    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 3 «Problemi di ottimizzazione lineare»](https://fabiofurini.github.io/programmazione-lineare/problemi-pl/03-problemi-ottimizzazione-lineare/): i problemi LP, il caso particolare con obiettivo lineare e un poliedro.
+
+!!! chiave "Obiettivi"
+
+    Alla fine di questo capitolo sarai in grado di:
+
+    - enunciare la definizione di problema di ottimizzazione, delle sue soluzioni ottime e del suo valore ottimo;
+
+    - riconoscere i tre motivi per cui una soluzione ottima può non esistere: problema illimitato, inammissibile, estremo inferiore o superiore non raggiunto;
+
+    - usare le proprietà che scambiano min e max, aggiungono una costante o moltiplicano per una costante;
+
+    - distinguere le soluzioni ottime locali da quelle globali con gli intorni $\delta$.
+
 ## 5.1 Problemi di ottimizzazione
 
 <a id="box-1-def-optProblem"></a>
@@ -644,6 +664,18 @@ title: "Problemi di ottimizzazione"
     - <strong>Massimi locali che non sono globali.</strong> In $N\big((-4),1\big) \cap [-4,4] = [-4,-3)$ abbiamo $-2 \le x+2 < -1$ e quindi $f(x) = (x+2)^2 \le 4 = f(-4)$: il punto $x=-4$ è un punto di massimo locale. In $N\big((\frac{1}{8}),1\big) = (-\frac{7}{8},\frac{9}{8})$ abbiamo $0 < x+2 \le \frac{17}{8}$ quando $x \le \frac{1}{8}$, per cui $f(x) = (x+2)^2 \le \frac{289}{64}$, e $-\frac{15}{8} \le x-2 < 0$ quando $x \ge \frac{1}{8}$, per cui $f(x) = (x-2)^2+1 \le \frac{225}{64}+1 = \frac{289}{64}$; in entrambi i casi $f(x) \le f(\frac{1}{8})$: il punto $x=\frac{1}{8}$ è un punto di massimo locale. Nessuno dei due è un punto di massimo (globale), poiché $f(-4) = 4 < 5$ e $f(\frac{1}{8}) = \frac{289}{64} < 5$.
 
     Consideriamo il problema di ottimizzazione $\min \{\, f(x) \text{ soggetto a } -4 \le x \le 4 \,\}$: un metodo che guarda solo i punti vicini a $x=2$ trova il minimo locale $1$, ma il valore ottimo è $z(P) = 0$, raggiunto in $\tilde{\boldsymbol x}(P) = (-2)$.
+
+## 5.4 In sintesi
+
+!!! chiave "In sintesi"
+
+    - Un problema di ottimizzazione minimizza o massimizza una funzione obiettivo $f$ su una regione ammissibile $F$; lo scopo è una soluzione ottima, non solo il valore ottimo $z(P)$.
+
+    - Una soluzione ottima può non esistere perché il problema è illimitato, inammissibile, oppure ha un estremo inferiore (superiore) non raggiunto.
+
+    - $\max f = -\min(-f)$ con le stesse soluzioni ottime; aggiungere una costante o moltiplicare per una costante positiva non le cambia, una costante negativa scambia minimi e massimi.
+
+    - Un punto di minimo locale è il migliore in un intorno $\delta$; non è detto che sia un punto di minimo (globale).
 
 ---
 

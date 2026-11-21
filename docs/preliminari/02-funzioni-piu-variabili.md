@@ -10,6 +10,24 @@ title: "Funzioni di più variabili"
 
 </div>
 
+!!! nota "Prerequisiti"
+
+    - Dal modulo <em>Analisi Matematica 1</em>, il capitolo [«Regole di calcolo delle derivate»](https://fabiofurini.github.io/analisi-matematica-1/derivate/04-regole-calcolo/): le derivate delle funzioni elementari e le regole per calcolarle.
+
+    - Dal modulo <em>Programmazione Lineare</em>, [Capitolo 1 «Funzioni lineari»](https://fabiofurini.github.io/programmazione-lineare/problemi-pl/01-funzioni-lineari/): gradiente, hessiana e insiemi di livello di una funzione lineare, il caso più semplice.
+
+!!! chiave "Obiettivi"
+
+    Alla fine di questo capitolo sarai in grado di:
+
+    - descrivere una funzione di più variabili reali, il suo dominio e il suo grafico;
+
+    - calcolare il gradiente e l'hessiana dalle derivate parziali;
+
+    - disegnare insiemi di livello, e verificare che il gradiente è perpendicolare a essi;
+
+    - interpretare il gradiente come direzione di massima crescita e l'hessiana come curvatura locale.
+
 ## 2.1 Funzioni di più variabili
 
 <a id="box-1-def-function"></a>
@@ -293,6 +311,16 @@ title: "Funzioni di più variabili"
 !!! chiave ""
 
     Il gradiente $\nabla f(\boldsymbol x)$ è il vettore colonna delle derivate parziali prime: punta nella direzione di massima crescita ed è perpendicolare all'insieme di livello passante per $\boldsymbol x$. La matrice Hessiana $\nabla^2 f(\boldsymbol x)$ è la matrice (simmetrica) delle derivate parziali seconde e descrive la curvatura locale di $f$.
+
+## 2.4 In sintesi
+
+!!! chiave "In sintesi"
+
+    - Il gradiente $\nabla f({\boldsymbol x})$ è il vettore colonna delle derivate parziali prime; l'hessiana $\nabla^2 f({\boldsymbol x})$ è la matrice delle derivate parziali seconde.
+
+    - Il gradiente, se non nullo, indica la direzione di massima crescita; l'hessiana descrive come cambia il gradiente attorno a ${\boldsymbol x}$.
+
+    - Un insieme di livello $L(k)$ raccoglie i punti in cui $f$ vale $k$; il gradiente è perpendicolare all'insieme di livello che passa per ${\boldsymbol x}$.
 
 ---
 

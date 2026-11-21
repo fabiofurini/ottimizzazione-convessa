@@ -10,6 +10,26 @@ title: "Funzioni quadratiche"
 
 </div>
 
+!!! nota "Prerequisiti"
+
+    - Da questo modulo, [Capitolo 2 «Funzioni di più variabili»](https://fabiofurini.github.io/ottimizzazione-convessa/preliminari/02-funzioni-piu-variabili/): gradiente, hessiana e insiemi di livello.
+
+    - Da questo modulo, [Capitolo 3 «Funzioni convesse e concave»](https://fabiofurini.github.io/ottimizzazione-convessa/preliminari/03-funzioni-convesse-concave/): funzioni convesse e convessità delle somme.
+
+    - Dal modulo <em>Algebra Lineare</em>, il capitolo [«Matrici»](https://fabiofurini.github.io/algebra-lineare/vettori-matrici/02-matrici/): matrici simmetriche, la trasposta e il prodotto di una matrice per un vettore.
+
+!!! chiave "Obiettivi"
+
+    Alla fine di questo capitolo sarai in grado di:
+
+    - scrivere una funzione quadratica ${\boldsymbol x}'{\boldsymbol Q}{\boldsymbol x}$ con una matrice simmetrica;
+
+    - calcolarne il gradiente $2{\boldsymbol Q}{\boldsymbol x}$ e l'hessiana costante $2{\boldsymbol Q}$, e disegnarne gli insiemi di livello;
+
+    - decidere se è convessa verificando che ${\boldsymbol Q}$ è semidefinita positiva;
+
+    - estendere il risultato alle funzioni quadratiche con una parte lineare e una costante.
+
 ## 4.1 Funzioni quadratiche
 
 <a id="box-1-def-quadratic"></a>
@@ -578,6 +598,16 @@ title: "Funzioni quadratiche"
 !!! chiave ""
 
     Una funzione quadratica ${\boldsymbol x}' {\boldsymbol Q} \; {\boldsymbol x}$ è convessa nel suo dominio se e solo se la matrice ${\boldsymbol Q}$ è semidefinita positiva. L'aggiunta di una funzione lineare e di una costante non ne modifica la convessità.
+
+## 4.5 In sintesi
+
+!!! chiave "In sintesi"
+
+    - La matrice ${\boldsymbol Q}$ di una funzione quadratica ${\boldsymbol x}'{\boldsymbol Q}{\boldsymbol x}$ si può sempre prendere simmetrica.
+
+    - Con ${\boldsymbol Q}$ simmetrica, il gradiente è $2{\boldsymbol Q}{\boldsymbol x}$ e l'hessiana è la matrice costante $2{\boldsymbol Q}$.
+
+    - La funzione è convessa se e solo se ${\boldsymbol Q}$ è semidefinita positiva; aggiungere una funzione lineare e una costante non cambia le cose.
 
 ---
 

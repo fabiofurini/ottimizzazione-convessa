@@ -10,6 +10,26 @@ title: "Problemi di ottimizzazione convessi e concavi"
 
 </div>
 
+!!! nota "Prerequisiti"
+
+    - Da questo modulo, [Capitolo 5 «Problemi di ottimizzazione»](https://fabiofurini.github.io/ottimizzazione-convessa/problemi/05-problemi-ottimizzazione/): problemi di ottimizzazione e soluzioni ottime locali e globali.
+
+    - Da questo modulo, [Capitolo 3 «Funzioni convesse e concave»](https://fabiofurini.github.io/ottimizzazione-convessa/preliminari/03-funzioni-convesse-concave/): funzioni convesse e concave.
+
+    - Da questo modulo, [Capitolo 1 «Insiemi convessi»](https://fabiofurini.github.io/ottimizzazione-convessa/preliminari/01-insiemi-convessi/): insiemi convessi.
+
+!!! chiave "Obiettivi"
+
+    Alla fine di questo capitolo sarai in grado di:
+
+    - definire i problemi di minimizzazione convessi e di massimizzazione concavi;
+
+    - dimostrare che in un problema di minimizzazione convesso ogni punto di minimo locale è un punto di minimo;
+
+    - applicare lo stesso risultato ai problemi di massimizzazione concavi;
+
+    - risolvere piccoli problemi convessi e concavi trovando un ottimo locale.
+
 ## 6.1 Problemi di ottimizzazione convessi e concavi
 
 <a id="box-1-def-convexproblem"></a>
@@ -400,6 +420,18 @@ title: "Problemi di ottimizzazione convessi e concavi"
         \qquad \text{e} \qquad
         z(P) = f(1) = 6.
         $$
+
+## 6.4 In sintesi
+
+!!! chiave "In sintesi"
+
+    - Un problema di minimizzazione convesso minimizza una funzione convessa su una regione ammissibile convessa; uno di massimizzazione concavo massimizza una funzione concava.
+
+    - In un problema di minimizzazione convesso ogni punto di minimo locale è un punto di minimo, cioè una soluzione ottima.
+
+    - In un problema di massimizzazione concavo ogni punto di massimo locale è un punto di massimo.
+
+    - Per risolvere questi problemi basta quindi un ottimo locale: non serve una ricerca globale.
 
 ---
 

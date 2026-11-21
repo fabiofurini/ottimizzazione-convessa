@@ -10,6 +10,24 @@ title: "Insiemi convessi"
 
 </div>
 
+!!! nota "Prerequisiti"
+
+    - Dal modulo <em>Algebra Lineare</em>, il capitolo [«Vettori»](https://fabiofurini.github.io/algebra-lineare/vettori-matrici/01-vettori/): i vettori di $\R^n$, la loro somma e il prodotto per uno scalare.
+
+    - Dallo stesso modulo, il capitolo [«Norme»](https://fabiofurini.github.io/algebra-lineare/norme/01-norme/): le norme $\|\cdot\|_1$, $\|\cdot\|_2$ e $\|\cdot\|_\infty$, usate per descrivere le palle.
+
+!!! chiave "Obiettivi"
+
+    Alla fine di questo capitolo sarai in grado di:
+
+    - scrivere le combinazioni convesse di due e di $m$ punti, e disegnare il segmento fra due punti;
+
+    - enunciare la definizione di insieme convesso e decidere se un insieme è convesso;
+
+    - dimostrare che le palle delle norme $1$, $2$ e $\infty$ sono insiemi convessi;
+
+    - usare il fatto che l'intersezione di insiemi convessi è convessa.
+
 ## 1.1 Combinazione convessa
 
 <a id="box-1-def-convexcombination"></a>
@@ -422,6 +440,18 @@ title: "Insiemi convessi"
 ![Figura 15](../img/01-insiemi-convessi/fig15.svg){ .fig .ovale loading=lazy style="width:37%" }
 
 </div>
+
+## 1.5 In sintesi
+
+!!! chiave "In sintesi"
+
+    - Una combinazione convessa di $m$ punti ha coefficienti non negativi di somma $1$; le combinazioni convesse di due punti formano il segmento fra di essi.
+
+    - Un insieme è convesso se contiene il segmento fra due qualsiasi dei suoi punti.
+
+    - Le palle $\{{\boldsymbol x} : \|{\boldsymbol x}-{\boldsymbol c}\| \le r\}$ delle norme $1$, $2$ e $\infty$ (un rombo, un disco e un quadrato in $\R^2$) sono convesse.
+
+    - L'intersezione di un numero finito di insiemi convessi è convessa.
 
 ---
 

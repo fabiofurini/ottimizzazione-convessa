@@ -10,6 +10,26 @@ title: "Funzioni convesse e concave"
 
 </div>
 
+!!! nota "Prerequisiti"
+
+    - Da questo modulo, [Capitolo 1 «Insiemi convessi»](https://fabiofurini.github.io/ottimizzazione-convessa/preliminari/01-insiemi-convessi/): combinazioni convesse e insiemi convessi.
+
+    - Da questo modulo, [Capitolo 2 «Funzioni di più variabili»](https://fabiofurini.github.io/ottimizzazione-convessa/preliminari/02-funzioni-piu-variabili/): funzioni di più variabili.
+
+    - Dal modulo <em>Algebra Lineare</em>, il capitolo [«Norme»](https://fabiofurini.github.io/algebra-lineare/norme/01-norme/): le norme dei vettori.
+
+!!! chiave "Obiettivi"
+
+    Alla fine di questo capitolo sarai in grado di:
+
+    - enunciare le definizioni di funzione convessa e concava su un dominio convesso;
+
+    - dimostrare dalla definizione la convessità di funzioni quadratiche, lineari e del valore assoluto;
+
+    - dimostrare che ogni norma, e la norma euclidea al quadrato, è una funzione convessa;
+
+    - combinare funzioni convesse con somme a coefficienti non negativi e massimi, e costruire insiemi convessi da vincoli $f_i({\boldsymbol x}) \le 0$.
+
 ## 3.1 Funzioni convesse
 
 <a id="box-1-def-convexfunction"></a>
@@ -783,6 +803,18 @@ title: "Funzioni convesse e concave"
 !!! chiave ""
 
     I punti che soddisfano un numero finito di vincoli $f_i({\boldsymbol x}) \le 0$ con funzioni convesse $f_i$ formano un insieme convesso. Ad esempio, ogni semispazio $\{{\boldsymbol x} \in \R^n : {\boldsymbol a}'{\boldsymbol x} \le b\}$, con ${\boldsymbol a} \in \R^n$ e $b \in \R$, è un insieme convesso di questo tipo, poiché la funzione lineare ${\boldsymbol a}'{\boldsymbol x} - b$ è convessa; lo è anche ogni intersezione di un numero finito di semispazi, come i poliedri della programmazione lineare.
+
+## 3.6 In sintesi
+
+!!! chiave "In sintesi"
+
+    - Una funzione è convessa su un dominio convesso se il suo valore in una combinazione convessa di due punti è al più la stessa combinazione dei valori; è concava se $-f$ è convessa.
+
+    - Le funzioni lineari sono sia convesse sia concave; il valore assoluto, ogni norma e la norma euclidea al quadrato sono convessi.
+
+    - Le combinazioni a coefficienti non negativi e i massimi di funzioni convesse sono convessi.
+
+    - I punti che soddisfano un numero finito di vincoli $f_i({\boldsymbol x}) \le 0$ con $f_i$ convesse formano un insieme convesso.
 
 ---
 
