@@ -1,8 +1,12 @@
 # Preliminari
 
-*Parte 1 del corso, volume 1 delle dispense.* Combinazioni convesse e insiemi convessi, funzioni di più variabili (gradiente, Hessiano, insiemi di livello), norme, funzioni convesse e concave, funzioni quadratiche e loro convessità.
+<div class="info-capitolo" markdown>
 
-[:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf){ .md-button }
+**Parte 1 · Preliminari** · 4 capitoli · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../pdf/dispensa-1-preliminari.pdf)
+
+</div>
+
+Combinazioni convesse e insiemi convessi, funzioni di più variabili (gradiente, Hessiano, insiemi di livello), norme, funzioni convesse e concave, funzioni quadratiche e loro convessità.
 
 <div class="grid cards" markdown>
 
@@ -12,7 +16,7 @@
 
     Combinazione convessa · Insiemi convessi · Esempi di insiemi convessi · Proprietà degli insiemi convessi
 
-    [:octicons-arrow-right-24: Leggi il capitolo](01-insiemi-convessi.md) · [Esercizi](../esercizi/es-01-insiemi-convessi.md)
+    [:octicons-arrow-right-24: Leggi il capitolo](01-insiemi-convessi.md) · [Esercizi](../esercizi/es-01-insiemi-convessi.md) · [Slide](../pdf/slide-01-insiemi-convessi.pdf)
 
 -   **2. Funzioni di più variabili**
 
@@ -20,7 +24,7 @@
 
     Funzioni di più variabili · Gradiente, matrice Hessiana e insiemi di livello · Esempi di funzioni non quadratiche
 
-    [:octicons-arrow-right-24: Leggi il capitolo](02-funzioni-piu-variabili.md) · [Esercizi](../esercizi/es-02-funzioni-piu-variabili.md)
+    [:octicons-arrow-right-24: Leggi il capitolo](02-funzioni-piu-variabili.md) · [Esercizi](../esercizi/es-02-funzioni-piu-variabili.md) · [Slide](../pdf/slide-02-funzioni-piu-variabili.pdf)
 
 -   **3. Funzioni convesse e concave**
 
@@ -28,7 +32,7 @@
 
     Funzioni convesse · Funzioni concave · Esempi di funzioni convesse e concave · Funzioni convesse definite da norme · …
 
-    [:octicons-arrow-right-24: Leggi il capitolo](03-funzioni-convesse-concave.md) · [Esercizi](../esercizi/es-03-funzioni-convesse-concave.md)
+    [:octicons-arrow-right-24: Leggi il capitolo](03-funzioni-convesse-concave.md) · [Esercizi](../esercizi/es-03-funzioni-convesse-concave.md) · [Slide](../pdf/slide-03-funzioni-convesse-concave.pdf)
 
 -   **4. Funzioni quadratiche**
 
@@ -36,6 +40,6 @@
 
     Funzioni quadratiche · Gradiente, matrice Hessiana e insiemi di livello · Convessità delle funzioni quadratiche · Funzioni quadratiche con una parte lineare
 
-    [:octicons-arrow-right-24: Leggi il capitolo](04-funzioni-quadratiche.md) · [Esercizi](../esercizi/es-04-funzioni-quadratiche.md)
+    [:octicons-arrow-right-24: Leggi il capitolo](04-funzioni-quadratiche.md) · [Esercizi](../esercizi/es-04-funzioni-quadratiche.md) · [Slide](../pdf/slide-04-funzioni-quadratiche.pdf)
 
 </div>
