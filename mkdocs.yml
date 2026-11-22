@@ -63,16 +63,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/fabiofurini
       name: GitHub
-    - icon: material/chart-line
-      link: https://fabiofurini.github.io/modellazione-pl/
-      name: Modellazione PL
-    - icon: material/chart-bell-curve-cumulative
-      link: https://fabiofurini.github.io/modellazione-pnl/
-      name: Modellazione PNL
-    - icon: material/vector-polygon
-      link: https://fabiofurini.github.io/modellazione-mip/
-      name: Modellazione MIP
-    - icon: material/math-integral
+    - icon: material/function-variant
       link: https://fabiofurini.github.io/analisi-matematica-1/
       name: Analisi Matematica 1
     - icon: material/matrix
@@ -84,6 +75,33 @@ extra:
     - icon: material/vector-triangle
       link: https://fabiofurini.github.io/programmazione-lineare/
       name: Programmazione lineare
+    - icon: material/dots-grid
+      link: https://fabiofurini.github.io/programmazione-lineare-intera/
+      name: Programmazione lineare intera
+    - icon: material/graph-outline
+      link: https://fabiofurini.github.io/ottimizzazione-su-reti/
+      name: Ottimizzazione su reti
+    - icon: material/hexagon-multiple-outline
+      link: https://fabiofurini.github.io/ottimizzazione-combinatoria/
+      name: Problemi di ottimizzazione combinatoria
+    - icon: material/table-large
+      link: https://fabiofurini.github.io/programmazione-dinamica/
+      name: Programmazione dinamica
+    - icon: material/map-marker-path
+      link: https://fabiofurini.github.io/algoritmi-euristici/
+      name: Algoritmi euristici
+    - icon: material/approximately-equal
+      link: https://fabiofurini.github.io/algoritmi-di-approssimazione/
+      name: Algoritmi di approssimazione
+    - icon: material/chart-line
+      link: https://fabiofurini.github.io/modellazione-pl/
+      name: Modellazione PL
+    - icon: material/chart-bell-curve-cumulative
+      link: https://fabiofurini.github.io/modellazione-pnl/
+      name: Modellazione PNL
+    - icon: material/vector-polygon
+      link: https://fabiofurini.github.io/modellazione-mip/
+      name: Modellazione MIP
   alternate:
     - name: Italiano
       link: https://fabiofurini.github.io/ottimizzazione-convessa/
