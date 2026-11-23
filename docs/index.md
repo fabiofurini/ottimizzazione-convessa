@@ -21,9 +21,10 @@ hide:
 Materiale didattico ideato e sviluppato da **[Fabio Furini](https://fabiofurini.github.io/)**, professore
 associato al [DIAG](https://www.diag.uniroma1.it/), Sapienza Università di Roma.
 
-**Le dispense del corso, online**: insiemi convessi, funzioni di più variabili, funzioni convesse,
-funzioni quadratiche, problemi di ottimizzazione convessi e concavi, con definizioni, teoremi
-con le loro dimostrazioni, esempi svolti passo per passo ed esercizi con le soluzioni.
+Il corso presenta l'ottimizzazione convessa: insiemi convessi, funzioni di più variabili, funzioni
+convesse e funzioni quadratiche, problemi di ottimizzazione convessi e concavi.
+
+Ogni capitolo ha definizioni, teoremi con dimostrazione, esempi svolti passo per passo ed esercizi con le soluzioni.
 
 Prerequisiti: [Analisi Matematica 1](https://fabiofurini.github.io/analisi-matematica-1/) e [Algebra lineare](https://fabiofurini.github.io/algebra-lineare/).
 
