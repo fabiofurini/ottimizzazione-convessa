@@ -65,7 +65,7 @@ Le dispense e gli eserciziari in PDF, aggiornati a ogni pubblicazione del sito, 
 - :material-presentation: [Capitolo 6 · Problemi di ottimizzazione convessi e concavi](pdf/slide-06-problemi-convessi-concavi.pdf)
 
 <!-- banca-domande -->
-## Banca delle domande del quiz
+## Banca delle domande
 
 Tutte le domande dell'autovalutazione, divise per parte e capitolo, con la risposta corretta e la spiegazione; per le domande generate, che cambiano i numeri a ogni avvio, alcuni esempi.
 
