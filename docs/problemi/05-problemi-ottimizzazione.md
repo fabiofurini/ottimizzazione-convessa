@@ -685,7 +685,7 @@ title: "Problemi di ottimizzazione"
 
 ## Laboratorio interattivo { #laboratorio-interattivo }
 
-Le idee del capitolo, da toccare con mano: muovi i cursori e trascina i punti.
+Le app di questo capitolo: muovi i cursori e trascina i punti.
 Tutti i grafici del corso sono nel [laboratorio interattivo](../interattivi/index.md#cap-5).
 
 <div class="gi" data-grafico="ottimo-intervallo"></div>

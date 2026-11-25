@@ -5,7 +5,7 @@ hide:
 
 # Laboratorio interattivo
 
-Qui l'ottimizzazione si tocca con mano. Ogni app si apre in una pagina tutta sua, a grande
+Ogni app si apre in una pagina tutta sua, a grande
 schermo: trascina i punti, muovi i cursori e guarda come cambiano insiemi, funzioni e ottimi.
 
 ## 1. Insiemi convessi { #cap-1 }
