@@ -54,8 +54,6 @@ La discesa locale: su una funzione convessa ogni minimo locale è globale; su un
 
     Combinazioni convesse e insiemi convessi, funzioni di più variabili (gradiente, Hessiano, insiemi di livello), norme, funzioni convesse e concave, funzioni quadratiche e loro convessità.
 
-    1\. Insiemi convessi · 2\. Funzioni di più variabili · 3\. Funzioni convesse e concave · 4\. Funzioni quadratiche
-
     [:octicons-arrow-right-24: I capitoli](preliminari/index.md)
 
 -   :material-chart-bell-curve-cumulative: **2 · Problemi di ottimizzazione**
@@ -63,8 +61,6 @@ La discesa locale: su una funzione convessa ogni minimo locale è globale; su un
     ---
 
     Problemi di ottimizzazione e loro soluzioni ottime, ottimi locali e globali, problemi convessi e concavi, in cui ogni ottimo locale è globale.
-
-    5\. Problemi di ottimizzazione · 6\. Problemi di ottimizzazione convessi e concavi
 
     [:octicons-arrow-right-24: I capitoli](problemi/index.md)
 
